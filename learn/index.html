@@ -1,0 +1,1129 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Learn the 6 IELTS Paraphrase Tricks</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=DM+Serif+Display&family=JetBrains+Mono:wght@400;500;700&display=swap" rel="stylesheet">
+<style>
+:root {
+  --bg: #0F172A;
+  --surface: #1E293B;
+  --surface2: #334155;
+  --surface-raised: #253348;
+  --text: #F1F5F9;
+  --text-dim: #94A3B8;
+  --text-muted: #64748B;
+  --border: #334155;
+  --border-strong: #475569;
+  --t1: #3B82F6;
+  --t2: #8B5CF6;
+  --t3: #F59E0B;
+  --t4: #10B981;
+  --t5: #EC4899;
+  --t6: #EF4444;
+  --q-color: #F97316;
+  --p-color: #3B82F6;
+  --match-color: #10B981;
+  --correct: #10B981;
+  --wrong: #EF4444;
+  --radius: 14px;
+  --radius-sm: 8px;
+}
+
+*, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
+
+body {
+  font-family: 'DM Sans', -apple-system, sans-serif;
+  background: var(--bg);
+  color: var(--text);
+  min-height: 100vh;
+  line-height: 1.7;
+  -webkit-font-smoothing: antialiased;
+  overflow-x: hidden;
+}
+
+:focus-visible { outline: none; box-shadow: 0 0 0 2px var(--bg), 0 0 0 4px var(--t3); border-radius: 4px; }
+
+/* ===== AMBIENT BACKGROUND ===== */
+.ambient {
+  position: fixed;
+  inset: 0;
+  pointer-events: none;
+  z-index: 0;
+  overflow: hidden;
+}
+
+.ambient .orb {
+  position: absolute;
+  border-radius: 50%;
+  filter: blur(80px);
+  opacity: 0.04;
+  animation: orbFloat 20s ease-in-out infinite;
+}
+
+.ambient .orb-1 { width: 400px; height: 400px; background: var(--q-color); top: 10%; left: -10%; animation-delay: 0s; }
+.ambient .orb-2 { width: 350px; height: 350px; background: var(--p-color); top: 50%; right: -10%; animation-delay: -7s; }
+.ambient .orb-3 { width: 300px; height: 300px; background: var(--t2); bottom: 10%; left: 20%; animation-delay: -14s; }
+
+@keyframes orbFloat {
+  0%, 100% { transform: translate(0, 0) scale(1); }
+  33% { transform: translate(30px, -20px) scale(1.1); }
+  66% { transform: translate(-20px, 30px) scale(0.9); }
+}
+
+/* ===== HEADER ===== */
+.app-header {
+  background: rgba(15,23,42,0.85);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  border-bottom: 1px solid var(--border);
+  padding: 0.9rem 1.25rem;
+  text-align: center;
+  position: sticky;
+  top: 0;
+  z-index: 100;
+}
+
+.header-inner { max-width: 660px; margin: 0 auto; position: relative; }
+
+.back-link {
+  position: absolute; left: 0; top: 50%; transform: translateY(-50%);
+  font-size: 0.8rem; color: var(--text-dim); text-decoration: none; font-weight: 600;
+  padding: 0.3rem 0.5rem; border-radius: 6px; transition: all 0.15s;
+  display: flex; align-items: center; gap: 0.25rem;
+}
+.back-link:hover { color: var(--text); background: rgba(255,255,255,0.05); }
+
+.app-title { font-family: 'DM Serif Display', serif; font-size: 1.15rem; font-weight: 400; }
+.app-subtitle { font-size: 0.72rem; color: var(--text-muted); margin-top: 0.1rem; }
+
+/* ===== PROGRESS BAR ===== */
+.progress-wrap {
+  background: rgba(30,41,59,0.9);
+  backdrop-filter: blur(8px);
+  border-bottom: 1px solid var(--border);
+  padding: 0.5rem 1rem;
+  position: sticky; top: 52px; z-index: 99;
+  overflow-x: auto; scrollbar-width: none;
+}
+.progress-wrap::-webkit-scrollbar { display: none; }
+
+.progress-track { display: flex; gap: 4px; max-width: 660px; margin: 0 auto; }
+
+.prog-seg {
+  flex: 1; min-width: 36px; height: 7px; border-radius: 4px;
+  background: var(--surface2); cursor: default; transition: all 0.3s ease; position: relative;
+}
+.prog-seg.done { background: var(--correct); cursor: pointer; }
+.prog-seg.active { background: var(--t3); cursor: pointer; box-shadow: 0 0 10px rgba(245,158,11,0.3); animation: segPulse 2s ease-in-out infinite; }
+.prog-seg.locked { opacity: 0.3; }
+
+@keyframes segPulse {
+  0%, 100% { box-shadow: 0 0 8px rgba(245,158,11,0.2); }
+  50% { box-shadow: 0 0 14px rgba(245,158,11,0.4); }
+}
+
+.prog-seg .seg-tip {
+  display: none; position: absolute; bottom: calc(100% + 8px); left: 50%; transform: translateX(-50%);
+  background: var(--surface2); color: var(--text); font-size: 0.6rem;
+  font-family: 'JetBrains Mono', monospace; font-weight: 600;
+  padding: 0.25rem 0.55rem; border-radius: 5px; white-space: nowrap;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.4); z-index: 10;
+}
+.prog-seg .seg-tip::after {
+  content: ''; position: absolute; top: 100%; left: 50%; transform: translateX(-50%);
+  border: 4px solid transparent; border-top-color: var(--surface2);
+}
+.prog-seg:hover .seg-tip { display: block; }
+
+/* ===== STEP LOCATION ===== */
+.step-location {
+  max-width: 660px; margin: 0 auto; padding: 0.85rem 1.25rem 0;
+  display: flex; align-items: center; gap: 0.5rem;
+  animation: fadeIn 0.3s ease; position: relative; z-index: 1;
+}
+
+.step-loc-badge {
+  font-family: 'JetBrains Mono', monospace; font-size: 0.62rem; font-weight: 700;
+  padding: 0.2rem 0.55rem; border-radius: 5px; color: #fff; white-space: nowrap;
+}
+
+.step-loc-text { font-size: 0.78rem; color: var(--text-muted); font-weight: 600; }
+.step-loc-count { margin-left: auto; font-family: 'JetBrains Mono', monospace; font-size: 0.62rem; color: var(--text-muted); }
+
+/* ===== MAIN ===== */
+.main { max-width: 660px; margin: 0 auto; padding: 0.75rem 1.25rem 2rem; position: relative; z-index: 1; }
+
+/* ===== STEP CARD ===== */
+.step-card {
+  background: var(--surface); border: 1px solid var(--border); border-radius: var(--radius);
+  overflow: hidden; margin-bottom: 1rem; box-shadow: 0 4px 16px rgba(0,0,0,0.2);
+  animation: cardEnter 0.5s ease-out;
+}
+
+@keyframes cardEnter {
+  from { opacity: 0; transform: translateY(20px) scale(0.98); }
+  to { opacity: 1; transform: translateY(0) scale(1); }
+}
+
+.step-header {
+  padding: 1rem 1.25rem; border-bottom: 1px solid var(--border);
+  display: flex; align-items: center; gap: 0.75rem;
+  background: linear-gradient(135deg, var(--surface), var(--surface-raised));
+  position: relative; overflow: hidden;
+}
+
+.step-header::after {
+  content: ''; position: absolute; right: -30px; top: -30px;
+  width: 100px; height: 100px; border-radius: 50%;
+  background: inherit; opacity: 0.08; filter: blur(20px);
+}
+
+.step-num {
+  font-family: 'JetBrains Mono', monospace; font-size: 0.72rem; font-weight: 700;
+  padding: 0.25rem 0.6rem; border-radius: 6px; color: #fff; min-width: 30px; text-align: center;
+  position: relative; z-index: 1;
+}
+
+.step-title { font-family: 'DM Serif Display', serif; font-size: 1.15rem; flex: 1; position: relative; z-index: 1; }
+.step-body { padding: 1.25rem; }
+
+/* ===== VISUAL DIAGRAMS ===== */
+.trick-diagram {
+  background: linear-gradient(135deg, rgba(15,23,42,0.6), rgba(30,41,59,0.8));
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  padding: 1.5rem;
+  margin-bottom: 1.25rem;
+  text-align: center;
+  position: relative;
+  overflow: hidden;
+}
+
+.trick-diagram::before {
+  content: '';
+  position: absolute; inset: 0;
+  background: radial-gradient(ellipse at center, rgba(255,255,255,0.02), transparent 70%);
+  pointer-events: none;
+}
+
+/* Word Tree (T1) */
+.word-tree {
+  display: flex; flex-direction: column; align-items: center; gap: 0.75rem;
+}
+
+.word-root {
+  font-family: 'DM Serif Display', serif; font-size: 1.3rem; font-weight: 400;
+  padding: 0.6rem 1.5rem; background: rgba(59,130,246,0.12);
+  border: 2px solid var(--t1); border-radius: 100px; color: var(--t1);
+  position: relative; z-index: 1;
+  animation: rootGlow 3s ease-in-out infinite;
+}
+
+@keyframes rootGlow {
+  0%, 100% { box-shadow: 0 0 15px rgba(59,130,246,0.15); }
+  50% { box-shadow: 0 0 25px rgba(59,130,246,0.3); }
+}
+
+.tree-connector {
+  width: 2px; height: 20px;
+  background: linear-gradient(to bottom, var(--t1), var(--border));
+}
+
+.tree-branches {
+  display: flex; flex-wrap: wrap; justify-content: center; gap: 0.5rem;
+}
+
+.tree-leaf {
+  font-family: 'JetBrains Mono', monospace; font-size: 0.72rem; font-weight: 600;
+  padding: 0.3rem 0.7rem; background: rgba(59,130,246,0.06);
+  border: 1px solid rgba(59,130,246,0.2); border-radius: 6px; color: var(--text-dim);
+  animation: leafPop 0.5s ease-out both;
+}
+
+.tree-leaf:nth-child(1) { animation-delay: 0.1s; }
+.tree-leaf:nth-child(2) { animation-delay: 0.2s; }
+.tree-leaf:nth-child(3) { animation-delay: 0.3s; }
+.tree-leaf:nth-child(4) { animation-delay: 0.4s; }
+.tree-leaf em { color: var(--t1); font-style: normal; font-weight: 700; }
+
+@keyframes leafPop {
+  from { opacity: 0; transform: scale(0.8) translateY(8px); }
+  to { opacity: 1; transform: scale(1) translateY(0); }
+}
+
+/* Synonym Bubbles (T2) */
+.syn-pair {
+  display: flex; align-items: center; justify-content: center;
+  gap: 0.75rem; flex-wrap: wrap; margin-bottom: 0.75rem;
+}
+
+.syn-word {
+  font-family: 'DM Serif Display', serif; font-size: 1rem;
+  padding: 0.5rem 1.2rem; border-radius: 100px;
+  animation: synFloat 4s ease-in-out infinite;
+}
+
+.syn-word.q-side { background: rgba(249,115,22,0.1); border: 1px solid rgba(249,115,22,0.25); color: var(--q-color); }
+.syn-word.p-side { background: rgba(59,130,246,0.1); border: 1px solid rgba(59,130,246,0.25); color: var(--p-color); animation-delay: -2s; }
+
+.syn-eq {
+  font-family: 'JetBrains Mono', monospace; font-size: 1.2rem; font-weight: 700;
+  color: var(--match-color); animation: eqPulse 2s ease-in-out infinite;
+}
+
+@keyframes synFloat {
+  0%, 100% { transform: translateY(0); }
+  50% { transform: translateY(-3px); }
+}
+
+@keyframes eqPulse {
+  0%, 100% { opacity: 0.5; transform: scale(1); }
+  50% { opacity: 1; transform: scale(1.15); }
+}
+
+/* Box Diagram (T4) */
+.box-diagram {
+  display: flex; flex-direction: column; align-items: center; gap: 0.5rem;
+}
+
+.gen-box {
+  border: 2px solid var(--t4); border-radius: var(--radius);
+  padding: 1rem 1.5rem 0.75rem; min-width: 200px;
+  background: rgba(16,185,129,0.04); position: relative;
+}
+
+.gen-box .gen-label {
+  position: absolute; top: -10px; left: 50%; transform: translateX(-50%);
+  background: var(--bg); padding: 0 0.5rem;
+  font-family: 'JetBrains Mono', monospace; font-size: 0.65rem;
+  font-weight: 700; color: var(--t4); text-transform: uppercase;
+}
+
+.spec-items {
+  display: flex; gap: 0.5rem; justify-content: center; flex-wrap: wrap;
+}
+
+.spec-item {
+  font-size: 0.78rem; font-weight: 600; padding: 0.35rem 0.75rem;
+  background: rgba(16,185,129,0.1); border: 1px solid rgba(16,185,129,0.2);
+  border-radius: 6px; color: var(--text-dim);
+}
+
+.spec-item.highlight { color: var(--t4); border-color: var(--t4); background: rgba(16,185,129,0.15); }
+
+/* Flip Visual (T5) */
+.flip-visual {
+  display: flex; align-items: center; justify-content: center; gap: 1rem; flex-wrap: wrap;
+}
+
+.flip-side {
+  padding: 0.75rem 1.25rem; border-radius: var(--radius-sm); font-size: 0.85rem;
+  font-weight: 600; max-width: 200px; text-align: center;
+}
+
+.flip-side.verb { background: rgba(236,72,153,0.08); border: 1px solid rgba(236,72,153,0.2); color: var(--t5); }
+.flip-side.noun { background: rgba(236,72,153,0.12); border: 1px solid rgba(236,72,153,0.3); color: var(--t5); }
+
+.flip-arrow {
+  font-size: 1.5rem; color: var(--t5);
+  animation: flipSpin 3s ease-in-out infinite;
+}
+
+@keyframes flipSpin {
+  0%, 100% { transform: rotate(0deg); }
+  50% { transform: rotate(180deg); }
+}
+
+/* Scale Visual (T6) */
+.scale-visual {
+  display: flex; align-items: flex-end; justify-content: center; gap: 0.75rem; padding: 0.5rem 0;
+}
+
+.scale-side {
+  display: flex; flex-direction: column; align-items: center; gap: 0.35rem;
+  font-size: 0.78rem; font-weight: 600;
+}
+
+.scale-bar {
+  width: 60px; border-radius: 4px 4px 0 0;
+  transition: height 1s ease;
+}
+
+.scale-bar.pos { background: linear-gradient(to top, rgba(16,185,129,0.2), var(--correct)); height: 60px; }
+.scale-bar.neg { background: linear-gradient(to top, rgba(239,68,68,0.2), var(--wrong)); height: 60px; }
+
+.scale-label { font-family: 'JetBrains Mono', monospace; font-size: 0.65rem; }
+.scale-label.pos-l { color: var(--correct); }
+.scale-label.neg-l { color: var(--wrong); }
+
+.scale-base {
+  width: 100%; max-width: 200px; height: 3px;
+  background: var(--border-strong); border-radius: 2px;
+  margin-top: 0.25rem;
+}
+
+/* Foundation diagram */
+.foundation-visual {
+  display: flex; justify-content: center; gap: 0.75rem; flex-wrap: wrap;
+  margin-bottom: 0.5rem;
+}
+
+.fv-card {
+  padding: 0.75rem 1rem; border-radius: var(--radius-sm);
+  text-align: center; min-width: 100px; flex: 1; max-width: 150px;
+}
+
+.fv-card.fv-topic { background: rgba(245,158,11,0.06); border: 1px solid rgba(245,158,11,0.15); }
+.fv-card.fv-match { background: rgba(16,185,129,0.06); border: 1px solid rgba(16,185,129,0.15); }
+.fv-card.fv-false { background: rgba(239,68,68,0.06); border: 1px solid rgba(239,68,68,0.15); }
+
+.fv-icon { font-size: 1.5rem; margin-bottom: 0.25rem; }
+
+.fv-label {
+  font-family: 'JetBrains Mono', monospace; font-size: 0.6rem;
+  font-weight: 700; text-transform: uppercase; letter-spacing: 0.05em;
+}
+
+.fv-card.fv-topic .fv-label { color: var(--t3); }
+.fv-card.fv-match .fv-label { color: var(--correct); }
+.fv-card.fv-false .fv-label { color: var(--wrong); }
+
+.neq-symbol {
+  font-family: 'JetBrains Mono', monospace; font-size: 1.5rem;
+  font-weight: 700; color: var(--wrong); align-self: center;
+  animation: neqShake 3s ease-in-out infinite;
+}
+
+@keyframes neqShake {
+  0%, 100% { transform: rotate(0deg); }
+  25% { transform: rotate(-5deg); }
+  75% { transform: rotate(5deg); }
+}
+
+/* Phrase visual */
+.phrase-visual {
+  display: flex; align-items: center; justify-content: center; gap: 0.5rem; flex-wrap: wrap;
+}
+
+.pv-cloud {
+  position: relative; padding: 0.65rem 1.1rem; border-radius: 20px;
+  font-size: 0.82rem; font-weight: 600; max-width: 180px; text-align: center;
+}
+
+.pv-cloud.q-cloud { background: rgba(249,115,22,0.1); border: 1px solid rgba(249,115,22,0.2); color: var(--q-color); }
+.pv-cloud.p-cloud { background: rgba(59,130,246,0.1); border: 1px solid rgba(59,130,246,0.2); color: var(--p-color); }
+
+.pv-meaning {
+  display: flex; flex-direction: column; align-items: center; gap: 0.15rem;
+}
+
+.pv-meaning .pv-arrow { color: var(--match-color); font-size: 0.8rem; }
+.pv-meaning .pv-idea {
+  font-family: 'JetBrains Mono', monospace; font-size: 0.6rem;
+  color: var(--match-color); font-weight: 700; text-transform: uppercase;
+  background: rgba(16,185,129,0.1); padding: 0.15rem 0.5rem; border-radius: 4px;
+}
+
+/* ===== TEACHING BLOCKS ===== */
+.teach-box {
+  padding: 1rem 1.1rem; border-radius: var(--radius-sm);
+  margin-bottom: 1rem; font-size: 0.88rem; line-height: 1.7;
+  box-shadow: 0 1px 4px rgba(0,0,0,0.12);
+  animation: teachReveal 0.5s ease-out both;
+}
+
+.teach-box:nth-child(2) { animation-delay: 0.1s; }
+.teach-box:nth-child(3) { animation-delay: 0.2s; }
+.teach-box:nth-child(4) { animation-delay: 0.3s; }
+
+@keyframes teachReveal {
+  from { opacity: 0; transform: translateX(-10px); }
+  to { opacity: 1; transform: translateX(0); }
+}
+
+.teach-box.concept { background: rgba(249,115,22,0.07); border-left: 4px solid var(--q-color); }
+.teach-box.strategy { background: rgba(16,185,129,0.07); border-left: 4px solid var(--match-color); }
+.teach-box.warning { background: rgba(239,68,68,0.05); border-left: 4px solid var(--wrong); }
+.teach-box.info { background: rgba(59,130,246,0.05); border-left: 4px solid var(--p-color); }
+.teach-box strong { color: var(--text); }
+
+.teach-label {
+  font-size: 0.65rem; font-weight: 700; text-transform: uppercase;
+  letter-spacing: 0.07em; margin-bottom: 0.45rem; display: block;
+}
+
+/* ===== EXAMPLE PAIRS ===== */
+.example-pair {
+  background: var(--surface2); border-radius: var(--radius-sm);
+  padding: 1rem 1.1rem; margin-bottom: 1rem; font-size: 0.88rem;
+  border: 1px solid var(--border);
+  transition: border-color 0.3s;
+}
+
+.example-pair:hover { border-color: var(--border-strong); }
+
+.example-pair .ex-label {
+  font-size: 0.62rem; font-weight: 700; text-transform: uppercase;
+  letter-spacing: 0.05em; color: var(--text-muted); margin-bottom: 0.5rem;
+}
+.example-pair .ex-source { font-size: 0.62rem; color: var(--text-muted); float: right; }
+
+.phrase-q {
+  font-family: 'DM Serif Display', serif; color: var(--q-color);
+  padding: 0.6rem 0.85rem; background: rgba(249,115,22,0.06);
+  border-radius: 6px; border-left: 3px solid var(--q-color);
+  margin-bottom: 0.5rem; font-size: 0.92rem; line-height: 1.6;
+}
+
+.phrase-p {
+  font-family: 'DM Serif Display', serif; color: var(--p-color);
+  padding: 0.6rem 0.85rem; background: rgba(59,130,246,0.06);
+  border-radius: 6px; border-left: 3px solid var(--p-color);
+  margin-bottom: 0.5rem; font-size: 0.92rem; line-height: 1.6;
+}
+
+/* Connection arrow between Q and P */
+.pair-connector {
+  display: flex; align-items: center; justify-content: center;
+  padding: 0.2rem 0; color: var(--match-color); font-size: 0.7rem;
+  animation: connectorPulse 2s ease-in-out infinite;
+}
+
+@keyframes connectorPulse {
+  0%, 100% { opacity: 0.4; }
+  50% { opacity: 0.8; }
+}
+
+.match-reveal {
+  padding: 0.6rem 0.85rem; background: rgba(16,185,129,0.06);
+  border: 1px solid rgba(16,185,129,0.15); border-radius: 6px;
+  font-size: 0.82rem; color: var(--match-color); margin-top: 0.5rem; line-height: 1.6;
+}
+
+.match-reveal .mq { color: var(--q-color); font-weight: 600; }
+.match-reveal .mp { color: var(--p-color); font-weight: 600; }
+.hl-q { color: var(--q-color); font-weight: 700; }
+.hl-p { color: var(--p-color); font-weight: 700; }
+.hl-m { color: var(--match-color); font-weight: 700; }
+
+/* ===== SIGNAL TAGS ===== */
+.signal-tags { display: flex; flex-wrap: wrap; gap: 0.3rem; margin: 0.5rem 0; }
+
+.signal-tag {
+  font-family: 'JetBrains Mono', monospace; font-size: 0.7rem;
+  padding: 0.2rem 0.5rem; border-radius: 5px;
+  background: rgba(249,115,22,0.1); color: var(--q-color);
+  border: 1px solid rgba(249,115,22,0.18);
+}
+
+.steps-list { list-style: none; counter-reset: steps; }
+
+.steps-list li {
+  counter-increment: steps; display: flex; gap: 0.5rem;
+  margin-bottom: 0.4rem; font-size: 0.88rem;
+}
+.steps-list li::before {
+  content: counter(steps) '.'; font-family: 'JetBrains Mono', monospace;
+  font-weight: 700; color: var(--match-color); min-width: 1.4rem;
+}
+
+/* ===== QUIZ ===== */
+.quiz-zone {
+  background: rgba(245,158,11,0.03); border: 1px solid rgba(245,158,11,0.12);
+  border-radius: var(--radius); padding: 1.25rem; margin-top: 1.5rem;
+}
+
+.quiz-title {
+  font-family: 'DM Serif Display', serif; font-size: 1rem;
+  color: var(--t3); margin-bottom: 1rem; text-align: center;
+}
+
+.quiz-q { margin-bottom: 1.25rem; padding-bottom: 1.25rem; border-bottom: 1px solid var(--border); }
+.quiz-q:last-of-type { border-bottom: none; margin-bottom: 0.5rem; padding-bottom: 0; }
+
+.quiz-q-num {
+  font-family: 'JetBrains Mono', monospace; font-size: 0.65rem; font-weight: 700;
+  color: var(--t3); margin-bottom: 0.4rem; text-transform: uppercase; letter-spacing: 0.05em;
+}
+
+.q-text { font-size: 0.88rem; line-height: 1.6; }
+.q-prompt { font-size: 0.82rem; color: var(--text-dim); margin-top: 0.3rem; }
+
+.quiz-options { display: flex; flex-wrap: wrap; gap: 0.4rem; margin-top: 0.6rem; }
+
+.quiz-opt {
+  padding: 0.5rem 0.85rem; border-radius: var(--radius-sm);
+  border: 2px solid var(--border); background: transparent;
+  color: var(--text-dim); font-size: 0.82rem; font-weight: 600;
+  cursor: pointer; transition: all 0.2s; font-family: 'DM Sans', sans-serif; line-height: 1.4;
+}
+.quiz-opt:hover { border-color: var(--text-muted); color: var(--text); background: rgba(255,255,255,0.02); transform: translateY(-1px); }
+.quiz-opt.selected { border-color: var(--t3); background: rgba(245,158,11,0.1); color: var(--t3); }
+.quiz-opt.correct { border-color: var(--correct); background: rgba(16,185,129,0.1); color: var(--correct); animation: correctPop 0.3s ease; }
+.quiz-opt.wrong { border-color: var(--wrong); background: rgba(239,68,68,0.07); color: var(--wrong); animation: wrongShake 0.4s ease; }
+.quiz-opt[disabled] { pointer-events: none; }
+
+@keyframes correctPop {
+  0% { transform: scale(1); }
+  50% { transform: scale(1.05); }
+  100% { transform: scale(1); }
+}
+
+@keyframes wrongShake {
+  0%, 100% { transform: translateX(0); }
+  25% { transform: translateX(-4px); }
+  75% { transform: translateX(4px); }
+}
+
+.quiz-fb {
+  margin-top: 0.6rem; padding: 0.55rem 0.8rem; border-radius: var(--radius-sm);
+  font-size: 0.8rem; line-height: 1.5; display: none;
+}
+.quiz-fb.show { display: block; animation: fbSlide 0.3s ease-out; }
+.quiz-fb.ok { background: rgba(16,185,129,0.08); border: 1px solid rgba(16,185,129,0.2); color: var(--correct); }
+.quiz-fb.nope { background: rgba(239,68,68,0.06); border: 1px solid rgba(239,68,68,0.15); color: var(--text-dim); }
+
+@keyframes fbSlide {
+  from { opacity: 0; transform: translateY(-5px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+.quiz-input {
+  width: 100%; padding: 0.55rem 0.8rem; font-family: 'JetBrains Mono', monospace;
+  font-size: 0.85rem; background: var(--surface); color: var(--text);
+  border: 2px solid var(--border); border-radius: 6px; text-align: center; outline: none; margin-top: 0.4rem;
+}
+.quiz-input:focus { border-color: var(--t3); box-shadow: 0 0 0 3px rgba(245,158,11,0.12); }
+
+/* ===== BUTTONS ===== */
+.btn {
+  font-family: 'DM Sans', sans-serif; font-weight: 600; font-size: 0.88rem;
+  padding: 0.65rem 1.35rem; border-radius: var(--radius-sm); border: none; cursor: pointer; transition: all 0.2s;
+}
+.btn-primary { background: var(--t3); color: #000; }
+.btn-primary:hover { filter: brightness(1.1); transform: translateY(-1px); box-shadow: 0 4px 12px rgba(245,158,11,0.25); }
+.btn-primary:active { transform: translateY(0); }
+.btn-primary[disabled] { opacity: 0.35; pointer-events: none; }
+.btn-outline { background: transparent; border: 1px solid var(--border-strong); color: var(--text-dim); }
+.btn-outline:hover { border-color: var(--text-muted); color: var(--text); background: rgba(255,255,255,0.03); }
+.btn-row { display: flex; gap: 0.5rem; justify-content: center; margin-top: 1.25rem; flex-wrap: wrap; }
+
+/* ===== NAV BUTTONS ===== */
+.step-nav {
+  display: flex; justify-content: space-between; align-items: center;
+  padding: 1rem 0 0; margin-top: 1rem; border-top: 1px solid var(--border);
+}
+
+.nav-btn {
+  display: inline-flex; align-items: center; gap: 0.35rem;
+  padding: 0.55rem 1rem; border-radius: var(--radius-sm);
+  border: 1px solid var(--border-strong); background: transparent;
+  color: var(--text-dim); font-family: 'DM Sans', sans-serif;
+  font-size: 0.82rem; font-weight: 600; cursor: pointer; transition: all 0.15s; text-decoration: none;
+}
+.nav-btn:hover { border-color: var(--text-muted); color: var(--text); background: rgba(255,255,255,0.03); }
+.nav-btn[disabled] { opacity: 0; pointer-events: none; }
+
+/* ===== SORT (Foundation) ===== */
+.sort-card {
+  background: var(--surface2); border: 2px solid var(--border); border-radius: var(--radius-sm);
+  padding: 0.85rem 1rem; margin-bottom: 0.5rem; cursor: pointer; transition: all 0.2s;
+}
+.sort-card:hover { border-color: var(--text-muted); transform: translateY(-2px); box-shadow: 0 4px 12px rgba(0,0,0,0.2); }
+.sort-card.picked { opacity: 0.4; pointer-events: none; }
+
+.sort-bucket {
+  min-height: 60px; border: 2px dashed var(--border); border-radius: var(--radius-sm);
+  padding: 0.5rem; margin-bottom: 0.5rem; text-align: center;
+}
+.sort-bucket.filled { border-style: solid; }
+
+.sort-bucket-label {
+  font-size: 0.68rem; font-weight: 700; text-transform: uppercase;
+  letter-spacing: 0.05em; color: var(--text-muted); margin-bottom: 0.3rem;
+}
+
+/* ===== LOCKED ===== */
+.locked-msg { text-align: center; padding: 2.5rem 1.5rem; color: var(--text-muted); font-size: 0.88rem; }
+.locked-msg .lock-icon { font-size: 2.5rem; margin-bottom: 0.75rem; }
+
+/* ===== COMPLETION / CELEBRATION ===== */
+.complete-card { text-align: center; padding: 2.5rem 1.5rem; }
+.complete-card .big-check { font-size: 3rem; margin-bottom: 0.75rem; }
+.complete-card h2 { font-family: 'DM Serif Display', serif; font-size: 1.35rem; margin-bottom: 0.5rem; }
+.complete-card p { color: var(--text-dim); font-size: 0.88rem; margin-bottom: 1rem; line-height: 1.6; }
+
+.trick-badge {
+  display: inline-block; font-family: 'JetBrains Mono', monospace;
+  font-size: 0.65rem; font-weight: 700; padding: 0.15rem 0.5rem;
+  border-radius: 4px; color: #fff; vertical-align: middle;
+}
+
+/* Confetti canvas */
+#confetti { position: fixed; inset: 0; pointer-events: none; z-index: 200; }
+
+/* ===== ANIMATIONS ===== */
+@keyframes fadeUp { from { opacity: 0; transform: translateY(14px); } to { opacity: 1; transform: translateY(0); } }
+@keyframes fadeIn { from { opacity: 0; } to { opacity: 1; } }
+
+/* ===== RESPONSIVE ===== */
+@media (max-width: 500px) {
+  .main { padding: 0.5rem 0.75rem 1.5rem; }
+  .step-body { padding: 1rem; }
+  .phrase-q, .phrase-p { font-size: 0.85rem; padding: 0.5rem 0.7rem; }
+  .quiz-opt { font-size: 0.78rem; padding: 0.45rem 0.7rem; }
+  .quiz-zone { padding: 1rem; }
+  .step-location { padding: 0.65rem 0.75rem 0; }
+  .teach-box { padding: 0.85rem 0.95rem; }
+  .app-header { padding: 0.75rem 1rem; }
+  .app-title { font-size: 1.05rem; }
+  .trick-diagram { padding: 1rem; }
+  .word-root { font-size: 1.1rem; }
+  .syn-word { font-size: 0.88rem; padding: 0.4rem 0.9rem; }
+}
+
+@media (min-width: 700px) {
+  .step-body { padding: 1.5rem; }
+  .quiz-zone { padding: 1.5rem; }
+  .step-title { font-size: 1.25rem; }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  *, *::before, *::after { animation-duration: 0.01ms !important; transition-duration: 0.01ms !important; }
+}
+</style>
+</head>
+<body>
+
+<div class="ambient">
+  <div class="orb orb-1"></div>
+  <div class="orb orb-2"></div>
+  <div class="orb orb-3"></div>
+</div>
+
+<canvas id="confetti"></canvas>
+
+<header class="app-header">
+  <div class="header-inner">
+    <a class="back-link" href="../">← Home</a>
+    <h1 class="app-title">Learn the 6 Tricks</h1>
+    <p class="app-subtitle">Before you practise, understand what IELTS is doing</p>
+  </div>
+</header>
+<div class="progress-wrap" id="progressWrap"><div class="progress-track" id="progressBar"></div></div>
+<div class="step-location" id="stepLocation"></div>
+<main class="main" id="mainContent"></main>
+
+<script>
+/* ============================================================
+   VISUAL DIAGRAMS — HTML for each trick
+   ============================================================ */
+var DIAGRAMS = {
+  foundation: '<div class="trick-diagram"><div class="foundation-visual"><div class="fv-card fv-topic"><div class="fv-icon">💬</div><div class="fv-label">Same Topic</div></div><div class="neq-symbol">≠</div><div class="fv-card fv-match"><div class="fv-icon">✅</div><div class="fv-label">Same Meaning</div></div></div><div style="margin-top:0.75rem;font-size:0.78rem;color:var(--text-dim);">Just because the passage talks about the same subject<br>does NOT mean it answers the question.</div></div>',
+
+  t1: '<div class="trick-diagram"><div class="word-tree"><div class="word-root">photograph</div><div class="tree-connector"></div><div class="tree-branches"><div class="tree-leaf"><em>photograph</em>ed</div><div class="tree-leaf"><em>photograph</em>s</div><div class="tree-leaf"><em>photograph</em>ic</div><div class="tree-leaf"><em>photograph</em>er</div></div></div><div style="margin-top:0.75rem;font-size:0.72rem;color:var(--text-muted);">Same root, different ending = same word family</div></div>',
+
+  t2: '<div class="trick-diagram"><div class="syn-pair"><div class="syn-word q-side">fast</div><div class="syn-eq">=</div><div class="syn-word p-side">rapid</div></div><div class="syn-pair"><div class="syn-word q-side">important</div><div class="syn-eq">=</div><div class="syn-word p-side">crucial</div></div><div class="syn-pair"><div class="syn-word q-side">increase</div><div class="syn-eq">=</div><div class="syn-word p-side">growth</div></div><div style="margin-top:0.5rem;font-size:0.72rem;color:var(--text-muted);">Different words, same meaning — no visible connection</div></div>',
+
+  t3: '<div class="trick-diagram"><div class="phrase-visual"><div class="pv-cloud q-cloud">"withdrew support"</div><div class="pv-meaning"><div class="pv-arrow">↕</div><div class="pv-idea">same idea</div><div class="pv-arrow">↕</div></div><div class="pv-cloud p-cloud">"lost interest"</div></div><div style="margin-top:0.75rem;font-size:0.72rem;color:var(--text-muted);">Whole phrases replaced — you must match the <em>idea</em>, not the words</div></div>',
+
+  t4: '<div class="trick-diagram"><div class="box-diagram"><div class="gen-box"><div class="gen-label">General</div><div style="font-size:0.95rem;font-weight:600;margin-bottom:0.6rem;color:var(--text-dim);">🏥 Medical Problems</div><div class="spec-items"><div class="spec-item">diabetes</div><div class="spec-item highlight">autism</div><div class="spec-item">asthma</div></div></div></div><div style="margin-top:0.75rem;font-size:0.72rem;color:var(--text-muted);">The specific example fits <em>inside</em> the general group</div></div>',
+
+  t5: '<div class="trick-diagram"><div class="flip-visual"><div class="flip-side verb">🗣️ "do well at school"<br><span style="font-size:0.65rem;opacity:0.6;">verb phrase</span></div><div class="flip-arrow">⇌</div><div class="flip-side noun">📋 "academic performance"<br><span style="font-size:0.65rem;opacity:0.6;">noun phrase</span></div></div><div style="margin-top:0.75rem;font-size:0.72rem;color:var(--text-muted);">Same fact, completely different sentence shape</div></div>',
+
+  t6: '<div class="trick-diagram"><div class="scale-visual"><div class="scale-side"><div class="scale-bar pos"></div><div class="scale-label pos-l">happy</div></div><div style="font-size:1.5rem;color:var(--match-color);align-self:center;">=</div><div class="scale-side"><div class="scale-bar neg"></div><div class="scale-label neg-l">not unhappy</div></div></div><div class="scale-base" style="max-width:200px;margin:0.5rem auto 0;"></div><div style="margin-top:0.75rem;font-size:0.72rem;color:var(--text-muted);">Opposite word + negative = same meaning<br>Count the negatives to find the truth</div></div>'
+};
+
+/* ============================================================
+   DATA — Teaching content for each step (same content, diagrams added)
+   ============================================================ */
+var STEPS = [
+  { id: 'foundation', num: '0', numBg: '#64748B', title: 'The Most Important Idea',
+    teach: [
+      { type: 'concept', label: 'THE ONE RULE', html: '<strong>IELTS almost never uses the same words in the question and in the passage.</strong> They change the words on purpose. This is called <em>paraphrasing</em> — saying the same thing using different words.<br><br>Your job is not to find matching words. Your job is to find matching <em>meaning</em>.' },
+      { type: 'warning', label: 'THE TRAP MOST STUDENTS FALL INTO', html: 'A passage sentence can be about the <strong>same topic</strong> as the question — but that does NOT mean it <strong>answers</strong> the question.<br><br>Same topic ≠ same meaning. This is how IELTS tricks you.' },
+    ],
+    examples: [
+      { label: 'REAL MATCH — the passage answers the question', source: 'Book 14', q: 'Recent changes affecting children\'s play include <strong class="hl-q">increased</strong> competition in schools', p: 'leading to <strong class="hl-p">greater</strong> competition in academic learning and schools', reveal: '<span class="mq">increased</span> = <span class="mp">greater</span> — both mean "more." The passage answers what the question asks.' },
+      { label: 'SAME TOPIC BUT NO MATCH — NOT GIVEN', source: 'Book 14', q: 'Playing with dolls was found to benefit <strong class="hl-q">girls\' writing more than boys\' writing</strong>', p: '<strong class="hl-p">Children</strong> wrote longer and better-structured stories when they played with dolls', reveal: 'Both mention dolls and writing — same <em>topic</em>. But the passage says "children" (all children). It never compares girls vs boys. Same topic, but the passage does NOT answer the question.' },
+      { label: 'OPPOSITE MEANING — FALSE', source: 'Book 14', q: 'There were <strong class="hl-q">many similarities</strong> between Henderson\'s landscapes and Notman\'s', p: 'their styles of photography were <strong class="hl-p">quite different</strong>', reveal: 'The question says "many similarities." The passage says "quite different." Same topic (their styles), but <em>opposite</em> meaning. This is FALSE.' }
+    ],
+    quiz: { title: 'Can you tell the difference?', questions: [
+      { q: 'Q: "Staff should be allowed to choose WHEN they take breaks"<br>P: "Actions include allowing adequate breaks during the working day"', prompt: 'Does the passage answer the question?', options: ['Yes — real match', 'No — same topic, different info', 'Opposite meaning'], correct: 1, fb_ok: 'Correct! Both mention "breaks" (same topic) — but the passage says nothing about CHOOSING WHEN to take them.', fb_no: 'Not quite. Both mention "breaks" — but the passage talks about allowing breaks, not about choosing when. Same topic, different information = NOT GIVEN.' },
+      { q: 'Q: "Children need toys in order to play"<br>P: "children will play in any circumstances, even when they have no real toys"', prompt: 'Does the passage answer the question?', options: ['Yes — real match', 'No — same topic, different info', 'Opposite meaning'], correct: 2, fb_ok: 'Correct! The question says children NEED toys. The passage says they play EVEN WITHOUT toys. That\'s the opposite.', fb_no: 'Look again. "Need toys to play" vs "play even without toys" — these are opposites. The passage contradicts the question = FALSE.' },
+      { q: 'Q: "The process invented by Pilkington has now been improved"<br>P: "the product has changed dramatically, from a single thickness to a range"', prompt: 'Does the passage answer the question?', options: ['Yes — real match', 'No — same topic, different info', 'Opposite meaning'], correct: 0, fb_ok: 'Correct! "Improved" = "changed dramatically" — the passage confirms the question using different words. Real match.', fb_no: 'Actually, "improved" and "changed dramatically" describe the same idea — things got better/different. This is a real paraphrase match.' }
+    ] }
+  },
+  { id: 't1', num: 'T1', numBg: 'var(--t1)', title: 'Word Family Change',
+    teach: [
+      { type: 'concept', label: 'WHAT IS IT?', html: 'In English, one root word can change shape:<br><strong>develop</strong> → develop<em>ment</em> → develop<em>mental</em><br><strong>photograph</strong> → photograph<em>ed</em> → photograph<em>ic</em><br><br>These are the same <strong>word family</strong> — same root, different ending. IELTS uses one form in the question and a different form in the passage.' },
+      { type: 'strategy', label: 'HOW TO SPOT IT', html: 'Look for a word in the passage that <strong>starts with the same letters</strong> as a key word in the question, but has a different ending.<div class="signal-tags"><span class="signal-tag">-tion / -ment / -ness</span><span class="signal-tag">-ive / -ful / -al / -ous</span><span class="signal-tag">-ly / -ing / -ed</span></div>' },
+      { type: 'info', label: 'YOUR MOVE', html: '<ol class="steps-list"><li>Find the key word in the question. What is the ROOT (the base part)?</li><li>Scan the passage for words that share that root but have a different ending.</li><li>Check: do they describe the same basic idea? If yes — match!</li></ol>' },
+    ],
+    examples: [
+      { label: 'EXAMPLE 1', source: 'Book 14', q: '<strong class="hl-q">photographed</strong> the mountains and the railway at Rogers Pass', p: 'he took <strong class="hl-p">photographs</strong> of the mountains and the progress of construction', reveal: '<span class="mq">photographed</span> (verb) = <span class="mp">photographs</span> (noun) — same root "photograph", different form.' },
+      { label: 'EXAMPLE 2', source: 'Book 8', q: 'The <strong class="hl-q">difficulties</strong> of talking about smells', p: '<strong class="hl-p">difficulty</strong> describing smells linguistically', reveal: '<span class="mq">difficulties</span> (plural noun) = <span class="mp">difficulty</span> (singular noun) — same word, different form. Also: "talking about" = "describing" (Trick 3).' }
+    ],
+    quiz: { title: 'Spot the Word Family', questions: [
+      { q: 'Q: "scientists are <strong>searching</strong> for radio signals"<br>P: "as we <strong>search</strong> for radio signals from other civilizations"', prompt: 'What is the word family change?', options: ['searching → search', 'radio → signals', 'No change here'], correct: 0, fb_ok: 'Yes! "Searching" (verb -ing form) → "search" (base form). Same root, different ending.', fb_no: '"Searching" and "search" share the same root — one has -ing, one doesn\'t. That\'s a word family change.' },
+      { q: 'Q: "an explanation of the <strong>importance</strong> of geography"<br>P: "the solar year became more <strong>crucial</strong>"', prompt: 'Is "importance → crucial" a word family change?', options: ['Yes — same root', 'No — different roots, different words'], correct: 1, fb_ok: 'Correct! "Importance" and "crucial" do NOT share a root. They are synonyms (Trick 2). Word family = same root, like important → importance → importantly.', fb_no: '"Import-ance" and "crucial" look nothing alike — different roots entirely. This would be Trick 2 (Synonym Swap), not Trick 1.' },
+      { q: 'Q: "Wagner believes lizards with toes had <strong>toeless</strong> ancestors"<br>P: "the toed species re-evolved toes from <strong>toeless</strong> ancestors"', prompt: 'Is "toeless → toeless" a word family change?', options: ['Yes — different form', 'No — exact same word'], correct: 1, fb_ok: 'Correct! This is the same word used the same way. Word family requires a DIFFERENT form of the word (different ending). This is a direct copy, not a trick at all.', fb_no: '"Toeless" appears in both places unchanged. For it to be a word family change, the form must differ (e.g. toeless → without toes). Same word = no trick.' }
+    ] }
+  },
+  { id: 't2', num: 'T2', numBg: 'var(--t2)', title: 'Synonym Swap',
+    teach: [
+      { type: 'concept', label: 'WHAT IS IT?', html: 'A <strong>synonym</strong> is a completely different word that means the same thing:<br><br><strong>fast</strong> = <em>quick, rapid, swift</em><br><strong>important</strong> = <em>crucial, significant, key</em><br><br>IELTS swaps a word in the question for its synonym in the passage. The words look totally different, but the meaning is the same.' },
+      { type: 'warning', label: 'WHY THIS IS TRICKY', html: 'With word families, you can SEE the shared root (photograph → photographs). With synonyms, there is <strong>no visible connection</strong>. You must KNOW that "fast" and "rapid" mean the same thing.<br><br>This is why vocabulary matters. The more synonyms you know, the easier IELTS becomes.' },
+      { type: 'info', label: 'YOUR MOVE', html: '<ol class="steps-list"><li>Find the key content word in the question.</li><li>Think: "What OTHER words could describe this same idea?"</li><li>Scan the passage for those alternative words.</li></ol>' },
+    ],
+    examples: [
+      { label: 'EXAMPLE 1', source: 'Book 14', q: 'Henderson gave up portraiture so that he could focus on <strong class="hl-q">taking photographs</strong> of scenery', p: 'he <strong class="hl-p">dropped</strong> portraiture to <strong class="hl-p">specialize</strong> in landscape photography', reveal: '<span class="mq">gave up</span> = <span class="mp">dropped</span> — simple word → simpler word. <span class="mq">focus on</span> = <span class="mp">specialize</span> — everyday word → academic word.' },
+      { label: 'EXAMPLE 2', source: 'Book 8', q: '<strong class="hl-q">picked out</strong> one picture from a random selection of four', p: '<strong class="hl-p">identification</strong> of a picture chosen from a random selection of four', reveal: '<span class="mq">picked out</span> = <span class="mp">identification / chosen</span> — simple words swapped for academic ones. Same action.' }
+    ],
+    quiz: { title: 'Find the Synonym', questions: [
+      { q: 'Q: "Recent changes include <strong>increased</strong> competition"<br>P: "leading to <strong>greater</strong> competition in schools"', prompt: '"Increased" and "greater" are:', options: ['Word family (same root)', 'Synonyms (different words, same meaning)', 'Opposite meanings'], correct: 1, fb_ok: 'Correct! "Increased" and "greater" have different roots but both mean "more." Classic synonym swap.', fb_no: '"Increased" and "greater" look completely different — no shared root. But they both mean "more." That\'s a synonym swap.' },
+      { q: 'Q: "a description of the <strong>origins</strong> of the pendulum clock"<br>P: "The <strong>earliest</strong> recorded weight-driven mechanical clock was built in 1283"', prompt: 'Which words are synonyms?', options: ['origins → earliest', 'description → recorded', 'pendulum → weight-driven'], correct: 0, fb_ok: 'Yes! "Origins" (where something began) = "earliest" (the first one). Different words, same idea.', fb_no: '"Origins" means "where something started." "Earliest" means "the first one." Both point to the beginning — they\'re synonyms.' },
+      { q: 'Q: "the company\'s goals and the needs of the <strong>staff</strong>"<br>P: "<strong>employee</strong> characteristics"', prompt: '"Staff" and "employee" are:', options: ['Synonyms', 'Word family', 'General / Specific'], correct: 0, fb_ok: 'Correct! "Staff" and "employee" are synonyms — different words for the same idea: the people who work there.', fb_no: '"Staff" and "employee" are not from the same word family (no shared root) and neither is more general than the other. They\'re synonyms — different words, same meaning.' }
+    ] }
+  },
+  { id: 't3', num: 'T3', numBg: 'var(--t3)', title: 'Phrase Swap',
+    teach: [
+      { type: 'concept', label: 'WHAT IS IT?', html: 'A <strong>phrase</strong> is a group of words that express one idea. In a phrase swap, the question uses one phrase and the passage uses a <em>completely different</em> phrase — but both describe the <strong>same situation</strong>.<br><br>You cannot find the match by looking at individual words. You must understand the <em>idea</em> the whole phrase describes.' },
+      { type: 'strategy', label: 'WHY THIS IS HARDER', html: 'With Tricks 1-2, you replace one word with one word. With phrase swap, you must hold a whole <strong>idea</strong> in your mind and search for that idea expressed differently.' },
+      { type: 'info', label: 'YOUR MOVE', html: '<ol class="steps-list"><li>Read the question phrase. Ask: "What <em>situation</em> is this describing?"</li><li>Forget the exact words. Hold the MEANING in your mind.</li><li>Scan the passage asking: "Where does it describe this same situation?"</li></ol>' },
+    ],
+    examples: [
+      { label: 'EXAMPLE 1', source: 'Book 14', q: 'It failed when a partner in the scheme <strong class="hl-q">withdrew support</strong>', p: 'the business partner had <strong class="hl-p">lost interest</strong>', reveal: '<span class="mq">withdrew support</span> = <span class="mp">lost interest</span> — "stopped helping" said two different ways.' },
+      { label: 'EXAMPLE 2', source: 'Book 14', q: 'it is <strong class="hl-q">difficult to find</strong> evidence to support new policies', p: 'what they often <strong class="hl-p">lack</strong> is the evidence to base policies on', reveal: '<span class="mq">difficult to find</span> = <span class="mp">lack</span> — if you don\'t have something, finding it is difficult. Same reality, different angle.' },
+      { label: 'EXAMPLE 3', source: 'Book 9', q: 'Faraday was the first person to <strong class="hl-q">recognise Perkin\'s ability</strong> as a student', p: 'His <strong class="hl-p">talent and devotion were perceived by</strong> his teacher', reveal: '<span class="mq">recognise ability</span> = <span class="mp">talent and devotion were perceived</span> — "seeing someone is talented" said formally.' }
+    ],
+    quiz: { title: 'Match the Phrases', questions: [
+      { q: 'Q: "<strong>fear of</strong> crime"<br>P: "<strong>perceptions of risk</strong> to do with traffic"', prompt: '"Fear of" = "perceptions of risk" because:', options: ['Same word family', 'Same synonym', 'Both describe: people think something is dangerous'], correct: 2, fb_ok: 'Yes! "Fear of" and "perceptions of risk" both describe the feeling that something is dangerous. That\'s a phrase swap — same situation, different words.', fb_no: 'This isn\'t a single-word swap. "Fear of" (2 words, simple) = "perceptions of risk" (4 words, academic). Both describe people thinking something is dangerous. Phrase swap.' },
+      { q: 'Q: "research <strong>needs to study</strong> the impact"<br>P: "there is <strong>very little data on</strong> the impact"', prompt: 'These phrases match because:', options: ['If there is little data, you need more research', 'They use the same words', 'One is more specific than the other'], correct: 0, fb_ok: 'Exactly! "Needs to study" (= we don\'t know enough) and "very little data on" (= not much information exists) describe the same gap. Phrase swap.', fb_no: '"Needs to study" and "very little data on" express the same gap in knowledge from different angles. If there\'s little data, you need to study more. Phrase swap.' },
+      { q: 'Q: "Children\'s play is seen as <strong>less significant nowadays</strong>"<br>P: "the importance of play <strong>has been lost</strong> in recent decades"', prompt: 'Which trick is "less significant" → "has been lost"?', options: ['Word family', 'Synonym swap', 'Phrase swap'], correct: 2, fb_ok: 'Correct! "Less significant" (importance reduced) = "has been lost" (importance gone). Neither is a single-word synonym — the whole idea is rephrased.', fb_no: '"Less significant" is a two-word phrase. "Has been lost" is a three-word phrase. Neither shares roots or is a simple synonym. The whole idea is being rephrased = phrase swap.' }
+    ] }
+  },
+  { id: 't4', num: 'T4', numBg: 'var(--t4)', title: 'General / Specific',
+    teach: [
+      { type: 'concept', label: 'WHAT IS IT?', html: 'Think of a <strong>box</strong> and the things inside it.<br><br>"Fruit" = the box (the <strong>general</strong> word — the whole group)<br>"Apple" = one thing inside (the <strong>specific</strong> word — one type)<br><br>IELTS uses the general word in one place and the specific word in the other. You must see that the specific thing <em>belongs inside</em> the general group.' },
+      { type: 'info', label: 'HOW TO SPOT IT', html: 'Watch for these signal words that often appear near General/Specific tricks:<div class="signal-tags"><span class="signal-tag">such as</span><span class="signal-tag">like</span><span class="signal-tag">including</span><span class="signal-tag">for example</span><span class="signal-tag">particularly</span></div>' },
+      { type: 'info', label: 'YOUR MOVE', html: '<ol class="steps-list"><li>Find the key word. Ask: "Is this a BIG GROUP or a SPECIFIC example?"</li><li>If the question is general → look in the passage for a specific example that fits inside it.</li><li>If the question is specific → look in the passage for the general group it belongs to.</li></ol>' },
+    ],
+    examples: [
+      { label: 'QUESTION IS GENERAL → PASSAGE IS SPECIFIC', source: 'Book 14', q: 'The way a child plays may provide information about possible <strong class="hl-q">medical problems</strong>', p: 'useful in the diagnosis of <strong class="hl-p">neurodevelopmental disorders like autism</strong>', reveal: '<span class="mq">medical problems</span> (general — any health issue) → <span class="mp">neurodevelopmental disorders like autism</span> (specific — one type). Autism IS a medical problem.' },
+      { label: 'QUESTION IS SPECIFIC → PASSAGE IS GENERAL', source: 'Book 14', q: 'a description of how people <strong class="hl-q">misused</strong> a bike-sharing scheme', p: 'the system was prone to <strong class="hl-p">vandalism and theft</strong>', reveal: '<span class="mq">misused</span> (general — any bad use) → <span class="mp">vandalism and theft</span> (specific examples of misuse).' }
+    ],
+    quiz: { title: 'General or Specific?', questions: [
+      { q: 'Q: "a description of an early <strong>timekeeping invention</strong>"<br>P: "the <strong>water clock</strong> was designed to measure temporal hours"', prompt: '"Timekeeping invention" and "water clock" — which is general?', options: ['Timekeeping invention = general', 'Water clock = general'], correct: 0, fb_ok: 'Yes! "Timekeeping invention" is the big group. "Water clock" is one specific type inside that group.', fb_no: '"Timekeeping invention" could be any device. "Water clock" is one particular device. The general word is "timekeeping invention."' },
+      { q: 'Q: "a change in people\'s <strong>attitudes</strong>"<br>P: "People had become more <strong>environmentally conscious</strong>"', prompt: 'Which is general and which is specific?', options: ['Attitudes = general, environmentally conscious = specific', 'Environmentally conscious = general, attitudes = specific'], correct: 0, fb_ok: 'Correct! "Attitudes" is the big box (any kind of attitude). "Environmentally conscious" is one specific type of attitude.', fb_no: '"Attitudes" can mean many things. "Environmentally conscious" is one specific attitude. General → specific.' },
+      { q: 'Q: "animals" and P: "dogs" — is this a valid General/Specific match?<br>Q: "animals" and P: "food" — is this?', prompt: 'Which connection works?', options: ['Only animals → dogs', 'Only animals → food', 'Both work'], correct: 0, fb_ok: 'Correct! Dogs ARE animals (fits inside the box). But "food" is a completely different category — too loose. The specific must clearly BELONG INSIDE the general group.', fb_no: 'Dogs clearly belong inside the "animals" group. But "food" is a different category — some animals can be food, but that\'s too loose a connection. Only dogs → animals works.' }
+    ] }
+  },
+  { id: 't5', num: 'T5', numBg: 'var(--t5)', title: 'Structure Flip',
+    teach: [
+      { type: 'concept', label: 'WHAT IS IT?', html: 'The question and passage describe the <strong>exact same fact</strong>, but the sentence is built in a <strong>different shape</strong>.<br><br>This is harder because the sentence looks completely different even though it says the same thing. There are two common types:' },
+      { type: 'info', label: 'TYPE A: ACTION WORD → THING WORD', html: 'The question uses a <strong>doing word</strong> (verb). The passage turns it into a <strong>naming word</strong> (noun). Or the other way around.<br><br><span class="hl-q">"do well at school"</span> (doing phrase)<br>= <span class="hl-p">"academic performance"</span> (naming phrase)<br><br>Same idea, different word type.' },
+      { type: 'info', label: 'TYPE B: DIRECTION REVERSES', html: '"A causes B" and "B results from A" describe the same connection, but the sentence starts from a different end.<br><br><span class="hl-q">"populations have grown"</span> (focuses on the result)<br>= <span class="hl-p">"over half the people now live in cities"</span> (focuses on what happened)<br><br>Same reality, different angle.' },
+    ],
+    examples: [
+      { label: 'EXAMPLE 1 — VERB → NOUN', source: 'Book 14', q: 'children are known to be likely to <strong class="hl-q">do well at school</strong>', p: 'a key predictor of <strong class="hl-p">academic performance</strong>', reveal: '<span class="mq">do well at school</span> (everyday verb phrase) = <span class="mp">academic performance</span> (academic noun). Same idea packed into a different word type.' },
+      { label: 'EXAMPLE 2 — DIRECTION REVERSES', source: 'Book 9', q: '<strong class="hl-q">Perkin employed Hofmann</strong> as his assistant', p: 'Perkin <strong class="hl-p">became Hofmann\'s youngest assistant</strong>', reveal: 'The question says Perkin hired Hofmann. The passage says Perkin worked FOR Hofmann. Completely opposite direction — and the answer is FALSE because the fact is wrong!' }
+    ],
+    quiz: { title: 'Same Fact, Different Shape?', questions: [
+      { q: 'Q: "<strong>populations</strong> of cities <strong>have grown</strong>"<br>P: "over half the <strong>people</strong> now <strong>live in</strong> cities"', prompt: 'Why do these match?', options: ['Synonym swap: populations = people', 'Structure flip: result vs cause', 'Both reasons together'], correct: 2, fb_ok: 'Exactly! "Populations" = "people" is a synonym swap AND "have grown" vs "live in" flips the direction (result vs situation). Hard questions combine tricks.', fb_no: 'There are actually two things happening: "populations" = "people" (synonym) AND "have grown" vs "now live in" (flip from result to situation). Both together!' },
+      { q: 'Q: "an explanation of the <strong>potential savings</strong>"<br>P: "a white bicycle would <strong>cost only 10%</strong> of what it contributed"', prompt: '"Potential savings" and "cost only 10%" are:', options: ['Synonyms', 'Structure flip — same fact, different angle', 'Phrase swap'], correct: 1, fb_ok: 'Yes! "Savings" focuses on what you save. "Cost only 10%" focuses on how little you spend. Same financial fact described from two sides.', fb_no: '"Savings" (what you save) and "cost only 10%" (how little you spend) describe the same financial fact from different angles. That\'s a structure flip.' }
+    ] }
+  },
+  { id: 't6', num: 'T6', numBg: 'var(--t6)', title: 'Opposite + Negative',
+    teach: [
+      { type: 'concept', label: 'WHAT IS IT?', html: 'Instead of using the same word, IELTS uses the <strong>opposite word</strong> and adds a <strong>negative</strong>. The meaning stays the same — but it looks completely different.<br><br>"She is <strong>happy</strong>" = "She is <strong>not unhappy</strong>"<br>Same meaning! Positive word = negative + opposite.' },
+      { type: 'warning', label: 'WHY THIS MATTERS FOR TRUE/FALSE', html: '• Question says X, passage says X → <strong>TRUE</strong><br>• Question says X, passage says NOT X → <strong>FALSE</strong><br>• Question says NOT X, passage says NOT X → <strong>TRUE</strong> (double negative = positive!)<br><br><strong>Count the negatives.</strong> Same count = same meaning. Different count = opposite.' },
+      { type: 'info', label: 'HIDDEN NEGATIVES', html: 'Some words are negative without "not":<div class="signal-tags"><span class="signal-tag">lack / without / unable</span><span class="signal-tag">rarely / hardly / few / little</span><span class="signal-tag">fail / unlikely / absence</span><span class="signal-tag">never / scarcely / barely</span></div>"They lack evidence" = "They do NOT have evidence." Always check if a word carries a hidden negative.' },
+    ],
+    examples: [
+      { label: 'EXAMPLE 1 — FALSE (opposite meaning)', source: 'Book 14', q: 'Children <strong class="hl-q">had problems</strong> thinking up ideas with Lego', p: 'With the Lego building, however, <strong class="hl-p">not a single child</strong> said this', reveal: '<span class="mq">had problems</span> (positive — problems existed) ≠ <span class="mp">not a single child</span> (negative — zero problems). OPPOSITE → FALSE.' },
+      { label: 'EXAMPLE 2 — FALSE (opposite meaning)', source: 'Book 8', q: 'Pilkington\'s first plant was an <strong class="hl-q">instant</strong> commercial success', p: 'it took <strong class="hl-p">14 months</strong> of non-stop production before any usable glass was produced', reveal: '<span class="mq">instant</span> (quick, immediate) ≠ <span class="mp">14 months</span> (very slow). The opposite of instant. FALSE.' },
+      { label: 'EXAMPLE 3 — TRUE (same charge)', source: 'Book 9', q: 'If a signal is received, it will be <strong class="hl-q">important to respond promptly</strong>', p: 'It is <strong class="hl-p">not important</strong> if there\'s a <strong class="hl-p">delay</strong> of a few years', reveal: 'Wait — "important to respond promptly" vs "NOT important if there\'s a delay." Promptly = no delay. NOT important + delay = opposite of the question → FALSE.' }
+    ],
+    quiz: { title: 'Count the Negatives', questions: [
+      { q: 'Q: "There were <strong>many similarities</strong> between their styles"<br>P: "their styles were <strong>quite different</strong>"', prompt: 'Same meaning or opposite?', options: ['Same meaning → TRUE', 'Opposite → FALSE'], correct: 1, fb_ok: 'Correct! "Many similarities" (positive) vs "quite different" (no similarities). Opposite → FALSE.', fb_no: '"Many similarities" and "quite different" are opposites. If things are different, they don\'t have similarities. FALSE.' },
+      { q: 'Q: "People\'s expectations are <strong>universal</strong>"<br>P: "expectations that <strong>differ</strong> and are a function of <strong>culture</strong>"', prompt: '"Universal" vs "differ / function of culture":', options: ['Same meaning → TRUE', 'Opposite → FALSE'], correct: 1, fb_ok: 'Yes! "Universal" = same everywhere. "Differ / function of culture" = different in each culture. These are exact opposites → FALSE.', fb_no: '"Universal" means the same everywhere. "Differ" means not the same. "Function of culture" means it changes by culture. These are opposites → FALSE.' },
+      { q: '"They <strong>lack</strong> evidence" — how many negatives?', prompt: '', options: ['Zero — "lack" is not negative', 'One — "lack" is a hidden negative'], correct: 1, fb_ok: 'Correct! "Lack" = "do not have." It carries a hidden negative. Always watch for words like lack, fail, rarely, hardly.', fb_no: '"Lack" means "do not have" — it IS a hidden negative. "They lack evidence" = "They do NOT have evidence." One negative.' }
+    ] }
+  },
+  { id: 'mixed', num: '★', numBg: '#D97706', title: 'Mixed Challenge — Name the Trick',
+    teach: [{ type: 'concept', label: 'THE REAL TEST', html: 'In the real IELTS exam, nobody tells you which trick to look for. You must identify it yourself.<br><br>Look at each pair below. First find the matching words, then name the trick.' }],
+    examples: [],
+    quiz: { title: '10 Questions — No Hints', questions: [
+      { q: 'Q: "play has been <strong>lost</strong>"<br>P: "play is <strong>trivial</strong>"', prompt: 'Which trick?', options: ['T1 Word Family','T2 Synonym','T3 Phrase','T6 Opposite+Neg'], correct: 1, fb_ok: '"Lost/trivial" = both mean "not valued." Synonym swap.', fb_no: '"Lost" and "trivial" both describe something not valued. Different words, same meaning = T2 Synonym.' },
+      { q: 'Q: "<strong>photographed</strong> the railway"<br>P: "took <strong>photographs</strong> of the mountains"', prompt: 'Which trick?', options: ['T1 Word Family','T2 Synonym','T3 Phrase','T5 Structure'], correct: 0, fb_ok: '"Photographed" (verb) → "photographs" (noun). Same root = T1.', fb_no: '"Photograph-ed" and "photograph-s" share the root "photograph." Same root, different form = T1 Word Family.' },
+      { q: 'Q: "<strong>fear of</strong> crime"<br>P: "<strong>perceptions of risk</strong>"', prompt: 'Which trick?', options: ['T2 Synonym','T3 Phrase','T4 Gen/Spec','T6 Opposite+Neg'], correct: 1, fb_ok: '"Fear of" = "perceptions of risk." Whole phrase replaced = T3.', fb_no: 'Two words → four words, both describing "people think something is dangerous." Phrase swap = T3.' },
+      { q: 'Q: "<strong>medical problems</strong>"<br>P: "<strong>neurodevelopmental disorders like autism</strong>"', prompt: 'Which trick?', options: ['T2 Synonym','T3 Phrase','T4 Gen/Spec','T5 Structure'], correct: 2, fb_ok: '"Medical problems" is the big group. "Autism" is one specific type inside it = T4.', fb_no: '"Medical problems" is the general category. "Neurodevelopmental disorders" is a specific type = T4 General/Specific.' },
+      { q: 'Q: "<strong>do well at school</strong>"<br>P: "<strong>academic performance</strong>"', prompt: 'Which trick?', options: ['T1 Word Family','T2 Synonym','T5 Structure','T6 Opposite+Neg'], correct: 2, fb_ok: 'Verb phrase → noun phrase. Same fact, different shape = T5 Structure Flip.', fb_no: '"Do well" (verb, everyday) → "performance" (noun, academic). Same fact repacked into different grammar = T5.' },
+      { q: 'Q: "<strong>instant</strong> success"<br>P: "took <strong>14 months</strong>"', prompt: 'Which trick?', options: ['T2 Synonym','T3 Phrase','T5 Structure','T6 Opposite+Neg'], correct: 3, fb_ok: '"Instant" vs "14 months" = opposite meanings → FALSE. T6 Opposite.', fb_no: '"Instant" means immediate. "14 months" is the opposite of instant. Opposite meaning = T6.' },
+      { q: 'Q: "people <strong>misused</strong> the scheme"<br>P: "<strong>vandalism and theft</strong>"', prompt: 'Which trick?', options: ['T2 Synonym','T3 Phrase','T4 Gen/Spec','T5 Structure'], correct: 2, fb_ok: '"Misused" is the general group. "Vandalism and theft" are specific examples = T4.', fb_no: '"Misused" is a broad term. "Vandalism and theft" are specific types of misuse = T4 General/Specific.' },
+      { q: 'Q: "<strong>withdrew support</strong>"<br>P: "<strong>lost interest</strong>"', prompt: 'Which trick?', options: ['T1 Word Family','T2 Synonym','T3 Phrase','T4 Gen/Spec'], correct: 2, fb_ok: '"Withdrew support" = "lost interest." Two different phrases for the same idea = T3.', fb_no: '"Withdrew support" and "lost interest" are different phrases describing the same action (stopped helping) = T3 Phrase Swap.' },
+      { q: 'Q: "children <strong>need</strong> toys to play"<br>P: "children play even when they have <strong>no</strong> real toys"', prompt: 'TRUE or FALSE?', options: ['TRUE','FALSE','NOT GIVEN'], correct: 1, fb_ok: '"Need toys" vs "play even without toys" = opposite → FALSE.', fb_no: 'The question says toys are needed. The passage says children play WITHOUT them. Opposite → FALSE.' },
+      { q: 'Q: "<strong>age groups</strong>"<br>P: "<strong>age ranges</strong>"', prompt: 'Which trick?', options: ['T1 Word Family','T2 Synonym','T3 Phrase','T4 Gen/Spec'], correct: 1, fb_ok: '"Groups" and "ranges" are synonyms = T2.', fb_no: '"Groups" → "ranges" — different words, same meaning. Simple synonym swap = T2.' }
+    ] }
+  },
+  { id: 'bridge', num: '→', numBg: 'var(--match-color)', title: 'You\'re Ready to Train',
+    teach: [
+      { type: 'strategy', label: 'WHAT YOU\'VE LEARNED', html: 'You now know all 6 tricks IELTS uses to disguise answers. You know the most important rule: <strong>same topic ≠ same meaning</strong>. And you can identify tricks without being told which one to look for.' },
+      { type: 'concept', label: 'WHAT\'S NEXT', html: 'The <strong>Paraphrase Trainer</strong> has 1,210 real Cambridge pairs from Books 8–16. Every pair is tagged with which tricks are used.<br><br>Start with <strong>easy pairs</strong> (single trick). The tool will unlock harder pairs (2-3 tricks combined) as your accuracy improves.<br><br>Use <strong>Evidence Match</strong> mode — it forces you to point at the matching words, not just guess.' }
+    ],
+    examples: [], quiz: null
+  }
+];
+
+var STEP_LABELS = ['Foundation', 'T1 Word Family', 'T2 Synonym', 'T3 Phrase', 'T4 Gen/Spec', 'T5 Structure', 'T6 Opposite', 'Mixed Quiz', 'Ready!'];
+
+/* ============================================================
+   CONFETTI
+   ============================================================ */
+function launchConfetti() {
+  var canvas = document.getElementById('confetti');
+  var ctx = canvas.getContext('2d');
+  canvas.width = window.innerWidth;
+  canvas.height = window.innerHeight;
+  var particles = [];
+  var colors = ['#F59E0B','#3B82F6','#10B981','#EC4899','#8B5CF6','#EF4444'];
+  for (var i = 0; i < 80; i++) {
+    particles.push({
+      x: canvas.width * Math.random(),
+      y: canvas.height * 0.3 * Math.random() - canvas.height * 0.1,
+      vx: (Math.random() - 0.5) * 4,
+      vy: Math.random() * 3 + 2,
+      w: Math.random() * 8 + 4,
+      h: Math.random() * 4 + 2,
+      color: colors[Math.floor(Math.random() * colors.length)],
+      rot: Math.random() * 360,
+      rv: (Math.random() - 0.5) * 10,
+      life: 1
+    });
+  }
+  var frame = 0;
+  function draw() {
+    ctx.clearRect(0, 0, canvas.width, canvas.height);
+    var alive = false;
+    particles.forEach(function(p) {
+      if (p.life <= 0) return;
+      alive = true;
+      p.x += p.vx;
+      p.y += p.vy;
+      p.vy += 0.08;
+      p.rot += p.rv;
+      p.life -= 0.008;
+      ctx.save();
+      ctx.translate(p.x, p.y);
+      ctx.rotate(p.rot * Math.PI / 180);
+      ctx.globalAlpha = p.life;
+      ctx.fillStyle = p.color;
+      ctx.fillRect(-p.w/2, -p.h/2, p.w, p.h);
+      ctx.restore();
+    });
+    frame++;
+    if (alive && frame < 300) requestAnimationFrame(draw);
+    else ctx.clearRect(0, 0, canvas.width, canvas.height);
+  }
+  draw();
+}
+
+/* ============================================================
+   STATE
+   ============================================================ */
+var LEARN_KEY = 'ielts_learn_progress';
+var progress = loadProgress();
+
+function loadProgress() {
+  try { var raw = localStorage.getItem(LEARN_KEY); if (raw) return JSON.parse(raw); } catch(e) {}
+  return { completedSteps: [], currentStep: 0 };
+}
+function saveProgress() { try { localStorage.setItem(LEARN_KEY, JSON.stringify(progress)); } catch(e) {} }
+function isStepUnlocked(idx) { return idx === 0 || progress.completedSteps.includes(idx - 1); }
+function isStepCompleted(idx) { return progress.completedSteps.includes(idx); }
+function completeStep(idx) {
+  if (!progress.completedSteps.includes(idx)) progress.completedSteps.push(idx);
+  if (idx < STEPS.length - 1) progress.currentStep = idx + 1;
+  saveProgress();
+}
+
+var quizState = {};
+function resetQuizState(stepIdx) {
+  var step = STEPS[stepIdx];
+  if (!step.quiz) return;
+  quizState = { stepIdx: stepIdx, answers: new Array(step.quiz.questions.length).fill(-1), submitted: false, score: 0 };
+}
+
+/* ============================================================
+   RENDER
+   ============================================================ */
+function render() { renderProgressBar(); renderStepLocation(progress.currentStep); renderStep(progress.currentStep); }
+
+function renderProgressBar() {
+  var bar = document.getElementById('progressBar');
+  var html = '';
+  STEPS.forEach(function(step, i) {
+    var cls = isStepCompleted(i) ? 'done' : (i === progress.currentStep ? 'active' : (isStepUnlocked(i) ? '' : 'locked'));
+    html += '<div class="prog-seg ' + cls + '" data-step="' + i + '" tabindex="' + (isStepUnlocked(i) ? '0' : '-1') + '"><span class="seg-tip">' + STEP_LABELS[i] + '</span></div>';
+  });
+  bar.innerHTML = html;
+  bar.querySelectorAll('.prog-seg').forEach(function(seg) {
+    seg.addEventListener('click', function() {
+      var idx = parseInt(seg.dataset.step);
+      if (isStepUnlocked(idx)) { progress.currentStep = idx; resetQuizState(idx); render(); window.scrollTo(0, 0); }
+    });
+  });
+}
+
+function renderStepLocation(idx) {
+  var step = STEPS[idx];
+  document.getElementById('stepLocation').innerHTML = '<span class="step-loc-badge" style="background:' + step.numBg + '">' + step.num + '</span><span class="step-loc-text">' + step.title + '</span><span class="step-loc-count">' + (idx + 1) + ' / ' + STEPS.length + '</span>';
+}
+
+function buildNavButtons(idx) {
+  var html = '<div class="step-nav">';
+  html += (idx > 0 && isStepUnlocked(idx - 1)) ? '<button class="nav-btn" data-nav="prev">\u2190 ' + STEP_LABELS[idx - 1] + '</button>' : '<button class="nav-btn" disabled>\u2190</button>';
+  html += (idx < STEPS.length - 1 && isStepCompleted(idx) && isStepUnlocked(idx + 1)) ? '<button class="nav-btn" data-nav="next">' + STEP_LABELS[idx + 1] + ' \u2192</button>' : '<button class="nav-btn" disabled>\u2192</button>';
+  return html + '</div>';
+}
+
+function wireNavButtons() {
+  document.querySelectorAll('.nav-btn[data-nav]').forEach(function(btn) {
+    btn.addEventListener('click', function() {
+      if (btn.dataset.nav === 'prev' && progress.currentStep > 0) progress.currentStep--;
+      else if (btn.dataset.nav === 'next' && progress.currentStep < STEPS.length - 1) progress.currentStep++;
+      saveProgress(); render(); window.scrollTo(0, 0);
+    });
+  });
+}
+
+function renderStep(idx) {
+  var step = STEPS[idx];
+  var main = document.getElementById('mainContent');
+
+  if (!isStepUnlocked(idx)) {
+    main.innerHTML = '<div class="step-card"><div class="step-body"><div class="locked-msg"><div class="lock-icon">\uD83D\uDD12</div>Complete the previous step first to unlock this one.</div></div></div>' + buildNavButtons(idx);
+    wireNavButtons(); return;
+  }
+
+  if (step.id === 'bridge') {
+    var html = '<div class="step-card"><div class="step-header"><span class="step-num" style="background:' + step.numBg + '">' + step.num + '</span><span class="step-title">' + step.title + '</span></div><div class="step-body">';
+    step.teach.forEach(function(t) { html += '<div class="teach-box ' + t.type + '"><span class="teach-label">' + t.label + '</span>' + t.html + '</div>'; });
+    html += '<div class="btn-row"><a href="../paraphrase/" class="btn btn-primary" style="text-decoration:none;font-size:1rem;padding:0.75rem 2rem;">Start Training \u2192</a></div>';
+    html += '<div style="text-align:center;margin-top:0.75rem;">';
+    ['T1','T2','T3','T4','T5','T6'].forEach(function(t, i) {
+      var colors = ['var(--t1)','var(--t2)','var(--t3)','var(--t4)','var(--t5)','var(--t6)'];
+      html += '<a href="../paraphrase/?filter=' + t + '" style="color:' + colors[i] + ';font-size:0.78rem;margin:0 0.3rem;text-decoration:none;font-weight:600;">Practise ' + t + '</a>';
+    });
+    html += '</div></div></div>';
+    if (!isStepCompleted(idx)) completeStep(idx);
+    html += buildNavButtons(idx);
+    main.innerHTML = html; wireNavButtons(); renderProgressBar(); renderStepLocation(idx); return;
+  }
+
+  resetQuizState(idx);
+  var html = '<div class="step-card"><div class="step-header"><span class="step-num" style="background:' + step.numBg + '">' + step.num + '</span><span class="step-title">' + step.title + '</span></div><div class="step-body">';
+
+  // Insert diagram if available
+  if (DIAGRAMS[step.id]) html += DIAGRAMS[step.id];
+
+  // Teaching content
+  step.teach.forEach(function(t) { html += '<div class="teach-box ' + t.type + '"><span class="teach-label">' + t.label + '</span>' + t.html + '</div>'; });
+
+  // Examples with connector
+  step.examples.forEach(function(ex) {
+    html += '<div class="example-pair"><div class="ex-label">' + ex.label + '<span class="ex-source">' + ex.source + '</span></div>';
+    html += '<div class="phrase-q">' + ex.q + '</div>';
+    html += '<div class="pair-connector">▼ paraphrased as ▼</div>';
+    html += '<div class="phrase-p">' + ex.p + '</div>';
+    html += '<div class="match-reveal">\u21B3 ' + ex.reveal + '</div></div>';
+  });
+
+  // Quiz
+  if (step.quiz) {
+    html += '<div class="quiz-zone" id="quizZone"><div class="quiz-title">' + step.quiz.title + '</div>';
+    step.quiz.questions.forEach(function(q, qi) {
+      html += '<div class="quiz-q" id="qq' + qi + '"><div class="quiz-q-num">Q' + (qi+1) + '</div>';
+      html += '<div class="q-text">' + q.q + '</div>';
+      if (q.prompt) html += '<div class="q-prompt">' + q.prompt + '</div>';
+      html += '<div class="quiz-options" id="qopts' + qi + '">';
+      q.options.forEach(function(opt, oi) { html += '<button class="quiz-opt" data-qi="' + qi + '" data-oi="' + oi + '">' + opt + '</button>'; });
+      html += '</div><div class="quiz-fb" id="qfb' + qi + '"></div></div>';
+    });
+    html += '<div class="btn-row" id="quizSubmitRow"><button class="btn btn-primary" id="quizCheckBtn" disabled>Check Answers</button></div>';
+    html += '<div class="btn-row" id="quizNextRow" style="display:none;"><button class="btn btn-primary" id="quizNextBtn">Continue \u2192</button></div>';
+    html += '</div>';
+  }
+
+  html += '</div></div>' + buildNavButtons(idx);
+  main.innerHTML = html; wireNavButtons();
+  if (step.quiz) wireQuiz(idx);
+}
+
+function wireQuiz(stepIdx) {
+  var step = STEPS[stepIdx]; var qs = step.quiz.questions;
+  document.querySelectorAll('.quiz-opt').forEach(function(btn) {
+    btn.addEventListener('click', function() {
+      if (quizState.submitted) return;
+      var qi = parseInt(btn.dataset.qi), oi = parseInt(btn.dataset.oi);
+      quizState.answers[qi] = oi;
+      document.querySelectorAll('#qopts' + qi + ' .quiz-opt').forEach(function(b) { b.classList.remove('selected'); });
+      btn.classList.add('selected');
+      document.getElementById('quizCheckBtn').disabled = !quizState.answers.every(function(a) { return a >= 0; });
+    });
+  });
+
+  document.getElementById('quizCheckBtn').addEventListener('click', function() {
+    if (quizState.submitted) return;
+    quizState.submitted = true;
+    var score = 0;
+    qs.forEach(function(q, qi) {
+      var ua = quizState.answers[qi], ok = ua === q.correct;
+      if (ok) score++;
+      document.querySelectorAll('#qopts' + qi + ' .quiz-opt').forEach(function(b, oi) {
+        b.disabled = true;
+        if (oi === q.correct) b.classList.add('correct');
+        if (oi === ua && !ok) b.classList.add('wrong');
+      });
+      var fb = document.getElementById('qfb' + qi);
+      fb.className = 'quiz-fb show ' + (ok ? 'ok' : 'nope');
+      fb.innerHTML = ok ? q.fb_ok : q.fb_no;
+    });
+    quizState.score = score;
+    document.getElementById('quizSubmitRow').style.display = 'none';
+
+    var threshold = qs.length > 5 ? Math.ceil(qs.length * 0.7) : Math.ceil(qs.length * 0.66);
+    var passed = score >= threshold;
+    var nextRow = document.getElementById('quizNextRow');
+    nextRow.style.display = '';
+    var nextBtn = document.getElementById('quizNextBtn');
+
+    if (passed) {
+      completeStep(stepIdx); renderProgressBar(); renderStepLocation(stepIdx);
+      launchConfetti();
+      nextBtn.textContent = stepIdx < STEPS.length - 1 ? 'Continue \u2192' : 'Finish!';
+      nextBtn.addEventListener('click', function() {
+        progress.currentStep = Math.min(stepIdx + 1, STEPS.length - 1);
+        saveProgress(); render(); window.scrollTo(0, 0);
+      });
+    } else {
+      nextBtn.textContent = 'Try Again (' + score + '/' + qs.length + ')';
+      nextBtn.classList.remove('btn-primary'); nextBtn.classList.add('btn-outline');
+      nextBtn.addEventListener('click', function() {
+        resetQuizState(stepIdx); renderStep(stepIdx);
+        var qz = document.getElementById('quizZone');
+        if (qz) window.scrollTo(0, qz.offsetTop - 60);
+      });
+    }
+  });
+}
+
+render();
+</script>
+</body>
+</html>
