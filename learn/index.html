@@ -1,0 +1,839 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Learn the 6 IELTS Paraphrase Tricks</title>
+<link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=DM+Serif+Display&family=JetBrains+Mono:wght@400;500;700&display=swap" rel="stylesheet">
+<style>
+:root{--bg:#0F172A;--surface:#1E293B;--surface2:#334155;--text:#F1F5F9;--text-dim:#94A3B8;--text-muted:#64748B;--border:#475569;--t1:#3B82F6;--t2:#8B5CF6;--t3:#F59E0B;--t4:#10B981;--t5:#EC4899;--t6:#EF4444;--ng:#6B7280;--q-color:#F97316;--p-color:#3B82F6;--match-color:#10B981;--correct:#10B981;--wrong:#EF4444;--radius:12px;}
+*{margin:0;padding:0;box-sizing:border-box;}
+body{font-family:'DM Sans',sans-serif;background:var(--bg);color:var(--text);min-height:100vh;line-height:1.7;}
+:focus-visible{outline:none;box-shadow:0 0 0 2px var(--bg),0 0 0 4px var(--t3);border-radius:4px;}
+
+.app-header{background:linear-gradient(135deg,#1E293B,#0F172A);border-bottom:1px solid var(--border);padding:1rem 1.25rem;text-align:center;position:sticky;top:0;z-index:100;}
+.app-title{font-family:'DM Serif Display',serif;font-size:1.35rem;}
+.app-subtitle{font-size:0.75rem;color:var(--text-dim);margin-top:0.15rem;}
+.back-link{position:absolute;left:1rem;top:50%;transform:translateY(-50%);font-size:0.78rem;color:var(--text-dim);text-decoration:none;font-weight:600;}
+.back-link:hover{color:var(--text);}
+
+/* PROGRESS BAR */
+.progress-bar{display:flex;gap:3px;padding:0.5rem 1rem;background:var(--surface);border-bottom:1px solid var(--border);}
+.prog-dot{flex:1;height:6px;border-radius:3px;background:var(--surface2);transition:background 0.3s;}
+.prog-dot.done{background:var(--correct);}
+.prog-dot.active{background:var(--t3);}
+.prog-dot.locked{background:var(--surface2);opacity:0.5;}
+
+/* MAIN */
+.main{max-width:640px;margin:0 auto;padding:1.25rem;}
+
+/* STEP CONTAINER */
+.step-card{background:var(--surface);border:1px solid var(--border);border-radius:var(--radius);overflow:hidden;margin-bottom:1.5rem;}
+.step-header{padding:1rem 1.25rem;border-bottom:1px solid var(--border);display:flex;align-items:center;gap:0.75rem;}
+.step-num{font-family:'JetBrains Mono',monospace;font-size:0.72rem;font-weight:700;padding:0.2rem 0.55rem;border-radius:6px;color:#fff;min-width:28px;text-align:center;}
+.step-title{font-family:'DM Serif Display',serif;font-size:1.1rem;flex:1;}
+.step-body{padding:1.25rem;}
+
+/* CONTENT BLOCKS */
+.teach-box{padding:0.85rem 1rem;border-radius:8px;margin-bottom:1rem;font-size:0.88rem;line-height:1.7;}
+.teach-box.concept{background:rgba(249,115,22,0.08);border-left:4px solid var(--q-color);}
+.teach-box.strategy{background:rgba(16,185,129,0.08);border-left:4px solid var(--match-color);}
+.teach-box.warning{background:rgba(239,68,68,0.06);border-left:4px solid var(--wrong);}
+.teach-box.info{background:rgba(59,130,246,0.06);border-left:4px solid var(--p-color);}
+.teach-box strong{color:var(--text);}
+.teach-label{font-size:0.68rem;font-weight:700;text-transform:uppercase;letter-spacing:0.06em;margin-bottom:0.4rem;display:block;}
+.teach-label.q-label{color:var(--q-color);}
+.teach-label.p-label{color:var(--p-color);}
+.teach-label.m-label{color:var(--match-color);}
+.teach-label.warn-label{color:var(--wrong);}
+
+/* EXAMPLE PAIR */
+.example-pair{background:var(--surface2);border-radius:8px;padding:1rem;margin-bottom:1rem;font-size:0.88rem;}
+.example-pair .ex-label{font-size:0.65rem;font-weight:700;text-transform:uppercase;letter-spacing:0.05em;color:var(--text-muted);margin-bottom:0.5rem;}
+.example-pair .ex-source{font-size:0.65rem;color:var(--text-muted);float:right;}
+.phrase-q{font-family:'DM Serif Display',serif;color:var(--q-color);padding:0.5rem 0.75rem;background:rgba(249,115,22,0.06);border-radius:6px;border:1px solid rgba(249,115,22,0.15);margin-bottom:0.5rem;font-size:0.92rem;line-height:1.6;}
+.phrase-p{font-family:'DM Serif Display',serif;color:var(--p-color);padding:0.5rem 0.75rem;background:rgba(59,130,246,0.06);border-radius:6px;border:1px solid rgba(59,130,246,0.15);margin-bottom:0.5rem;font-size:0.92rem;line-height:1.6;}
+.match-reveal{padding:0.5rem 0.75rem;background:rgba(16,185,129,0.08);border:1px solid rgba(16,185,129,0.2);border-radius:6px;font-size:0.82rem;color:var(--match-color);margin-top:0.5rem;}
+.match-reveal .mq{color:var(--q-color);font-weight:600;}
+.match-reveal .mp{color:var(--p-color);font-weight:600;}
+.hl-q{color:var(--q-color);font-weight:700;}
+.hl-p{color:var(--p-color);font-weight:700;}
+.hl-m{color:var(--match-color);font-weight:700;}
+
+/* SPOT IT / YOUR MOVE */
+.signal-tags{display:flex;flex-wrap:wrap;gap:0.25rem;margin:0.4rem 0;}
+.signal-tag{font-family:'JetBrains Mono',monospace;font-size:0.72rem;padding:0.15rem 0.4rem;border-radius:4px;background:rgba(249,115,22,0.1);color:var(--q-color);border:1px solid rgba(249,115,22,0.2);}
+.steps-list{list-style:none;counter-reset:steps;}
+.steps-list li{counter-increment:steps;display:flex;gap:0.5rem;margin-bottom:0.3rem;font-size:0.88rem;}
+.steps-list li::before{content:counter(steps)'.';font-family:'JetBrains Mono',monospace;font-weight:700;color:var(--match-color);min-width:1.4rem;}
+
+/* QUIZ */
+.quiz-zone{background:rgba(245,158,11,0.04);border:1px solid rgba(245,158,11,0.15);border-radius:var(--radius);padding:1rem 1.25rem;margin-top:1.25rem;}
+.quiz-title{font-family:'DM Serif Display',serif;font-size:0.95rem;color:var(--t3);margin-bottom:0.75rem;text-align:center;}
+.quiz-q{margin-bottom:1rem;padding-bottom:1rem;border-bottom:1px solid var(--border);}
+.quiz-q:last-child{border-bottom:none;margin-bottom:0;padding-bottom:0;}
+.quiz-q-num{font-family:'JetBrains Mono',monospace;font-size:0.68rem;font-weight:700;color:var(--t3);margin-bottom:0.4rem;}
+.quiz-input{width:100%;padding:0.5rem 0.75rem;font-family:'JetBrains Mono',monospace;font-size:0.85rem;background:var(--surface);color:var(--text);border:2px solid var(--border);border-radius:6px;text-align:center;outline:none;margin-top:0.4rem;}
+.quiz-input:focus{border-color:var(--t3);box-shadow:0 0 0 3px rgba(245,158,11,0.15);}
+.quiz-options{display:flex;flex-wrap:wrap;gap:0.35rem;margin-top:0.4rem;}
+.quiz-opt{padding:0.35rem 0.7rem;border-radius:6px;border:2px solid var(--border);background:transparent;color:var(--text-dim);font-size:0.82rem;font-weight:600;cursor:pointer;transition:all 0.15s;font-family:'DM Sans',sans-serif;}
+.quiz-opt:hover{border-color:var(--text-muted);color:var(--text);}
+.quiz-opt.selected{border-color:var(--t3);background:rgba(245,158,11,0.12);color:var(--t3);}
+.quiz-opt.correct{border-color:var(--correct);background:rgba(16,185,129,0.12);color:var(--correct);}
+.quiz-opt.wrong{border-color:var(--wrong);background:rgba(239,68,68,0.08);color:var(--wrong);}
+.quiz-opt[disabled]{pointer-events:none;}
+.quiz-fb{margin-top:0.5rem;padding:0.4rem 0.65rem;border-radius:6px;font-size:0.8rem;display:none;}
+.quiz-fb.show{display:block;}
+.quiz-fb.ok{background:rgba(16,185,129,0.1);border:1px solid rgba(16,185,129,0.25);color:var(--correct);}
+.quiz-fb.nope{background:rgba(239,68,68,0.08);border:1px solid rgba(239,68,68,0.2);color:var(--text-dim);}
+
+/* BUTTONS */
+.btn{font-family:'DM Sans',sans-serif;font-weight:600;font-size:0.88rem;padding:0.6rem 1.25rem;border-radius:8px;border:none;cursor:pointer;transition:all 0.15s;}
+.btn-primary{background:var(--t3);color:#000;}
+.btn-primary:hover{filter:brightness(1.1);}
+.btn-primary[disabled]{opacity:0.4;pointer-events:none;}
+.btn-outline{background:transparent;border:1px solid var(--border);color:var(--text-dim);}
+.btn-outline:hover{border-color:var(--text-muted);color:var(--text);}
+.btn-row{display:flex;gap:0.5rem;justify-content:center;margin-top:1rem;flex-wrap:wrap;}
+
+/* FOUNDATION SORT */
+.sort-card{background:var(--surface2);border:2px solid var(--border);border-radius:8px;padding:0.75rem 1rem;margin-bottom:0.5rem;cursor:pointer;transition:all 0.15s;}
+.sort-card:hover{border-color:var(--text-muted);}
+.sort-card.picked{opacity:0.5;pointer-events:none;}
+.sort-bucket{min-height:60px;border:2px dashed var(--border);border-radius:8px;padding:0.5rem;margin-bottom:0.5rem;text-align:center;}
+.sort-bucket.filled{border-style:solid;}
+.sort-bucket-label{font-size:0.7rem;font-weight:700;text-transform:uppercase;letter-spacing:0.05em;color:var(--text-muted);margin-bottom:0.3rem;}
+
+/* LOCKED OVERLAY */
+.locked-msg{text-align:center;padding:2rem 1rem;color:var(--text-muted);font-size:0.88rem;}
+.locked-msg .lock-icon{font-size:2rem;margin-bottom:0.5rem;}
+
+/* COMPLETION */
+.complete-card{text-align:center;padding:2rem 1.5rem;}
+.complete-card .big-check{font-size:3rem;margin-bottom:0.5rem;}
+.complete-card h2{font-family:'DM Serif Display',serif;font-size:1.3rem;margin-bottom:0.5rem;}
+.complete-card p{color:var(--text-dim);font-size:0.88rem;margin-bottom:1rem;}
+
+/* TRICK BADGE */
+.trick-badge{display:inline-block;font-family:'JetBrains Mono',monospace;font-size:0.68rem;font-weight:700;padding:0.15rem 0.45rem;border-radius:4px;color:#fff;vertical-align:middle;}
+
+@media(max-width:500px){.main{padding:0.75rem;}.step-body{padding:0.85rem;}.phrase-q,.phrase-p{font-size:0.85rem;padding:0.4rem 0.6rem;}.quiz-opt{font-size:0.75rem;padding:0.3rem 0.55rem;}}
+</style>
+</head>
+<body>
+
+<header class="app-header">
+<a class="back-link" href="../">&larr; Home</a>
+<h1 class="app-title">Learn the 6 Tricks</h1>
+<p class="app-subtitle">Before you practise, understand what IELTS is doing</p>
+</header>
+<div class="progress-bar" id="progressBar"></div>
+<main class="main" id="mainContent"></main>
+
+<script>
+/* ============================================================
+   DATA — Teaching content for each step
+   ============================================================ */
+
+const STEPS = [
+  // STEP 0: FOUNDATION
+  {
+    id: 'foundation',
+    num: '0',
+    numBg: '#64748B',
+    title: 'The Most Important Idea',
+    teach: [
+      { type: 'concept', label: 'THE ONE RULE', html: '<strong>IELTS almost never uses the same words in the question and in the passage.</strong> They change the words on purpose. This is called <em>paraphrasing</em> — saying the same thing using different words.<br><br>Your job is not to find matching words. Your job is to find matching <em>meaning</em>.' },
+      { type: 'warning', label: 'THE TRAP MOST STUDENTS FALL INTO', html: 'A passage sentence can be about the <strong>same topic</strong> as the question — but that does NOT mean it <strong>answers</strong> the question.<br><br>Same topic ≠ same meaning. This is how IELTS tricks you.' },
+    ],
+    examples: [
+      {
+        label: 'REAL MATCH — the passage answers the question',
+        source: 'Book 14',
+        q: 'Recent changes affecting children\'s play include <strong class="hl-q">increased</strong> competition in schools',
+        p: 'leading to <strong class="hl-p">greater</strong> competition in academic learning and schools',
+        reveal: '<span class="mq">increased</span> = <span class="mp">greater</span> — both mean "more." The passage answers what the question asks.'
+      },
+      {
+        label: 'SAME TOPIC BUT NO MATCH — NOT GIVEN',
+        source: 'Book 14',
+        q: 'Playing with dolls was found to benefit <strong class="hl-q">girls\' writing more than boys\' writing</strong>',
+        p: '<strong class="hl-p">Children</strong> wrote longer and better-structured stories when they played with dolls',
+        reveal: 'Both mention dolls and writing — same <em>topic</em>. But the passage says "children" (all children). It never compares girls vs boys. Same topic, but the passage does NOT answer the question.'
+      },
+      {
+        label: 'OPPOSITE MEANING — FALSE',
+        source: 'Book 14',
+        q: 'There were <strong class="hl-q">many similarities</strong> between Henderson\'s landscapes and Notman\'s',
+        p: 'their styles of photography were <strong class="hl-p">quite different</strong>',
+        reveal: 'The question says "many similarities." The passage says "quite different." Same topic (their styles), but <em>opposite</em> meaning. This is FALSE.'
+      }
+    ],
+    quiz: {
+      title: 'Can you tell the difference?',
+      questions: [
+        {
+          q: 'Q: "Staff should be allowed to choose WHEN they take breaks"<br>P: "Actions include allowing adequate breaks during the working day"',
+          prompt: 'Does the passage answer the question?',
+          options: ['Yes — real match', 'No — same topic, different info', 'Opposite meaning'],
+          correct: 1,
+          fb_ok: 'Correct! Both mention "breaks" (same topic) — but the passage says nothing about CHOOSING WHEN to take them.',
+          fb_no: 'Not quite. Both mention "breaks" — but the passage talks about allowing breaks, not about choosing when. Same topic, different information = NOT GIVEN.'
+        },
+        {
+          q: 'Q: "Children need toys in order to play"<br>P: "children will play in any circumstances, even when they have no real toys"',
+          prompt: 'Does the passage answer the question?',
+          options: ['Yes — real match', 'No — same topic, different info', 'Opposite meaning'],
+          correct: 2,
+          fb_ok: 'Correct! The question says children NEED toys. The passage says they play EVEN WITHOUT toys. That\'s the opposite.',
+          fb_no: 'Look again. "Need toys to play" vs "play even without toys" — these are opposites. The passage contradicts the question = FALSE.'
+        },
+        {
+          q: 'Q: "The process invented by Pilkington has now been improved"<br>P: "the product has changed dramatically, from a single thickness to a range"',
+          prompt: 'Does the passage answer the question?',
+          options: ['Yes — real match', 'No — same topic, different info', 'Opposite meaning'],
+          correct: 0,
+          fb_ok: 'Correct! "Improved" = "changed dramatically" — the passage confirms the question using different words. Real match.',
+          fb_no: 'Actually, "improved" and "changed dramatically" describe the same idea — things got better/different. This is a real paraphrase match.'
+        }
+      ]
+    }
+  },
+
+  // STEP 1: WORD FAMILY
+  {
+    id: 't1',
+    num: 'T1',
+    numBg: 'var(--t1)',
+    title: 'Word Family Change',
+    teach: [
+      { type: 'concept', label: 'WHAT IS IT?', html: 'In English, one root word can change shape:<br><strong>develop</strong> → develop<em>ment</em> → develop<em>mental</em><br><strong>photograph</strong> → photograph<em>ed</em> → photograph<em>ic</em><br><br>These are the same <strong>word family</strong> — same root, different ending. IELTS uses one form in the question and a different form in the passage.' },
+      { type: 'strategy', label: 'HOW TO SPOT IT', html: 'Look for a word in the passage that <strong>starts with the same letters</strong> as a key word in the question, but has a different ending.<div class="signal-tags"><span class="signal-tag">-tion / -ment / -ness</span><span class="signal-tag">-ive / -ful / -al / -ous</span><span class="signal-tag">-ly / -ing / -ed</span></div>' },
+      { type: 'info', label: 'YOUR MOVE', html: '<ol class="steps-list"><li>Find the key word in the question. What is the ROOT (the base part)?</li><li>Scan the passage for words that share that root but have a different ending.</li><li>Check: do they describe the same basic idea? If yes — match!</li></ol>' },
+    ],
+    examples: [
+      {
+        label: 'EXAMPLE 1',
+        source: 'Book 14',
+        q: '<strong class="hl-q">photographed</strong> the mountains and the railway at Rogers Pass',
+        p: 'he took <strong class="hl-p">photographs</strong> of the mountains and the progress of construction',
+        reveal: '<span class="mq">photographed</span> (verb) = <span class="mp">photographs</span> (noun) — same root "photograph", different form.'
+      },
+      {
+        label: 'EXAMPLE 2',
+        source: 'Book 8',
+        q: 'The <strong class="hl-q">difficulties</strong> of talking about smells',
+        p: '<strong class="hl-p">difficulty</strong> describing smells linguistically',
+        reveal: '<span class="mq">difficulties</span> (plural noun) = <span class="mp">difficulty</span> (singular noun) — same word, different form. Also: "talking about" = "describing" (Trick 3).'
+      }
+    ],
+    quiz: {
+      title: 'Spot the Word Family',
+      questions: [
+        {
+          q: 'Q: "scientists are <strong>searching</strong> for radio signals"<br>P: "as we <strong>search</strong> for radio signals from other civilizations"',
+          prompt: 'What is the word family change?',
+          options: ['searching → search', 'radio → signals', 'No change here'],
+          correct: 0,
+          fb_ok: 'Yes! "Searching" (verb -ing form) → "search" (base form). Same root, different ending.',
+          fb_no: '"Searching" and "search" share the same root — one has -ing, one doesn\'t. That\'s a word family change.'
+        },
+        {
+          q: 'Q: "an explanation of the <strong>importance</strong> of geography"<br>P: "the solar year became more <strong>crucial</strong>"',
+          prompt: 'Is "importance → crucial" a word family change?',
+          options: ['Yes — same root', 'No — different roots, different words'],
+          correct: 1,
+          fb_ok: 'Correct! "Importance" and "crucial" do NOT share a root. They are synonyms (Trick 2). Word family = same root, like important → importance → importantly.',
+          fb_no: '"Import-ance" and "crucial" look nothing alike — different roots entirely. This would be Trick 2 (Synonym Swap), not Trick 1.'
+        },
+        {
+          q: 'Q: "Wagner believes lizards with toes had <strong>toeless</strong> ancestors"<br>P: "the toed species re-evolved toes from <strong>toeless</strong> ancestors"',
+          prompt: 'What is happening here?',
+          options: ['Word family: toed / toeless', 'Synonym swap', 'Direct word match — same word used'],
+          correct: 2,
+          fb_ok: 'Correct! "Toeless" appears in both — it\'s a direct match, not even a word family change. But "toed" and "toeless" ARE in the same word family (toe → toed → toeless).',
+          fb_no: 'Look carefully — "toeless" appears in BOTH sentences. That\'s actually a direct match. Though "toed" and "toeless" are in the same word family.'
+        }
+      ]
+    }
+  },
+
+  // STEP 2: SYNONYM SWAP
+  {
+    id: 't2',
+    num: 'T2',
+    numBg: 'var(--t2)',
+    title: 'Synonym Swap',
+    teach: [
+      { type: 'concept', label: 'WHAT IS IT?', html: 'A <strong>synonym</strong> is a completely different word that means the same thing. "Big" and "large" are synonyms — different words, same meaning.<br><br>Unlike Trick 1, synonyms do NOT share the same root. The words look completely different. You must <em>know</em> the meaning.' },
+      { type: 'strategy', label: 'HOW TO SPOT IT', html: 'A key word in the question is <strong>completely absent</strong> from the passage. But a different word with the same meaning appears in the right location.' },
+      { type: 'info', label: 'YOUR MOVE', html: '<ol class="steps-list"><li>Underline the important words in the question.</li><li>For each one, ask: "What OTHER words could mean the same thing?"</li><li>Scan the passage for those alternative words — not the original.</li></ol>' },
+      { type: 'warning', label: 'WHAT IF YOU DON\'T KNOW THE WORD?', html: 'You will meet words you have never seen before. <strong>Don\'t panic — this is a clue.</strong> If a word in the passage is unfamiliar, look at the sentence around it. If the sentence seems to be about the same situation as the question, that unknown word might be the synonym you\'re looking for.' },
+    ],
+    examples: [
+      {
+        label: 'EXAMPLE 1',
+        source: 'Book 14',
+        q: 'opportunities for free play are <strong class="hl-q">limited</strong>',
+        p: 'Outdoor play is <strong class="hl-p">curtailed</strong>',
+        reveal: '<span class="mq">limited</span> = <span class="mp">curtailed</span> — both mean "reduced / made smaller." These words share no letters — you must know the meaning.'
+      },
+      {
+        label: 'EXAMPLE 2',
+        source: 'Book 14',
+        q: 'Focused on a total of four different <strong class="hl-q">age groups</strong>',
+        p: 'Giraldo focused on ants at four <strong class="hl-p">age ranges</strong>',
+        reveal: '<span class="mq">age groups</span> = <span class="mp">age ranges</span> — "groups" and "ranges" are synonyms here. Simple swap.'
+      },
+      {
+        label: 'EXAMPLE 3',
+        source: 'Book 8',
+        q: '<strong class="hl-q">picked out</strong> one picture from a random selection of four',
+        p: '<strong class="hl-p">identification</strong> of a picture chosen from a random selection of four',
+        reveal: '<span class="mq">picked out</span> = <span class="mp">identification / chosen</span> — simple words swapped for academic ones. Same action.'
+      }
+    ],
+    quiz: {
+      title: 'Find the Synonym',
+      questions: [
+        {
+          q: 'Q: "Recent changes include <strong>increased</strong> competition"<br>P: "leading to <strong>greater</strong> competition in schools"',
+          prompt: '"Increased" and "greater" are:',
+          options: ['Word family (same root)', 'Synonyms (different words, same meaning)', 'Opposite meanings'],
+          correct: 1,
+          fb_ok: 'Correct! "Increased" and "greater" have different roots but both mean "more." Classic synonym swap.',
+          fb_no: '"Increased" and "greater" look completely different — no shared root. But they both mean "more." That\'s a synonym swap.'
+        },
+        {
+          q: 'Q: "a description of the <strong>origins</strong> of the pendulum clock"<br>P: "The <strong>earliest</strong> recorded weight-driven mechanical clock was built in 1283"',
+          prompt: 'Which words are synonyms?',
+          options: ['origins → earliest', 'description → recorded', 'pendulum → weight-driven'],
+          correct: 0,
+          fb_ok: 'Yes! "Origins" (where something began) = "earliest" (the first one). Different words, same idea.',
+          fb_no: '"Origins" means "where something started." "Earliest" means "the first one." Both point to the beginning — they\'re synonyms.'
+        },
+        {
+          q: 'Q: "the company\'s goals and the needs of the <strong>staff</strong>"<br>P: "<strong>employee</strong> characteristics"',
+          prompt: '"Staff" and "employee" are:',
+          options: ['Synonyms', 'Word family', 'General / Specific'],
+          correct: 0,
+          fb_ok: 'Correct! "Staff" and "employee" are synonyms — different words for the same idea: the people who work there.',
+          fb_no: '"Staff" and "employee" are not from the same word family (no shared root) and neither is more general than the other. They\'re synonyms — different words, same meaning.'
+        }
+      ]
+    }
+  },
+
+  // STEP 3: PHRASE SWAP
+  {
+    id: 't3',
+    num: 'T3',
+    numBg: 'var(--t3)',
+    title: 'Phrase Swap',
+    teach: [
+      { type: 'concept', label: 'WHAT IS IT?', html: 'A <strong>phrase</strong> is a group of words that express one idea. In a phrase swap, the question uses one phrase and the passage uses a <em>completely different</em> phrase — but both describe the <strong>same situation</strong>.<br><br>You cannot find the match by looking at individual words. You must understand the <em>idea</em> the whole phrase describes.' },
+      { type: 'strategy', label: 'WHY THIS IS HARDER', html: 'With Tricks 1-2, you replace one word with one word. With phrase swap, you must hold a whole <strong>idea</strong> in your mind and search for that idea expressed differently.' },
+      { type: 'info', label: 'YOUR MOVE', html: '<ol class="steps-list"><li>Read the question phrase. Ask: "What <em>situation</em> is this describing?"</li><li>Forget the exact words. Hold the MEANING in your mind.</li><li>Scan the passage asking: "Where does it describe this same situation?"</li></ol>' },
+    ],
+    examples: [
+      {
+        label: 'EXAMPLE 1',
+        source: 'Book 14',
+        q: 'It failed when a partner in the scheme <strong class="hl-q">withdrew support</strong>',
+        p: 'the business partner had <strong class="hl-p">lost interest</strong>',
+        reveal: '<span class="mq">withdrew support</span> = <span class="mp">lost interest</span> — "stopped helping" said two different ways.'
+      },
+      {
+        label: 'EXAMPLE 2',
+        source: 'Book 14',
+        q: 'it is <strong class="hl-q">difficult to find</strong> evidence to support new policies',
+        p: 'what they often <strong class="hl-p">lack</strong> is the evidence to base policies on',
+        reveal: '<span class="mq">difficult to find</span> = <span class="mp">lack</span> — if you don\'t have something, finding it is difficult. Same reality, different angle.'
+      },
+      {
+        label: 'EXAMPLE 3',
+        source: 'Book 9',
+        q: 'Faraday was the first person to <strong class="hl-q">recognise Perkin\'s ability</strong> as a student',
+        p: 'His <strong class="hl-p">talent and devotion were perceived by</strong> his teacher',
+        reveal: '<span class="mq">recognise ability</span> = <span class="mp">talent and devotion were perceived</span> — "seeing someone is talented" said formally.'
+      }
+    ],
+    quiz: {
+      title: 'Match the Phrases',
+      questions: [
+        {
+          q: 'Q: "<strong>fear of</strong> crime"<br>P: "<strong>perceptions of risk</strong> to do with traffic"',
+          prompt: '"Fear of" = "perceptions of risk" because:',
+          options: ['Same word family', 'Same synonym', 'Both describe: people think something is dangerous'],
+          correct: 2,
+          fb_ok: 'Yes! "Fear of" and "perceptions of risk" both describe the feeling that something is dangerous. That\'s a phrase swap — same situation, different words.',
+          fb_no: 'This isn\'t a single-word swap. "Fear of" (2 words, simple) = "perceptions of risk" (4 words, academic). Both describe people thinking something is dangerous. Phrase swap.'
+        },
+        {
+          q: 'Q: "research <strong>needs to study</strong> the impact"<br>P: "there is <strong>very little data on</strong> the impact"',
+          prompt: 'These phrases match because:',
+          options: ['If there is little data, you need more research', 'They use the same words', 'One is more specific than the other'],
+          correct: 0,
+          fb_ok: 'Exactly! "Needs to study" (= we don\'t know enough) and "very little data on" (= not much information exists) describe the same gap. Phrase swap.',
+          fb_no: '"Needs to study" and "very little data on" express the same gap in knowledge from different angles. If there\'s little data, you need to study more. Phrase swap.'
+        },
+        {
+          q: 'Q: "Children\'s play is seen as <strong>less significant nowadays</strong>"<br>P: "the importance of play <strong>has been lost</strong> in recent decades"',
+          prompt: 'Which trick is "less significant" → "has been lost"?',
+          options: ['Word family', 'Synonym swap', 'Phrase swap'],
+          correct: 2,
+          fb_ok: 'Correct! "Less significant" (importance reduced) = "has been lost" (importance gone). Neither is a single-word synonym — the whole idea is rephrased.',
+          fb_no: '"Less significant" is a two-word phrase. "Has been lost" is a three-word phrase. Neither shares roots or is a simple synonym. The whole idea is being rephrased = phrase swap.'
+        }
+      ]
+    }
+  },
+
+  // STEP 4: GENERAL / SPECIFIC
+  {
+    id: 't4',
+    num: 'T4',
+    numBg: 'var(--t4)',
+    title: 'General / Specific',
+    teach: [
+      { type: 'concept', label: 'WHAT IS IT?', html: 'Think of a <strong>box</strong> and the things inside it.<br><br>"Fruit" = the box (the <strong>general</strong> word — the whole group)<br>"Apple" = one thing inside (the <strong>specific</strong> word — one type)<br><br>IELTS uses the general word in one place and the specific word in the other. You must see that the specific thing <em>belongs inside</em> the general group.' },
+      { type: 'info', label: 'HOW TO SPOT IT', html: 'Watch for these signal words that often appear near General/Specific tricks:<div class="signal-tags"><span class="signal-tag">such as</span><span class="signal-tag">like</span><span class="signal-tag">including</span><span class="signal-tag">for example</span><span class="signal-tag">particularly</span></div>' },
+      { type: 'info', label: 'YOUR MOVE', html: '<ol class="steps-list"><li>Find the key word. Ask: "Is this a BIG GROUP or a SPECIFIC example?"</li><li>If the question is general → look in the passage for a specific example that fits inside it.</li><li>If the question is specific → look in the passage for the general group it belongs to.</li></ol>' },
+    ],
+    examples: [
+      {
+        label: 'QUESTION IS GENERAL → PASSAGE IS SPECIFIC',
+        source: 'Book 14',
+        q: 'The way a child plays may provide information about possible <strong class="hl-q">medical problems</strong>',
+        p: 'useful in the diagnosis of <strong class="hl-p">neurodevelopmental disorders like autism</strong>',
+        reveal: '<span class="mq">medical problems</span> (general — any health issue) → <span class="mp">neurodevelopmental disorders like autism</span> (specific — one type). Autism IS a medical problem.'
+      },
+      {
+        label: 'QUESTION IS SPECIFIC → PASSAGE IS GENERAL',
+        source: 'Book 14',
+        q: 'a description of how people <strong class="hl-q">misused</strong> a bike-sharing scheme',
+        p: 'the system was prone to <strong class="hl-p">vandalism and theft</strong>',
+        reveal: '<span class="mq">misused</span> (general — any bad use) → <span class="mp">vandalism and theft</span> (specific examples of misuse).'
+      }
+    ],
+    quiz: {
+      title: 'General or Specific?',
+      questions: [
+        {
+          q: 'Q: "a description of an early <strong>timekeeping invention</strong>"<br>P: "the <strong>water clock</strong> was designed to measure temporal hours"',
+          prompt: '"Timekeeping invention" and "water clock" — which is general?',
+          options: ['Timekeeping invention = general', 'Water clock = general'],
+          correct: 0,
+          fb_ok: 'Yes! "Timekeeping invention" is the big group. "Water clock" is one specific type inside that group.',
+          fb_no: '"Timekeeping invention" could be any device. "Water clock" is one particular device. The general word is "timekeeping invention."'
+        },
+        {
+          q: 'Q: "a change in people\'s <strong>attitudes</strong>"<br>P: "People had become more <strong>environmentally conscious</strong>"',
+          prompt: 'Which is general and which is specific?',
+          options: ['Attitudes = general, environmentally conscious = specific', 'Environmentally conscious = general, attitudes = specific'],
+          correct: 0,
+          fb_ok: 'Correct! "Attitudes" is the big box (any kind of attitude). "Environmentally conscious" is one specific type of attitude.',
+          fb_no: '"Attitudes" can mean many things. "Environmentally conscious" is one specific attitude. General → specific.'
+        },
+        {
+          q: 'Q: "animals" and P: "dogs" — is this a valid General/Specific match?<br>Q: "animals" and P: "food" — is this?',
+          prompt: 'Which connection works?',
+          options: ['Only animals → dogs', 'Only animals → food', 'Both work'],
+          correct: 0,
+          fb_ok: 'Correct! Dogs ARE animals (fits inside the box). But "food" is a completely different category — too loose. The specific must clearly BELONG INSIDE the general group.',
+          fb_no: 'Dogs clearly belong inside the "animals" group. But "food" is a different category — some animals can be food, but that\'s too loose a connection. Only dogs → animals works.'
+        }
+      ]
+    }
+  },
+
+  // STEP 5: STRUCTURE FLIP
+  {
+    id: 't5',
+    num: 'T5',
+    numBg: 'var(--t5)',
+    title: 'Structure Flip',
+    teach: [
+      { type: 'concept', label: 'WHAT IS IT?', html: 'The question and passage describe the <strong>exact same fact</strong>, but the sentence is built in a <strong>different shape</strong>.<br><br>This is harder because the sentence looks completely different even though it says the same thing. There are two common types:' },
+      { type: 'info', label: 'TYPE A: ACTION WORD → THING WORD', html: 'The question uses a <strong>doing word</strong> (verb). The passage turns it into a <strong>naming word</strong> (noun). Or the other way around.<br><br><span class="hl-q">"do well at school"</span> (doing phrase)<br>= <span class="hl-p">"academic performance"</span> (naming phrase)<br><br>Same idea, different word type.' },
+      { type: 'info', label: 'TYPE B: DIRECTION REVERSES', html: '"A causes B" and "B results from A" describe the same connection, but the sentence starts from a different end.<br><br><span class="hl-q">"populations have grown"</span> (focuses on the result)<br>= <span class="hl-p">"over half the people now live in cities"</span> (focuses on what happened)<br><br>Same reality, different angle.' },
+    ],
+    examples: [
+      {
+        label: 'EXAMPLE 1 — VERB → NOUN',
+        source: 'Book 14',
+        q: 'children are known to be likely to <strong class="hl-q">do well at school</strong>',
+        p: 'a key predictor of <strong class="hl-p">academic performance</strong>',
+        reveal: '<span class="mq">do well at school</span> (everyday verb phrase) = <span class="mp">academic performance</span> (academic noun). Same idea packed into a different word type.'
+      },
+      {
+        label: 'EXAMPLE 2 — DIRECTION REVERSES',
+        source: 'Book 9',
+        q: '<strong class="hl-q">Perkin employed Hofmann</strong> as his assistant',
+        p: 'Perkin <strong class="hl-p">became Hofmann\'s youngest assistant</strong>',
+        reveal: 'The question says Perkin hired Hofmann. The passage says Perkin worked FOR Hofmann. Completely opposite direction — and the answer is FALSE because the fact is wrong!'
+      }
+    ],
+    quiz: {
+      title: 'Same Fact, Different Shape?',
+      questions: [
+        {
+          q: 'Q: "<strong>populations</strong> of cities <strong>have grown</strong>"<br>P: "over half the <strong>people</strong> now <strong>live in</strong> cities"',
+          prompt: 'Why do these match?',
+          options: ['Synonym swap: populations = people', 'Structure flip: result vs cause', 'Both reasons together'],
+          correct: 2,
+          fb_ok: 'Exactly! "Populations" = "people" is a synonym swap AND "have grown" vs "live in" flips the direction (result vs situation). Hard questions combine tricks.',
+          fb_no: 'There are actually two things happening: "populations" = "people" (synonym) AND "have grown" vs "now live in" (flip from result to situation). Both together!'
+        },
+        {
+          q: 'Q: "an explanation of the <strong>potential savings</strong>"<br>P: "a white bicycle would <strong>cost only 10%</strong> of what it contributed"',
+          prompt: '"Potential savings" and "cost only 10%" are:',
+          options: ['Synonyms', 'Structure flip — same fact, different angle', 'Phrase swap'],
+          correct: 1,
+          fb_ok: 'Yes! "Savings" focuses on what you save. "Cost only 10%" focuses on how little you spend. Same financial fact described from two sides.',
+          fb_no: '"Savings" (what you save) and "cost only 10%" (how little you spend) describe the same financial fact from different angles. That\'s a structure flip.'
+        }
+      ]
+    }
+  },
+
+  // STEP 6: OPPOSITE + NEGATIVE
+  {
+    id: 't6',
+    num: 'T6',
+    numBg: 'var(--t6)',
+    title: 'Opposite + Negative',
+    teach: [
+      { type: 'concept', label: 'WHAT IS IT?', html: 'Instead of using the same word, IELTS uses the <strong>opposite word</strong> and adds a <strong>negative</strong>. The meaning stays the same — but it looks completely different.<br><br>"She is <strong>happy</strong>" = "She is <strong>not unhappy</strong>"<br>Same meaning! Positive word = negative + opposite.' },
+      { type: 'warning', label: 'WHY THIS MATTERS FOR TRUE/FALSE', html: '• Question says X, passage says X → <strong>TRUE</strong><br>• Question says X, passage says NOT X → <strong>FALSE</strong><br>• Question says NOT X, passage says NOT X → <strong>TRUE</strong> (double negative = positive!)<br><br><strong>Count the negatives.</strong> Same count = same meaning. Different count = opposite.' },
+      { type: 'info', label: 'HIDDEN NEGATIVES', html: 'Some words are negative without "not":<div class="signal-tags"><span class="signal-tag">lack / without / unable</span><span class="signal-tag">rarely / hardly / few / little</span><span class="signal-tag">fail / unlikely / absence</span><span class="signal-tag">never / scarcely / barely</span></div>"They lack evidence" = "They do NOT have evidence." Always check if a word carries a hidden negative.' },
+    ],
+    examples: [
+      {
+        label: 'EXAMPLE 1 — FALSE (opposite meaning)',
+        source: 'Book 14',
+        q: 'Children <strong class="hl-q">had problems</strong> thinking up ideas with Lego',
+        p: 'With the Lego building, however, <strong class="hl-p">not a single child</strong> said this',
+        reveal: '<span class="mq">had problems</span> (positive — problems existed) ≠ <span class="mp">not a single child</span> (negative — zero problems). OPPOSITE → FALSE.'
+      },
+      {
+        label: 'EXAMPLE 2 — FALSE (opposite meaning)',
+        source: 'Book 8',
+        q: 'Pilkington\'s first plant was an <strong class="hl-q">instant</strong> commercial success',
+        p: 'it took <strong class="hl-p">14 months</strong> of non-stop production before any usable glass was produced',
+        reveal: '<span class="mq">instant</span> (quick, immediate) ≠ <span class="mp">14 months</span> (very slow). The opposite of instant. FALSE.'
+      },
+      {
+        label: 'EXAMPLE 3 — TRUE (same charge)',
+        source: 'Book 9',
+        q: 'If a signal is received, it will be <strong class="hl-q">important to respond promptly</strong>',
+        p: 'It is <strong class="hl-p">not important</strong> if there\'s a <strong class="hl-p">delay</strong> of a few years',
+        reveal: 'Wait — "important to respond promptly" vs "NOT important if there\'s a delay." Promptly = no delay. NOT important + delay = opposite of the question → FALSE.'
+      }
+    ],
+    quiz: {
+      title: 'Count the Negatives',
+      questions: [
+        {
+          q: 'Q: "There were <strong>many similarities</strong> between their styles"<br>P: "their styles were <strong>quite different</strong>"',
+          prompt: 'Same meaning or opposite?',
+          options: ['Same meaning → TRUE', 'Opposite → FALSE'],
+          correct: 1,
+          fb_ok: 'Correct! "Many similarities" (positive) vs "quite different" (no similarities). Opposite → FALSE.',
+          fb_no: '"Many similarities" and "quite different" are opposites. If things are different, they don\'t have similarities. FALSE.'
+        },
+        {
+          q: 'Q: "People\'s expectations are <strong>universal</strong>"<br>P: "expectations that <strong>differ</strong> and are a function of <strong>culture</strong>"',
+          prompt: '"Universal" vs "differ / function of culture":',
+          options: ['Same meaning → TRUE', 'Opposite → FALSE'],
+          correct: 1,
+          fb_ok: 'Yes! "Universal" = same everywhere. "Differ / function of culture" = different in each culture. These are exact opposites → FALSE.',
+          fb_no: '"Universal" means the same everywhere. "Differ" means not the same. "Function of culture" means it changes by culture. These are opposites → FALSE.'
+        },
+        {
+          q: '"They <strong>lack</strong> evidence" — how many negatives?',
+          prompt: '',
+          options: ['Zero — "lack" is not negative', 'One — "lack" is a hidden negative'],
+          correct: 1,
+          fb_ok: 'Correct! "Lack" = "do not have." It carries a hidden negative. Always watch for words like lack, fail, rarely, hardly.',
+          fb_no: '"Lack" means "do not have" — it IS a hidden negative. "They lack evidence" = "They do NOT have evidence." One negative.'
+        }
+      ]
+    }
+  },
+
+  // STEP 7: MIXED QUIZ
+  {
+    id: 'mixed',
+    num: '★',
+    numBg: '#D97706',
+    title: 'Mixed Challenge — Name the Trick',
+    teach: [
+      { type: 'concept', label: 'THE REAL TEST', html: 'In the real IELTS exam, nobody tells you which trick to look for. You must identify it yourself.<br><br>Look at each pair below. First find the matching words, then name the trick.' }
+    ],
+    examples: [],
+    quiz: {
+      title: '10 Questions — No Hints',
+      questions: [
+        { q: 'Q: "play has been <strong>lost</strong>"<br>P: "play is <strong>trivial</strong>"', prompt: 'Which trick?', options: ['T1 Word Family','T2 Synonym','T3 Phrase','T6 Opposite+Neg'], correct: 1, fb_ok: '"Lost/trivial" = both mean "not valued." Synonym swap.', fb_no: '"Lost" and "trivial" both describe something not valued. Different words, same meaning = T2 Synonym.' },
+        { q: 'Q: "<strong>photographed</strong> the railway"<br>P: "took <strong>photographs</strong> of the mountains"', prompt: 'Which trick?', options: ['T1 Word Family','T2 Synonym','T3 Phrase','T5 Structure'], correct: 0, fb_ok: '"Photographed" (verb) → "photographs" (noun). Same root = T1.', fb_no: '"Photograph-ed" and "photograph-s" share the root "photograph." Same root, different form = T1 Word Family.' },
+        { q: 'Q: "<strong>fear of</strong> crime"<br>P: "<strong>perceptions of risk</strong>"', prompt: 'Which trick?', options: ['T2 Synonym','T3 Phrase','T4 Gen/Spec','T6 Opposite+Neg'], correct: 1, fb_ok: '"Fear of" = "perceptions of risk." Whole phrase replaced = T3.', fb_no: 'Two words → four words, both describing "people think something is dangerous." Phrase swap = T3.' },
+        { q: 'Q: "<strong>medical problems</strong>"<br>P: "<strong>neurodevelopmental disorders like autism</strong>"', prompt: 'Which trick?', options: ['T2 Synonym','T3 Phrase','T4 Gen/Spec','T5 Structure'], correct: 2, fb_ok: '"Medical problems" is the big group. "Autism" is one specific type inside it = T4.', fb_no: '"Medical problems" is the general category. "Neurodevelopmental disorders" is a specific type = T4 General/Specific.' },
+        { q: 'Q: "<strong>do well at school</strong>"<br>P: "<strong>academic performance</strong>"', prompt: 'Which trick?', options: ['T1 Word Family','T2 Synonym','T5 Structure','T6 Opposite+Neg'], correct: 2, fb_ok: 'Verb phrase → noun phrase. Same fact, different shape = T5 Structure Flip.', fb_no: '"Do well" (verb, everyday) → "performance" (noun, academic). Same fact repacked into different grammar = T5.' },
+        { q: 'Q: "<strong>instant</strong> success"<br>P: "took <strong>14 months</strong>"', prompt: 'Which trick?', options: ['T2 Synonym','T3 Phrase','T5 Structure','T6 Opposite+Neg'], correct: 3, fb_ok: '"Instant" vs "14 months" = opposite meanings → FALSE. T6 Opposite.', fb_no: '"Instant" means immediate. "14 months" is the opposite of instant. Opposite meaning = T6.' },
+        { q: 'Q: "people <strong>misused</strong> the scheme"<br>P: "<strong>vandalism and theft</strong>"', prompt: 'Which trick?', options: ['T2 Synonym','T3 Phrase','T4 Gen/Spec','T5 Structure'], correct: 2, fb_ok: '"Misused" is the general group. "Vandalism and theft" are specific examples = T4.', fb_no: '"Misused" is a broad term. "Vandalism and theft" are specific types of misuse = T4 General/Specific.' },
+        { q: 'Q: "<strong>withdrew support</strong>"<br>P: "<strong>lost interest</strong>"', prompt: 'Which trick?', options: ['T1 Word Family','T2 Synonym','T3 Phrase','T4 Gen/Spec'], correct: 2, fb_ok: '"Withdrew support" = "lost interest." Two different phrases for the same idea = T3.', fb_no: '"Withdrew support" and "lost interest" are different phrases describing the same action (stopped helping) = T3 Phrase Swap.' },
+        { q: 'Q: "children <strong>need</strong> toys to play"<br>P: "children play even when they have <strong>no</strong> real toys"', prompt: 'TRUE or FALSE?', options: ['TRUE','FALSE','NOT GIVEN'], correct: 1, fb_ok: '"Need toys" vs "play even without toys" = opposite → FALSE.', fb_no: 'The question says toys are needed. The passage says children play WITHOUT them. Opposite → FALSE.' },
+        { q: 'Q: "<strong>age groups</strong>"<br>P: "<strong>age ranges</strong>"', prompt: 'Which trick?', options: ['T1 Word Family','T2 Synonym','T3 Phrase','T4 Gen/Spec'], correct: 1, fb_ok: '"Groups" and "ranges" are synonyms = T2.', fb_no: '"Groups" → "ranges" — different words, same meaning. Simple synonym swap = T2.' }
+      ]
+    }
+  },
+
+  // STEP 8: BRIDGE
+  {
+    id: 'bridge',
+    num: '→',
+    numBg: 'var(--match-color)',
+    title: 'You\'re Ready to Train',
+    teach: [
+      { type: 'strategy', label: 'WHAT YOU\'VE LEARNED', html: 'You now know all 6 tricks IELTS uses to disguise answers. You know the most important rule: <strong>same topic ≠ same meaning</strong>. And you can identify tricks without being told which one to look for.' },
+      { type: 'concept', label: 'WHAT\'S NEXT', html: 'The <strong>Paraphrase Trainer</strong> has 1,211 real Cambridge pairs from Books 8–16. Every pair is tagged with which tricks are used.<br><br>Start with <strong>easy pairs</strong> (single trick). The tool will unlock harder pairs (2-3 tricks combined) as your accuracy improves.<br><br>Use <strong>Evidence Match</strong> mode — it forces you to point at the matching words, not just guess.' }
+    ],
+    examples: [],
+    quiz: null
+  }
+];
+
+/* ============================================================
+   STATE
+   ============================================================ */
+const LEARN_KEY = 'ielts_learn_progress';
+let progress = loadProgress();
+
+function loadProgress() {
+  try {
+    const raw = localStorage.getItem(LEARN_KEY);
+    if (raw) return JSON.parse(raw);
+  } catch(e) {}
+  return { completedSteps: [], currentStep: 0 };
+}
+
+function saveProgress() {
+  try { localStorage.setItem(LEARN_KEY, JSON.stringify(progress)); } catch(e) {}
+}
+
+function isStepUnlocked(idx) {
+  if (idx === 0) return true;
+  return progress.completedSteps.includes(idx - 1);
+}
+
+function isStepCompleted(idx) {
+  return progress.completedSteps.includes(idx);
+}
+
+function completeStep(idx) {
+  if (!progress.completedSteps.includes(idx)) {
+    progress.completedSteps.push(idx);
+  }
+  if (idx < STEPS.length - 1) progress.currentStep = idx + 1;
+  saveProgress();
+}
+
+/* ============================================================
+   QUIZ STATE
+   ============================================================ */
+let quizState = {};
+
+function resetQuizState(stepIdx) {
+  const step = STEPS[stepIdx];
+  if (!step.quiz) return;
+  quizState = {
+    stepIdx,
+    answers: new Array(step.quiz.questions.length).fill(-1),
+    submitted: false,
+    score: 0
+  };
+}
+
+/* ============================================================
+   RENDER
+   ============================================================ */
+function render() {
+  renderProgressBar();
+  renderStep(progress.currentStep);
+}
+
+function renderProgressBar() {
+  const bar = document.getElementById('progressBar');
+  let html = '';
+  STEPS.forEach((step, i) => {
+    const cls = isStepCompleted(i) ? 'done' : (i === progress.currentStep ? 'active' : 'locked');
+    html += '<div class="prog-dot ' + cls + '" data-step="' + i + '" style="cursor:' + (isStepUnlocked(i) ? 'pointer' : 'default') + ';" title="' + step.title + '"></div>';
+  });
+  bar.innerHTML = html;
+  bar.querySelectorAll('.prog-dot').forEach(dot => {
+    dot.addEventListener('click', () => {
+      const idx = parseInt(dot.dataset.step);
+      if (isStepUnlocked(idx)) {
+        progress.currentStep = idx;
+        resetQuizState(idx);
+        render();
+        window.scrollTo(0, 0);
+      }
+    });
+  });
+}
+
+function renderStep(idx) {
+  const step = STEPS[idx];
+  const main = document.getElementById('mainContent');
+
+  if (!isStepUnlocked(idx)) {
+    main.innerHTML = '<div class="step-card"><div class="step-body"><div class="locked-msg"><div class="lock-icon">🔒</div>Complete Step ' + (idx - 1) + ' first to unlock this step.</div></div></div>';
+    return;
+  }
+
+  // Bridge step (final)
+  if (step.id === 'bridge') {
+    let html = '<div class="step-card"><div class="step-header"><span class="step-num" style="background:' + step.numBg + '">' + step.num + '</span><span class="step-title">' + step.title + '</span></div><div class="step-body">';
+    step.teach.forEach(t => { html += '<div class="teach-box ' + t.type + '"><span class="teach-label">' + t.label + '</span>' + t.html + '</div>'; });
+    html += '<div class="btn-row"><a href="../paraphrase/" class="btn btn-primary" style="text-decoration:none;font-size:1rem;padding:0.75rem 2rem;">Start Training →</a></div>';
+    html += '<div style="text-align:center;margin-top:0.75rem;"><a href="../paraphrase/?filter=T1" style="color:var(--t1);font-size:0.78rem;margin:0 0.3rem;">Practise T1</a><a href="../paraphrase/?filter=T2" style="color:var(--t2);font-size:0.78rem;margin:0 0.3rem;">T2</a><a href="../paraphrase/?filter=T3" style="color:var(--t3);font-size:0.78rem;margin:0 0.3rem;">T3</a><a href="../paraphrase/?filter=T4" style="color:var(--t4);font-size:0.78rem;margin:0 0.3rem;">T4</a><a href="../paraphrase/?filter=T5" style="color:var(--t5);font-size:0.78rem;margin:0 0.3rem;">T5</a><a href="../paraphrase/?filter=T6" style="color:var(--t6);font-size:0.78rem;margin:0 0.3rem;">T6</a></div>';
+    html += '</div></div>';
+    if (!isStepCompleted(idx)) completeStep(idx);
+    main.innerHTML = html;
+    renderProgressBar();
+    return;
+  }
+
+  resetQuizState(idx);
+
+  let html = '<div class="step-card"><div class="step-header"><span class="step-num" style="background:' + step.numBg + '">' + step.num + '</span><span class="step-title">' + step.title + '</span></div><div class="step-body">';
+
+  // Teaching content
+  step.teach.forEach(t => {
+    html += '<div class="teach-box ' + t.type + '"><span class="teach-label">' + t.label + '</span>' + t.html + '</div>';
+  });
+
+  // Examples
+  step.examples.forEach(ex => {
+    html += '<div class="example-pair"><div class="ex-label">' + ex.label + '<span class="ex-source">' + ex.source + '</span></div>';
+    html += '<div class="phrase-q">' + ex.q + '</div>';
+    html += '<div class="phrase-p">' + ex.p + '</div>';
+    html += '<div class="match-reveal">↳ ' + ex.reveal + '</div></div>';
+  });
+
+  // Quiz
+  if (step.quiz) {
+    html += '<div class="quiz-zone" id="quizZone"><div class="quiz-title">' + step.quiz.title + '</div>';
+    step.quiz.questions.forEach((q, qi) => {
+      html += '<div class="quiz-q" id="qq' + qi + '"><div class="quiz-q-num">Q' + (qi+1) + '</div>';
+      html += '<div style="font-size:0.88rem;line-height:1.6;">' + q.q + '</div>';
+      if (q.prompt) html += '<div style="font-size:0.82rem;color:var(--text-dim);margin-top:0.3rem;">' + q.prompt + '</div>';
+      html += '<div class="quiz-options" id="qopts' + qi + '">';
+      q.options.forEach((opt, oi) => {
+        html += '<button class="quiz-opt" data-qi="' + qi + '" data-oi="' + oi + '">' + opt + '</button>';
+      });
+      html += '</div>';
+      html += '<div class="quiz-fb" id="qfb' + qi + '"></div>';
+      html += '</div>';
+    });
+    html += '<div class="btn-row" id="quizSubmitRow"><button class="btn btn-primary" id="quizCheckBtn" disabled>Check Answers</button></div>';
+    html += '<div class="btn-row" id="quizNextRow" style="display:none;"><button class="btn btn-primary" id="quizNextBtn">Continue →</button></div>';
+    html += '</div>';
+  }
+
+  html += '</div></div>';
+  main.innerHTML = html;
+
+  // Wire quiz events
+  if (step.quiz) wireQuiz(idx);
+}
+
+function wireQuiz(stepIdx) {
+  const step = STEPS[stepIdx];
+  const qs = step.quiz.questions;
+
+  // Option clicks
+  document.querySelectorAll('.quiz-opt').forEach(btn => {
+    btn.addEventListener('click', () => {
+      if (quizState.submitted) return;
+      const qi = parseInt(btn.dataset.qi);
+      const oi = parseInt(btn.dataset.oi);
+      quizState.answers[qi] = oi;
+
+      // Update selection visual
+      document.querySelectorAll('#qopts' + qi + ' .quiz-opt').forEach(b => b.classList.remove('selected'));
+      btn.classList.add('selected');
+
+      // Enable check button if all answered
+      const allAnswered = quizState.answers.every(a => a >= 0);
+      document.getElementById('quizCheckBtn').disabled = !allAnswered;
+    });
+  });
+
+  // Check button
+  document.getElementById('quizCheckBtn').addEventListener('click', () => {
+    if (quizState.submitted) return;
+    quizState.submitted = true;
+    let score = 0;
+
+    qs.forEach((q, qi) => {
+      const userAnswer = quizState.answers[qi];
+      const isCorrect = userAnswer === q.correct;
+      if (isCorrect) score++;
+
+      // Disable all options and show result
+      document.querySelectorAll('#qopts' + qi + ' .quiz-opt').forEach((b, oi) => {
+        b.disabled = true;
+        if (oi === q.correct) b.classList.add('correct');
+        if (oi === userAnswer && !isCorrect) b.classList.add('wrong');
+      });
+
+      // Show feedback
+      const fb = document.getElementById('qfb' + qi);
+      fb.className = 'quiz-fb show ' + (isCorrect ? 'ok' : 'nope');
+      fb.innerHTML = isCorrect ? q.fb_ok : q.fb_no;
+    });
+
+    quizState.score = score;
+    document.getElementById('quizSubmitRow').style.display = 'none';
+
+    // Need 2/3 (or for mixed: 7/10) to pass
+    const threshold = qs.length > 5 ? Math.ceil(qs.length * 0.7) : Math.ceil(qs.length * 0.66);
+    const passed = score >= threshold;
+
+    const nextRow = document.getElementById('quizNextRow');
+    nextRow.style.display = '';
+    const nextBtn = document.getElementById('quizNextBtn');
+
+    if (passed) {
+      completeStep(stepIdx);
+      renderProgressBar();
+      nextBtn.textContent = stepIdx < STEPS.length - 1 ? 'Continue →' : 'Finish!';
+      nextBtn.addEventListener('click', () => {
+        progress.currentStep = Math.min(stepIdx + 1, STEPS.length - 1);
+        saveProgress();
+        render();
+        window.scrollTo(0, 0);
+      });
+    } else {
+      nextBtn.textContent = 'Try Again (' + score + '/' + qs.length + ')';
+      nextBtn.classList.remove('btn-primary');
+      nextBtn.classList.add('btn-outline');
+      nextBtn.addEventListener('click', () => {
+        resetQuizState(stepIdx);
+        renderStep(stepIdx);
+        window.scrollTo(0, document.getElementById('quizZone') ? document.getElementById('quizZone').offsetTop - 60 : 0);
+      });
+    }
+  });
+}
+
+/* ============================================================
+   INIT
+   ============================================================ */
+render();
+</script>
+</body>
+</html>
