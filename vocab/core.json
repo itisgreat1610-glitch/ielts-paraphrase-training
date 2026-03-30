@@ -1,0 +1,5378 @@
+{
+  "version": "1.0",
+  "level": 1,
+  "count": 118,
+  "words": [
+    {
+      "id": "w001",
+      "word": "research",
+      "awl_sub": 1,
+      "rank": 1,
+      "freq": 297,
+      "spread": 11,
+      "tier": 1,
+      "level": 1,
+      "bridge": true,
+      "forms": [
+        "research",
+        "researchers",
+        "researcher",
+        "researched",
+        "researching"
+      ],
+      "def": "a careful study to find new facts or understand something better",
+      "ex": "After months of research, the scientist discovered that cats sleep 16 hours a day — something cat owners already knew.",
+      "collocations": {
+        "verb_obj": [
+          "conduct research",
+          "carry out research",
+          "do research"
+        ],
+        "adj_noun": [
+          "scientific research",
+          "extensive research",
+          "previous research"
+        ],
+        "noun_verb": [
+          "research shows",
+          "research suggests",
+          "research indicates"
+        ]
+      },
+      "frames": [
+        "Research suggests that ___.",
+        "Extensive research has been conducted on ___.",
+        "According to recent research, ___."
+      ],
+      "distractors": [
+        "resource",
+        "reserve",
+        "restore"
+      ]
+    },
+    {
+      "id": "w002",
+      "word": "environment",
+      "awl_sub": 1,
+      "rank": 2,
+      "freq": 144,
+      "spread": 11,
+      "tier": 1,
+      "level": 1,
+      "bridge": true,
+      "forms": [
+        "environment",
+        "environmental",
+        "environments",
+        "environmentally"
+      ],
+      "def": "the natural world around us, or the conditions that affect how you live or work",
+      "ex": "The classroom environment was so cold that students wore jackets, scarves, and angry faces.",
+      "collocations": {
+        "adj_noun": [
+          "natural environment",
+          "urban environment",
+          "learning environment"
+        ],
+        "verb_obj": [
+          "protect the environment",
+          "damage the environment",
+          "adapt to the environment"
+        ],
+        "noun_noun": [
+          "environment and health",
+          "work environment"
+        ]
+      },
+      "frames": [
+        "The ___ has a significant impact on the environment.",
+        "In order to protect the environment, ___.",
+        "The learning environment plays a crucial role in ___."
+      ],
+      "distractors": [
+        "entertainment",
+        "equipment",
+        "enrolment"
+      ]
+    },
+    {
+      "id": "w003",
+      "word": "process",
+      "awl_sub": 1,
+      "rank": 3,
+      "freq": 127,
+      "spread": 11,
+      "tier": 1,
+      "level": 1,
+      "bridge": true,
+      "forms": [
+        "process",
+        "processes",
+        "processing",
+        "processed"
+      ],
+      "def": "a series of steps or actions done to reach a result",
+      "ex": "The process of making coffee is simple: boil water, add coffee, pretend you're not tired.",
+      "collocations": {
+        "adj_noun": [
+          "learning process",
+          "natural process",
+          "decision-making process"
+        ],
+        "verb_obj": [
+          "speed up the process",
+          "go through a process",
+          "complete the process"
+        ],
+        "noun_prep": [
+          "process of elimination",
+          "process of development"
+        ]
+      },
+      "frames": [
+        "The process of ___ involves several stages.",
+        "This is a natural process that occurs when ___.",
+        "In order to speed up the process, ___."
+      ],
+      "distractors": [
+        "progress",
+        "produce",
+        "protect"
+      ]
+    },
+    {
+      "id": "w004",
+      "word": "vary",
+      "awl_sub": 1,
+      "rank": 4,
+      "freq": 127,
+      "spread": 11,
+      "tier": 1,
+      "level": 1,
+      "bridge": true,
+      "forms": [
+        "various",
+        "variety",
+        "vary",
+        "varied",
+        "variation"
+      ],
+      "def": "to be different from each other, or to change",
+      "ex": "Exam scores vary from student to student — some get 9, some get 4, and some get creative excuses.",
+      "collocations": {
+        "adv_verb": [
+          "vary considerably",
+          "vary significantly",
+          "vary widely"
+        ],
+        "verb_prep": [
+          "vary from place to place",
+          "vary according to",
+          "vary depending on"
+        ],
+        "adj_noun": [
+          "various factors",
+          "a wide variety of"
+        ]
+      },
+      "frames": [
+        "Results vary depending on ___.",
+        "There is a wide variety of ___.",
+        "Opinions vary considerably on the topic of ___."
+      ],
+      "distractors": [
+        "verify",
+        "value",
+        "version"
+      ]
+    },
+    {
+      "id": "w005",
+      "word": "theory",
+      "awl_sub": 1,
+      "rank": 5,
+      "freq": 114,
+      "spread": 11,
+      "tier": 1,
+      "level": 1,
+      "bridge": true,
+      "forms": [
+        "theory",
+        "theories",
+        "theoretical",
+        "theoretically"
+      ],
+      "def": "an idea that tries to explain why something happens or how something works",
+      "ex": "In theory, studying every day should improve your score. In practice, Netflix keeps getting in the way.",
+      "collocations": {
+        "adj_noun": [
+          "scientific theory",
+          "economic theory",
+          "evolutionary theory"
+        ],
+        "verb_obj": [
+          "develop a theory",
+          "support a theory",
+          "test a theory"
+        ],
+        "prep_phrase": [
+          "in theory",
+          "theory of evolution",
+          "theory and practice"
+        ]
+      },
+      "frames": [
+        "According to this theory, ___.",
+        "In theory, ___, but in practice, ___.",
+        "The theory suggests that ___."
+      ],
+      "distractors": [
+        "therapy",
+        "thereby",
+        "threat"
+      ]
+    },
+    {
+      "id": "w006",
+      "word": "design",
+      "awl_sub": 2,
+      "rank": 6,
+      "freq": 109,
+      "spread": 11,
+      "tier": 1,
+      "level": 1,
+      "bridge": true,
+      "forms": [
+        "design",
+        "designed",
+        "designs",
+        "designing",
+        "designer"
+      ],
+      "def": "to plan and make something, or the way something is planned and made",
+      "ex": "The building was designed to look like a boat, but most people thought it looked like a shoe.",
+      "collocations": {
+        "verb_obj": [
+          "design a system",
+          "design a building",
+          "design a study"
+        ],
+        "adj_noun": [
+          "original design",
+          "product design",
+          "research design"
+        ],
+        "adv_adj": [
+          "specifically designed",
+          "well-designed",
+          "poorly designed"
+        ]
+      },
+      "frames": [
+        "The study was designed to ___.",
+        "This was specifically designed for ___.",
+        "The original design included ___."
+      ],
+      "distractors": [
+        "desire",
+        "despite",
+        "detail"
+      ]
+    },
+    {
+      "id": "w007",
+      "word": "involve",
+      "awl_sub": 1,
+      "rank": 7,
+      "freq": 101,
+      "spread": 11,
+      "tier": 1,
+      "level": 1,
+      "bridge": true,
+      "forms": [
+        "involved",
+        "involve",
+        "involves",
+        "involving",
+        "involvement"
+      ],
+      "def": "to include something as a necessary part, or to make someone take part",
+      "ex": "The job involves answering phones, making coffee, and pretending to look busy.",
+      "collocations": {
+        "adv_verb": [
+          "actively involved",
+          "directly involved",
+          "closely involved"
+        ],
+        "verb_prep": [
+          "involve in",
+          "involved with",
+          "involved in the process"
+        ],
+        "noun_noun": [
+          "involvement in",
+          "community involvement"
+        ]
+      },
+      "frames": [
+        "The project involves ___.",
+        "Students are actively involved in ___.",
+        "This would involve making changes to ___."
+      ],
+      "distractors": [
+        "evolve",
+        "improve",
+        "invite"
+      ]
+    },
+    {
+      "id": "w008",
+      "word": "technology",
+      "awl_sub": 3,
+      "rank": 8,
+      "freq": 96,
+      "spread": 11,
+      "tier": 1,
+      "level": 1,
+      "bridge": true,
+      "forms": [
+        "technology",
+        "technologies",
+        "technological"
+      ],
+      "def": "machines, tools, and scientific knowledge used to solve problems or do things",
+      "ex": "Thanks to modern technology, you can video-call your grandmother — and she can accidentally hang up on you.",
+      "collocations": {
+        "adj_noun": [
+          "modern technology",
+          "advanced technology",
+          "information technology"
+        ],
+        "verb_obj": [
+          "use technology",
+          "develop technology",
+          "adopt new technology"
+        ],
+        "noun_noun": [
+          "technology and education",
+          "technological change",
+          "technological advancement"
+        ]
+      },
+      "frames": [
+        "Modern technology has made it possible to ___.",
+        "Advances in technology have led to ___.",
+        "The use of technology in ___ has increased significantly."
+      ],
+      "distractors": [
+        "technique",
+        "technical",
+        "tendency"
+      ]
+    },
+    {
+      "id": "w009",
+      "word": "achieve",
+      "awl_sub": 2,
+      "rank": 9,
+      "freq": 84,
+      "spread": 11,
+      "tier": 1,
+      "level": 1,
+      "bridge": true,
+      "forms": [
+        "achieve",
+        "achieved",
+        "achievement",
+        "achievements",
+        "achieving"
+      ],
+      "def": "to succeed in doing something, especially after a lot of effort",
+      "ex": "She achieved the highest score in the class — by studying every night while her friends watched TV.",
+      "collocations": {
+        "verb_obj": [
+          "achieve a goal",
+          "achieve success",
+          "achieve results"
+        ],
+        "adj_noun": [
+          "major achievement",
+          "remarkable achievement",
+          "academic achievement"
+        ],
+        "adv_verb": [
+          "successfully achieved",
+          "difficult to achieve"
+        ]
+      },
+      "frames": [
+        "In order to achieve ___, it is necessary to ___.",
+        "This is a remarkable achievement because ___.",
+        "The goal of ___ was finally achieved when ___."
+      ],
+      "distractors": [
+        "attach",
+        "attract",
+        "attempt"
+      ]
+    },
+    {
+      "id": "w010",
+      "word": "approach",
+      "awl_sub": 1,
+      "rank": 10,
+      "freq": 79,
+      "spread": 11,
+      "tier": 1,
+      "level": 1,
+      "bridge": true,
+      "forms": [
+        "approach",
+        "approaches",
+        "approached",
+        "approaching"
+      ],
+      "def": "a way of dealing with a problem or situation",
+      "ex": "His approach to cooking was unique: open the fridge, look inside, close the fridge, order pizza.",
+      "collocations": {
+        "adj_noun": [
+          "different approach",
+          "new approach",
+          "holistic approach"
+        ],
+        "verb_obj": [
+          "adopt an approach",
+          "take an approach",
+          "develop an approach"
+        ],
+        "prep_phrase": [
+          "approach to learning",
+          "approach to the problem"
+        ]
+      },
+      "frames": [
+        "A different approach to ___ would be to ___.",
+        "The most effective approach is to ___.",
+        "This approach has several advantages, including ___."
+      ],
+      "distractors": [
+        "approve",
+        "appeal",
+        "appear"
+      ]
+    },
+    {
+      "id": "w011",
+      "word": "evidence",
+      "awl_sub": 1,
+      "rank": 11,
+      "freq": 78,
+      "spread": 11,
+      "tier": 1,
+      "level": 1,
+      "bridge": true,
+      "forms": [
+        "evidence",
+        "evident",
+        "evidently"
+      ],
+      "def": "facts or signs that show something is true or exists",
+      "ex": "The evidence was clear: muddy footprints, an open cookie jar, and a guilty-looking dog.",
+      "collocations": {
+        "adj_noun": [
+          "strong evidence",
+          "scientific evidence",
+          "clear evidence"
+        ],
+        "verb_obj": [
+          "provide evidence",
+          "find evidence",
+          "present evidence"
+        ],
+        "noun_verb": [
+          "evidence suggests",
+          "evidence shows",
+          "evidence indicates"
+        ]
+      },
+      "frames": [
+        "There is strong evidence that ___.",
+        "The evidence suggests that ___.",
+        "Based on the available evidence, ___."
+      ],
+      "distractors": [
+        "event",
+        "eventual",
+        "evaluate"
+      ]
+    },
+    {
+      "id": "w012",
+      "word": "significant",
+      "awl_sub": 1,
+      "rank": 12,
+      "freq": 77,
+      "spread": 11,
+      "tier": 1,
+      "level": 1,
+      "bridge": true,
+      "forms": [
+        "significant",
+        "significantly",
+        "significance"
+      ],
+      "def": "important enough to notice or have an effect",
+      "ex": "There was a significant increase in ice cream sales — probably because summer arrived.",
+      "collocations": {
+        "adj_noun": [
+          "significant impact",
+          "significant difference",
+          "significant role",
+          "significant change"
+        ],
+        "adv_adj": [
+          "statistically significant",
+          "particularly significant",
+          "highly significant"
+        ],
+        "verb_obj": [
+          "play a significant role",
+          "have a significant effect"
+        ]
+      },
+      "frames": [
+        "This has a significant impact on ___.",
+        "There is a significant difference between ___ and ___.",
+        "One particularly significant factor is ___."
+      ],
+      "distractors": [
+        "similar",
+        "signal",
+        "singular"
+      ]
+    },
+    {
+      "id": "w013",
+      "word": "benefit",
+      "awl_sub": 1,
+      "rank": 13,
+      "freq": 74,
+      "spread": 11,
+      "tier": 1,
+      "level": 1,
+      "bridge": true,
+      "forms": [
+        "benefit",
+        "benefits",
+        "beneficial"
+      ],
+      "def": "a good result or advantage that comes from something",
+      "ex": "One benefit of learning English is that you can understand song lyrics — and realise they make no sense.",
+      "collocations": {
+        "adj_noun": [
+          "main benefit",
+          "potential benefit",
+          "mutual benefit"
+        ],
+        "verb_prep": [
+          "benefit from",
+          "benefit greatly from"
+        ],
+        "adj_phrase": [
+          "beneficial to",
+          "beneficial for",
+          "beneficial effect"
+        ]
+      },
+      "frames": [
+        "One of the main benefits of ___ is ___.",
+        "Students can benefit greatly from ___.",
+        "This would be beneficial for ___."
+      ],
+      "distractors": [
+        "beneath",
+        "beside",
+        "behalf"
+      ]
+    },
+    {
+      "id": "w014",
+      "word": "require",
+      "awl_sub": 1,
+      "rank": 14,
+      "freq": 72,
+      "spread": 11,
+      "tier": 1,
+      "level": 1,
+      "bridge": true,
+      "forms": [
+        "required",
+        "require",
+        "requirements",
+        "requiring",
+        "requires",
+        "requirement"
+      ],
+      "def": "to need something, or to say that something must be done",
+      "ex": "The exam requires a pencil, an eraser, and a strong desire to survive.",
+      "collocations": {
+        "adv_verb": [
+          "urgently required",
+          "no longer required",
+          "legally required"
+        ],
+        "verb_obj": [
+          "require attention",
+          "require skills",
+          "require effort"
+        ],
+        "noun_noun": [
+          "requirement for",
+          "basic requirement",
+          "legal requirement"
+        ]
+      },
+      "frames": [
+        "This requires a great deal of ___.",
+        "Students are required to ___.",
+        "One of the basic requirements is ___."
+      ],
+      "distractors": [
+        "request",
+        "respect",
+        "respond"
+      ]
+    },
+    {
+      "id": "w015",
+      "word": "section",
+      "awl_sub": 1,
+      "rank": 15,
+      "freq": 71,
+      "spread": 11,
+      "tier": 1,
+      "level": 1,
+      "bridge": true,
+      "forms": [
+        "section",
+        "sections"
+      ],
+      "def": "a separate part of something larger",
+      "ex": "The reading section of IELTS has three passages — each one longer and harder than the last.",
+      "collocations": {
+        "adj_noun": [
+          "final section",
+          "main section",
+          "previous section"
+        ],
+        "noun_prep": [
+          "section of the report",
+          "section of the population"
+        ],
+        "verb_obj": [
+          "complete a section",
+          "divide into sections"
+        ]
+      },
+      "frames": [
+        "This section focuses on ___.",
+        "As mentioned in the previous section, ___.",
+        "The final section deals with ___."
+      ],
+      "distractors": [
+        "selection",
+        "session",
+        "sector"
+      ]
+    },
+    {
+      "id": "w016",
+      "word": "major",
+      "awl_sub": 1,
+      "rank": 16,
+      "freq": 70,
+      "spread": 11,
+      "tier": 1,
+      "level": 1,
+      "bridge": true,
+      "forms": [
+        "major",
+        "majority",
+        "majors"
+      ],
+      "def": "very important or very large",
+      "ex": "A major problem with alarm clocks is that they work exactly when you don't want them to.",
+      "collocations": {
+        "adj_noun": [
+          "major factor",
+          "major role",
+          "major change",
+          "major problem"
+        ],
+        "noun_phrase": [
+          "the majority of",
+          "a major concern"
+        ],
+        "verb_phrase": [
+          "play a major role in",
+          "become a major concern",
+          "represent a major change"
+        ]
+      },
+      "frames": [
+        "___ is a major factor in ___.",
+        "The majority of people believe that ___.",
+        "This plays a major role in ___."
+      ],
+      "distractors": [
+        "mature",
+        "manner",
+        "matter"
+      ]
+    },
+    {
+      "id": "w017",
+      "word": "consider",
+      "awl_sub": 3,
+      "rank": 17,
+      "freq": 70,
+      "spread": 11,
+      "tier": 1,
+      "level": 1,
+      "bridge": true,
+      "forms": [
+        "considered",
+        "consider",
+        "considerable",
+        "consideration",
+        "considers"
+      ],
+      "def": "to think about something carefully before deciding",
+      "ex": "Before answering, consider this: is the question asking what you think, or what the passage says?",
+      "collocations": {
+        "adv_verb": [
+          "carefully consider",
+          "widely considered",
+          "generally considered"
+        ],
+        "adj_noun": [
+          "considerable amount",
+          "considerable effort",
+          "considerable impact"
+        ],
+        "verb_prep": [
+          "consider as",
+          "considered to be"
+        ]
+      },
+      "frames": [
+        "It is widely considered that ___.",
+        "A considerable amount of ___ is needed to ___.",
+        "When considering ___, it is important to ___."
+      ],
+      "distractors": [
+        "consist",
+        "consume",
+        "contain"
+      ]
+    },
+    {
+      "id": "w018",
+      "word": "construct",
+      "awl_sub": 2,
+      "rank": 18,
+      "freq": 82,
+      "spread": 10,
+      "tier": 1,
+      "level": 1,
+      "bridge": true,
+      "forms": [
+        "construction",
+        "constructed",
+        "construct",
+        "constructing",
+        "constructive"
+      ],
+      "def": "to build something, or to put parts together to make something",
+      "ex": "The bridge was constructed in only two years, which is faster than most people finish their homework.",
+      "collocations": {
+        "adv_verb": [
+          "carefully constructed",
+          "newly constructed",
+          "poorly constructed"
+        ],
+        "adj_noun": [
+          "construction site",
+          "construction industry",
+          "construction work"
+        ],
+        "verb_obj": [
+          "construct a building",
+          "construct an argument"
+        ]
+      },
+      "frames": [
+        "The building was constructed using ___.",
+        "The construction of ___ took several years.",
+        "A well-constructed argument should include ___."
+      ],
+      "distractors": [
+        "contrast",
+        "contribute",
+        "consume"
+      ]
+    },
+    {
+      "id": "w019",
+      "word": "evolve",
+      "awl_sub": 5,
+      "rank": 19,
+      "freq": 67,
+      "spread": 10,
+      "tier": 1,
+      "level": 1,
+      "bridge": true,
+      "forms": [
+        "evolution",
+        "evolved",
+        "evolutionary",
+        "evolves",
+        "evolve",
+        "evolving"
+      ],
+      "def": "to develop and change slowly over a long time",
+      "ex": "Languages evolve over time — that's why your grandparents don't understand your text messages.",
+      "collocations": {
+        "adv_verb": [
+          "gradually evolved",
+          "rapidly evolving",
+          "constantly evolving"
+        ],
+        "adj_noun": [
+          "evolutionary process",
+          "evolutionary theory",
+          "evolution of"
+        ],
+        "verb_prep": [
+          "evolve from",
+          "evolve into",
+          "evolve over time"
+        ]
+      },
+      "frames": [
+        "Over time, ___ has evolved into ___.",
+        "The theory of evolution explains how ___.",
+        "This is a rapidly evolving field because ___."
+      ],
+      "distractors": [
+        "evaluate",
+        "evident",
+        "elaborate"
+      ]
+    },
+    {
+      "id": "w020",
+      "word": "transport",
+      "awl_sub": 5,
+      "rank": 20,
+      "freq": 93,
+      "spread": 9,
+      "tier": 1,
+      "level": 1,
+      "bridge": true,
+      "forms": [
+        "transport",
+        "transportation",
+        "transported",
+        "transporting"
+      ],
+      "def": "to move people or things from one place to another, or the system used to do this",
+      "ex": "Public transport in big cities can be fast, cheap, and crowded — pick any two.",
+      "collocations": {
+        "adj_noun": [
+          "public transport",
+          "transport system",
+          "transport network"
+        ],
+        "noun_noun": [
+          "means of transport",
+          "mode of transport",
+          "transport links"
+        ],
+        "verb_obj": [
+          "transport goods",
+          "improve transport"
+        ]
+      },
+      "frames": [
+        "Public transport is essential for ___.",
+        "Goods are transported from ___ to ___.",
+        "The transport system needs to be improved because ___."
+      ],
+      "distractors": [
+        "transfer",
+        "transform",
+        "translate"
+      ]
+    },
+    {
+      "id": "w021",
+      "word": "economy",
+      "awl_sub": 1,
+      "rank": 21,
+      "freq": 78,
+      "spread": 8,
+      "tier": 1,
+      "level": 1,
+      "bridge": true,
+      "forms": [
+        "economic",
+        "economy",
+        "economics",
+        "economically",
+        "economies"
+      ],
+      "def": "the system of making, buying, and selling things in a country or area",
+      "ex": "The economy grew so fast that even the pigeons in the city looked richer.",
+      "collocations": {
+        "adj_noun": [
+          "global economy",
+          "local economy",
+          "national economy"
+        ],
+        "noun_adj": [
+          "economic growth",
+          "economic development",
+          "economic crisis"
+        ],
+        "verb_obj": [
+          "boost the economy",
+          "damage the economy"
+        ]
+      },
+      "frames": [
+        "The ___ has a significant effect on the economy.",
+        "Economic growth depends on ___.",
+        "In order to boost the economy, governments should ___."
+      ],
+      "distractors": [
+        "ecology",
+        "education",
+        "emotion"
+      ]
+    },
+    {
+      "id": "w022",
+      "word": "area",
+      "awl_sub": 1,
+      "rank": 22,
+      "freq": 66,
+      "spread": 11,
+      "tier": 1,
+      "level": 1,
+      "bridge": true,
+      "forms": [
+        "area",
+        "areas"
+      ],
+      "def": "a part of a place, city, or country, or a subject or topic",
+      "ex": "This area of the city is famous for two things: great food and terrible parking.",
+      "collocations": {
+        "adj_noun": [
+          "urban area",
+          "rural area",
+          "key area",
+          "research area"
+        ],
+        "noun_prep": [
+          "area of study",
+          "area of concern",
+          "area of expertise"
+        ],
+        "verb_obj": [
+          "cover an area",
+          "identify key areas"
+        ]
+      },
+      "frames": [
+        "This is a key area of concern because ___.",
+        "In urban areas, ___.",
+        "One important area of research is ___."
+      ],
+      "distractors": [
+        "arena",
+        "arise",
+        "aware"
+      ]
+    },
+    {
+      "id": "w023",
+      "word": "respond",
+      "awl_sub": 1,
+      "rank": 23,
+      "freq": 62,
+      "spread": 11,
+      "tier": 1,
+      "level": 1,
+      "bridge": true,
+      "forms": [
+        "response",
+        "responded",
+        "responses",
+        "responding",
+        "respond",
+        "responsive"
+      ],
+      "def": "to answer or react to something",
+      "ex": "When asked about his grades, he responded with silence — which was also a kind of answer.",
+      "collocations": {
+        "adv_verb": [
+          "respond positively",
+          "respond quickly",
+          "respond effectively"
+        ],
+        "verb_prep": [
+          "respond to a question",
+          "respond to changes",
+          "respond to the needs of"
+        ],
+        "adj_noun": [
+          "positive response",
+          "immediate response",
+          "emotional response"
+        ]
+      },
+      "frames": [
+        "The government responded to ___ by ___.",
+        "In response to ___, several changes were made.",
+        "People respond differently to ___."
+      ],
+      "distractors": [
+        "respect",
+        "restore",
+        "resolve"
+      ]
+    },
+    {
+      "id": "w024",
+      "word": "impact",
+      "awl_sub": 2,
+      "rank": 24,
+      "freq": 61,
+      "spread": 11,
+      "tier": 1,
+      "level": 1,
+      "bridge": true,
+      "forms": [
+        "impact",
+        "impacts",
+        "impacted",
+        "impacting"
+      ],
+      "def": "a strong effect or influence on something",
+      "ex": "Social media has had a huge impact on how teenagers communicate — mostly through memes.",
+      "collocations": {
+        "adj_noun": [
+          "significant impact",
+          "negative impact",
+          "positive impact",
+          "environmental impact"
+        ],
+        "verb_obj": [
+          "have an impact on",
+          "make an impact",
+          "assess the impact"
+        ],
+        "noun_prep": [
+          "impact on health",
+          "impact of climate change"
+        ]
+      },
+      "frames": [
+        "This has a significant impact on ___.",
+        "The impact of ___ on ___ cannot be ignored.",
+        "In order to reduce the negative impact, ___."
+      ],
+      "distractors": [
+        "import",
+        "impose",
+        "improve"
+      ]
+    },
+    {
+      "id": "w025",
+      "word": "technique",
+      "awl_sub": 3,
+      "rank": 25,
+      "freq": 58,
+      "spread": 11,
+      "tier": 1,
+      "level": 1,
+      "bridge": true,
+      "forms": [
+        "technical",
+        "techniques",
+        "technique",
+        "technically"
+      ],
+      "def": "a particular way or method of doing something, especially one that needs skill",
+      "ex": "Her study technique was simple but effective: read, cover, write, check, repeat.",
+      "collocations": {
+        "adj_noun": [
+          "effective technique",
+          "modern technique",
+          "teaching technique"
+        ],
+        "noun_noun": [
+          "technique for",
+          "technique used in"
+        ],
+        "verb_obj": [
+          "develop a technique",
+          "use a technique",
+          "apply a technique"
+        ]
+      },
+      "frames": [
+        "One effective technique for ___ is to ___.",
+        "Various techniques are used to ___.",
+        "The technique involves ___."
+      ],
+      "distractors": [
+        "texture",
+        "tendency",
+        "tension"
+      ]
+    },
+    {
+      "id": "w026",
+      "word": "team",
+      "awl_sub": 9,
+      "rank": 26,
+      "freq": 58,
+      "spread": 10,
+      "tier": 1,
+      "level": 1,
+      "bridge": true,
+      "forms": [
+        "team",
+        "teams",
+        "teamwork"
+      ],
+      "def": "a group of people who work together to do something",
+      "ex": "A good team is like a good sandwich — every part matters, and one bad ingredient ruins everything.",
+      "collocations": {
+        "adj_noun": [
+          "research team",
+          "management team",
+          "development team"
+        ],
+        "noun_noun": [
+          "team member",
+          "teamwork",
+          "team effort"
+        ],
+        "verb_obj": [
+          "lead a team",
+          "work as a team",
+          "join a team"
+        ]
+      },
+      "frames": [
+        "The research team discovered that ___.",
+        "Effective teamwork requires ___.",
+        "Members of the team were responsible for ___."
+      ],
+      "distractors": [
+        "term",
+        "theme",
+        "trend"
+      ]
+    },
+    {
+      "id": "w027",
+      "word": "source",
+      "awl_sub": 1,
+      "rank": 27,
+      "freq": 57,
+      "spread": 10,
+      "tier": 1,
+      "level": 1,
+      "bridge": true,
+      "forms": [
+        "source",
+        "sources"
+      ],
+      "def": "where something comes from, or a person or thing that gives information",
+      "ex": "The internet is a great source of information — and also a great source of distraction.",
+      "collocations": {
+        "adj_noun": [
+          "main source",
+          "reliable source",
+          "energy source",
+          "primary source"
+        ],
+        "noun_prep": [
+          "source of information",
+          "source of income",
+          "source of energy"
+        ],
+        "verb_obj": [
+          "identify the source",
+          "cite a source"
+        ]
+      },
+      "frames": [
+        "The main source of ___ is ___.",
+        "According to a reliable source, ___.",
+        "___ is a significant source of ___."
+      ],
+      "distractors": [
+        "surface",
+        "survey",
+        "supply"
+      ]
+    },
+    {
+      "id": "w028",
+      "word": "range",
+      "awl_sub": 2,
+      "rank": 28,
+      "freq": 56,
+      "spread": 11,
+      "tier": 1,
+      "level": 1,
+      "bridge": true,
+      "forms": [
+        "range",
+        "ranges",
+        "ranging",
+        "ranged"
+      ],
+      "def": "a group of different things of the same general type, or the difference between highest and lowest",
+      "ex": "The shop offers a wide range of products — from things you need to things you definitely don't need.",
+      "collocations": {
+        "adj_noun": [
+          "wide range of",
+          "broad range of",
+          "full range of"
+        ],
+        "verb_prep": [
+          "range from ___ to ___",
+          "cover a range of"
+        ],
+        "noun_noun": [
+          "age range",
+          "price range",
+          "temperature range"
+        ]
+      },
+      "frames": [
+        "A wide range of ___ is available.",
+        "Prices range from ___ to ___.",
+        "The study covered a broad range of ___."
+      ],
+      "distractors": [
+        "arrange",
+        "rank",
+        "rare"
+      ]
+    },
+    {
+      "id": "w029",
+      "word": "energy",
+      "awl_sub": 5,
+      "rank": 29,
+      "freq": 56,
+      "spread": 9,
+      "tier": 1,
+      "level": 1,
+      "bridge": true,
+      "forms": [
+        "energy",
+        "energies"
+      ],
+      "def": "the power to do work, or the strength and effort you use to do things",
+      "ex": "Solar energy comes from the sun. Student energy comes from coffee.",
+      "collocations": {
+        "adj_noun": [
+          "renewable energy",
+          "solar energy",
+          "nuclear energy"
+        ],
+        "noun_noun": [
+          "energy consumption",
+          "energy source",
+          "energy efficiency"
+        ],
+        "verb_obj": [
+          "save energy",
+          "generate energy",
+          "use energy"
+        ]
+      },
+      "frames": [
+        "Renewable energy sources such as ___ are becoming more common.",
+        "Energy consumption has increased due to ___.",
+        "In order to save energy, ___."
+      ],
+      "distractors": [
+        "emerge",
+        "enforce",
+        "engage"
+      ]
+    },
+    {
+      "id": "w030",
+      "word": "similar",
+      "awl_sub": 1,
+      "rank": 30,
+      "freq": 54,
+      "spread": 11,
+      "tier": 1,
+      "level": 1,
+      "bridge": true,
+      "forms": [
+        "similar",
+        "similarly",
+        "similarity",
+        "similarities"
+      ],
+      "def": "almost the same, but not exactly the same",
+      "ex": "Twins may look similar, but their personalities can be completely different — one likes maths, the other likes sleeping.",
+      "collocations": {
+        "adv_adj": [
+          "very similar",
+          "broadly similar",
+          "remarkably similar"
+        ],
+        "adj_prep": [
+          "similar to",
+          "similar in size",
+          "similar in nature"
+        ],
+        "noun_phrase": [
+          "similarity between",
+          "a similar pattern",
+          "a similar way"
+        ]
+      },
+      "frames": [
+        "This is similar to ___ in several ways.",
+        "There are remarkable similarities between ___ and ___.",
+        "In a similar way, ___."
+      ],
+      "distractors": [
+        "simple",
+        "signal",
+        "single"
+      ]
+    },
+    {
+      "id": "w031",
+      "word": "data",
+      "awl_sub": 1,
+      "rank": 31,
+      "freq": 51,
+      "spread": 11,
+      "tier": 1,
+      "level": 1,
+      "bridge": true,
+      "forms": [
+        "data"
+      ],
+      "def": "facts and information, especially numbers, collected for study",
+      "ex": "The data showed that students who eat breakfast score higher — finally, a reason to eat pancakes.",
+      "collocations": {
+        "verb_obj": [
+          "collect data",
+          "analyse data",
+          "gather data"
+        ],
+        "adj_noun": [
+          "available data",
+          "reliable data",
+          "raw data",
+          "statistical data"
+        ],
+        "noun_verb": [
+          "data shows",
+          "data suggests",
+          "data indicates"
+        ]
+      },
+      "frames": [
+        "The data suggests that ___.",
+        "According to the available data, ___.",
+        "More data is needed to ___."
+      ],
+      "distractors": [
+        "date",
+        "debate",
+        "detail"
+      ]
+    },
+    {
+      "id": "w032",
+      "word": "region",
+      "awl_sub": 2,
+      "rank": 32,
+      "freq": 55,
+      "spread": 11,
+      "tier": 1,
+      "level": 1,
+      "bridge": true,
+      "forms": [
+        "region",
+        "regions",
+        "regional"
+      ],
+      "def": "a large area of land, usually part of a country or the world",
+      "ex": "Different regions of the country have different weather — and different opinions about what counts as 'cold'.",
+      "collocations": {
+        "adj_noun": [
+          "tropical region",
+          "coastal region",
+          "remote region",
+          "urban region"
+        ],
+        "noun_prep": [
+          "region of the world",
+          "region of the country"
+        ],
+        "adj_phrase": [
+          "regional differences",
+          "regional development"
+        ]
+      },
+      "frames": [
+        "In this region, ___.",
+        "There are significant regional differences in ___.",
+        "The ___ region is known for ___."
+      ],
+      "distractors": [
+        "regime",
+        "register",
+        "regular"
+      ]
+    },
+    {
+      "id": "w033",
+      "word": "potential",
+      "awl_sub": 2,
+      "rank": 33,
+      "freq": 50,
+      "spread": 11,
+      "tier": 1,
+      "level": 1,
+      "bridge": true,
+      "forms": [
+        "potential",
+        "potentially"
+      ],
+      "def": "possible in the future, or the ability to develop into something",
+      "ex": "Every student has the potential to succeed — some just need more coffee and less Netflix.",
+      "collocations": {
+        "adj_noun": [
+          "potential risk",
+          "potential benefit",
+          "potential impact"
+        ],
+        "noun_phrase": [
+          "reach full potential",
+          "have the potential to",
+          "potential for growth"
+        ],
+        "adv_adj": [
+          "potentially dangerous",
+          "potentially harmful"
+        ]
+      },
+      "frames": [
+        "This has the potential to ___.",
+        "There are potential risks associated with ___.",
+        "In order to reach their full potential, students need ___."
+      ],
+      "distractors": [
+        "partial",
+        "practical",
+        "political"
+      ]
+    },
+    {
+      "id": "w034",
+      "word": "survive",
+      "awl_sub": 7,
+      "rank": 34,
+      "freq": 50,
+      "spread": 11,
+      "tier": 1,
+      "level": 1,
+      "bridge": true,
+      "forms": [
+        "survive",
+        "survival",
+        "survived",
+        "surviving",
+        "survives",
+        "survivor"
+      ],
+      "def": "to continue to live or exist, especially after a difficult or dangerous situation",
+      "ex": "Some plants can survive without water for weeks. Some students can survive without sleep for days.",
+      "collocations": {
+        "noun_noun": [
+          "survival rate",
+          "survival skills",
+          "survival strategy"
+        ],
+        "verb_prep": [
+          "survive in the wild",
+          "survive without"
+        ],
+        "adj_noun": [
+          "long-term survival",
+          "basic survival"
+        ]
+      },
+      "frames": [
+        "In order to survive, ___ must ___.",
+        "The survival of ___ depends on ___.",
+        "Only the strongest ___ survived because ___."
+      ],
+      "distractors": [
+        "survey",
+        "surface",
+        "surplus"
+      ]
+    },
+    {
+      "id": "w035",
+      "word": "role",
+      "awl_sub": 1,
+      "rank": 35,
+      "freq": 50,
+      "spread": 11,
+      "tier": 1,
+      "level": 1,
+      "bridge": true,
+      "forms": [
+        "role",
+        "roles"
+      ],
+      "def": "the job or purpose that someone or something has in a situation",
+      "ex": "Teachers play an important role in students' lives — even when the role is 'person who gives homework'.",
+      "collocations": {
+        "adj_noun": [
+          "important role",
+          "key role",
+          "significant role",
+          "vital role"
+        ],
+        "verb_obj": [
+          "play a role",
+          "take on a role",
+          "fulfil a role"
+        ],
+        "noun_prep": [
+          "role in society",
+          "role of education"
+        ]
+      },
+      "frames": [
+        "___ plays a key role in ___.",
+        "The role of ___ is to ___.",
+        "Education plays a vital role in ___."
+      ],
+      "distractors": [
+        "rule",
+        "route",
+        "rural"
+      ]
+    },
+    {
+      "id": "w036",
+      "word": "contribute",
+      "awl_sub": 3,
+      "rank": 36,
+      "freq": 49,
+      "spread": 11,
+      "tier": 1,
+      "level": 1,
+      "bridge": true,
+      "forms": [
+        "contribute",
+        "contributions",
+        "contributed",
+        "contribution",
+        "contributing"
+      ],
+      "def": "to help make something happen, or to give something to help",
+      "ex": "Everyone contributed to the group project — one person did the work, and four contributed their names.",
+      "collocations": {
+        "verb_prep": [
+          "contribute to",
+          "contribute significantly to",
+          "contribute towards"
+        ],
+        "adj_noun": [
+          "major contribution",
+          "valuable contribution",
+          "significant contribution"
+        ],
+        "noun_prep": [
+          "contribution to society",
+          "contribution of"
+        ]
+      },
+      "frames": [
+        "Several factors contribute to ___.",
+        "___ has made a significant contribution to ___.",
+        "This contributes to the problem of ___."
+      ],
+      "distractors": [
+        "distribute",
+        "construct",
+        "contradict"
+      ]
+    },
+    {
+      "id": "w037",
+      "word": "analyse",
+      "awl_sub": 1,
+      "rank": 37,
+      "freq": 49,
+      "spread": 10,
+      "tier": 1,
+      "level": 1,
+      "bridge": true,
+      "forms": [
+        "analysis",
+        "analytical",
+        "analysed",
+        "analyse",
+        "analyze"
+      ],
+      "def": "to study something carefully to understand it or find out what it is made of",
+      "ex": "Scientists analysed the water sample and found it contained H2O — which surprised nobody.",
+      "collocations": {
+        "verb_obj": [
+          "analyse data",
+          "analyse results",
+          "analyse the situation"
+        ],
+        "adj_noun": [
+          "detailed analysis",
+          "critical analysis",
+          "statistical analysis"
+        ],
+        "noun_prep": [
+          "analysis of the data",
+          "analysis of the results"
+        ]
+      },
+      "frames": [
+        "A detailed analysis of ___ revealed that ___.",
+        "The results were analysed using ___.",
+        "Further analysis is needed to ___."
+      ],
+      "distractors": [
+        "apologise",
+        "advertise",
+        "advise"
+      ]
+    },
+    {
+      "id": "w038",
+      "word": "period",
+      "awl_sub": 1,
+      "rank": 38,
+      "freq": 48,
+      "spread": 11,
+      "tier": 1,
+      "level": 1,
+      "bridge": true,
+      "forms": [
+        "period",
+        "periods",
+        "periodic",
+        "periodically"
+      ],
+      "def": "a length of time",
+      "ex": "Over a period of three months, he learned 500 new words — and forgot where he put his keys.",
+      "collocations": {
+        "adj_noun": [
+          "long period",
+          "short period",
+          "brief period",
+          "extended period"
+        ],
+        "noun_prep": [
+          "period of time",
+          "period of growth",
+          "period of change"
+        ],
+        "prep_phrase": [
+          "over a period of",
+          "during this period",
+          "for a period of"
+        ]
+      },
+      "frames": [
+        "Over a period of ___, significant changes occurred.",
+        "During this period, ___.",
+        "For a brief period, ___."
+      ],
+      "distractors": [
+        "percent",
+        "permit",
+        "persist"
+      ]
+    },
+    {
+      "id": "w039",
+      "word": "identify",
+      "awl_sub": 1,
+      "rank": 39,
+      "freq": 48,
+      "spread": 11,
+      "tier": 1,
+      "level": 1,
+      "bridge": true,
+      "forms": [
+        "identify",
+        "identified",
+        "identifying",
+        "identifies",
+        "identification",
+        "identity"
+      ],
+      "def": "to recognise something or discover exactly what it is",
+      "ex": "The study identified three main reasons why students fail: no sleep, no notes, no idea.",
+      "collocations": {
+        "verb_obj": [
+          "identify a problem",
+          "identify the cause",
+          "identify key factors"
+        ],
+        "adv_verb": [
+          "clearly identified",
+          "easily identified",
+          "correctly identified"
+        ],
+        "noun_noun": [
+          "identification of",
+          "identity of"
+        ]
+      },
+      "frames": [
+        "The study identified ___ as a key factor.",
+        "It is important to identify ___.",
+        "Several problems have been identified, including ___."
+      ],
+      "distractors": [
+        "indicate",
+        "illustrate",
+        "imagine"
+      ]
+    },
+    {
+      "id": "w040",
+      "word": "physical",
+      "awl_sub": 3,
+      "rank": 40,
+      "freq": 48,
+      "spread": 10,
+      "tier": 1,
+      "level": 1,
+      "bridge": true,
+      "forms": [
+        "physical",
+        "physically"
+      ],
+      "def": "relating to the body, or to things you can touch and see",
+      "ex": "Physical exercise is good for you, but physical exercise at 6am is a form of punishment.",
+      "collocations": {
+        "adj_noun": [
+          "physical activity",
+          "physical health",
+          "physical environment"
+        ],
+        "adv_adj": [
+          "physically active",
+          "physically demanding"
+        ],
+        "noun_phrase": [
+          "physical and mental health",
+          "physical and emotional wellbeing"
+        ]
+      },
+      "frames": [
+        "Regular physical activity can help to ___.",
+        "The physical environment affects ___.",
+        "Both physical and mental health are important for ___."
+      ],
+      "distractors": [
+        "political",
+        "practical",
+        "principal"
+      ]
+    },
+    {
+      "id": "w041",
+      "word": "feature",
+      "awl_sub": 2,
+      "rank": 41,
+      "freq": 48,
+      "spread": 9,
+      "tier": 1,
+      "level": 1,
+      "bridge": true,
+      "forms": [
+        "features",
+        "feature",
+        "featured"
+      ],
+      "def": "an important or interesting part of something",
+      "ex": "The main feature of this phone is the camera. The main feature of my old phone was that it survived being dropped 47 times.",
+      "collocations": {
+        "adj_noun": [
+          "key feature",
+          "main feature",
+          "distinctive feature",
+          "common feature"
+        ],
+        "verb_obj": [
+          "feature prominently",
+          "feature in"
+        ],
+        "noun_prep": [
+          "feature of the design",
+          "feature of the system"
+        ]
+      },
+      "frames": [
+        "One key feature of ___ is ___.",
+        "A distinctive feature of ___ is that ___.",
+        "This design features ___."
+      ],
+      "distractors": [
+        "future",
+        "figure",
+        "failure"
+      ]
+    },
+    {
+      "id": "w042",
+      "word": "indicate",
+      "awl_sub": 1,
+      "rank": 42,
+      "freq": 47,
+      "spread": 11,
+      "tier": 1,
+      "level": 1,
+      "bridge": true,
+      "forms": [
+        "indicate",
+        "indicates",
+        "indicating",
+        "indicated",
+        "indication",
+        "indicator"
+      ],
+      "def": "to show or point to something, or to suggest that something is true",
+      "ex": "The results indicate that chocolate makes people happy — a fact that required no research at all.",
+      "collocations": {
+        "noun_verb": [
+          "results indicate",
+          "studies indicate",
+          "evidence indicates"
+        ],
+        "verb_obj": [
+          "indicate a trend",
+          "indicate a change",
+          "indicate a problem"
+        ],
+        "adv_verb": [
+          "clearly indicate",
+          "strongly indicate"
+        ]
+      },
+      "frames": [
+        "The results indicate that ___.",
+        "As indicated in the chart, ___.",
+        "This indicates a significant change in ___."
+      ],
+      "distractors": [
+        "initiate",
+        "imitate",
+        "integrate"
+      ]
+    },
+    {
+      "id": "w043",
+      "word": "strategy",
+      "awl_sub": 2,
+      "rank": 43,
+      "freq": 47,
+      "spread": 9,
+      "tier": 1,
+      "level": 1,
+      "bridge": true,
+      "forms": [
+        "strategy",
+        "strategies",
+        "strategically",
+        "strategic"
+      ],
+      "def": "a plan or method for achieving something, especially over a long time",
+      "ex": "His exam strategy was to answer the easy questions first and leave the hard ones for his future self.",
+      "collocations": {
+        "adj_noun": [
+          "effective strategy",
+          "long-term strategy",
+          "learning strategy"
+        ],
+        "verb_obj": [
+          "develop a strategy",
+          "adopt a strategy",
+          "implement a strategy"
+        ],
+        "noun_prep": [
+          "strategy for improvement",
+          "strategy for success"
+        ]
+      },
+      "frames": [
+        "One effective strategy for ___ is to ___.",
+        "In order to develop a strategy, it is necessary to ___.",
+        "The government adopted a new strategy to ___."
+      ],
+      "distractors": [
+        "struggle",
+        "stranger",
+        "straight"
+      ]
+    },
+    {
+      "id": "w044",
+      "word": "create",
+      "awl_sub": 1,
+      "rank": 44,
+      "freq": 46,
+      "spread": 11,
+      "tier": 1,
+      "level": 1,
+      "bridge": true,
+      "forms": [
+        "create",
+        "created",
+        "creates",
+        "creating",
+        "creation",
+        "creative",
+        "creativity"
+      ],
+      "def": "to make something new that did not exist before",
+      "ex": "The artist created a painting so beautiful that even the museum's security guard stopped to look.",
+      "collocations": {
+        "verb_obj": [
+          "create opportunities",
+          "create problems",
+          "create awareness"
+        ],
+        "adj_noun": [
+          "creative thinking",
+          "creative solution",
+          "job creation"
+        ],
+        "noun_noun": [
+          "creation of",
+          "creativity and innovation"
+        ]
+      },
+      "frames": [
+        "This could create opportunities for ___.",
+        "In order to create ___,  it is important to ___.",
+        "The creation of ___ has led to ___."
+      ],
+      "distractors": [
+        "creature",
+        "criteria",
+        "crisis"
+      ]
+    },
+    {
+      "id": "w045",
+      "word": "method",
+      "awl_sub": 1,
+      "rank": 45,
+      "freq": 46,
+      "spread": 10,
+      "tier": 1,
+      "level": 1,
+      "bridge": true,
+      "forms": [
+        "method",
+        "methods",
+        "methodology",
+        "methodological"
+      ],
+      "def": "a planned way of doing something",
+      "ex": "There are many methods of studying, but staring at your textbook while thinking about lunch is not one of them.",
+      "collocations": {
+        "adj_noun": [
+          "effective method",
+          "scientific method",
+          "traditional method",
+          "teaching method"
+        ],
+        "noun_prep": [
+          "method of communication",
+          "method of transport"
+        ],
+        "verb_obj": [
+          "use a method",
+          "develop a method",
+          "apply a method"
+        ]
+      },
+      "frames": [
+        "The most effective method of ___ is ___.",
+        "Various methods were used to ___.",
+        "This method involves ___."
+      ],
+      "distractors": [
+        "mental",
+        "manner",
+        "mention"
+      ]
+    },
+    {
+      "id": "w046",
+      "word": "aware",
+      "awl_sub": 5,
+      "rank": 46,
+      "freq": 44,
+      "spread": 11,
+      "tier": 1,
+      "level": 1,
+      "bridge": true,
+      "forms": [
+        "aware",
+        "awareness",
+        "unaware"
+      ],
+      "def": "knowing that something exists or is happening",
+      "ex": "Most people are aware that exercise is healthy. Fewer people are aware that their gym membership is unused.",
+      "collocations": {
+        "verb_adj": [
+          "become aware of",
+          "be aware of",
+          "make someone aware"
+        ],
+        "adj_noun": [
+          "public awareness",
+          "environmental awareness",
+          "growing awareness"
+        ],
+        "adv_adj": [
+          "fully aware",
+          "well aware",
+          "increasingly aware"
+        ]
+      },
+      "frames": [
+        "People are becoming increasingly aware of ___.",
+        "It is important to raise awareness about ___.",
+        "Many people are unaware that ___."
+      ],
+      "distractors": [
+        "award",
+        "await",
+        "arise"
+      ]
+    },
+    {
+      "id": "w047",
+      "word": "reveal",
+      "awl_sub": 6,
+      "rank": 47,
+      "freq": 45,
+      "spread": 11,
+      "tier": 1,
+      "level": 1,
+      "bridge": true,
+      "forms": [
+        "revealed",
+        "reveal",
+        "reveals",
+        "revealing",
+        "revelation"
+      ],
+      "def": "to make something known that was hidden or secret",
+      "ex": "The research revealed something surprising: people who read more also sleep better. (The book falls on their face.)",
+      "collocations": {
+        "verb_obj": [
+          "reveal the truth",
+          "reveal a pattern",
+          "reveal a difference"
+        ],
+        "noun_verb": [
+          "studies reveal",
+          "results reveal",
+          "data reveals"
+        ],
+        "adv_verb": [
+          "clearly revealed",
+          "recently revealed"
+        ]
+      },
+      "frames": [
+        "The study revealed that ___.",
+        "Recent findings have revealed ___.",
+        "This reveals a significant difference between ___ and ___."
+      ],
+      "distractors": [
+        "reverse",
+        "review",
+        "revise"
+      ]
+    },
+    {
+      "id": "w048",
+      "word": "rely",
+      "awl_sub": 3,
+      "rank": 48,
+      "freq": 42,
+      "spread": 10,
+      "tier": 1,
+      "level": 1,
+      "bridge": true,
+      "forms": [
+        "reliable",
+        "rely",
+        "reliance",
+        "relied",
+        "relies"
+      ],
+      "def": "to need something or someone, or to trust that they will help",
+      "ex": "Students rely on teachers for knowledge, parents for food, and wifi for survival.",
+      "collocations": {
+        "verb_prep": [
+          "rely on",
+          "rely heavily on",
+          "rely upon"
+        ],
+        "adj_noun": [
+          "reliable source",
+          "reliable data",
+          "reliable method"
+        ],
+        "noun_noun": [
+          "reliance on technology",
+          "over-reliance on"
+        ]
+      },
+      "frames": [
+        "Many people rely heavily on ___.",
+        "This is a reliable method for ___.",
+        "Over-reliance on ___ can lead to ___."
+      ],
+      "distractors": [
+        "release",
+        "relate",
+        "relax"
+      ]
+    },
+    {
+      "id": "w049",
+      "word": "predict",
+      "awl_sub": 4,
+      "rank": 50,
+      "freq": 41,
+      "spread": 11,
+      "tier": 1,
+      "level": 1,
+      "bridge": true,
+      "forms": [
+        "predict",
+        "predictions",
+        "predictable",
+        "predicted",
+        "predicts",
+        "prediction",
+        "unpredictable"
+      ],
+      "def": "to say what you think will happen in the future",
+      "ex": "Scientists can predict the weather for next week, but nobody can predict what teenagers will do next.",
+      "collocations": {
+        "verb_obj": [
+          "predict the outcome",
+          "predict the future",
+          "predict changes"
+        ],
+        "adj_noun": [
+          "accurate prediction",
+          "reliable prediction",
+          "unpredictable results"
+        ],
+        "adv_adj": [
+          "highly predictable",
+          "entirely unpredictable"
+        ]
+      },
+      "frames": [
+        "It is difficult to predict ___.",
+        "As predicted, ___.",
+        "The results were unpredictable because ___."
+      ],
+      "distractors": [
+        "prevent",
+        "preserve",
+        "pretend"
+      ]
+    },
+    {
+      "id": "w050",
+      "word": "individual",
+      "awl_sub": 1,
+      "rank": 51,
+      "freq": 41,
+      "spread": 11,
+      "tier": 1,
+      "level": 1,
+      "bridge": true,
+      "forms": [
+        "individual",
+        "individuals",
+        "individually",
+        "individualism"
+      ],
+      "def": "one single person, separate from others in a group",
+      "ex": "Each individual has different strengths — some are good at maths, others are good at avoiding maths.",
+      "collocations": {
+        "adj_noun": [
+          "individual needs",
+          "individual differences",
+          "individual rights"
+        ],
+        "adv_adj": [
+          "individually assessed",
+          "individually tailored"
+        ],
+        "noun_prep": [
+          "rights of the individual",
+          "needs of each individual"
+        ]
+      },
+      "frames": [
+        "Each individual is responsible for ___.",
+        "Individual differences play a role in ___.",
+        "The needs of the individual should be ___."
+      ],
+      "distractors": [
+        "indicate",
+        "industry",
+        "initial"
+      ]
+    },
+    {
+      "id": "w051",
+      "word": "occur",
+      "awl_sub": 1,
+      "rank": 52,
+      "freq": 41,
+      "spread": 10,
+      "tier": 1,
+      "level": 1,
+      "bridge": true,
+      "forms": [
+        "occurred",
+        "occur",
+        "occurs",
+        "occurring",
+        "occurrence"
+      ],
+      "def": "to happen, especially without being planned",
+      "ex": "Earthquakes occur without warning. So do pop quizzes.",
+      "collocations": {
+        "adv_verb": [
+          "frequently occur",
+          "commonly occur",
+          "naturally occur"
+        ],
+        "verb_prep": [
+          "occur in",
+          "occur as a result of",
+          "occur when"
+        ],
+        "noun_noun": [
+          "common occurrence",
+          "regular occurrence",
+          "rare occurrence"
+        ]
+      },
+      "frames": [
+        "This commonly occurs when ___.",
+        "Changes occur as a result of ___.",
+        "Such events rarely occur because ___."
+      ],
+      "distractors": [
+        "occupy",
+        "obtain",
+        "observe"
+      ]
+    },
+    {
+      "id": "w052",
+      "word": "tradition",
+      "awl_sub": 2,
+      "rank": 53,
+      "freq": 39,
+      "spread": 11,
+      "tier": 1,
+      "level": 1,
+      "bridge": true,
+      "forms": [
+        "traditional",
+        "traditionally",
+        "tradition",
+        "traditions"
+      ],
+      "def": "a belief or way of doing something that has existed for a long time",
+      "ex": "In some traditions, the oldest person eats first. In student tradition, the fastest person eats first.",
+      "collocations": {
+        "adj_noun": [
+          "long tradition",
+          "cultural tradition",
+          "local tradition"
+        ],
+        "adj_phrase": [
+          "traditional methods",
+          "traditional values",
+          "traditionally used"
+        ],
+        "verb_obj": [
+          "maintain a tradition",
+          "follow a tradition",
+          "break with tradition"
+        ]
+      },
+      "frames": [
+        "There is a long tradition of ___ in this country.",
+        "Traditional methods of ___ are being replaced by ___.",
+        "Traditionally, ___."
+      ],
+      "distractors": [
+        "transfer",
+        "transit",
+        "translate"
+      ]
+    },
+    {
+      "id": "w053",
+      "word": "project",
+      "awl_sub": 4,
+      "rank": 54,
+      "freq": 38,
+      "spread": 10,
+      "tier": 1,
+      "level": 1,
+      "bridge": true,
+      "forms": [
+        "project",
+        "projects",
+        "projected",
+        "projecting",
+        "projection"
+      ],
+      "def": "a planned piece of work that has a clear purpose and takes time to finish",
+      "ex": "The construction project was supposed to take one year. It took three. Nobody was surprised.",
+      "collocations": {
+        "adj_noun": [
+          "research project",
+          "major project",
+          "development project"
+        ],
+        "verb_obj": [
+          "complete a project",
+          "launch a project",
+          "manage a project"
+        ],
+        "noun_noun": [
+          "project manager",
+          "project plan",
+          "projected growth"
+        ]
+      },
+      "frames": [
+        "The project aims to ___.",
+        "A major project was launched to ___.",
+        "It is projected that ___ will increase by ___."
+      ],
+      "distractors": [
+        "protect",
+        "produce",
+        "propose"
+      ]
+    },
+    {
+      "id": "w054",
+      "word": "site",
+      "awl_sub": 2,
+      "rank": 55,
+      "freq": 38,
+      "spread": 10,
+      "tier": 1,
+      "level": 1,
+      "bridge": true,
+      "forms": [
+        "site",
+        "sites"
+      ],
+      "def": "a place where something is, was, or will be built or located",
+      "ex": "The construction site was so noisy that even the birds wore tiny hard hats and complained.",
+      "collocations": {
+        "adj_noun": [
+          "construction site",
+          "building site",
+          "archaeological site"
+        ],
+        "noun_prep": [
+          "site of the accident",
+          "site for development"
+        ],
+        "verb_obj": [
+          "visit a site",
+          "choose a site",
+          "develop a site"
+        ]
+      },
+      "frames": [
+        "The site was chosen because ___.",
+        "At the construction site, ___.",
+        "Several sites were considered for ___."
+      ],
+      "distractors": [
+        "sight",
+        "size",
+        "side"
+      ]
+    },
+    {
+      "id": "w055",
+      "word": "challenge",
+      "awl_sub": 5,
+      "rank": 56,
+      "freq": 37,
+      "spread": 10,
+      "tier": 1,
+      "level": 1,
+      "bridge": true,
+      "forms": [
+        "challenge",
+        "challenging",
+        "challenges",
+        "challenged"
+      ],
+      "def": "something difficult that tests your ability or determination",
+      "ex": "Learning 500 new words is a challenge. Remembering them all on exam day is a miracle.",
+      "collocations": {
+        "adj_noun": [
+          "major challenge",
+          "significant challenge",
+          "greatest challenge"
+        ],
+        "verb_obj": [
+          "face a challenge",
+          "meet a challenge",
+          "overcome a challenge"
+        ],
+        "adj_phrase": [
+          "challenging task",
+          "challenging environment"
+        ]
+      },
+      "frames": [
+        "One of the biggest challenges is ___.",
+        "In order to overcome this challenge, ___.",
+        "Students face the challenge of ___."
+      ],
+      "distractors": [
+        "channel",
+        "chapter",
+        "champion"
+      ]
+    },
+    {
+      "id": "w056",
+      "word": "structure",
+      "awl_sub": 1,
+      "rank": 57,
+      "freq": 44,
+      "spread": 10,
+      "tier": 1,
+      "level": 1,
+      "bridge": true,
+      "forms": [
+        "structure",
+        "structures",
+        "structured",
+        "structural"
+      ],
+      "def": "the way the parts of something are put together or organised",
+      "ex": "A good essay has a clear structure: introduction, body, conclusion. A bad essay has: panic, panic, panic.",
+      "collocations": {
+        "adj_noun": [
+          "social structure",
+          "organisational structure",
+          "basic structure"
+        ],
+        "noun_prep": [
+          "structure of the essay",
+          "structure of society"
+        ],
+        "adj_phrase": [
+          "well-structured",
+          "structural changes",
+          "structural damage"
+        ]
+      },
+      "frames": [
+        "The structure of ___ consists of ___.",
+        "Structural changes are needed to ___.",
+        "A well-structured essay should include ___."
+      ],
+      "distractors": [
+        "struggle",
+        "strategy",
+        "stretch"
+      ]
+    },
+    {
+      "id": "w057",
+      "word": "complex",
+      "awl_sub": 2,
+      "rank": 58,
+      "freq": 35,
+      "spread": 9,
+      "tier": 1,
+      "level": 1,
+      "bridge": true,
+      "forms": [
+        "complex",
+        "complexity"
+      ],
+      "def": "made of many different parts and difficult to understand",
+      "ex": "The human brain is the most complex organ — which explains why understanding other people is so hard.",
+      "collocations": {
+        "adj_noun": [
+          "complex system",
+          "complex issue",
+          "complex process",
+          "complex problem"
+        ],
+        "noun_noun": [
+          "complexity of the problem",
+          "level of complexity"
+        ],
+        "adv_adj": [
+          "highly complex",
+          "increasingly complex"
+        ]
+      },
+      "frames": [
+        "This is a highly complex issue because ___.",
+        "The complexity of ___ makes it difficult to ___.",
+        "As society becomes increasingly complex, ___."
+      ],
+      "distractors": [
+        "compete",
+        "compose",
+        "comply"
+      ]
+    },
+    {
+      "id": "w058",
+      "word": "factor",
+      "awl_sub": 1,
+      "rank": 60,
+      "freq": 57,
+      "spread": 10,
+      "tier": 1,
+      "level": 1,
+      "bridge": true,
+      "forms": [
+        "factor",
+        "factors"
+      ],
+      "def": "one of the things that affects a situation or causes something to happen",
+      "ex": "Many factors affect exam results, including study time, sleep, and whether Mercury is in retrograde.",
+      "collocations": {
+        "adj_noun": [
+          "key factor",
+          "important factor",
+          "contributing factor",
+          "major factor"
+        ],
+        "verb_obj": [
+          "consider a factor",
+          "identify factors",
+          "factor in the cost"
+        ],
+        "noun_prep": [
+          "factor in the decision",
+          "factors affecting"
+        ]
+      },
+      "frames": [
+        "___ is a key factor in ___.",
+        "Several factors contribute to ___.",
+        "An important factor to consider is ___."
+      ],
+      "distractors": [
+        "feature",
+        "failure",
+        "fashion"
+      ]
+    },
+    {
+      "id": "w059",
+      "word": "adapt",
+      "awl_sub": 7,
+      "rank": 61,
+      "freq": 37,
+      "spread": 10,
+      "tier": 1,
+      "level": 1,
+      "bridge": true,
+      "forms": [
+        "adapted",
+        "adapt",
+        "adaptation",
+        "adapting",
+        "adaptive"
+      ],
+      "def": "to change to fit a new situation or condition",
+      "ex": "Humans can adapt to almost anything — extreme cold, extreme heat, and extremely slow wifi.",
+      "collocations": {
+        "verb_prep": [
+          "adapt to changes",
+          "adapt to the environment",
+          "adapt to new conditions"
+        ],
+        "adj_noun": [
+          "adaptive behaviour",
+          "adaptation strategy"
+        ],
+        "noun_noun": [
+          "adaptation to climate",
+          "process of adaptation"
+        ]
+      },
+      "frames": [
+        "Animals must adapt to ___ in order to survive.",
+        "The ability to adapt to ___ is essential for ___.",
+        "This is an adaptation that helps ___ to ___."
+      ],
+      "distractors": [
+        "adopt",
+        "admit",
+        "adhere"
+      ]
+    },
+    {
+      "id": "w060",
+      "word": "focus",
+      "awl_sub": 2,
+      "rank": 62,
+      "freq": 33,
+      "spread": 11,
+      "tier": 1,
+      "level": 1,
+      "bridge": true,
+      "forms": [
+        "focus",
+        "focused",
+        "focuses",
+        "focusing",
+        "focal"
+      ],
+      "def": "to give special attention to one thing, or the centre of attention",
+      "ex": "The teacher told us to focus on the lesson, but my brain focused on what to eat for lunch.",
+      "collocations": {
+        "verb_prep": [
+          "focus on",
+          "focus attention on",
+          "focus primarily on"
+        ],
+        "adj_noun": [
+          "main focus",
+          "primary focus",
+          "sharp focus"
+        ],
+        "noun_prep": [
+          "focus of the study",
+          "focus of attention"
+        ]
+      },
+      "frames": [
+        "This study focuses on ___.",
+        "The main focus of ___ is ___.",
+        "It is important to focus on ___ rather than ___."
+      ],
+      "distractors": [
+        "force",
+        "formal",
+        "fortune"
+      ]
+    },
+    {
+      "id": "w061",
+      "word": "maintain",
+      "awl_sub": 2,
+      "rank": 63,
+      "freq": 37,
+      "spread": 11,
+      "tier": 1,
+      "level": 1,
+      "bridge": true,
+      "forms": [
+        "maintain",
+        "maintaining",
+        "maintained",
+        "maintenance",
+        "maintains"
+      ],
+      "def": "to keep something in good condition or make sure it continues",
+      "ex": "It is important to maintain your health — but maintaining a diet while your friend eats pizza is truly heroic.",
+      "collocations": {
+        "verb_obj": [
+          "maintain standards",
+          "maintain a level",
+          "maintain control"
+        ],
+        "adj_noun": [
+          "regular maintenance",
+          "proper maintenance",
+          "vehicle maintenance"
+        ],
+        "adv_verb": [
+          "carefully maintained",
+          "properly maintained",
+          "well maintained"
+        ]
+      },
+      "frames": [
+        "It is essential to maintain ___.",
+        "In order to maintain ___, it is necessary to ___.",
+        "The building has been well maintained since ___."
+      ],
+      "distractors": [
+        "mountain",
+        "mainly",
+        "manner"
+      ]
+    },
+    {
+      "id": "w062",
+      "word": "global",
+      "awl_sub": 7,
+      "rank": 64,
+      "freq": 35,
+      "spread": 11,
+      "tier": 1,
+      "level": 1,
+      "bridge": true,
+      "forms": [
+        "global",
+        "globally",
+        "globalisation",
+        "globalization"
+      ],
+      "def": "relating to the whole world",
+      "ex": "Climate change is a global problem — unfortunately, there is no global remote control to fix it.",
+      "collocations": {
+        "adj_noun": [
+          "global warming",
+          "global economy",
+          "global population",
+          "global issue"
+        ],
+        "adv_adj": [
+          "increasingly global",
+          "truly global"
+        ],
+        "noun_noun": [
+          "globalisation and trade",
+          "global scale"
+        ]
+      },
+      "frames": [
+        "___ is a global issue that affects ___.",
+        "On a global scale, ___.",
+        "Globalisation has led to ___."
+      ],
+      "distractors": [
+        "glossary",
+        "glory",
+        "globe"
+      ]
+    },
+    {
+      "id": "w063",
+      "word": "available",
+      "awl_sub": 1,
+      "rank": 66,
+      "freq": 29,
+      "spread": 9,
+      "tier": 1,
+      "level": 1,
+      "bridge": true,
+      "forms": [
+        "available",
+        "availability",
+        "unavailable"
+      ],
+      "def": "able to be used or obtained",
+      "ex": "Free Wi-Fi is available at the café — but a free table is a completely different story.",
+      "collocations": {
+        "adj_noun": [
+          "available resources",
+          "available data",
+          "available evidence"
+        ],
+        "adv_adj": [
+          "readily available",
+          "freely available",
+          "widely available",
+          "commercially available"
+        ],
+        "verb_adj": [
+          "make available",
+          "become available"
+        ]
+      },
+      "frames": [
+        "This information is readily available to ___.",
+        "The resources available to ___ are limited.",
+        "___ is now widely available in ___."
+      ],
+      "distractors": [
+        "avoidable",
+        "advisable",
+        "admirable"
+      ]
+    },
+    {
+      "id": "w064",
+      "word": "communicate",
+      "awl_sub": 4,
+      "rank": 67,
+      "freq": 37,
+      "spread": 8,
+      "tier": 1,
+      "level": 1,
+      "bridge": true,
+      "forms": [
+        "communication",
+        "communicate",
+        "communicating",
+        "communicates"
+      ],
+      "def": "to share information, ideas, or feelings with others",
+      "ex": "Teenagers communicate with their parents using three words: fine, nothing, and whatever.",
+      "collocations": {
+        "verb_prep": [
+          "communicate with",
+          "communicate through",
+          "communicate effectively"
+        ],
+        "adj_noun": [
+          "effective communication",
+          "verbal communication",
+          "nonverbal communication"
+        ],
+        "noun_noun": [
+          "communication skills",
+          "communication technology",
+          "means of communication"
+        ]
+      },
+      "frames": [
+        "Effective communication is essential in ___.",
+        "People communicate through ___.",
+        "A lack of communication can lead to ___."
+      ],
+      "distractors": [
+        "community",
+        "committee",
+        "commercial"
+      ]
+    },
+    {
+      "id": "w065",
+      "word": "appropriate",
+      "awl_sub": 2,
+      "rank": 68,
+      "freq": 27,
+      "spread": 9,
+      "tier": 1,
+      "level": 1,
+      "bridge": true,
+      "forms": [
+        "appropriate",
+        "appropriately",
+        "inappropriate",
+        "inappropriately"
+      ],
+      "def": "right or suitable for a particular situation",
+      "ex": "Wearing pyjamas is appropriate for sleeping — but apparently not for job interviews.",
+      "collocations": {
+        "adv_adj": [
+          "entirely appropriate",
+          "culturally appropriate",
+          "highly appropriate"
+        ],
+        "adj_noun": [
+          "appropriate behaviour",
+          "appropriate action",
+          "appropriate response"
+        ],
+        "verb_obj": [
+          "consider appropriate",
+          "deem appropriate"
+        ]
+      },
+      "frames": [
+        "It is appropriate to ___ when ___.",
+        "The most appropriate response would be to ___.",
+        "This may not be appropriate for ___."
+      ],
+      "distractors": [
+        "approximate",
+        "appreciate",
+        "approach"
+      ]
+    },
+    {
+      "id": "w066",
+      "word": "task",
+      "awl_sub": 3,
+      "rank": 69,
+      "freq": 27,
+      "spread": 9,
+      "tier": 1,
+      "level": 1,
+      "bridge": true,
+      "forms": [
+        "task",
+        "tasks"
+      ],
+      "def": "a piece of work that needs to be done",
+      "ex": "The teacher gave us a simple task: write 500 words. The hard part was making 50 words look like 500.",
+      "collocations": {
+        "adj_noun": [
+          "difficult task",
+          "simple task",
+          "complex task",
+          "main task"
+        ],
+        "verb_obj": [
+          "perform a task",
+          "complete a task",
+          "carry out a task"
+        ],
+        "noun_prep": [
+          "task of managing",
+          "task at hand"
+        ]
+      },
+      "frames": [
+        "The main task is to ___.",
+        "Completing this task requires ___.",
+        "Workers were given the task of ___."
+      ],
+      "distractors": [
+        "test",
+        "taste",
+        "tackle"
+      ]
+    },
+    {
+      "id": "w067",
+      "word": "perceive",
+      "awl_sub": 2,
+      "rank": 70,
+      "freq": 40,
+      "spread": 9,
+      "tier": 1,
+      "level": 1,
+      "bridge": true,
+      "forms": [
+        "perception",
+        "perceived",
+        "perceive",
+        "perceptions",
+        "perceives"
+      ],
+      "def": "to notice, think of, or understand something in a particular way",
+      "ex": "The students perceived the test as unfair — mainly because it had questions on it.",
+      "collocations": {
+        "adv_verb": [
+          "widely perceived",
+          "generally perceived",
+          "commonly perceived"
+        ],
+        "verb_prep": [
+          "perceived as",
+          "perceived to be"
+        ],
+        "adj_noun": [
+          "public perception",
+          "visual perception",
+          "common perception"
+        ]
+      },
+      "frames": [
+        "___ is widely perceived as ___.",
+        "The perception that ___ is ___.",
+        "People perceive ___ differently depending on ___."
+      ],
+      "distractors": [
+        "preserve",
+        "persuade",
+        "persist"
+      ]
+    },
+    {
+      "id": "w068",
+      "word": "ensure",
+      "awl_sub": 3,
+      "rank": 71,
+      "freq": 26,
+      "spread": 9,
+      "tier": 1,
+      "level": 1,
+      "bridge": true,
+      "forms": [
+        "ensure",
+        "ensures",
+        "ensured",
+        "ensuring"
+      ],
+      "def": "to make certain that something happens",
+      "ex": "To ensure you pass the exam, study every day. To ensure you fail, study only on the bus ride there.",
+      "collocations": {
+        "verb_that": [
+          "ensure that standards are met",
+          "ensure that safety is maintained"
+        ],
+        "verb_obj": [
+          "ensure safety",
+          "ensure quality",
+          "ensure accuracy"
+        ],
+        "adv_verb": [
+          "designed to ensure",
+          "necessary to ensure"
+        ]
+      },
+      "frames": [
+        "Steps must be taken to ensure ___.",
+        "This is designed to ensure that ___.",
+        "In order to ensure ___, it is important to ___."
+      ],
+      "distractors": [
+        "endure",
+        "insure",
+        "enclose"
+      ]
+    },
+    {
+      "id": "w069",
+      "word": "assume",
+      "awl_sub": 1,
+      "rank": 72,
+      "freq": 29,
+      "spread": 9,
+      "tier": 1,
+      "level": 1,
+      "bridge": true,
+      "forms": [
+        "assumptions",
+        "assumption",
+        "assume",
+        "assumed",
+        "assumes"
+      ],
+      "def": "to believe something is true without having proof",
+      "ex": "Never assume the exam will be easy — the exam has feelings too, and it will prove you wrong.",
+      "collocations": {
+        "adv_verb": [
+          "generally assumed",
+          "widely assumed",
+          "commonly assumed",
+          "reasonably assumed"
+        ],
+        "verb_that": [
+          "assume that",
+          "assumed to be"
+        ],
+        "adj_noun": [
+          "common assumption",
+          "basic assumption",
+          "underlying assumption"
+        ]
+      },
+      "frames": [
+        "It is generally assumed that ___.",
+        "The assumption that ___ may be incorrect.",
+        "We cannot assume that ___."
+      ],
+      "distractors": [
+        "assure",
+        "assess",
+        "assign"
+      ]
+    },
+    {
+      "id": "w070",
+      "word": "negative",
+      "awl_sub": 3,
+      "rank": 73,
+      "freq": 25,
+      "spread": 9,
+      "tier": 1,
+      "level": 1,
+      "bridge": true,
+      "forms": [
+        "negative",
+        "negatively",
+        "negatives"
+      ],
+      "def": "bad or harmful; the opposite of positive",
+      "ex": "Social media can have a negative effect on sleep — especially when you check it at 3 AM.",
+      "collocations": {
+        "adj_noun": [
+          "negative effect",
+          "negative impact",
+          "negative attitude",
+          "negative consequences"
+        ],
+        "adv_adj": [
+          "potentially negative",
+          "largely negative",
+          "overwhelmingly negative"
+        ],
+        "verb_obj": [
+          "have a negative effect",
+          "produce negative results"
+        ]
+      },
+      "frames": [
+        "___ can have a negative impact on ___.",
+        "The negative effects of ___ include ___.",
+        "This may lead to negative consequences such as ___."
+      ],
+      "distractors": [
+        "narrative",
+        "native",
+        "neglect"
+      ]
+    },
+    {
+      "id": "w071",
+      "word": "regulate",
+      "awl_sub": 2,
+      "rank": 74,
+      "freq": 29,
+      "spread": 8,
+      "tier": 1,
+      "level": 1,
+      "bridge": true,
+      "forms": [
+        "regulations",
+        "regulate",
+        "regulation",
+        "regulated",
+        "regulating"
+      ],
+      "def": "to control something by making rules or laws",
+      "ex": "The government regulates how much sugar goes in drinks — but nobody regulates how much sugar goes in your mouth.",
+      "collocations": {
+        "adj_noun": [
+          "government regulation",
+          "strict regulation",
+          "environmental regulation"
+        ],
+        "verb_obj": [
+          "regulate behaviour",
+          "regulate temperature",
+          "regulate the industry"
+        ],
+        "noun_prep": [
+          "regulation of trade",
+          "regulations on emissions"
+        ]
+      },
+      "frames": [
+        "The government introduced regulations to ___.",
+        "There is a need for stricter regulation of ___.",
+        "This industry is regulated by ___."
+      ],
+      "distractors": [
+        "regular",
+        "relative",
+        "reluctant"
+      ]
+    },
+    {
+      "id": "w072",
+      "word": "specific",
+      "awl_sub": 1,
+      "rank": 75,
+      "freq": 25,
+      "spread": 10,
+      "tier": 1,
+      "level": 1,
+      "bridge": true,
+      "forms": [
+        "specific",
+        "specifically",
+        "specification",
+        "specifications"
+      ],
+      "def": "clearly defined or relating to one particular thing",
+      "ex": "The doctor gave specific instructions: rest, drink water, and stop Googling your symptoms.",
+      "collocations": {
+        "adj_noun": [
+          "specific example",
+          "specific area",
+          "specific purpose",
+          "specific requirements"
+        ],
+        "adv_adj": [
+          "very specific",
+          "highly specific",
+          "culturally specific"
+        ],
+        "verb_obj": [
+          "identify specific factors",
+          "mention specific cases"
+        ]
+      },
+      "frames": [
+        "One specific example of this is ___.",
+        "This was specifically designed for ___.",
+        "No specific ___ has been identified."
+      ],
+      "distractors": [
+        "special",
+        "species",
+        "spectacle"
+      ]
+    },
+    {
+      "id": "w073",
+      "word": "chemical",
+      "awl_sub": 7,
+      "rank": 76,
+      "freq": 30,
+      "spread": 8,
+      "tier": 1,
+      "level": 1,
+      "bridge": true,
+      "forms": [
+        "chemical",
+        "chemicals"
+      ],
+      "def": "relating to chemistry, or a substance made by or used in chemistry",
+      "ex": "The chemical reaction in the experiment was impressive — the chemical reaction from the teacher when it exploded was even more impressive.",
+      "collocations": {
+        "adj_noun": [
+          "chemical reaction",
+          "chemical process",
+          "chemical substance",
+          "chemical compound"
+        ],
+        "noun_noun": [
+          "chemical industry",
+          "chemical pollution",
+          "chemical analysis"
+        ],
+        "verb_obj": [
+          "produce chemicals",
+          "release chemicals",
+          "use chemicals"
+        ]
+      },
+      "frames": [
+        "Exposure to chemicals can cause ___.",
+        "The chemical process involves ___.",
+        "Certain chemicals are known to ___."
+      ],
+      "distractors": [
+        "channel",
+        "chapter",
+        "champion"
+      ]
+    },
+    {
+      "id": "w074",
+      "word": "decline",
+      "awl_sub": 5,
+      "rank": 77,
+      "freq": 23,
+      "spread": 9,
+      "tier": 1,
+      "level": 1,
+      "bridge": true,
+      "forms": [
+        "decline",
+        "declines",
+        "declined",
+        "declining"
+      ],
+      "def": "to become smaller, fewer, or less; or a decrease in something",
+      "ex": "The number of students who enjoy homework has been in steady decline — from three to zero.",
+      "collocations": {
+        "adj_noun": [
+          "sharp decline",
+          "gradual decline",
+          "steady decline",
+          "significant decline"
+        ],
+        "verb_prep": [
+          "decline in numbers",
+          "decline in quality",
+          "decline in population"
+        ],
+        "adv_verb": [
+          "declined sharply",
+          "declined steadily",
+          "declined significantly"
+        ]
+      },
+      "frames": [
+        "There has been a significant decline in ___.",
+        "The population has declined by ___ percent.",
+        "This led to a gradual decline in ___."
+      ],
+      "distractors": [
+        "declare",
+        "deliver",
+        "delight"
+      ]
+    },
+    {
+      "id": "w075",
+      "word": "sustainable",
+      "awl_sub": 5,
+      "rank": 78,
+      "freq": 28,
+      "spread": 8,
+      "tier": 1,
+      "level": 1,
+      "bridge": true,
+      "forms": [
+        "sustainable",
+        "sustainability",
+        "sustain",
+        "sustained",
+        "unsustainable"
+      ],
+      "def": "able to continue for a long time without damaging the environment",
+      "ex": "Sustainable energy means using the sun and wind — not stealing your neighbour's electricity.",
+      "collocations": {
+        "adj_noun": [
+          "sustainable development",
+          "sustainable energy",
+          "sustainable agriculture",
+          "sustainable growth"
+        ],
+        "adv_adj": [
+          "environmentally sustainable",
+          "economically sustainable",
+          "truly sustainable"
+        ],
+        "noun_noun": [
+          "sustainability goals",
+          "sustainability practices"
+        ]
+      },
+      "frames": [
+        "Sustainable development requires ___.",
+        "In order to achieve sustainability, ___.",
+        "This approach is not sustainable because ___."
+      ],
+      "distractors": [
+        "suitable",
+        "substantial",
+        "sufficient"
+      ]
+    },
+    {
+      "id": "w076",
+      "word": "function",
+      "awl_sub": 1,
+      "rank": 79,
+      "freq": 30,
+      "spread": 10,
+      "tier": 1,
+      "level": 1,
+      "bridge": true,
+      "forms": [
+        "function",
+        "functions",
+        "functional",
+        "functioning"
+      ],
+      "def": "the purpose something is designed for, or to work correctly",
+      "ex": "The function of a alarm clock is to wake you up. Its actual function is to be hit and ignored.",
+      "collocations": {
+        "adj_noun": [
+          "main function",
+          "key function",
+          "vital function",
+          "brain function"
+        ],
+        "verb_obj": [
+          "perform a function",
+          "serve a function",
+          "fulfil a function"
+        ],
+        "verb_adv": [
+          "function effectively",
+          "function properly",
+          "function normally"
+        ]
+      },
+      "frames": [
+        "The main function of ___ is to ___.",
+        "This serves an important function in ___.",
+        "___ cannot function without ___."
+      ],
+      "distractors": [
+        "fiction",
+        "fraction",
+        "fashion"
+      ]
+    },
+    {
+      "id": "w077",
+      "word": "final",
+      "awl_sub": 2,
+      "rank": 80,
+      "freq": 47,
+      "spread": 11,
+      "tier": 1,
+      "level": 1,
+      "bridge": true,
+      "forms": [
+        "finally",
+        "final",
+        "finalise",
+        "finalize",
+        "finalist"
+      ],
+      "def": "last; coming at the end",
+      "ex": "The final exam is your last chance to prove you learned something — or your last chance to guess creatively.",
+      "collocations": {
+        "adj_noun": [
+          "final result",
+          "final stage",
+          "final decision",
+          "final product"
+        ],
+        "adv_verb": [
+          "finally completed",
+          "finally achieved"
+        ],
+        "noun_noun": [
+          "final outcome",
+          "final analysis"
+        ]
+      },
+      "frames": [
+        "The final result was ___.",
+        "In the final analysis, ___.",
+        "Finally, it should be noted that ___."
+      ],
+      "distractors": [
+        "finance",
+        "fine",
+        "finite"
+      ]
+    },
+    {
+      "id": "w078",
+      "word": "culture",
+      "awl_sub": 2,
+      "rank": 81,
+      "freq": 40,
+      "spread": 10,
+      "tier": 1,
+      "level": 1,
+      "bridge": true,
+      "forms": [
+        "culture",
+        "cultures",
+        "cultural",
+        "culturally"
+      ],
+      "def": "the ideas, customs, and way of life of a group of people",
+      "ex": "Every culture has its own food traditions — in some cultures, eating insects is normal; in others, eating pineapple on pizza is the real crime.",
+      "collocations": {
+        "adj_noun": [
+          "western culture",
+          "traditional culture",
+          "popular culture",
+          "local culture"
+        ],
+        "noun_noun": [
+          "culture and society",
+          "cultural identity",
+          "cultural heritage"
+        ],
+        "verb_obj": [
+          "preserve culture",
+          "understand a culture",
+          "respect a culture"
+        ]
+      },
+      "frames": [
+        "In many cultures, ___.",
+        "Cultural differences can lead to ___.",
+        "___ plays an important role in ___ culture."
+      ],
+      "distractors": [
+        "creature",
+        "capture",
+        "curtain"
+      ]
+    },
+    {
+      "id": "w079",
+      "word": "despite",
+      "awl_sub": 4,
+      "rank": 82,
+      "freq": 24,
+      "spread": 10,
+      "tier": 1,
+      "level": 1,
+      "bridge": true,
+      "forms": [
+        "despite"
+      ],
+      "def": "without being affected by; even though",
+      "ex": "Despite studying all night, he still fell asleep during the exam. At least he studied in his dreams.",
+      "collocations": {
+        "prep_noun": [
+          "despite the fact that",
+          "despite the difficulties",
+          "despite the challenges"
+        ],
+        "prep_ger": [
+          "despite being",
+          "despite having",
+          "despite knowing"
+        ],
+        "phrase": [
+          "despite this",
+          "despite everything"
+        ]
+      },
+      "frames": [
+        "Despite ___, the results showed that ___.",
+        "Despite the fact that ___, ___.",
+        "Despite these challenges, ___."
+      ],
+      "distractors": [
+        "design",
+        "desire",
+        "despair"
+      ]
+    },
+    {
+      "id": "w080",
+      "word": "previous",
+      "awl_sub": 2,
+      "rank": 84,
+      "freq": 38,
+      "spread": 10,
+      "tier": 1,
+      "level": 1,
+      "bridge": true,
+      "forms": [
+        "previous",
+        "previously"
+      ],
+      "def": "happening or existing before the one being talked about",
+      "ex": "Previous research suggested that goldfish have short memories. Previous goldfish could not be reached for comment.",
+      "collocations": {
+        "adj_noun": [
+          "previous research",
+          "previous study",
+          "previous experience",
+          "previous knowledge"
+        ],
+        "adv_verb": [
+          "previously mentioned",
+          "previously established",
+          "previously unknown"
+        ],
+        "phrase": [
+          "as previously stated",
+          "as mentioned previously"
+        ]
+      },
+      "frames": [
+        "Previous research has shown that ___.",
+        "As previously mentioned, ___.",
+        "Unlike previous studies, this research ___."
+      ],
+      "distractors": [
+        "preview",
+        "prevent",
+        "precious"
+      ]
+    },
+    {
+      "id": "w081",
+      "word": "institute",
+      "awl_sub": 2,
+      "rank": 85,
+      "freq": 25,
+      "spread": 10,
+      "tier": 1,
+      "level": 1,
+      "bridge": true,
+      "forms": [
+        "institute",
+        "institution",
+        "institutions",
+        "institutional"
+      ],
+      "def": "an organisation set up for a special purpose, especially research or education",
+      "ex": "The institute published a study proving that people who read studies are 100% more likely to quote them at dinner.",
+      "collocations": {
+        "adj_noun": [
+          "research institute",
+          "educational institution",
+          "financial institution"
+        ],
+        "noun_noun": [
+          "institutional support",
+          "institutional framework"
+        ],
+        "verb_obj": [
+          "establish an institution",
+          "attend an institution"
+        ]
+      },
+      "frames": [
+        "The institute conducted research on ___.",
+        "Educational institutions play a key role in ___.",
+        "This institutional framework ensures that ___."
+      ],
+      "distractors": [
+        "instruct",
+        "install",
+        "instead"
+      ]
+    },
+    {
+      "id": "w082",
+      "word": "estimate",
+      "awl_sub": 1,
+      "rank": 86,
+      "freq": 28,
+      "spread": 11,
+      "tier": 1,
+      "level": 1,
+      "bridge": true,
+      "forms": [
+        "estimated",
+        "estimates",
+        "estimate",
+        "estimating",
+        "estimation",
+        "underestimate",
+        "overestimate"
+      ],
+      "def": "to judge or calculate the amount, value, or size of something roughly",
+      "ex": "Scientists estimate the universe is 13.8 billion years old. They estimate my maths homework will take forever.",
+      "collocations": {
+        "adv_verb": [
+          "estimated at",
+          "roughly estimated",
+          "conservatively estimated"
+        ],
+        "verb_that": [
+          "estimated to be",
+          "estimated that"
+        ],
+        "adj_noun": [
+          "rough estimate",
+          "conservative estimate",
+          "current estimate"
+        ]
+      },
+      "frames": [
+        "It is estimated that ___.",
+        "According to current estimates, ___.",
+        "The total cost was estimated at ___."
+      ],
+      "distractors": [
+        "establish",
+        "examine",
+        "eliminate"
+      ]
+    },
+    {
+      "id": "w083",
+      "word": "text",
+      "awl_sub": 2,
+      "rank": 87,
+      "freq": 16,
+      "spread": 8,
+      "tier": 1,
+      "level": 1,
+      "bridge": true,
+      "forms": [
+        "text",
+        "texts",
+        "textual"
+      ],
+      "def": "a piece of written or printed material, especially a book or document",
+      "ex": "The text was so long that by the time I finished reading it, I forgot what the first page said.",
+      "collocations": {
+        "adj_noun": [
+          "written text",
+          "original text",
+          "academic text"
+        ],
+        "noun_noun": [
+          "text message",
+          "textbook",
+          "text analysis"
+        ],
+        "verb_obj": [
+          "read a text",
+          "analyse a text",
+          "interpret a text"
+        ]
+      },
+      "frames": [
+        "The text suggests that ___.",
+        "According to the text, ___.",
+        "The main idea of this text is ___."
+      ],
+      "distractors": [
+        "test",
+        "textile",
+        "texture"
+      ]
+    },
+    {
+      "id": "w084",
+      "word": "affect",
+      "awl_sub": 2,
+      "rank": 88,
+      "freq": 22,
+      "spread": 11,
+      "tier": 1,
+      "level": 1,
+      "bridge": true,
+      "forms": [
+        "affect",
+        "affected",
+        "affects",
+        "affecting",
+        "unaffected"
+      ],
+      "def": "to produce a change in someone or something; to influence",
+      "ex": "The weather affects your mood — rain makes you sad, sun makes you happy, and exams make you question your life choices.",
+      "collocations": {
+        "adv_verb": [
+          "directly affect",
+          "significantly affect",
+          "adversely affect",
+          "negatively affect"
+        ],
+        "verb_obj": [
+          "affect the outcome",
+          "affect performance",
+          "affect health"
+        ],
+        "adj_noun": [
+          "affected area",
+          "affected population"
+        ]
+      },
+      "frames": [
+        "This can significantly affect ___.",
+        "Several factors affect ___.",
+        "The changes are likely to affect ___."
+      ],
+      "distractors": [
+        "effect",
+        "afford",
+        "affirm"
+      ]
+    },
+    {
+      "id": "w085",
+      "word": "fundamental",
+      "awl_sub": 5,
+      "rank": 89,
+      "freq": 22,
+      "spread": 9,
+      "tier": 1,
+      "level": 1,
+      "bridge": true,
+      "forms": [
+        "fundamental",
+        "fundamentally",
+        "fundamentals"
+      ],
+      "def": "very important and basic; forming the foundation of something",
+      "ex": "Understanding grammar is fundamental to learning English — understanding memes is fundamental to surviving the internet.",
+      "collocations": {
+        "adj_noun": [
+          "fundamental principle",
+          "fundamental change",
+          "fundamental difference",
+          "fundamental question"
+        ],
+        "adv_adj": [
+          "absolutely fundamental",
+          "truly fundamental"
+        ],
+        "verb_obj": [
+          "represent a fundamental shift",
+          "raise fundamental questions"
+        ]
+      },
+      "frames": [
+        "This represents a fundamental change in ___.",
+        "One fundamental difference between ___ and ___ is ___.",
+        "___ is fundamental to ___."
+      ],
+      "distractors": [
+        "financial",
+        "functional",
+        "furniture"
+      ]
+    },
+    {
+      "id": "w086",
+      "word": "location",
+      "awl_sub": 3,
+      "rank": 92,
+      "freq": 16,
+      "spread": 9,
+      "tier": 1,
+      "level": 1,
+      "bridge": true,
+      "forms": [
+        "location",
+        "locations",
+        "locate",
+        "located"
+      ],
+      "def": "a particular place or position",
+      "ex": "The location of the restaurant was perfect — right next to a gym, so you could feel guilty while eating.",
+      "collocations": {
+        "adj_noun": [
+          "geographical location",
+          "exact location",
+          "central location",
+          "remote location"
+        ],
+        "verb_obj": [
+          "determine the location",
+          "identify the location",
+          "choose a location"
+        ],
+        "verb_prep": [
+          "located in",
+          "located near",
+          "located at"
+        ]
+      },
+      "frames": [
+        "The ___ is located in ___.",
+        "The geographical location of ___ makes it ___.",
+        "Due to its location, ___."
+      ],
+      "distractors": [
+        "local",
+        "logical",
+        "loyal"
+      ]
+    },
+    {
+      "id": "w087",
+      "word": "unique",
+      "awl_sub": 7,
+      "rank": 93,
+      "freq": 24,
+      "spread": 9,
+      "tier": 1,
+      "level": 1,
+      "bridge": true,
+      "forms": [
+        "unique",
+        "uniquely",
+        "uniqueness"
+      ],
+      "def": "being the only one of its kind; very special or unusual",
+      "ex": "Every student is unique — uniquely talented at finding excuses for late homework.",
+      "collocations": {
+        "adj_noun": [
+          "unique opportunity",
+          "unique feature",
+          "unique characteristic",
+          "unique challenge"
+        ],
+        "adv_adj": [
+          "truly unique",
+          "entirely unique",
+          "absolutely unique"
+        ],
+        "verb_obj": [
+          "offer a unique perspective",
+          "provide a unique opportunity"
+        ]
+      },
+      "frames": [
+        "This provides a unique opportunity to ___.",
+        "Each ___ has its own unique ___.",
+        "What makes ___ unique is ___."
+      ],
+      "distractors": [
+        "uniform",
+        "unite",
+        "universe"
+      ]
+    },
+    {
+      "id": "w088",
+      "word": "medical",
+      "awl_sub": 5,
+      "rank": 94,
+      "freq": 19,
+      "spread": 9,
+      "tier": 1,
+      "level": 1,
+      "bridge": true,
+      "forms": [
+        "medical",
+        "medically",
+        "medicine"
+      ],
+      "def": "relating to medicine or the treatment of illness",
+      "ex": "Medical advances mean people live longer — which means more years of being told to eat vegetables.",
+      "collocations": {
+        "adj_noun": [
+          "medical treatment",
+          "medical research",
+          "medical condition",
+          "medical care"
+        ],
+        "noun_noun": [
+          "medical profession",
+          "medical science",
+          "medical record"
+        ],
+        "verb_obj": [
+          "seek medical advice",
+          "receive medical treatment",
+          "provide medical care"
+        ]
+      },
+      "frames": [
+        "Advances in medical research have led to ___.",
+        "Patients should seek medical advice before ___.",
+        "Access to medical care is essential for ___."
+      ],
+      "distractors": [
+        "mental",
+        "mineral",
+        "medieval"
+      ]
+    },
+    {
+      "id": "w089",
+      "word": "eventual",
+      "awl_sub": 8,
+      "rank": 96,
+      "freq": 25,
+      "spread": 9,
+      "tier": 1,
+      "level": 1,
+      "bridge": true,
+      "forms": [
+        "eventually",
+        "eventual"
+      ],
+      "def": "happening at the end of a process or period of time",
+      "ex": "Eventually, the student finished the essay — only three days after the deadline.",
+      "collocations": {
+        "adv_verb": [
+          "eventually lead to",
+          "eventually become",
+          "eventually succeed"
+        ],
+        "adj_noun": [
+          "eventual outcome",
+          "eventual success",
+          "eventual collapse"
+        ],
+        "phrase": [
+          "eventually, however",
+          "but eventually"
+        ]
+      },
+      "frames": [
+        "This will eventually lead to ___.",
+        "The eventual outcome was ___.",
+        "Eventually, ___ was achieved."
+      ],
+      "distractors": [
+        "evident",
+        "evaluate",
+        "evolve"
+      ]
+    },
+    {
+      "id": "w090",
+      "word": "obvious",
+      "awl_sub": 4,
+      "rank": 97,
+      "freq": 21,
+      "spread": 8,
+      "tier": 1,
+      "level": 1,
+      "bridge": true,
+      "forms": [
+        "obvious",
+        "obviously"
+      ],
+      "def": "easy to see or understand; clear",
+      "ex": "It was obvious that he had not studied — his answer to every question was \"I agree with the person next to me.\"",
+      "collocations": {
+        "adv_adj": [
+          "immediately obvious",
+          "fairly obvious",
+          "painfully obvious"
+        ],
+        "adj_noun": [
+          "obvious reason",
+          "obvious choice",
+          "obvious difference",
+          "obvious advantage"
+        ],
+        "verb_adj": [
+          "seem obvious",
+          "become obvious",
+          "make it obvious"
+        ]
+      },
+      "frames": [
+        "It is obvious that ___.",
+        "The most obvious difference between ___ and ___ is ___.",
+        "For obvious reasons, ___."
+      ],
+      "distractors": [
+        "oblivious",
+        "observe",
+        "obtain"
+      ]
+    },
+    {
+      "id": "w091",
+      "word": "aspect",
+      "awl_sub": 2,
+      "rank": 98,
+      "freq": 19,
+      "spread": 10,
+      "tier": 1,
+      "level": 1,
+      "bridge": true,
+      "forms": [
+        "aspect",
+        "aspects"
+      ],
+      "def": "one part or feature of a situation, plan, or subject",
+      "ex": "The most important aspect of cooking is not burning the kitchen down. Everything else is optional.",
+      "collocations": {
+        "adj_noun": [
+          "key aspect",
+          "important aspect",
+          "various aspects",
+          "negative aspect"
+        ],
+        "noun_prep": [
+          "aspect of life",
+          "aspect of the problem",
+          "aspect of learning"
+        ],
+        "verb_obj": [
+          "consider every aspect",
+          "examine different aspects",
+          "cover all aspects"
+        ]
+      },
+      "frames": [
+        "One important aspect of ___ is ___.",
+        "This essay will examine various aspects of ___.",
+        "Another key aspect to consider is ___."
+      ],
+      "distractors": [
+        "expect",
+        "accept",
+        "suspect"
+      ]
+    },
+    {
+      "id": "w092",
+      "word": "instance",
+      "awl_sub": 3,
+      "rank": 99,
+      "freq": 25,
+      "spread": 9,
+      "tier": 1,
+      "level": 1,
+      "bridge": true,
+      "forms": [
+        "instance",
+        "instances"
+      ],
+      "def": "an example or single occurrence of something",
+      "ex": "In this instance, the student was right and the teacher was wrong — a rare instance indeed.",
+      "collocations": {
+        "prep_phrase": [
+          "for instance",
+          "in this instance",
+          "in most instances"
+        ],
+        "adj_noun": [
+          "specific instance",
+          "particular instance",
+          "rare instance"
+        ],
+        "noun_prep": [
+          "instance of discrimination",
+          "instance of failure"
+        ]
+      },
+      "frames": [
+        "For instance, ___.",
+        "In this instance, ___.",
+        "There are many instances of ___."
+      ],
+      "distractors": [
+        "instant",
+        "instinct",
+        "instead"
+      ]
+    },
+    {
+      "id": "w093",
+      "word": "debate",
+      "awl_sub": 4,
+      "rank": 100,
+      "freq": 20,
+      "spread": 8,
+      "tier": 1,
+      "level": 1,
+      "bridge": true,
+      "forms": [
+        "debate",
+        "debates",
+        "debated",
+        "debating",
+        "debatable"
+      ],
+      "def": "a discussion in which people express different opinions about a topic",
+      "ex": "The debate about whether homework is useful has been going on for years — students already know the answer.",
+      "collocations": {
+        "adj_noun": [
+          "ongoing debate",
+          "heated debate",
+          "public debate",
+          "political debate"
+        ],
+        "verb_obj": [
+          "spark a debate",
+          "fuel the debate",
+          "settle the debate"
+        ],
+        "noun_prep": [
+          "debate about",
+          "debate over",
+          "debate surrounding"
+        ]
+      },
+      "frames": [
+        "There is an ongoing debate about whether ___.",
+        "This has sparked a debate about ___.",
+        "The debate surrounding ___ continues to ___."
+      ],
+      "distractors": [
+        "decade",
+        "delay",
+        "deliver"
+      ]
+    },
+    {
+      "id": "w094",
+      "word": "definition",
+      "awl_sub": 1,
+      "rank": 101,
+      "freq": 16,
+      "spread": 8,
+      "tier": 1,
+      "level": 1,
+      "bridge": true,
+      "forms": [
+        "definition",
+        "definitions",
+        "define",
+        "defined",
+        "defining"
+      ],
+      "def": "a statement of the exact meaning of a word, or the act of making something clear",
+      "ex": "By definition, a dictionary defines words. By practice, students use it to press flowers.",
+      "collocations": {
+        "adj_noun": [
+          "clear definition",
+          "broad definition",
+          "narrow definition",
+          "precise definition"
+        ],
+        "verb_obj": [
+          "define a term",
+          "provide a definition",
+          "fit the definition"
+        ],
+        "adv_verb": [
+          "clearly defined",
+          "broadly defined",
+          "loosely defined"
+        ]
+      },
+      "frames": [
+        "___ can be defined as ___.",
+        "By definition, ___.",
+        "There is no single definition of ___."
+      ],
+      "distractors": [
+        "definite",
+        "decision",
+        "deliver"
+      ]
+    },
+    {
+      "id": "w095",
+      "word": "initial",
+      "awl_sub": 3,
+      "rank": 102,
+      "freq": 12,
+      "spread": 9,
+      "tier": 1,
+      "level": 1,
+      "bridge": true,
+      "forms": [
+        "initially",
+        "initial"
+      ],
+      "def": "happening at the beginning; first",
+      "ex": "My initial reaction to the exam was panic. My second reaction was also panic.",
+      "collocations": {
+        "adj_noun": [
+          "initial stage",
+          "initial response",
+          "initial findings",
+          "initial impression"
+        ],
+        "adv_verb": [
+          "initially believed",
+          "initially thought",
+          "initially proposed"
+        ],
+        "phrase": [
+          "initially, however",
+          "in the initial stages"
+        ]
+      },
+      "frames": [
+        "Initially, ___, but later ___.",
+        "The initial results suggest that ___.",
+        "In the initial stages of ___, ___."
+      ],
+      "distractors": [
+        "install",
+        "internal",
+        "interval"
+      ]
+    },
+    {
+      "id": "w096",
+      "word": "resource",
+      "awl_sub": 2,
+      "rank": 104,
+      "freq": 21,
+      "spread": 8,
+      "tier": 1,
+      "level": 1,
+      "bridge": true,
+      "forms": [
+        "resource",
+        "resources",
+        "resourceful"
+      ],
+      "def": "something useful that is available to use, especially money, materials, or staff",
+      "ex": "Natural resources are limited — but your teacher's patience is an even more limited resource.",
+      "collocations": {
+        "adj_noun": [
+          "natural resources",
+          "available resources",
+          "human resources",
+          "limited resources"
+        ],
+        "verb_obj": [
+          "use resources",
+          "allocate resources",
+          "conserve resources"
+        ],
+        "noun_noun": [
+          "resource management",
+          "resource allocation"
+        ]
+      },
+      "frames": [
+        "The use of natural resources must be ___.",
+        "Limited resources mean that ___.",
+        "Resources should be allocated to ___."
+      ],
+      "distractors": [
+        "resort",
+        "result",
+        "rescue"
+      ]
+    },
+    {
+      "id": "w097",
+      "word": "publish",
+      "awl_sub": 3,
+      "rank": 105,
+      "freq": 21,
+      "spread": 8,
+      "tier": 1,
+      "level": 1,
+      "bridge": true,
+      "forms": [
+        "publish",
+        "published",
+        "publishing",
+        "publication",
+        "publications"
+      ],
+      "def": "to make information available to the public, usually in a book, article, or online",
+      "ex": "The study was published in a top journal — which means about twelve people read it.",
+      "collocations": {
+        "adv_verb": [
+          "recently published",
+          "widely published",
+          "first published"
+        ],
+        "verb_obj": [
+          "publish a study",
+          "publish findings",
+          "publish a report"
+        ],
+        "adj_noun": [
+          "published research",
+          "recent publication",
+          "academic publication"
+        ]
+      },
+      "frames": [
+        "A recently published study found that ___.",
+        "The findings were published in ___.",
+        "According to a publication by ___, ___."
+      ],
+      "distractors": [
+        "punish",
+        "polish",
+        "perish"
+      ]
+    },
+    {
+      "id": "w098",
+      "word": "link",
+      "awl_sub": 3,
+      "rank": 106,
+      "freq": 14,
+      "spread": 8,
+      "tier": 1,
+      "level": 1,
+      "bridge": true,
+      "forms": [
+        "link",
+        "links",
+        "linked",
+        "linking"
+      ],
+      "def": "a connection or relationship between two things",
+      "ex": "Researchers found a link between eating chocolate and happiness — finally, some useful science.",
+      "collocations": {
+        "adj_noun": [
+          "direct link",
+          "clear link",
+          "strong link",
+          "possible link"
+        ],
+        "verb_obj": [
+          "establish a link",
+          "find a link",
+          "identify a link"
+        ],
+        "verb_prep": [
+          "link between A and B",
+          "linked to",
+          "linked with"
+        ]
+      },
+      "frames": [
+        "There is a clear link between ___ and ___.",
+        "Studies have linked ___ to ___.",
+        "The link between ___ and ___ is well established."
+      ],
+      "distractors": [
+        "limit",
+        "line",
+        "list"
+      ]
+    },
+    {
+      "id": "w099",
+      "word": "emerge",
+      "awl_sub": 4,
+      "rank": 107,
+      "freq": 22,
+      "spread": 10,
+      "tier": 1,
+      "level": 1,
+      "bridge": true,
+      "forms": [
+        "emerged",
+        "emerging",
+        "emergence",
+        "emerge",
+        "emerges"
+      ],
+      "def": "to appear or come out; to become known",
+      "ex": "A new trend has emerged among students: studying. Just kidding — it's still social media.",
+      "collocations": {
+        "adv_verb": [
+          "recently emerged",
+          "gradually emerged",
+          "quickly emerged"
+        ],
+        "verb_prep": [
+          "emerge from",
+          "emerge as"
+        ],
+        "adj_noun": [
+          "emerging trend",
+          "emerging technology",
+          "emergence of"
+        ]
+      },
+      "frames": [
+        "A new trend has emerged in ___.",
+        "___ has emerged as a key factor in ___.",
+        "The emergence of ___ has changed ___."
+      ],
+      "distractors": [
+        "embrace",
+        "employ",
+        "empower"
+      ]
+    },
+    {
+      "id": "w100",
+      "word": "equipment",
+      "awl_sub": 7,
+      "rank": 108,
+      "freq": 17,
+      "spread": 8,
+      "tier": 1,
+      "level": 1,
+      "bridge": true,
+      "forms": [
+        "equipment",
+        "equip",
+        "equipped"
+      ],
+      "def": "the tools, machines, or things needed for a particular activity",
+      "ex": "The laboratory had the latest equipment — unfortunately, it did not come with instructions.",
+      "collocations": {
+        "adj_noun": [
+          "modern equipment",
+          "heavy equipment",
+          "electronic equipment",
+          "medical equipment"
+        ],
+        "verb_obj": [
+          "use equipment",
+          "install equipment",
+          "operate equipment"
+        ],
+        "noun_noun": [
+          "equipment failure",
+          "safety equipment",
+          "sports equipment"
+        ]
+      },
+      "frames": [
+        "The ___ is equipped with ___.",
+        "Specialised equipment is needed to ___.",
+        "A lack of equipment means that ___."
+      ],
+      "distractors": [
+        "equivalent",
+        "enquiry",
+        "enterprise"
+      ]
+    },
+    {
+      "id": "w101",
+      "word": "precise",
+      "awl_sub": 5,
+      "rank": 110,
+      "freq": 15,
+      "spread": 8,
+      "tier": 1,
+      "level": 1,
+      "bridge": true,
+      "forms": [
+        "precise",
+        "precisely",
+        "precision"
+      ],
+      "def": "exact and accurate; very careful about details",
+      "ex": "The scientist was very precise — she measured everything to the millimetre, except her coffee, which she poured by feeling.",
+      "collocations": {
+        "adv_adj": [
+          "very precise",
+          "highly precise",
+          "extremely precise"
+        ],
+        "adj_noun": [
+          "precise measurement",
+          "precise location",
+          "precise definition",
+          "precise moment"
+        ],
+        "noun_noun": [
+          "precision engineering",
+          "precision instruments"
+        ]
+      },
+      "frames": [
+        "It is difficult to be precise about ___.",
+        "More precisely, ___.",
+        "The precise nature of ___ remains unclear."
+      ],
+      "distractors": [
+        "precious",
+        "predict",
+        "prepare"
+      ]
+    },
+    {
+      "id": "w102",
+      "word": "objective",
+      "awl_sub": 5,
+      "rank": 111,
+      "freq": 15,
+      "spread": 8,
+      "tier": 1,
+      "level": 1,
+      "bridge": true,
+      "forms": [
+        "objective",
+        "objectives",
+        "objectively",
+        "objectivity"
+      ],
+      "def": "a goal or aim; or based on facts rather than personal feelings",
+      "ex": "The main objective of the lesson was to learn grammar. The students' objective was to survive until lunch.",
+      "collocations": {
+        "adj_noun": [
+          "main objective",
+          "primary objective",
+          "key objective",
+          "learning objective"
+        ],
+        "verb_obj": [
+          "achieve an objective",
+          "meet objectives",
+          "set objectives"
+        ],
+        "adv_adj": [
+          "purely objective",
+          "truly objective"
+        ]
+      },
+      "frames": [
+        "The main objective of ___ is to ___.",
+        "In order to achieve this objective, ___.",
+        "It is important to remain objective when ___."
+      ],
+      "distractors": [
+        "obstruct",
+        "observe",
+        "obligation"
+      ]
+    },
+    {
+      "id": "w103",
+      "word": "series",
+      "awl_sub": 4,
+      "rank": 114,
+      "freq": 18,
+      "spread": 10,
+      "tier": 1,
+      "level": 1,
+      "bridge": true,
+      "forms": [
+        "series"
+      ],
+      "def": "a number of similar things or events that come one after another",
+      "ex": "The teacher asked a series of questions. The students gave a series of blank stares.",
+      "collocations": {
+        "adj_noun": [
+          "a series of events",
+          "a series of experiments",
+          "a series of steps"
+        ],
+        "noun_prep": [
+          "series of lectures",
+          "series of changes"
+        ],
+        "verb_obj": [
+          "conduct a series of",
+          "undergo a series of"
+        ]
+      },
+      "frames": [
+        "A series of ___ led to ___.",
+        "The study involved a series of ___.",
+        "This was followed by a series of ___."
+      ],
+      "distractors": [
+        "serious",
+        "serve",
+        "several"
+      ]
+    },
+    {
+      "id": "w104",
+      "word": "capacity",
+      "awl_sub": 5,
+      "rank": 115,
+      "freq": 16,
+      "spread": 10,
+      "tier": 1,
+      "level": 1,
+      "bridge": true,
+      "forms": [
+        "capacity",
+        "capacities",
+        "incapacity"
+      ],
+      "def": "the ability to hold, contain, or produce something; or the maximum amount possible",
+      "ex": "The stadium has a capacity of 50,000 people — or 100,000 if you count the ones standing on each other's shoulders.",
+      "collocations": {
+        "adj_noun": [
+          "full capacity",
+          "maximum capacity",
+          "limited capacity",
+          "mental capacity"
+        ],
+        "noun_prep": [
+          "capacity for learning",
+          "capacity to change"
+        ],
+        "verb_obj": [
+          "have the capacity to",
+          "increase capacity",
+          "reduce capacity"
+        ]
+      },
+      "frames": [
+        "Humans have the capacity to ___.",
+        "The ___ is operating at full capacity.",
+        "This has the capacity to ___."
+      ],
+      "distractors": [
+        "capable",
+        "capital",
+        "capture"
+      ]
+    },
+    {
+      "id": "w105",
+      "word": "transform",
+      "awl_sub": 6,
+      "rank": 117,
+      "freq": 15,
+      "spread": 9,
+      "tier": 1,
+      "level": 1,
+      "bridge": true,
+      "forms": [
+        "transform",
+        "transformed",
+        "transformation",
+        "transforming"
+      ],
+      "def": "to change something completely, usually in a good way",
+      "ex": "The internet has transformed how we learn — now we can be confused by millions of sources instead of just one textbook.",
+      "collocations": {
+        "adv_verb": [
+          "completely transformed",
+          "dramatically transformed",
+          "radically transformed"
+        ],
+        "verb_obj": [
+          "transform society",
+          "transform the way",
+          "transform education"
+        ],
+        "adj_noun": [
+          "major transformation",
+          "social transformation",
+          "digital transformation"
+        ]
+      },
+      "frames": [
+        "Technology has transformed the way we ___.",
+        "This led to a major transformation in ___.",
+        "The ___ has been completely transformed by ___."
+      ],
+      "distractors": [
+        "transfer",
+        "translate",
+        "transport"
+      ]
+    },
+    {
+      "id": "w106",
+      "word": "display",
+      "awl_sub": 6,
+      "rank": 120,
+      "freq": 13,
+      "spread": 8,
+      "tier": 1,
+      "level": 1,
+      "bridge": true,
+      "forms": [
+        "display",
+        "displays",
+        "displayed",
+        "displaying"
+      ],
+      "def": "to show something to people, or a presentation of things for people to look at",
+      "ex": "The museum displayed ancient pottery. The students displayed ancient boredom.",
+      "collocations": {
+        "verb_obj": [
+          "display behaviour",
+          "display characteristics",
+          "display emotions"
+        ],
+        "adj_noun": [
+          "visual display",
+          "impressive display",
+          "public display"
+        ],
+        "noun_prep": [
+          "display of power",
+          "display of emotion",
+          "on display"
+        ]
+      },
+      "frames": [
+        "The results are displayed in ___.",
+        "Animals display ___ behaviour when ___.",
+        "The exhibit was on display at ___."
+      ],
+      "distractors": [
+        "dismiss",
+        "dispose",
+        "displace"
+      ]
+    },
+    {
+      "id": "w107",
+      "word": "context",
+      "awl_sub": 1,
+      "rank": 122,
+      "freq": 16,
+      "spread": 9,
+      "tier": 1,
+      "level": 1,
+      "bridge": true,
+      "forms": [
+        "context",
+        "contexts",
+        "contextual"
+      ],
+      "def": "the situation or background in which something happens that helps explain it",
+      "ex": "In the context of an exam, silence is golden. In the context of a party, silence is awkward.",
+      "collocations": {
+        "adj_noun": [
+          "social context",
+          "cultural context",
+          "historical context",
+          "wider context"
+        ],
+        "noun_prep": [
+          "context of the study",
+          "in this context"
+        ],
+        "verb_obj": [
+          "provide context",
+          "understand the context",
+          "place in context"
+        ]
+      },
+      "frames": [
+        "In the context of ___, ___.",
+        "This must be understood in the context of ___.",
+        "The wider context suggests that ___."
+      ],
+      "distractors": [
+        "content",
+        "contact",
+        "contest"
+      ]
+    },
+    {
+      "id": "w108",
+      "word": "promote",
+      "awl_sub": 4,
+      "rank": 126,
+      "freq": 12,
+      "spread": 8,
+      "tier": 1,
+      "level": 1,
+      "bridge": true,
+      "forms": [
+        "promote",
+        "promoted",
+        "promotes",
+        "promoting",
+        "promotion"
+      ],
+      "def": "to encourage or support something so it happens or develops",
+      "ex": "Schools promote healthy eating — while selling chocolate bars in the cafeteria.",
+      "collocations": {
+        "verb_obj": [
+          "promote awareness",
+          "promote health",
+          "promote growth",
+          "promote equality"
+        ],
+        "adj_noun": [
+          "health promotion",
+          "sales promotion"
+        ],
+        "adv_verb": [
+          "actively promote",
+          "widely promoted",
+          "designed to promote"
+        ]
+      },
+      "frames": [
+        "The government should promote ___.",
+        "This programme is designed to promote ___.",
+        "Efforts to promote ___ have resulted in ___."
+      ],
+      "distractors": [
+        "promise",
+        "propose",
+        "provoke"
+      ]
+    },
+    {
+      "id": "w109",
+      "word": "conclude",
+      "awl_sub": 2,
+      "rank": 129,
+      "freq": 15,
+      "spread": 8,
+      "tier": 1,
+      "level": 1,
+      "bridge": true,
+      "forms": [
+        "conclusion",
+        "conclude",
+        "concluded",
+        "conclusions",
+        "concluding",
+        "conclusive"
+      ],
+      "def": "to reach a decision or opinion after thinking about something; to end",
+      "ex": "The researchers concluded that sleep is important. They reached this conclusion after staying awake for three days.",
+      "collocations": {
+        "verb_that": [
+          "conclude that",
+          "concluded by saying"
+        ],
+        "adj_noun": [
+          "main conclusion",
+          "logical conclusion",
+          "final conclusion",
+          "reasonable conclusion"
+        ],
+        "prep_phrase": [
+          "in conclusion",
+          "draw a conclusion",
+          "reach a conclusion",
+          "come to a conclusion"
+        ]
+      },
+      "frames": [
+        "In conclusion, ___.",
+        "The study concluded that ___.",
+        "It is reasonable to conclude that ___."
+      ],
+      "distractors": [
+        "include",
+        "exclude",
+        "confuse"
+      ]
+    },
+    {
+      "id": "w110",
+      "word": "constant",
+      "awl_sub": 3,
+      "rank": 130,
+      "freq": 16,
+      "spread": 8,
+      "tier": 1,
+      "level": 1,
+      "bridge": true,
+      "forms": [
+        "constant",
+        "constantly",
+        "constants"
+      ],
+      "def": "happening all the time or not changing",
+      "ex": "The only constant thing in life is change — and the constant sound of your phone buzzing.",
+      "collocations": {
+        "adj_noun": [
+          "constant change",
+          "constant pressure",
+          "constant supply",
+          "constant temperature"
+        ],
+        "adv_verb": [
+          "constantly changing",
+          "constantly growing",
+          "constantly evolving"
+        ],
+        "verb_adj": [
+          "remain constant",
+          "keep constant",
+          "hold constant"
+        ]
+      },
+      "frames": [
+        "___ has remained constant over ___.",
+        "There is constant pressure to ___.",
+        "The temperature must be kept constant at ___."
+      ],
+      "distractors": [
+        "consist",
+        "construct",
+        "consult"
+      ]
+    },
+    {
+      "id": "w111",
+      "word": "consumption",
+      "awl_sub": 2,
+      "rank": 131,
+      "freq": 11,
+      "spread": 8,
+      "tier": 1,
+      "level": 1,
+      "bridge": true,
+      "forms": [
+        "consumption",
+        "consume",
+        "consumed",
+        "consumer",
+        "consumers"
+      ],
+      "def": "the act of using something up, especially food, energy, or resources",
+      "ex": "Global energy consumption keeps rising — mostly because nobody remembers to turn off the lights.",
+      "collocations": {
+        "adj_noun": [
+          "energy consumption",
+          "food consumption",
+          "fuel consumption",
+          "water consumption"
+        ],
+        "verb_obj": [
+          "reduce consumption",
+          "increase consumption",
+          "limit consumption"
+        ],
+        "noun_noun": [
+          "consumer behaviour",
+          "consumer goods",
+          "consumer demand"
+        ]
+      },
+      "frames": [
+        "Energy consumption has increased by ___.",
+        "In order to reduce consumption of ___, ___.",
+        "Consumers are becoming more aware of ___."
+      ],
+      "distractors": [
+        "constitution",
+        "construction",
+        "contribution"
+      ]
+    },
+    {
+      "id": "w112",
+      "word": "contrast",
+      "awl_sub": 4,
+      "rank": 136,
+      "freq": 11,
+      "spread": 8,
+      "tier": 1,
+      "level": 1,
+      "bridge": true,
+      "forms": [
+        "contrast",
+        "contrasts",
+        "contrasting",
+        "contrastingly"
+      ],
+      "def": "a clear difference between two things when they are compared",
+      "ex": "In contrast to the teacher's expectations, the students did very well — shocking everyone, including the students.",
+      "collocations": {
+        "prep_phrase": [
+          "in contrast to",
+          "by contrast",
+          "in sharp contrast"
+        ],
+        "adj_noun": [
+          "sharp contrast",
+          "stark contrast",
+          "marked contrast",
+          "striking contrast"
+        ],
+        "verb_obj": [
+          "contrast A with B",
+          "draw a contrast"
+        ]
+      },
+      "frames": [
+        "In contrast to ___, ___.",
+        "There is a sharp contrast between ___ and ___.",
+        "By contrast, ___."
+      ],
+      "distractors": [
+        "contract",
+        "control",
+        "contribute"
+      ]
+    },
+    {
+      "id": "w113",
+      "word": "relevant",
+      "awl_sub": 2,
+      "rank": 138,
+      "freq": 12,
+      "spread": 9,
+      "tier": 1,
+      "level": 1,
+      "bridge": true,
+      "forms": [
+        "relevant",
+        "relevance",
+        "irrelevant"
+      ],
+      "def": "connected to what is being discussed or considered; important to the matter",
+      "ex": "The question asked about geography, but his answer about football was not exactly relevant.",
+      "collocations": {
+        "adj_noun": [
+          "relevant information",
+          "relevant experience",
+          "relevant factors",
+          "relevant data"
+        ],
+        "adv_adj": [
+          "directly relevant",
+          "highly relevant",
+          "particularly relevant"
+        ],
+        "verb_adj": [
+          "remain relevant",
+          "consider relevant"
+        ]
+      },
+      "frames": [
+        "This is particularly relevant to ___.",
+        "The most relevant factor is ___.",
+        "___ is no longer relevant because ___."
+      ],
+      "distractors": [
+        "reluctant",
+        "reliable",
+        "relative"
+      ]
+    },
+    {
+      "id": "w114",
+      "word": "ignore",
+      "awl_sub": 6,
+      "rank": 140,
+      "freq": 10,
+      "spread": 8,
+      "tier": 1,
+      "level": 1,
+      "bridge": true,
+      "forms": [
+        "ignore",
+        "ignored",
+        "ignores",
+        "ignoring",
+        "ignorance"
+      ],
+      "def": "to pay no attention to something or someone on purpose",
+      "ex": "You can ignore advice, ignore warnings, and ignore your alarm clock — but you cannot ignore the consequences.",
+      "collocations": {
+        "adv_verb": [
+          "completely ignored",
+          "largely ignored",
+          "simply ignored",
+          "deliberately ignored"
+        ],
+        "verb_obj": [
+          "ignore the problem",
+          "ignore the evidence",
+          "ignore the fact that"
+        ],
+        "adj_noun": [
+          "wilful ignorance",
+          "public ignorance"
+        ]
+      },
+      "frames": [
+        "It would be wrong to ignore ___.",
+        "This issue has been largely ignored by ___.",
+        "We cannot ignore the fact that ___."
+      ],
+      "distractors": [
+        "imagine",
+        "import",
+        "impose"
+      ]
+    },
+    {
+      "id": "w115",
+      "word": "policy",
+      "awl_sub": 1,
+      "rank": 142,
+      "freq": 13,
+      "spread": 8,
+      "tier": 1,
+      "level": 1,
+      "bridge": true,
+      "forms": [
+        "policy",
+        "policies"
+      ],
+      "def": "a plan or set of rules agreed by a government or organisation",
+      "ex": "The school introduced a new policy on phones — students must now be more creative about hiding them.",
+      "collocations": {
+        "adj_noun": [
+          "government policy",
+          "foreign policy",
+          "public policy",
+          "economic policy"
+        ],
+        "verb_obj": [
+          "implement a policy",
+          "introduce a policy",
+          "adopt a policy"
+        ],
+        "noun_noun": [
+          "policy change",
+          "policy maker",
+          "policy decision"
+        ]
+      },
+      "frames": [
+        "The government should introduce policies to ___.",
+        "This policy was designed to ___.",
+        "Changes in policy have led to ___."
+      ],
+      "distractors": [
+        "police",
+        "politics",
+        "polish"
+      ]
+    },
+    {
+      "id": "w116",
+      "word": "distinct",
+      "awl_sub": 2,
+      "rank": 145,
+      "freq": 12,
+      "spread": 9,
+      "tier": 1,
+      "level": 1,
+      "bridge": true,
+      "forms": [
+        "distinct",
+        "distinction",
+        "distinctions",
+        "distinctive",
+        "distinctly"
+      ],
+      "def": "clearly different or separate from other things",
+      "ex": "There is a distinct difference between being quiet and being asleep in class — though both look the same.",
+      "collocations": {
+        "adj_noun": [
+          "distinct difference",
+          "distinct advantage",
+          "distinct feature",
+          "distinct category"
+        ],
+        "adv_adj": [
+          "quite distinct",
+          "clearly distinct",
+          "distinctly different"
+        ],
+        "noun_prep": [
+          "distinction between A and B",
+          "distinction from"
+        ]
+      },
+      "frames": [
+        "There is a distinct difference between ___ and ___.",
+        "Two distinct types of ___ can be identified.",
+        "The distinction between ___ and ___ is important because ___."
+      ],
+      "distractors": [
+        "distant",
+        "district",
+        "distract"
+      ]
+    },
+    {
+      "id": "w117",
+      "word": "approximate",
+      "awl_sub": 4,
+      "rank": 149,
+      "freq": 10,
+      "spread": 8,
+      "tier": 1,
+      "level": 1,
+      "bridge": true,
+      "forms": [
+        "approximately",
+        "approximate",
+        "approximation"
+      ],
+      "def": "close to an exact amount or number but not completely accurate",
+      "ex": "The journey takes approximately two hours — approximately meaning \"definitely longer if you stop for snacks.\"",
+      "collocations": {
+        "adv_num": [
+          "approximately 50 percent",
+          "approximately 10,000",
+          "approximately half"
+        ],
+        "adj_noun": [
+          "approximate figure",
+          "approximate value",
+          "approximate cost"
+        ],
+        "verb_obj": [
+          "approximate the number",
+          "give an approximation"
+        ]
+      },
+      "frames": [
+        "Approximately ___ percent of ___.",
+        "The approximate cost of ___ is ___.",
+        "This figure is only an approximation of ___."
+      ],
+      "distractors": [
+        "appropriate",
+        "appreciate",
+        "approach"
+      ]
+    },
+    {
+      "id": "w118",
+      "word": "enormous",
+      "awl_sub": 10,
+      "rank": 152,
+      "freq": 10,
+      "spread": 8,
+      "tier": 1,
+      "level": 1,
+      "bridge": true,
+      "forms": [
+        "enormous",
+        "enormously",
+        "enormity"
+      ],
+      "def": "extremely large in size, amount, or degree",
+      "ex": "The exam covered an enormous amount of material — approximately everything ever written.",
+      "collocations": {
+        "adj_noun": [
+          "enormous amount",
+          "enormous impact",
+          "enormous pressure",
+          "enormous potential"
+        ],
+        "adv_adj": [
+          "absolutely enormous",
+          "truly enormous"
+        ],
+        "verb_obj": [
+          "have an enormous effect",
+          "face enormous challenges",
+          "require enormous effort"
+        ]
+      },
+      "frames": [
+        "This has had an enormous impact on ___.",
+        "An enormous amount of ___ is needed to ___.",
+        "___ faces enormous challenges such as ___."
+      ],
+      "distractors": [
+        "erroneous",
+        "envious",
+        "anonymous"
+      ]
+    }
+  ]
+}
