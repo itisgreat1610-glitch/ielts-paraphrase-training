@@ -1,0 +1,3048 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+<title>IELTS Vocabulary Builder</title>
+<meta name="description" content="Free IELTS Academic vocabulary training with spaced repetition. Master the words that appear most on the exam.">
+<meta name="theme-color" content="#0F172A">
+<link rel="manifest" href="manifest.json">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="preload" href="https://fonts.googleapis.com/css2?family=Nunito:wght@400;600;700;800&family=Press+Start+2P&display=swap" as="style">
+<link href="https://fonts.googleapis.com/css2?family=Nunito:wght@400;600;700;800&family=Press+Start+2P&display=swap" rel="stylesheet">
+<style>
+/* ===== ROOT VARIABLES ===== */
+:root {
+  --bg: #0F172A;
+  --surface: #1E293B;
+  --surface-raised: #253348;
+  --surface2: #334155;
+  --text: #F1F5F9;
+  --text-dim: #94A3B8;
+  --text-muted: #64748B;
+  --border: #334155;
+  --border-strong: #475569;
+  --accent-orange: #F97316;
+  --accent-blue: #3B82F6;
+  --correct: #10B981;
+  --wrong: #EF4444;
+  --warning: #F59E0B;
+  --info: #38BDF8;
+  --radius: 14px;
+  --radius-sm: 8px;
+  --font-body: 'Nunito', system-ui, sans-serif;
+  --font-pixel: 'Press Start 2P', monospace;
+}
+
+/* ===== RESET ===== */
+*, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
+
+body {
+  font-family: var(--font-body);
+  background: var(--bg);
+  color: var(--text);
+  min-height: 100vh;
+  min-height: 100dvh;
+  line-height: 1.6;
+  -webkit-font-smoothing: antialiased;
+  font-size: 1rem;
+  overflow-x: hidden;
+}
+
+:focus-visible {
+  outline: none;
+  box-shadow: 0 0 0 2px var(--bg), 0 0 0 4px var(--warning);
+  border-radius: 4px;
+}
+
+button { font-family: inherit; cursor: pointer; border: none; background: none; color: inherit; }
+input { font-family: inherit; }
+
+/* ===== SCREEN MANAGEMENT ===== */
+.screen { display: none; }
+.screen.active { display: block; }
+
+#appScreen {
+  max-width: 600px;
+  margin: 0 auto;
+  padding-bottom: 4rem; /* space for bottom nav */
+}
+
+/* ===== HEADER (FROSTED GLASS) ===== */
+.app-header {
+  background: rgba(15, 23, 42, 0.85);
+  background: var(--bg); /* fallback for no backdrop-filter */
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  border-bottom: 1px solid var(--border);
+  padding: 0.75rem 1rem;
+  position: sticky;
+  top: 0;
+  z-index: 100;
+}
+
+@supports (backdrop-filter: blur(12px)) {
+  .app-header { background: rgba(15, 23, 42, 0.85); }
+}
+
+.header-inner {
+  max-width: 600px;
+  margin: 0 auto;
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+.back-link {
+  font-size: 0.875rem;
+  color: var(--text-dim);
+  text-decoration: none;
+  font-weight: 700;
+  padding: 0.375rem 0.5rem;
+  border-radius: 6px;
+  transition: all 0.15s;
+  display: flex;
+  align-items: center;
+  gap: 0.25rem;
+  min-height: 2.75rem;
+  min-width: 2.75rem;
+  justify-content: center;
+}
+.back-link:hover, .back-link:active { color: var(--text); background: rgba(255,255,255,0.05); }
+
+.header-title {
+  flex: 1;
+  text-align: center;
+}
+.header-title h1 {
+  font-family: var(--font-pixel);
+  font-size: 0.625rem;
+  letter-spacing: 0.05em;
+  color: var(--accent-orange);
+  line-height: 1.4;
+}
+.header-title .header-sub {
+  font-size: 0.6875rem;
+  color: var(--text-muted);
+  font-weight: 600;
+}
+
+.header-right {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+.sync-indicator {
+  font-size: 0.75rem;
+  line-height: 1;
+  min-width: 1.5rem;
+  text-align: center;
+}
+
+.btn-logout {
+  font-size: 0.6875rem;
+  font-weight: 700;
+  color: var(--text-muted);
+  padding: 0.375rem 0.625rem;
+  border-radius: 6px;
+  border: 1px solid var(--border);
+  transition: all 0.15s;
+  min-height: 2.75rem;
+}
+.btn-logout:hover, .btn-logout:active {
+  color: var(--text);
+  border-color: var(--border-strong);
+}
+
+/* ===== USER BANNER ===== */
+.user-banner {
+  background: rgba(249, 115, 22, 0.08);
+  border-bottom: 1px solid rgba(249, 115, 22, 0.15);
+  padding: 0.375rem 1rem;
+  font-size: 0.75rem;
+  color: var(--accent-orange);
+  font-weight: 600;
+  text-align: center;
+}
+
+/* ===== ALERT BANNERS ===== */
+.alert-banner {
+  padding: 0.625rem 1rem;
+  font-size: 0.8125rem;
+  font-weight: 600;
+  text-align: center;
+  display: none;
+}
+.alert-banner.visible { display: block; }
+.alert-banner.warn {
+  background: rgba(245, 158, 11, 0.1);
+  border-bottom: 1px solid rgba(245, 158, 11, 0.2);
+  color: var(--warning);
+}
+.alert-banner.info {
+  background: rgba(56, 189, 248, 0.08);
+  border-bottom: 1px solid rgba(56, 189, 248, 0.15);
+  color: var(--info);
+}
+.alert-banner a, .alert-banner button {
+  text-decoration: underline;
+  color: inherit;
+  font-weight: 700;
+  background: none;
+  border: none;
+  font-size: inherit;
+  cursor: pointer;
+  padding: 0;
+}
+
+/* ===== LOGIN SCREEN ===== */
+.login-wrap {
+  min-height: 100vh;
+  min-height: 100dvh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding: 2rem 1.25rem;
+  background: linear-gradient(170deg, #162033 0%, var(--bg) 40%, #131B2E 100%);
+  position: relative;
+}
+
+.login-wrap::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background:
+    radial-gradient(ellipse 500px 350px at 30% 20%, rgba(249,115,22,0.05), transparent),
+    radial-gradient(ellipse 400px 300px at 70% 70%, rgba(59,130,246,0.04), transparent);
+  pointer-events: none;
+}
+
+.login-card {
+  position: relative;
+  width: 100%;
+  max-width: 380px;
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  padding: 2rem 1.5rem;
+}
+
+.login-logo {
+  text-align: center;
+  margin-bottom: 1.5rem;
+}
+.login-logo .pixel-label {
+  font-family: var(--font-pixel);
+  font-size: 0.5rem;
+  color: var(--accent-orange);
+  letter-spacing: 0.08em;
+  display: block;
+  margin-bottom: 0.5rem;
+}
+.login-logo .logo-title {
+  font-size: 1.375rem;
+  font-weight: 800;
+}
+.login-logo .logo-sub {
+  font-size: 0.8125rem;
+  color: var(--text-dim);
+  margin-top: 0.25rem;
+}
+
+.login-form { display: flex; flex-direction: column; gap: 0.75rem; }
+
+.form-label {
+  font-size: 0.8125rem;
+  font-weight: 700;
+  color: var(--text-dim);
+  margin-bottom: 0.25rem;
+  display: block;
+}
+
+.form-input {
+  width: 100%;
+  padding: 0.75rem 1rem;
+  background: var(--bg);
+  border: 1px solid var(--border);
+  border-radius: var(--radius-sm);
+  color: var(--text);
+  font-size: 1rem;
+  font-weight: 600;
+  transition: border-color 0.15s;
+  min-height: 2.75rem;
+}
+.form-input::placeholder { color: var(--text-muted); font-weight: 400; }
+.form-input:focus { border-color: var(--accent-orange); outline: none; }
+
+.form-hint {
+  font-size: 0.75rem;
+  color: var(--text-muted);
+  line-height: 1.5;
+}
+
+.btn-primary {
+  width: 100%;
+  padding: 0.875rem;
+  background: var(--accent-orange);
+  color: #000;
+  font-size: 1rem;
+  font-weight: 800;
+  border-radius: var(--radius-sm);
+  border: none;
+  cursor: pointer;
+  transition: all 0.15s;
+  min-height: 2.75rem;
+}
+.btn-primary:hover, .btn-primary:active { background: #FB923C; }
+.btn-primary:disabled { opacity: 0.5; cursor: not-allowed; }
+
+.login-error {
+  font-size: 0.8125rem;
+  color: var(--wrong);
+  font-weight: 600;
+  display: none;
+  text-align: center;
+  padding: 0.5rem;
+  background: rgba(239, 68, 68, 0.08);
+  border-radius: var(--radius-sm);
+}
+.login-error.visible { display: block; }
+
+.recent-logins {
+  margin-top: 0.75rem;
+  border-top: 1px solid var(--border);
+  padding-top: 0.75rem;
+}
+.recent-logins-title {
+  font-size: 0.6875rem;
+  color: var(--text-muted);
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  margin-bottom: 0.5rem;
+}
+.recent-login-btn {
+  width: 100%;
+  padding: 0.625rem 0.75rem;
+  background: var(--bg);
+  border: 1px solid var(--border);
+  border-radius: var(--radius-sm);
+  color: var(--text);
+  font-size: 0.875rem;
+  font-weight: 600;
+  text-align: left;
+  cursor: pointer;
+  transition: all 0.15s;
+  margin-bottom: 0.375rem;
+  min-height: 2.75rem;
+}
+.recent-login-btn:hover, .recent-login-btn:active {
+  border-color: var(--accent-orange);
+  background: rgba(249, 115, 22, 0.05);
+}
+
+/* ===== PRIVACY NOTICE ===== */
+.privacy-overlay {
+  position: fixed;
+  inset: 0;
+  background: rgba(0, 0, 0, 0.7);
+  z-index: 200;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 1rem;
+}
+.privacy-overlay.hidden { display: none; }
+
+.privacy-card {
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  padding: 1.5rem;
+  max-width: 360px;
+  width: 100%;
+}
+.privacy-card h2 {
+  font-size: 1.125rem;
+  font-weight: 800;
+  margin-bottom: 0.75rem;
+}
+.privacy-card p {
+  font-size: 0.875rem;
+  color: var(--text-dim);
+  line-height: 1.7;
+  margin-bottom: 1rem;
+}
+.privacy-card .btn-primary { margin-top: 0.5rem; }
+
+/* ===== WORD DECK SCREEN ===== */
+.deck-header {
+  padding: 1rem 1rem 0.5rem;
+  max-width: 600px;
+  margin: 0 auto;
+}
+
+.deck-stats {
+  display: flex;
+  gap: 0.5rem;
+  margin-bottom: 0.75rem;
+  flex-wrap: wrap;
+}
+.stat-chip {
+  font-size: 0.6875rem;
+  font-weight: 700;
+  padding: 0.375rem 0.75rem;
+  border-radius: 2rem;
+  background: var(--surface);
+  border: 1px solid var(--border);
+  color: var(--text-dim);
+}
+.stat-chip .stat-val { color: var(--text); font-weight: 800; }
+.stat-chip.accent { border-color: rgba(249, 115, 22, 0.3); color: var(--accent-orange); }
+.stat-chip.accent .stat-val { color: var(--accent-orange); }
+
+.deck-search {
+  position: relative;
+  margin-bottom: 0.5rem;
+}
+.deck-search input {
+  width: 100%;
+  padding: 0.625rem 0.75rem 0.625rem 2.25rem;
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: var(--radius-sm);
+  color: var(--text);
+  font-size: 0.9375rem;
+  font-weight: 600;
+  min-height: 2.75rem;
+}
+.deck-search input::placeholder { color: var(--text-muted); font-weight: 400; }
+.deck-search input:focus { outline: none; border-color: var(--accent-orange); }
+.deck-search .search-icon {
+  position: absolute;
+  left: 0.75rem;
+  top: 50%;
+  transform: translateY(-50%);
+  color: var(--text-muted);
+  font-size: 0.875rem;
+  pointer-events: none;
+}
+
+.word-list {
+  max-width: 600px;
+  margin: 0 auto;
+  padding: 0 1rem 6rem;
+  list-style: none;
+}
+
+.word-item {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+  padding: 0.875rem 0.75rem;
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: var(--radius-sm);
+  margin-bottom: 0.375rem;
+  cursor: pointer;
+  transition: all 0.15s;
+  min-height: 3.25rem;
+}
+.word-item:hover, .word-item:active {
+  border-color: var(--border-strong);
+  background: var(--surface-raised);
+}
+
+.word-rank {
+  font-family: var(--font-pixel);
+  font-size: 0.375rem;
+  color: var(--text-muted);
+  min-width: 1.75rem;
+  text-align: center;
+}
+
+.word-info { flex: 1; min-width: 0; }
+.word-name {
+  font-size: 1rem;
+  font-weight: 800;
+  color: var(--text);
+  line-height: 1.3;
+}
+.word-def {
+  font-size: 0.75rem;
+  color: var(--text-muted);
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  line-height: 1.4;
+}
+
+.word-badge {
+  font-size: 0.5625rem;
+  font-weight: 800;
+  padding: 0.25rem 0.5rem;
+  border-radius: 2rem;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  white-space: nowrap;
+}
+.badge-new { background: rgba(59, 130, 246, 0.12); color: var(--accent-blue); }
+.badge-learning { background: rgba(249, 115, 22, 0.12); color: var(--accent-orange); }
+.badge-review { background: rgba(245, 158, 11, 0.12); color: var(--warning); }
+.badge-mastered { background: rgba(16, 185, 129, 0.12); color: var(--correct); }
+
+/* ===== WORD DETAIL SCREEN ===== */
+.detail-wrap {
+  max-width: 600px;
+  margin: 0 auto;
+  padding: 1rem 1rem 6rem;
+}
+
+.detail-card {
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  padding: 1.25rem;
+  margin-bottom: 0.75rem;
+}
+
+.detail-word {
+  font-size: 1.75rem;
+  font-weight: 800;
+  color: var(--text);
+  margin-bottom: 0.125rem;
+}
+
+.detail-forms {
+  font-size: 0.8125rem;
+  color: var(--text-muted);
+  margin-bottom: 1rem;
+  line-height: 1.6;
+}
+.detail-forms span {
+  display: inline-block;
+  background: var(--bg);
+  padding: 0.125rem 0.5rem;
+  border-radius: 4px;
+  margin: 0.125rem 0.25rem 0.125rem 0;
+  font-weight: 600;
+  font-size: 0.75rem;
+}
+
+.detail-section {
+  margin-bottom: 1rem;
+}
+.detail-section-title {
+  font-family: var(--font-pixel);
+  font-size: 0.4375rem;
+  color: var(--accent-orange);
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  margin-bottom: 0.5rem;
+}
+
+.detail-def {
+  font-size: 1.0625rem;
+  font-weight: 600;
+  color: var(--text);
+  line-height: 1.6;
+}
+
+.detail-example {
+  font-size: 0.9375rem;
+  color: var(--text-dim);
+  line-height: 1.7;
+  font-style: italic;
+  padding-left: 0.75rem;
+  border-left: 3px solid var(--accent-orange);
+}
+
+.collocation-group {
+  margin-bottom: 0.625rem;
+}
+.collocation-label {
+  font-size: 0.6875rem;
+  color: var(--text-muted);
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  margin-bottom: 0.25rem;
+}
+.collocation-items {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.25rem;
+}
+.collocation-chip {
+  font-size: 0.8125rem;
+  font-weight: 600;
+  padding: 0.25rem 0.625rem;
+  border-radius: 2rem;
+  background: rgba(59, 130, 246, 0.08);
+  color: var(--accent-blue);
+  border: 1px solid rgba(59, 130, 246, 0.15);
+}
+
+.frame-item {
+  font-size: 0.9375rem;
+  color: var(--text-dim);
+  padding: 0.5rem 0.75rem;
+  background: var(--bg);
+  border-radius: var(--radius-sm);
+  margin-bottom: 0.375rem;
+  line-height: 1.6;
+  font-weight: 600;
+}
+
+/* L1 Meaning Field */
+.l1-section {
+  margin-top: 1rem;
+  padding-top: 1rem;
+  border-top: 1px solid var(--border);
+}
+
+.l1-input {
+  width: 100%;
+  padding: 0.75rem 1rem;
+  background: var(--bg);
+  border: 1px solid var(--border);
+  border-radius: var(--radius-sm);
+  color: var(--text);
+  font-size: 1.0625rem;
+  font-weight: 600;
+  font-family: system-ui, sans-serif; /* Khmer/Vietnamese script */
+  transition: border-color 0.15s;
+  min-height: 2.75rem;
+}
+.l1-input::placeholder { color: var(--text-muted); font-weight: 400; font-size: 0.875rem; }
+.l1-input:focus { border-color: var(--accent-orange); outline: none; }
+
+.l1-saved {
+  font-size: 0.6875rem;
+  color: var(--correct);
+  font-weight: 700;
+  margin-top: 0.375rem;
+  opacity: 0;
+  transition: opacity 0.3s;
+}
+.l1-saved.show { opacity: 1; }
+
+.btn-back-deck {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.25rem;
+  font-size: 0.875rem;
+  font-weight: 700;
+  color: var(--text-dim);
+  padding: 0.5rem 0;
+  margin-bottom: 0.75rem;
+  cursor: pointer;
+  transition: color 0.15s;
+  background: none;
+  border: none;
+  min-height: 2.75rem;
+}
+.btn-back-deck:hover, .btn-back-deck:active { color: var(--text); }
+
+/* ===== WEBVIEW BANNER ===== */
+.webview-overlay {
+  position: fixed;
+  inset: 0;
+  background: rgba(0, 0, 0, 0.85);
+  z-index: 300;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 1rem;
+}
+.webview-overlay.hidden { display: none; }
+
+.webview-card {
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  padding: 1.5rem;
+  max-width: 340px;
+  width: 100%;
+  text-align: center;
+}
+.webview-card h2 {
+  font-size: 1.125rem;
+  font-weight: 800;
+  margin-bottom: 0.75rem;
+}
+.webview-card p {
+  font-size: 0.875rem;
+  color: var(--text-dim);
+  line-height: 1.7;
+  margin-bottom: 1rem;
+}
+.webview-card .btn-primary { margin-bottom: 0.75rem; }
+.webview-card .btn-secondary {
+  width: 100%;
+  padding: 0.75rem;
+  background: var(--surface2);
+  color: var(--text);
+  font-size: 0.875rem;
+  font-weight: 700;
+  border-radius: var(--radius-sm);
+  border: 1px solid var(--border);
+  cursor: pointer;
+  min-height: 2.75rem;
+}
+.webview-dismiss {
+  font-size: 0.75rem;
+  color: var(--text-muted);
+  margin-top: 0.75rem;
+  cursor: pointer;
+  background: none;
+  border: none;
+  text-decoration: underline;
+}
+
+/* ===== LOADING STATE ===== */
+.loading-wrap {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding: 4rem 1rem;
+  text-align: center;
+}
+.loading-spinner {
+  width: 2rem;
+  height: 2rem;
+  border: 3px solid var(--border);
+  border-top-color: var(--accent-orange);
+  border-radius: 50%;
+  animation: spin 0.8s linear infinite;
+  margin-bottom: 1rem;
+}
+@keyframes spin { to { transform: rotate(360deg); } }
+.loading-text {
+  font-size: 0.875rem;
+  color: var(--text-dim);
+  font-weight: 600;
+}
+
+/* ===== EMPTY STATE ===== */
+.empty-state {
+  text-align: center;
+  padding: 3rem 1rem;
+  color: var(--text-muted);
+}
+.empty-state .empty-icon { font-size: 2rem; margin-bottom: 0.75rem; }
+.empty-state p { font-size: 0.9375rem; font-weight: 600; }
+
+/* ===== ANIMATIONS ===== */
+@keyframes fadeIn {
+  from { opacity: 0; transform: translateY(6px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+.fade-in { animation: fadeIn 0.25s ease-out; }
+
+/* ===== RESPONSIVE ===== */
+@media (max-width: 360px) {
+  .login-card { padding: 1.5rem 1rem; }
+  .detail-word { font-size: 1.5rem; }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  *, *::before, *::after {
+    animation-duration: 0.01ms !important;
+    transition-duration: 0.01ms !important;
+  }
+}
+
+/* ===== GAME HUB SCREEN ===== */
+.game-hub-wrap {
+  max-width: 600px;
+  margin: 0 auto;
+  padding: 1rem;
+}
+
+.game-hub-title {
+  font-family: var(--font-pixel);
+  font-size: 0.5rem;
+  color: var(--accent-orange);
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  margin-bottom: 1rem;
+}
+
+.game-section {
+  margin-bottom: 2rem;
+}
+
+.game-section-title {
+  font-size: 0.875rem;
+  font-weight: 700;
+  color: var(--text);
+  margin-bottom: 0.75rem;
+}
+
+.game-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 0.75rem;
+}
+
+.game-card {
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: var(--radius-sm);
+  padding: 1rem;
+  text-align: center;
+  cursor: pointer;
+  transition: all 0.15s;
+  min-height: 9rem;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+
+.game-card:hover, .game-card:active {
+  border-color: var(--accent-orange);
+  background: var(--surface-raised);
+}
+
+.game-card.locked {
+  opacity: 0.5;
+  cursor: not-allowed;
+  border-color: var(--border);
+}
+
+.game-card.locked:hover {
+  border-color: var(--border);
+  background: var(--surface);
+}
+
+.game-card-icon {
+  font-size: 2rem;
+  margin-bottom: 0.5rem;
+}
+
+.game-card-title {
+  font-family: var(--font-pixel);
+  font-size: 0.375rem;
+  color: var(--accent-orange);
+  letter-spacing: 0.05em;
+  margin-bottom: 0.25rem;
+}
+
+.game-card-desc {
+  font-size: 0.6875rem;
+  color: var(--text-muted);
+  font-weight: 600;
+}
+
+.game-card-count {
+  font-size: 0.625rem;
+  color: var(--text-dim);
+  margin-top: 0.5rem;
+  font-weight: 700;
+}
+
+/* ===== GAME SCREEN BASE ===== */
+.game-screen-wrap {
+  display: flex;
+  flex-direction: column;
+  min-height: 100dvh;
+  background: var(--bg);
+}
+
+.game-header {
+  padding: 0.75rem 1rem;
+  border-bottom: 1px solid var(--border);
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  min-height: 3.25rem;
+}
+
+.game-header-left {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+}
+
+.game-back-btn {
+  font-size: 0.875rem;
+  color: var(--text-dim);
+  padding: 0.375rem 0.5rem;
+  border-radius: 6px;
+  background: none;
+  border: none;
+  cursor: pointer;
+  min-width: 2.75rem;
+  min-height: 2.75rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: all 0.15s;
+}
+
+.game-back-btn:hover, .game-back-btn:active {
+  color: var(--text);
+  background: rgba(255, 255, 255, 0.05);
+}
+
+.game-header-title {
+  font-family: var(--font-pixel);
+  font-size: 0.375rem;
+  color: var(--accent-orange);
+  letter-spacing: 0.05em;
+}
+
+.game-header-stats {
+  display: flex;
+  gap: 1rem;
+  font-size: 0.75rem;
+  font-weight: 700;
+  color: var(--text);
+}
+
+.game-content {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  padding: 1rem;
+  max-width: 600px;
+  margin: 0 auto;
+  width: 100%;
+}
+
+/* ===== LEARN GAME ===== */
+.learn-container {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  flex: 1;
+  padding: 1rem;
+}
+
+.learn-card {
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  padding: 1.5rem;
+  width: 100%;
+  max-width: 100%;
+}
+
+.learn-word {
+  font-size: 2rem;
+  font-weight: 800;
+  color: var(--text);
+  margin-bottom: 0.5rem;
+  text-align: center;
+}
+
+.learn-section {
+  margin-bottom: 1rem;
+  padding-bottom: 1rem;
+  border-bottom: 1px solid var(--border);
+}
+
+.learn-section:last-child {
+  border-bottom: none;
+  margin-bottom: 0;
+}
+
+.learn-label {
+  font-family: var(--font-pixel);
+  font-size: 0.3125rem;
+  color: var(--accent-orange);
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  margin-bottom: 0.5rem;
+}
+
+.learn-def {
+  font-size: 1.0625rem;
+  color: var(--text);
+  line-height: 1.6;
+  margin-bottom: 0.5rem;
+}
+
+.learn-example {
+  font-size: 0.9375rem;
+  color: var(--text-dim);
+  line-height: 1.6;
+  font-style: italic;
+  padding-left: 0.75rem;
+  border-left: 3px solid var(--accent-orange);
+}
+
+.learn-colloc {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.25rem;
+}
+
+.learn-colloc-chip {
+  font-size: 0.75rem;
+  padding: 0.25rem 0.625rem;
+  background: rgba(59, 130, 246, 0.12);
+  color: var(--accent-blue);
+  border: 1px solid rgba(59, 130, 246, 0.15);
+  border-radius: 2rem;
+  font-weight: 600;
+}
+
+.learn-button-area {
+  margin-top: 1.5rem;
+  padding-top: 1rem;
+  border-top: 1px solid var(--border);
+  text-align: center;
+}
+
+.btn-got-it {
+  padding: 0.875rem 1.5rem;
+  background: var(--accent-orange);
+  color: #000;
+  font-size: 1rem;
+  font-weight: 800;
+  border-radius: var(--radius-sm);
+  border: none;
+  cursor: pointer;
+  transition: all 0.15s;
+  min-height: 2.75rem;
+  min-width: 200px;
+}
+
+.btn-got-it:hover, .btn-got-it:active {
+  background: #FB923C;
+}
+
+/* ===== FALLING WORDS GAME ===== */
+.falling-game-wrap {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  flex: 1;
+}
+
+.falling-definition {
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: var(--radius-sm);
+  padding: 1rem;
+  text-align: center;
+  margin-bottom: 1rem;
+  min-height: 4rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.falling-definition-text {
+  font-size: 1.0625rem;
+  font-weight: 600;
+  color: var(--text);
+  line-height: 1.6;
+}
+
+.falling-options {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 0.75rem;
+  margin-bottom: 1rem;
+}
+
+.falling-option {
+  padding: 1rem;
+  background: var(--surface);
+  border: 2px solid var(--border);
+  border-radius: var(--radius-sm);
+  color: var(--text);
+  font-size: 1rem;
+  font-weight: 700;
+  cursor: pointer;
+  transition: all 0.15s;
+  min-height: 3.5rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+}
+
+.falling-option:hover, .falling-option:active {
+  border-color: var(--accent-blue);
+  background: var(--surface-raised);
+}
+
+.falling-option.correct {
+  border-color: var(--correct);
+  background: rgba(16, 185, 129, 0.12);
+  color: var(--correct);
+}
+
+.falling-option.wrong {
+  border-color: var(--wrong);
+  background: rgba(239, 68, 68, 0.12);
+  color: var(--wrong);
+}
+
+.feedback-overlay {
+  position: fixed;
+  inset: 0;
+  background: rgba(0, 0, 0, 0.7);
+  z-index: 150;
+  display: none;
+  align-items: center;
+  justify-content: center;
+  padding: 1rem;
+}
+
+.feedback-overlay.visible {
+  display: flex;
+}
+
+.feedback-card {
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  padding: 1.5rem;
+  max-width: 340px;
+  width: 100%;
+  text-align: center;
+}
+
+.feedback-title {
+  font-size: 1.125rem;
+  font-weight: 800;
+  margin-bottom: 0.75rem;
+  color: var(--text);
+}
+
+.feedback-title.wrong {
+  color: var(--wrong);
+}
+
+.feedback-title.correct {
+  color: var(--correct);
+}
+
+.feedback-hint {
+  background: rgba(56, 189, 248, 0.08);
+  border-left: 3px solid var(--accent-blue);
+  padding: 0.75rem;
+  border-radius: var(--radius-sm);
+  margin-bottom: 1rem;
+  text-align: left;
+}
+
+.feedback-hint-label {
+  font-size: 0.6875rem;
+  color: var(--accent-blue);
+  font-weight: 700;
+  margin-bottom: 0.25rem;
+}
+
+.feedback-hint-text {
+  font-size: 0.9375rem;
+  color: var(--text-dim);
+  line-height: 1.6;
+}
+
+.feedback-button {
+  padding: 0.75rem 1.5rem;
+  background: var(--accent-blue);
+  color: #fff;
+  font-size: 0.9375rem;
+  font-weight: 700;
+  border-radius: var(--radius-sm);
+  border: none;
+  cursor: pointer;
+  min-height: 2.75rem;
+  width: 100%;
+  transition: all 0.15s;
+}
+
+.feedback-button:hover, .feedback-button:active {
+  background: #1E40AF;
+}
+
+/* ===== TRUE/FALSE GAME ===== */
+.truefalse-container {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  flex: 1;
+}
+
+.truefalse-statement {
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  padding: 1.5rem;
+  margin-bottom: 1.5rem;
+  text-align: center;
+  min-height: 6rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.truefalse-text {
+  font-size: 1.125rem;
+  font-weight: 600;
+  color: var(--text);
+  line-height: 1.7;
+}
+
+.truefalse-buttons {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 1rem;
+}
+
+.truefalse-btn {
+  padding: 1.25rem;
+  font-size: 1.125rem;
+  font-weight: 800;
+  border-radius: var(--radius-sm);
+  border: 2px solid;
+  cursor: pointer;
+  transition: all 0.15s;
+  min-height: 4rem;
+}
+
+.truefalse-btn.true {
+  background: rgba(16, 185, 129, 0.08);
+  border-color: var(--correct);
+  color: var(--correct);
+}
+
+.truefalse-btn.true:hover, .truefalse-btn.true:active {
+  background: rgba(16, 185, 129, 0.12);
+  border-color: var(--correct);
+}
+
+.truefalse-btn.false {
+  background: rgba(239, 68, 68, 0.08);
+  border-color: var(--wrong);
+  color: var(--wrong);
+}
+
+.truefalse-btn.false:hover, .truefalse-btn.false:active {
+  background: rgba(239, 68, 68, 0.12);
+  border-color: var(--wrong);
+}
+
+/* ===== WORD BANK (word list in games) ===== */
+.word-bank-wrap {
+  margin-top: 1rem;
+  padding-top: 1rem;
+  border-top: 1px solid var(--border);
+}
+
+.word-bank-title {
+  font-family: var(--font-pixel);
+  font-size: 0.375rem;
+  color: var(--accent-orange);
+  letter-spacing: 0.05em;
+  text-transform: uppercase;
+  margin-bottom: 0.75rem;
+}
+
+.word-bank-list {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+  list-style: none;
+}
+
+.word-bank-item {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+  padding: 0.75rem;
+  background: var(--bg);
+  border: 1px solid var(--border);
+  border-radius: var(--radius-sm);
+  cursor: pointer;
+  transition: all 0.15s;
+  min-height: 2.75rem;
+}
+
+.word-bank-item:hover, .word-bank-item:active {
+  border-color: var(--accent-orange);
+  background: var(--surface);
+}
+
+.word-bank-icon {
+  font-size: 1rem;
+  min-width: 1.5rem;
+  text-align: center;
+}
+
+.word-bank-name {
+  font-size: 0.9375rem;
+  font-weight: 700;
+  color: var(--text);
+  flex: 1;
+}
+
+.word-bank-count {
+  font-size: 0.75rem;
+  color: var(--text-dim);
+  font-weight: 600;
+}
+
+/* ===== BOTTOM NAV TABS ===== */
+.bottom-nav {
+  position: fixed;
+  bottom: 0;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 100%;
+  max-width: 600px;
+  background: var(--surface);
+  border-top: 1px solid var(--border);
+  display: flex;
+  justify-content: center;
+  gap: 1rem;
+  padding: 0.5rem 1rem;
+  z-index: 90;
+}
+
+.nav-tab {
+  flex: 1;
+  padding: 0.75rem 0.5rem;
+  background: none;
+  border: none;
+  color: var(--text-dim);
+  font-size: 0.75rem;
+  font-weight: 700;
+  cursor: pointer;
+  transition: all 0.15s;
+  min-height: 2.75rem;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 0.25rem;
+  text-transform: uppercase;
+}
+
+.nav-tab:hover, .nav-tab:active {
+  color: var(--text);
+}
+
+.nav-tab.active {
+  color: var(--accent-orange);
+  border-bottom: 2px solid var(--accent-orange);
+}
+
+.nav-icon {
+  font-size: 1rem;
+}
+</style>
+</head>
+<body>
+
+<!-- ===== WEBVIEW DETECTION OVERLAY ===== -->
+<div id="webviewOverlay" class="webview-overlay hidden">
+  <div class="webview-card">
+    <h2>Open in Chrome</h2>
+    <p>This app works best in a regular browser. In-app browsers can't save your progress.</p>
+    <button id="webviewOpenBtn" class="btn-primary" onclick="Detection.openInChrome()">Open in Chrome</button>
+    <button class="btn-secondary" onclick="Detection.copyLink()">Copy Link</button>
+    <button class="webview-dismiss" onclick="Detection.dismissWebView()">Continue anyway</button>
+  </div>
+</div>
+
+<!-- ===== PRIVACY NOTICE OVERLAY ===== -->
+<div id="privacyOverlay" class="privacy-overlay hidden">
+  <div class="privacy-card">
+    <h2>Your Privacy</h2>
+    <p>This app saves your learning progress so you don't lose it. We don't collect personal information. Your teacher may see your progress to help you learn better.</p>
+    <button class="btn-primary" onclick="App.acceptPrivacy()">Got it</button>
+  </div>
+</div>
+
+<!-- ===== LOGIN SCREEN ===== -->
+<div id="loginScreen" class="screen active">
+  <div class="login-wrap">
+    <div class="login-card fade-in">
+      <div class="login-logo">
+        <span class="pixel-label">IELTS VOCAB BUILDER</span>
+        <div class="logo-title">Welcome!</div>
+        <div class="logo-sub">Enter your login to start learning</div>
+      </div>
+
+      <div class="login-form">
+        <div>
+          <label class="form-label" for="loginInput">Your Login ID</label>
+          <input type="text" id="loginInput" class="form-input" placeholder="2_8_2009_yourname" autocomplete="off" autocapitalize="none" spellcheck="false">
+          <div class="form-hint">Format: day_month_year_firstname (e.g. 15_3_2008_linh)</div>
+        </div>
+        <div id="loginError" class="login-error"></div>
+        <button id="loginBtn" class="btn-primary" onclick="Auth.login()">Start Learning</button>
+      </div>
+
+      <div id="recentLogins" class="recent-logins" style="display:none;">
+        <div class="recent-logins-title">Recent logins on this device</div>
+        <div id="recentList"></div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- ===== MAIN APP (after login) ===== -->
+<div id="appScreen" class="screen">
+
+  <!-- Header -->
+  <header class="app-header">
+    <div class="header-inner">
+      <a href="../" class="back-link" aria-label="Back to home">←</a>
+      <div class="header-title">
+        <h1>VOCAB BUILDER</h1>
+      </div>
+      <div class="header-right">
+        <span id="syncIndicator" class="sync-indicator" title="Sync status">✅</span>
+        <button class="btn-logout" onclick="Auth.logout()">Log out</button>
+      </div>
+    </div>
+  </header>
+
+  <!-- User banner -->
+  <div id="userBanner" class="user-banner"></div>
+
+  <!-- Alert banners -->
+  <div id="incognitoBanner" class="alert-banner warn">
+    ⚠️ Private browsing won't save your progress. Please use normal browsing.
+  </div>
+  <div id="safariBanner" class="alert-banner info">
+    For the best experience on iPhone: tap Share ↗ then "Add to Home Screen"
+    <button onclick="this.parentElement.classList.remove('visible'); try{localStorage.setItem('ielts_vocab_safari_dismissed','1')}catch(e){}">Dismiss</button>
+  </div>
+
+  <!-- Word Deck View -->
+  <div id="deckView" class="screen active">
+    <div class="deck-header">
+      <div class="deck-stats" id="deckStats"></div>
+      <div class="deck-search">
+        <span class="search-icon">🔍</span>
+        <input type="text" id="searchInput" placeholder="Search words..." oninput="UI.filterWords(this.value)">
+      </div>
+    </div>
+    <ul class="word-list" id="wordList"></ul>
+    <div id="deckLoading" class="loading-wrap">
+      <div class="loading-spinner"></div>
+      <div class="loading-text">Loading vocabulary...</div>
+    </div>
+    <div id="deckEmpty" class="empty-state" style="display:none;">
+      <div class="empty-icon">🔍</div>
+      <p>No words match your search</p>
+    </div>
+  </div>
+
+  <!-- Word Detail View -->
+  <div id="detailView" class="screen">
+    <div class="detail-wrap" id="detailContent"></div>
+  </div>
+
+  <!-- Game Hub View -->
+  <div id="gameHubView" class="screen">
+    <div class="game-hub-wrap" id="gameHubContent">
+      <div class="game-hub-title">PRACTICE GAMES</div>
+
+      <!-- Word Bank Section -->
+      <div class="game-section">
+        <div class="game-section-title">Word Bank</div>
+        <div class="game-grid" id="gameGrid"></div>
+      </div>
+
+      <!-- Review Queue Section -->
+      <div class="game-section" style="display:none;" id="reviewSection">
+        <div class="game-section-title">Today's Review</div>
+        <div id="reviewStats" style="font-size:0.875rem;color:var(--text-dim);margin-bottom:0.75rem;"></div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Learn Game View -->
+  <div id="learnGameView" class="screen">
+    <div class="game-screen-wrap">
+      <div class="game-header">
+        <div class="game-header-left">
+          <button class="game-back-btn" onclick="Games.backToHub()">←</button>
+          <div class="game-header-title">LEARN</div>
+        </div>
+        <div class="game-header-stats" id="learnStats"></div>
+      </div>
+      <div class="game-content">
+        <div class="learn-container" id="learnContainer"></div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Falling Words Game View -->
+  <div id="fallingGameView" class="screen">
+    <div class="game-screen-wrap">
+      <div class="game-header">
+        <div class="game-header-left">
+          <button class="game-back-btn" onclick="Games.backToHub()">←</button>
+          <div class="game-header-title">FALLING WORDS</div>
+        </div>
+        <div class="game-header-stats" id="fallingStats"></div>
+      </div>
+      <div class="game-content">
+        <div class="falling-game-wrap" id="fallingGameContainer"></div>
+      </div>
+      <div id="feedbackOverlay" class="feedback-overlay">
+        <div class="feedback-card" id="feedbackCard"></div>
+      </div>
+    </div>
+  </div>
+
+  <!-- True/False Game View -->
+  <div id="truefalseGameView" class="screen">
+    <div class="game-screen-wrap">
+      <div class="game-header">
+        <div class="game-header-left">
+          <button class="game-back-btn" onclick="Games.backToHub()">←</button>
+          <div class="game-header-title">TRUE OR FALSE</div>
+        </div>
+        <div class="game-header-stats" id="truefalseStats"></div>
+      </div>
+      <div class="game-content">
+        <div class="truefalse-container" id="truefalseContainer"></div>
+      </div>
+      <div id="truefalseOverlay" class="feedback-overlay">
+        <div class="feedback-card" id="truefalseCard"></div>
+      </div>
+    </div>
+  </div>
+
+</div>
+
+<!-- Bottom Navigation Tabs -->
+<div class="bottom-nav" id="bottomNav">
+  <button class="nav-tab active" onclick="UI.showDeck()">
+    <span class="nav-icon">📚</span>
+    <span>Words</span>
+  </button>
+  <button class="nav-tab" onclick="UI.showGameHub()">
+    <span class="nav-icon">🎮</span>
+    <span>Practice</span>
+  </button>
+</div>
+
+
+<!-- ===== FIREBASE SDK (compat for no-build) ===== -->
+<script src="https://www.gstatic.com/firebasejs/10.14.0/firebase-app-compat.js"></script>
+<script src="https://www.gstatic.com/firebasejs/10.14.0/firebase-firestore-compat.js"></script>
+
+<script>
+(function() {
+  'use strict';
+
+  // =========================================================================
+  // FIREBASE CONFIG
+  // =========================================================================
+  var FIREBASE_CONFIG = {
+    apiKey: "AIzaSyCGXhs3DJyCrO567xRHIl6K2TYLrR8Qjw0",
+    authDomain: "ielts-reading-trainer-b9d80.firebaseapp.com",
+    projectId: "ielts-reading-trainer-b9d80",
+    storageBucket: "ielts-reading-trainer-b9d80.firebasestorage.app",
+    messagingSenderId: "503889632238",
+    appId: "1:503889632238:web:a6e7713055737dca470cff"
+  };
+
+  var DATA_VERSION = 1;
+  var SYNC_INTERVAL = 5; // sync every N answered questions
+  var MAX_RECENT_LOGINS = 3;
+
+  // =========================================================================
+  // GLOBAL STATE
+  // =========================================================================
+  var db = null;           // Firestore instance
+  var currentUser = null;  // login ID
+  var wordData = null;     // loaded from core.json
+  var offlineQueue = [];   // changes waiting to sync
+
+  // =========================================================================
+  // DETECTION MODULE
+  // =========================================================================
+  window.Detection = {
+    isWebView: function() {
+      var ua = navigator.userAgent || '';
+      // Detect common in-app browsers
+      var patterns = ['FBAN', 'FBAV', 'Instagram', 'Line/', 'Zalo', 'Telegram'];
+      for (var i = 0; i < patterns.length; i++) {
+        if (ua.indexOf(patterns[i]) >= 0) return true;
+      }
+      // Android WebView detection
+      if (ua.indexOf('wv') >= 0 && ua.indexOf('Android') >= 0) return true;
+      return false;
+    },
+
+    isIncognito: function(callback) {
+      // Try writing to localStorage
+      try {
+        localStorage.setItem('__incognito_test', '1');
+        localStorage.removeItem('__incognito_test');
+        // Also check storage quota (Chrome incognito has limited quota)
+        if (navigator.storage && navigator.storage.estimate) {
+          navigator.storage.estimate().then(function(est) {
+            // Chrome incognito typically reports ~120MB quota
+            callback(est.quota < 200000000);
+          }).catch(function() { callback(false); });
+        } else {
+          callback(false);
+        }
+      } catch (e) {
+        callback(true);
+      }
+    },
+
+    isSafari: function() {
+      var ua = navigator.userAgent || '';
+      return ua.indexOf('Safari') >= 0 && ua.indexOf('Chrome') < 0 && ua.indexOf('Android') < 0;
+    },
+
+    isIOS: function() {
+      return /iPad|iPhone|iPod/.test(navigator.userAgent) || (navigator.platform === 'MacIntel' && navigator.maxTouchPoints > 1);
+    },
+
+    openInChrome: function() {
+      var url = window.location.href;
+      // Android intent to open in Chrome
+      if (/Android/i.test(navigator.userAgent)) {
+        var intentUrl = 'intent://' + url.replace(/^https?:\/\//, '') + '#Intent;scheme=https;package=com.android.chrome;end';
+        window.location.href = intentUrl;
+        // Fallback after short delay
+        setTimeout(function() {
+          window.location.href = url;
+        }, 1500);
+      } else {
+        window.open(url, '_blank');
+      }
+    },
+
+    copyLink: function() {
+      var url = window.location.href;
+      if (navigator.clipboard) {
+        navigator.clipboard.writeText(url).then(function() {
+          alert('Link copied! Paste it in Chrome.');
+        });
+      } else {
+        // Fallback
+        var t = document.createElement('textarea');
+        t.value = url;
+        document.body.appendChild(t);
+        t.select();
+        document.execCommand('copy');
+        document.body.removeChild(t);
+        alert('Link copied! Paste it in Chrome.');
+      }
+    },
+
+    dismissWebView: function() {
+      document.getElementById('webviewOverlay').classList.add('hidden');
+    },
+
+    runChecks: function() {
+      // WebView
+      if (this.isWebView()) {
+        document.getElementById('webviewOverlay').classList.remove('hidden');
+      }
+      // Incognito
+      this.isIncognito(function(yes) {
+        if (yes) {
+          document.getElementById('incognitoBanner').classList.add('visible');
+        }
+      });
+      // Safari on iOS
+      if (this.isSafari() && this.isIOS()) {
+        try {
+          if (!localStorage.getItem('ielts_vocab_safari_dismissed')) {
+            document.getElementById('safariBanner').classList.add('visible');
+          }
+        } catch (e) {}
+      }
+    }
+  };
+
+  // =========================================================================
+  // STORE MODULE (localStorage)
+  // =========================================================================
+  window.Store = {
+    _key: function(suffix) {
+      return 'ielts_vocab_' + currentUser + '_' + suffix;
+    },
+
+    get: function(suffix, fallback) {
+      try {
+        var raw = localStorage.getItem(this._key(suffix));
+        if (raw === null) return fallback;
+        return JSON.parse(raw);
+      } catch (e) {
+        return fallback;
+      }
+    },
+
+    set: function(suffix, value) {
+      try {
+        localStorage.setItem(this._key(suffix), JSON.stringify(value));
+        return true;
+      } catch (e) {
+        // Storage quota exceeded
+        console.warn('localStorage write failed:', e);
+        return false;
+      }
+    },
+
+    remove: function(suffix) {
+      try { localStorage.removeItem(this._key(suffix)); } catch (e) {}
+    },
+
+    // Global keys (not per-user)
+    getGlobal: function(key, fallback) {
+      try {
+        var raw = localStorage.getItem(key);
+        if (raw === null) return fallback;
+        return JSON.parse(raw);
+      } catch (e) { return fallback; }
+    },
+
+    setGlobal: function(key, value) {
+      try { localStorage.setItem(key, JSON.stringify(value)); return true; }
+      catch (e) { return false; }
+    },
+
+    // Recent logins management
+    getRecentLogins: function() {
+      return this.getGlobal('ielts_vocab_recent_logins', []);
+    },
+
+    addRecentLogin: function(loginId) {
+      var recents = this.getRecentLogins();
+      // Remove if already exists
+      recents = recents.filter(function(id) { return id !== loginId; });
+      // Add to front
+      recents.unshift(loginId);
+      // Keep only MAX
+      recents = recents.slice(0, MAX_RECENT_LOGINS);
+      this.setGlobal('ielts_vocab_recent_logins', recents);
+    },
+
+    // Active session
+    getActiveUser: function() {
+      return this.getGlobal('ielts_vocab_active_user', null);
+    },
+
+    setActiveUser: function(loginId) {
+      this.setGlobal('ielts_vocab_active_user', loginId);
+    },
+
+    clearActiveUser: function() {
+      try { localStorage.removeItem('ielts_vocab_active_user'); } catch (e) {}
+    }
+  };
+
+  // =========================================================================
+  // SYNC MODULE (Firebase)
+  // =========================================================================
+  window.Sync = {
+    ready: false,
+
+    init: function() {
+      try {
+        if (typeof firebase !== 'undefined' && firebase.initializeApp) {
+          firebase.initializeApp(FIREBASE_CONFIG);
+          db = firebase.firestore();
+          this.ready = true;
+          this.updateIndicator('synced');
+        }
+      } catch (e) {
+        console.warn('Firebase init failed:', e);
+        this.updateIndicator('offline');
+      }
+    },
+
+    updateIndicator: function(state) {
+      var el = document.getElementById('syncIndicator');
+      if (!el) return;
+      if (state === 'synced') { el.textContent = '✅'; el.title = 'Synced'; }
+      else if (state === 'syncing') { el.textContent = '🔄'; el.title = 'Syncing...'; }
+      else if (state === 'offline') {
+        var qLen = offlineQueue.length;
+        el.textContent = '⚠️';
+        el.title = 'Offline' + (qLen > 0 ? ' (' + qLen + ' changes pending)' : '');
+      }
+      else if (state === 'error') { el.textContent = '❌'; el.title = 'Sync error'; }
+    },
+
+    // Push user data to Firebase
+    pushData: function(suffix, data) {
+      if (!this.ready || !currentUser || !db) {
+        offlineQueue.push({ suffix: suffix, data: data, ts: Date.now() });
+        this.updateIndicator('offline');
+        return Promise.resolve(false);
+      }
+
+      this.updateIndicator('syncing');
+      var docRef = db.collection('students').doc(currentUser);
+      var update = {};
+      update[suffix] = data;
+      update['lastSync'] = firebase.firestore.FieldValue.serverTimestamp();
+
+      var self = this;
+      return docRef.set(update, { merge: true }).then(function() {
+        self.updateIndicator('synced');
+        return true;
+      }).catch(function(err) {
+        console.warn('Firebase push failed:', err);
+        offlineQueue.push({ suffix: suffix, data: data, ts: Date.now() });
+        self.updateIndicator('offline');
+        return false;
+      });
+    },
+
+    // Pull user data from Firebase (restore)
+    pullData: function(suffix) {
+      if (!this.ready || !currentUser || !db) return Promise.resolve(null);
+
+      return db.collection('students').doc(currentUser).get().then(function(doc) {
+        if (doc.exists && doc.data()[suffix]) {
+          return doc.data()[suffix];
+        }
+        return null;
+      }).catch(function() { return null; });
+    },
+
+    // Replay offline queue
+    flushQueue: function() {
+      if (!this.ready || offlineQueue.length === 0) return;
+      var q = offlineQueue.slice();
+      offlineQueue = [];
+      var self = this;
+
+      q.forEach(function(item) {
+        self.pushData(item.suffix, item.data);
+      });
+    },
+
+    // Check if user exists in Firebase (for collision detection)
+    checkUserExists: function(loginId) {
+      if (!this.ready || !db) return Promise.resolve(false);
+
+      return db.collection('students').doc(loginId).get().then(function(doc) {
+        return doc.exists;
+      }).catch(function() { return false; });
+    },
+
+    // Sync L1 meanings
+    syncL1: function() {
+      if (!currentUser) return;
+      var l1Data = Store.get('l1', {});
+      this.pushData('l1_meanings', l1Data);
+    },
+
+    // Restore from Firebase if localStorage is empty
+    restoreIfNeeded: function() {
+      if (!currentUser) return Promise.resolve();
+
+      var leitner = Store.get('leitner', null);
+      if (leitner !== null) return Promise.resolve(); // already have local data
+
+      var self = this;
+      return this.pullData('leitner').then(function(data) {
+        if (data) {
+          Store.set('leitner', data);
+          console.log('Restored Leitner data from Firebase');
+        }
+        return self.pullData('l1_meanings');
+      }).then(function(l1Data) {
+        if (l1Data) {
+          Store.set('l1', l1Data);
+          console.log('Restored L1 data from Firebase');
+        }
+      }).catch(function(e) {
+        console.warn('Restore failed:', e);
+      });
+    }
+  };
+
+  // =========================================================================
+  // AUTH MODULE
+  // =========================================================================
+  window.Auth = {
+    normalizeId: function(raw) {
+      // Trim, lowercase
+      var id = raw.trim().toLowerCase();
+      // Replace multiple underscores/spaces with single underscore
+      id = id.replace(/[\s_]+/g, '_');
+      // Strip leading zeros from day and month
+      var parts = id.split('_');
+      if (parts.length >= 4) {
+        // day
+        parts[0] = String(parseInt(parts[0], 10));
+        // month
+        parts[1] = String(parseInt(parts[1], 10));
+        // year stays as-is
+        // name parts stay as-is
+        if (isNaN(parseInt(parts[0], 10)) || isNaN(parseInt(parts[1], 10))) {
+          return null; // invalid format
+        }
+        id = parts.join('_');
+      }
+      return id;
+    },
+
+    validateId: function(id) {
+      if (!id || id.length < 8) return 'Login ID is too short. Use format: day_month_year_firstname';
+      var parts = id.split('_');
+      if (parts.length < 4) return 'Use format: day_month_year_firstname (e.g. 15_3_2008_linh)';
+      var day = parseInt(parts[0], 10);
+      var month = parseInt(parts[1], 10);
+      var year = parseInt(parts[2], 10);
+      if (day < 1 || day > 31) return 'Day must be 1-31';
+      if (month < 1 || month > 12) return 'Month must be 1-12';
+      if (year < 1990 || year > 2020) return 'Year must be between 1990-2020';
+      var name = parts.slice(3).join('_');
+      if (!name || name.length < 1) return 'Please include your first name';
+      return null; // valid
+    },
+
+    login: function(prefilledId) {
+      var raw = prefilledId || document.getElementById('loginInput').value;
+      var errorEl = document.getElementById('loginError');
+
+      // Normalize
+      var loginId = this.normalizeId(raw);
+      if (!loginId) {
+        errorEl.textContent = 'Invalid format. Use: day_month_year_firstname';
+        errorEl.classList.add('visible');
+        return;
+      }
+
+      // Validate
+      var err = this.validateId(loginId);
+      if (err) {
+        errorEl.textContent = err;
+        errorEl.classList.add('visible');
+        return;
+      }
+
+      errorEl.classList.remove('visible');
+
+      // Check for login collision:
+      // If this ID has no local data but EXISTS in Firebase, it might be
+      // a different student with the same name + birthday
+      var hasLocalData = false;
+      try {
+        hasLocalData = localStorage.getItem('ielts_vocab_' + loginId + '_leitner') !== null ||
+                       localStorage.getItem('ielts_vocab_' + loginId + '_l1') !== null;
+      } catch (e) {}
+
+      var self = this;
+      var loginBtn = document.getElementById('loginBtn');
+      loginBtn.disabled = true;
+      loginBtn.textContent = 'Checking...';
+
+      var proceed = function() {
+        loginBtn.disabled = false;
+        loginBtn.textContent = 'Start Learning';
+
+        // Set as current user
+        currentUser = loginId;
+        Store.setActiveUser(loginId);
+        Store.addRecentLogin(loginId);
+
+        // Show privacy notice on first-ever login
+        var privacySeen = Store.getGlobal('ielts_vocab_privacy_accepted', false);
+        if (!privacySeen) {
+          document.getElementById('privacyOverlay').classList.remove('hidden');
+        }
+
+        // Restore from Firebase if needed, then show app
+        Sync.restoreIfNeeded().then(function() {
+          App.showApp();
+        }).catch(function() {
+          App.showApp();
+        });
+      };
+
+      if (hasLocalData) {
+        // Same device, same user — proceed immediately
+        proceed();
+      } else {
+        // Check Firebase for collision
+        Sync.checkUserExists(loginId).then(function(exists) {
+          if (exists) {
+            // Could be same person on new device, or collision
+            loginBtn.disabled = false;
+            loginBtn.textContent = 'Start Learning';
+            var confirmed = confirm(
+              'This login already has saved progress.\n\n' +
+              'If this is you on a new device, tap OK to restore your progress.\n\n' +
+              'If this is NOT you, tap Cancel and add a letter to your name ' +
+              '(e.g. ' + loginId + '_b).'
+            );
+            if (confirmed) {
+              proceed();
+            } else {
+              errorEl.textContent = 'Try adding a letter: ' + loginId + '_b';
+              errorEl.classList.add('visible');
+            }
+          } else {
+            proceed();
+          }
+        }).catch(function() {
+          // Firebase unavailable — proceed without collision check
+          proceed();
+        });
+      }
+    },
+
+    logout: function() {
+      // Sync before logout
+      if (currentUser) {
+        Sync.syncL1();
+      }
+      currentUser = null;
+      Store.clearActiveUser();
+
+      // Show login screen
+      document.getElementById('appScreen').classList.remove('active');
+      document.getElementById('loginScreen').classList.add('active');
+      document.getElementById('loginInput').value = '';
+
+      // Refresh recent logins
+      this.renderRecentLogins();
+    },
+
+    renderRecentLogins: function() {
+      var recents = Store.getRecentLogins();
+      var container = document.getElementById('recentLogins');
+      var list = document.getElementById('recentList');
+
+      if (recents.length === 0) {
+        container.style.display = 'none';
+        return;
+      }
+
+      container.style.display = 'block';
+      list.innerHTML = '';
+      recents.forEach(function(id) {
+        var btn = document.createElement('button');
+        btn.className = 'recent-login-btn';
+        btn.textContent = id;
+        btn.onclick = function() { Auth.login(id); };
+        list.appendChild(btn);
+      });
+    }
+  };
+
+  // =========================================================================
+  // DATA MODULE
+  // =========================================================================
+  window.Data = {
+    loaded: false,
+
+    load: function() {
+      var url = 'core.json?v=' + DATA_VERSION;
+      return fetch(url).then(function(res) {
+        if (!res.ok) throw new Error('Failed to load vocabulary data');
+        return res.json();
+      }).then(function(json) {
+        // Validate
+        if (!json || !json.words || !Array.isArray(json.words)) {
+          throw new Error('Invalid data format');
+        }
+
+        var valid = [];
+        var invalid = 0;
+        json.words.forEach(function(w) {
+          if (w.id && w.word && w.def && w.ex &&
+              w.collocations && w.frames && w.frames.length >= 3 &&
+              w.distractors && w.distractors.length >= 3 &&
+              w.forms && w.forms.length >= 1) {
+            valid.push(w);
+          } else {
+            invalid++;
+            console.warn('Skipping invalid word:', w.id || 'unknown', w);
+          }
+        });
+
+        if (invalid > 0) {
+          console.warn(invalid + ' words skipped due to missing fields');
+        }
+
+        wordData = { version: json.version, count: valid.length, words: valid };
+        Data.loaded = true;
+        return wordData;
+      });
+    }
+  };
+
+  // =========================================================================
+  // UI MODULE
+  // =========================================================================
+  window.UI = {
+    renderDeck: function() {
+      if (!wordData) return;
+
+      var listEl = document.getElementById('wordList');
+      var loadingEl = document.getElementById('deckLoading');
+      var statsEl = document.getElementById('deckStats');
+
+      loadingEl.style.display = 'none';
+
+      // Stats
+      var leitner = Store.get('leitner', {});
+      var totalWords = wordData.words.length;
+      var newCount = 0;
+      var learningCount = 0;
+      var masteredCount = 0;
+
+      wordData.words.forEach(function(w) {
+        var progress = leitner[w.id];
+        if (!progress || progress.box === 0) newCount++;
+        else if (progress.box >= 5) masteredCount++;
+        else learningCount++;
+      });
+
+      statsEl.innerHTML =
+        '<div class="stat-chip accent"><span class="stat-val">' + totalWords + '</span> words</div>' +
+        '<div class="stat-chip"><span class="stat-val">' + newCount + '</span> new</div>' +
+        '<div class="stat-chip"><span class="stat-val">' + learningCount + '</span> learning</div>' +
+        '<div class="stat-chip"><span class="stat-val">' + masteredCount + '</span> mastered</div>';
+
+      // Word list
+      this._renderWordList(wordData.words);
+    },
+
+    _renderWordList: function(words) {
+      var listEl = document.getElementById('wordList');
+      var emptyEl = document.getElementById('deckEmpty');
+      var leitner = Store.get('leitner', {});
+
+      if (words.length === 0) {
+        listEl.innerHTML = '';
+        emptyEl.style.display = 'block';
+        return;
+      }
+
+      emptyEl.style.display = 'none';
+      var html = '';
+
+      words.forEach(function(w) {
+        var progress = leitner[w.id];
+        var badgeClass = 'badge-new';
+        var badgeText = 'New';
+        if (progress) {
+          if (progress.box >= 5) { badgeClass = 'badge-mastered'; badgeText = 'Mastered'; }
+          else if (progress.box >= 3) { badgeClass = 'badge-review'; badgeText = 'Review'; }
+          else if (progress.box >= 1) { badgeClass = 'badge-learning'; badgeText = 'Learning'; }
+        }
+
+        html += '<li class="word-item fade-in" onclick="UI.showDetail(\'' + w.id + '\')">' +
+          '<div class="word-rank">#' + w.rank + '</div>' +
+          '<div class="word-info">' +
+            '<div class="word-name">' + UI._escHtml(w.word) + '</div>' +
+            '<div class="word-def">' + UI._escHtml(w.def) + '</div>' +
+          '</div>' +
+          '<div class="word-badge ' + badgeClass + '">' + badgeText + '</div>' +
+        '</li>';
+      });
+
+      listEl.innerHTML = html;
+    },
+
+    filterWords: function(query) {
+      if (!wordData) return;
+      var q = query.trim().toLowerCase();
+      if (!q) {
+        this._renderWordList(wordData.words);
+        return;
+      }
+      var filtered = wordData.words.filter(function(w) {
+        // Search word, definition, forms
+        if (w.word.toLowerCase().indexOf(q) >= 0) return true;
+        if (w.def.toLowerCase().indexOf(q) >= 0) return true;
+        for (var i = 0; i < w.forms.length; i++) {
+          if (w.forms[i].toLowerCase().indexOf(q) >= 0) return true;
+        }
+        return false;
+      });
+      this._renderWordList(filtered);
+    },
+
+    showDetail: function(wordId) {
+      var word = null;
+      for (var i = 0; i < wordData.words.length; i++) {
+        if (wordData.words[i].id === wordId) { word = wordData.words[i]; break; }
+      }
+      if (!word) return;
+
+      var l1Data = Store.get('l1', {});
+      var l1Value = l1Data[wordId] || '';
+
+      var html = '<button class="btn-back-deck" onclick="UI.showDeck()">← Back to words</button>';
+
+      html += '<div class="detail-card fade-in">';
+      html += '<div class="detail-word">' + this._escHtml(word.word) + '</div>';
+
+      // Word forms
+      if (word.forms && word.forms.length > 0) {
+        html += '<div class="detail-forms">';
+        word.forms.forEach(function(f) {
+          html += '<span>' + UI._escHtml(f) + '</span>';
+        });
+        html += '</div>';
+      }
+
+      // Definition
+      html += '<div class="detail-section">';
+      html += '<div class="detail-section-title">Definition</div>';
+      html += '<div class="detail-def">' + this._escHtml(word.def) + '</div>';
+      html += '</div>';
+
+      // Example
+      html += '<div class="detail-section">';
+      html += '<div class="detail-section-title">Example</div>';
+      html += '<div class="detail-example">' + this._escHtml(word.ex) + '</div>';
+      html += '</div>';
+
+      // Collocations
+      html += '<div class="detail-section">';
+      html += '<div class="detail-section-title">Collocations</div>';
+      var colTypes = { verb_obj: 'Verb + Noun', adj_noun: 'Adjective + Noun', noun_verb: 'Noun + Verb' };
+      var colKeys = Object.keys(word.collocations);
+      colKeys.forEach(function(key) {
+        var items = word.collocations[key];
+        if (!items || items.length === 0) return;
+        var label = colTypes[key] || key;
+        html += '<div class="collocation-group">';
+        html += '<div class="collocation-label">' + UI._escHtml(label) + '</div>';
+        html += '<div class="collocation-items">';
+        items.forEach(function(c) {
+          html += '<span class="collocation-chip">' + UI._escHtml(c) + '</span>';
+        });
+        html += '</div></div>';
+      });
+      html += '</div>';
+
+      // Sentence frames
+      html += '<div class="detail-section">';
+      html += '<div class="detail-section-title">Sentence Frames</div>';
+      word.frames.forEach(function(f) {
+        html += '<div class="frame-item">' + UI._escHtml(f) + '</div>';
+      });
+      html += '</div>';
+
+      // L1 Meaning
+      html += '<div class="l1-section">';
+      html += '<div class="detail-section-title">Your Meaning (ខ្មែរ / Tiếng Việt / ภาษาไทย)</div>';
+      html += '<input type="text" class="l1-input" id="l1Input" value="' + this._escAttr(l1Value) + '" ' +
+              'placeholder="Type your meaning in your language (optional)" ' +
+              'data-word-id="' + wordId + '" ' +
+              'onblur="UI.saveL1(this)" onkeydown="if(event.key===\'Enter\'){this.blur();}">';
+      html += '<div class="l1-saved" id="l1Saved">Saved ✓</div>';
+      html += '</div>';
+
+      html += '</div>'; // end detail-card
+
+      document.getElementById('detailContent').innerHTML = html;
+
+      // Switch views
+      document.getElementById('deckView').classList.remove('active');
+      document.getElementById('detailView').classList.add('active');
+
+      // Scroll to top
+      window.scrollTo(0, 0);
+    },
+
+    showDeck: function() {
+      document.getElementById('detailView').classList.remove('active');
+      document.getElementById('gameHubView').classList.remove('active');
+      document.getElementById('deckView').classList.add('active');
+      // Update nav
+      var tabs = document.querySelectorAll('.nav-tab');
+      tabs.forEach(function(t) { t.classList.remove('active'); });
+      tabs[0].classList.add('active');
+      // Re-render to update badges
+      this.renderDeck();
+    },
+
+    showGameHub: function() {
+      document.getElementById('deckView').classList.remove('active');
+      document.getElementById('detailView').classList.remove('active');
+      document.getElementById('gameHubView').classList.add('active');
+      // Update nav
+      var tabs = document.querySelectorAll('.nav-tab');
+      tabs.forEach(function(t) { t.classList.remove('active'); });
+      tabs[1].classList.add('active');
+      // Render game hub
+      Games.renderGameHub();
+    },
+
+    saveL1: function(inputEl) {
+      var wordId = inputEl.getAttribute('data-word-id');
+      var value = inputEl.value.trim();
+      var l1Data = Store.get('l1', {});
+
+      if (value) {
+        l1Data[wordId] = value;
+      } else {
+        delete l1Data[wordId];
+      }
+
+      Store.set('l1', l1Data);
+
+      // Show saved indicator
+      var savedEl = document.getElementById('l1Saved');
+      if (savedEl) {
+        savedEl.classList.add('show');
+        setTimeout(function() { savedEl.classList.remove('show'); }, 1500);
+      }
+
+      // Debounced Firebase sync
+      clearTimeout(UI._l1SyncTimer);
+      UI._l1SyncTimer = setTimeout(function() {
+        Sync.syncL1();
+      }, 3000);
+    },
+    _l1SyncTimer: null,
+
+    _escHtml: function(str) {
+      var div = document.createElement('div');
+      div.appendChild(document.createTextNode(str));
+      return div.innerHTML;
+    },
+
+    _escAttr: function(str) {
+      return str.replace(/&/g, '&amp;').replace(/"/g, '&quot;').replace(/'/g, '&#39;').replace(/</g, '&lt;').replace(/>/g, '&gt;');
+    }
+  };
+
+  // =========================================================================
+  // LEITNER MODULE (5-Box Spaced Repetition)
+  // =========================================================================
+  window.Leitner = {
+    // Get all leitner data
+    getAll: function() {
+      return Store.get('leitner', {});
+    },
+
+    // Get progress for a specific word
+    getProgress: function(wordId) {
+      var all = this.getAll();
+      return all[wordId] || {
+        box: 0,
+        lastReviewed: null,
+        nextReview: null,
+        totalEncounters: 0,
+        accuracy: {},
+        gameTypes: {}
+      };
+    },
+
+    // Record an answer
+    recordAnswer: function(wordId, correct, gameType) {
+      var all = this.getAll();
+      var progress = all[wordId] || {
+        box: 0,
+        lastReviewed: null,
+        nextReview: null,
+        totalEncounters: 0,
+        accuracy: {},
+        gameTypes: {}
+      };
+
+      var now = Date.now();
+      progress.lastReviewed = now;
+      progress.totalEncounters = (progress.totalEncounters || 0) + 1;
+
+      // Track accuracy per game type
+      if (!progress.accuracy[gameType]) {
+        progress.accuracy[gameType] = { correct: 0, total: 0 };
+      }
+      progress.accuracy[gameType].total = (progress.accuracy[gameType].total || 0) + 1;
+      if (correct) {
+        progress.accuracy[gameType].correct = (progress.accuracy[gameType].correct || 0) + 1;
+      }
+
+      // Track which game types this word has been encountered in
+      if (!progress.gameTypes[gameType]) {
+        progress.gameTypes[gameType] = true;
+      }
+
+      // Determine box progression
+      var gameTypeCount = Object.keys(progress.gameTypes).length;
+
+      if (correct) {
+        // Advance box, but require encounters across 3+ game types
+        if (progress.box < 5) {
+          if (gameTypeCount >= 3) {
+            progress.box = Math.min(5, progress.box + 1);
+          }
+        }
+      } else {
+        // Wrong answer: demote
+        if (progress.box >= 3) {
+          progress.box = 2; // Box 3+ fail -> Box 2
+        } else if (progress.box > 0) {
+          progress.box = Math.max(0, progress.box - 1);
+        }
+      }
+
+      // Calculate next review (simple: based on box)
+      var boxIntervals = [0, 1, 3, 7, 14, 30]; // days
+      var nextDays = boxIntervals[progress.box] || 30;
+      progress.nextReview = now + (nextDays * 24 * 60 * 60 * 1000);
+
+      all[wordId] = progress;
+      Store.set('leitner', all);
+      Sync.pushData('leitner', all);
+
+      return progress;
+    }
+  };
+
+  // =========================================================================
+  // SESSION MANAGER MODULE
+  // =========================================================================
+  window.SessionManager = {
+    getTodayKey: function() {
+      var now = new Date();
+      return 'session_' + now.getFullYear() + '_' + (now.getMonth() + 1) + '_' + now.getDate();
+    },
+
+    getTodaySession: function() {
+      var key = this.getTodayKey();
+      return Store.get(key, {
+        introduced: [],
+        answered: 0,
+        startTime: Date.now()
+      });
+    },
+
+    saveTodaySession: function(session) {
+      var key = this.getTodayKey();
+      Store.set(key, session);
+    },
+
+    // Generate review queue: 60% review, 40% new (8 words/day)
+    // Review: max 30, prioritize weakest (lowest box, most wrong)
+    getSessionQueue: function() {
+      if (!wordData || !wordData.words) return [];
+
+      var leitner = Leitner.getAll();
+      var todaySession = this.getTodaySession();
+      var introduced = todaySession.introduced || [];
+
+      // Separate words into review and new
+      var reviewWords = [];
+      var newWords = [];
+
+      wordData.words.forEach(function(w) {
+        var progress = leitner[w.id];
+        if (progress && progress.box > 0) {
+          // Has been encountered
+          if (introduced.indexOf(w.id) < 0) {
+            // Not yet introduced today
+            reviewWords.push(w);
+          }
+        } else {
+          // New word
+          if (introduced.indexOf(w.id) < 0) {
+            newWords.push(w);
+          }
+        }
+      });
+
+      // Sort review by weakness
+      reviewWords.sort(function(a, b) {
+        var pA = leitner[a.id] || {};
+        var pB = leitner[b.id] || {};
+        if (pA.box !== pB.box) return pA.box - pB.box;
+        // Within same box, sort by most wrong
+        var aWrong = (pA.accuracy && Object.values(pA.accuracy).reduce(function(sum, acc) { return sum + (acc.total - acc.correct); }, 0)) || 0;
+        var bWrong = (pB.accuracy && Object.values(pB.accuracy).reduce(function(sum, acc) { return sum + (acc.total - acc.correct); }, 0)) || 0;
+        return bWrong - aWrong;
+      });
+
+      // Limit review to 30
+      reviewWords = reviewWords.slice(0, 30);
+
+      // Calculate split: 8 words/day, 60% review (4.8) + 40% new (3.2)
+      // Practical: 5 review + 3 new
+      var reviewTarget = Math.ceil(8 * 0.6);
+      var newTarget = Math.floor(8 * 0.4);
+
+      var queue = [];
+      queue = queue.concat(reviewWords.slice(0, reviewTarget));
+      queue = queue.concat(newWords.slice(0, newTarget));
+
+      return queue;
+    },
+
+    // First-ever session: auto-select easiest 4 words (rank 1-4)
+    initFirstSession: function() {
+      if (!wordData || !wordData.words) return [];
+
+      var leitner = Leitner.getAll();
+      // Check if any word has been encountered
+      var hasAny = wordData.words.some(function(w) {
+        var p = leitner[w.id];
+        return p && p.totalEncounters > 0;
+      });
+
+      if (hasAny) {
+        // Not first session
+        return this.getSessionQueue();
+      }
+
+      // First session: easiest 4 words (rank 1-4)
+      var easy = wordData.words.filter(function(w) { return w.rank <= 4; });
+      return easy.slice(0, 4);
+    },
+
+    recordIntroduced: function(wordId) {
+      var session = this.getTodaySession();
+      if (session.introduced.indexOf(wordId) < 0) {
+        session.introduced.push(wordId);
+        session.answered = (session.answered || 0) + 1;
+        this.saveTodaySession(session);
+      }
+    },
+
+    recordAnswered: function() {
+      var session = this.getTodaySession();
+      session.answered = (session.answered || 0) + 1;
+      this.saveTodaySession(session);
+    }
+  };
+
+  // =========================================================================
+  // GAMES MODULE
+  // =========================================================================
+  window.Games = {
+    currentGame: null,
+    currentWordId: null,
+    currentGameType: null,
+    sessionQueue: [],
+    queueIndex: 0,
+
+    // Start a game
+    startGame: function(gameType) {
+      this.currentGameType = gameType;
+      this.sessionQueue = SessionManager.initFirstSession();
+      this.queueIndex = 0;
+
+      if (this.sessionQueue.length === 0) {
+        Games._showToast('No words available. Please add words to practice.');
+        return;
+      }
+
+      this.loadNextQuestion();
+    },
+
+    loadNextQuestion: function() {
+      if (this.queueIndex >= this.sessionQueue.length) {
+        this.endGame();
+        return;
+      }
+
+      var word = this.sessionQueue[this.queueIndex];
+      this.currentWordId = word.id;
+
+      // Mark as introduced to today's session (only once per word)
+      SessionManager.recordIntroduced(word.id);
+
+      // Game unlock rules:
+      // - Learn: always available, marks first encounter
+      // - Falling: after 1+ game types encountered
+      // - True/False: after 2+ game types encountered
+      var progress = Leitner.getProgress(word.id);
+      var gameTypeCount = Object.keys(progress.gameTypes).length;
+
+      if (this.currentGameType === 'learn') {
+        this.showLearnGame(word);
+      } else if (this.currentGameType === 'falling') {
+        // Falling Words requires at least 1 prior game type
+        if (gameTypeCount >= 1) {
+          this.showFallingGame(word);
+        } else {
+          // Skip to Learn if not unlocked
+          this.currentGameType = 'learn';
+          this.showLearnGame(word);
+        }
+      } else if (this.currentGameType === 'truefalse') {
+        // True/False requires at least 2 prior game types
+        if (gameTypeCount >= 2) {
+          this.showTrueFalseGame(word);
+        } else if (gameTypeCount >= 1) {
+          // Fall back to Falling Words
+          this.currentGameType = 'falling';
+          this.showFallingGame(word);
+        } else {
+          // Fall back to Learn
+          this.currentGameType = 'learn';
+          this.showLearnGame(word);
+        }
+      }
+    },
+
+    showLearnGame: function(word) {
+      var html = '<div class="learn-card fade-in">';
+      html += '<div class="learn-word">' + this._escHtml(word.word) + '</div>';
+
+      // Definition
+      html += '<div class="learn-section">';
+      html += '<div class="learn-label">Definition</div>';
+      html += '<div class="learn-def">' + this._escHtml(word.def) + '</div>';
+      html += '</div>';
+
+      // Example
+      html += '<div class="learn-section">';
+      html += '<div class="learn-label">Example</div>';
+      html += '<div class="learn-example">' + this._escHtml(word.ex) + '</div>';
+      html += '</div>';
+
+      // Collocations
+      if (word.collocations) {
+        var colTypes = { verb_obj: 'Verb+Noun', adj_noun: 'Adj+Noun', noun_verb: 'Noun+Verb' };
+        var hasColloc = false;
+        for (var key in word.collocations) {
+          if (word.collocations[key] && word.collocations[key].length > 0) {
+            hasColloc = true;
+            break;
+          }
+        }
+
+        if (hasColloc) {
+          html += '<div class="learn-section">';
+          html += '<div class="learn-label">Collocations</div>';
+          var colHtml = '<div class="learn-colloc">';
+          for (var key in word.collocations) {
+            var items = word.collocations[key];
+            if (items && items.length > 0) {
+              items.forEach(function(item) {
+                colHtml += '<span class="learn-colloc-chip">' + Games._escHtml(item) + '</span>';
+              });
+            }
+          }
+          colHtml += '</div>';
+          html += colHtml + '</div>';
+        }
+      }
+
+      // Button
+      html += '<div class="learn-button-area">';
+      html += '<button class="btn-got-it" onclick="Games.answerLearn(true)">Got it!</button>';
+      html += '</div>';
+      html += '</div>';
+
+      document.getElementById('learnContainer').innerHTML = html;
+      this.switchView('learnGameView');
+      this.updateStats('learn');
+    },
+
+    answerLearn: function(understood) {
+      Leitner.recordAnswer(this.currentWordId, understood, 'learn');
+      this.queueIndex++;
+      this.loadNextQuestion();
+    },
+
+    showFallingGame: function(word) {
+      var self = this;
+
+      // Get correct word and 3 distractors
+      var options = [word.word];
+      if (word.distractors && word.distractors.length >= 3) {
+        options = options.concat(word.distractors.slice(0, 3));
+      }
+      // Shuffle
+      options = options.sort(function() { return Math.random() - 0.5; });
+
+      var html = '<div class="falling-definition">';
+      html += '<div class="falling-definition-text">' + this._escHtml(word.def) + '</div>';
+      html += '</div>';
+
+      html += '<div class="falling-options">';
+      options.forEach(function(opt) {
+        var isCorrect = opt === word.word;
+        html += '<button class="falling-option" onclick="Games.answerFalling(\'' + opt.replace(/'/g, '\\\'') + '\', ' + isCorrect + ')">' + Games._escHtml(opt) + '</button>';
+      });
+      html += '</div>';
+
+      document.getElementById('fallingGameContainer').innerHTML = html;
+      this.switchView('fallingGameView');
+      this.updateStats('falling');
+    },
+
+    answerFalling: function(selected, correct) {
+      var word = this._getWordById(this.currentWordId);
+      if (!word) return;
+
+      var feedbackOverlay = document.getElementById('feedbackOverlay');
+      var feedbackCard = document.getElementById('feedbackCard');
+
+      if (correct) {
+        Leitner.recordAnswer(this.currentWordId, true, 'falling');
+        feedbackCard.innerHTML =
+          '<div class="feedback-title correct">Correct!</div>' +
+          '<p style="font-size:0.875rem;color:var(--text-dim);margin-top:0.5rem;">Great job!</p>' +
+          '<button class="feedback-button" onclick="Games.nextFalling()" style="margin-top:1rem;">Next</button>';
+      } else {
+        Leitner.recordAnswer(this.currentWordId, false, 'falling');
+        var hint = 'The word is: <strong>' + this._escHtml(word.word) + '</strong><br>' +
+                   'Definition: ' + this._escHtml(word.def);
+        feedbackCard.innerHTML =
+          '<div class="feedback-title wrong">Not quite!</div>' +
+          '<div class="feedback-hint">' +
+            '<div class="feedback-hint-label">Here\'s a hint:</div>' +
+            '<div class="feedback-hint-text">' + hint + '</div>' +
+          '</div>' +
+          '<p style="font-size:0.75rem;color:var(--text-muted);">Tap the correct answer to continue</p>' +
+          '<button class="feedback-button" onclick="Games.nextFalling()" style="margin-top:1rem;">Got it</button>';
+      }
+
+      feedbackOverlay.classList.add('visible');
+    },
+
+    nextFalling: function() {
+      document.getElementById('feedbackOverlay').classList.remove('visible');
+      this.queueIndex++;
+      this.loadNextQuestion();
+    },
+
+    showTrueFalseGame: function(word) {
+      // Generate a statement: mix correct and incorrect definitions
+      var statements = [];
+
+      // Correct definition
+      statements.push({
+        text: word.word + ' means ' + word.def,
+        correct: true
+      });
+
+      // Incorrect definitions using distractors
+      if (word.distractors && word.distractors.length > 0) {
+        // Get definitions of distractors
+        for (var i = 0; i < Math.min(2, word.distractors.length); i++) {
+          var distractor = word.distractors[i];
+          var distractorWord = this._getWordByName(distractor);
+          if (distractorWord) {
+            statements.push({
+              text: word.word + ' means ' + distractorWord.def,
+              correct: false
+            });
+          }
+        }
+      }
+
+      // Pick one
+      var statement = statements[Math.floor(Math.random() * statements.length)];
+
+      var html = '<div class="truefalse-statement">';
+      html += '<div class="truefalse-text">' + this._escHtml(statement.text) + '</div>';
+      html += '</div>';
+
+      html += '<div class="truefalse-buttons">';
+      html += '<button class="truefalse-btn true" onclick="Games.answerTrueFalse(' + statement.correct + ')">TRUE</button>';
+      html += '<button class="truefalse-btn false" onclick="Games.answerTrueFalse(' + !statement.correct + ')">FALSE</button>';
+      html += '</div>';
+
+      document.getElementById('truefalseContainer').innerHTML = html;
+      this.switchView('truefalseGameView');
+      this.updateStats('truefalse');
+    },
+
+    answerTrueFalse: function(correct) {
+      var word = this._getWordById(this.currentWordId);
+      if (!word) return;
+
+      var feedbackOverlay = document.getElementById('truefalseOverlay');
+      var feedbackCard = document.getElementById('truefalseCard');
+
+      if (correct) {
+        Leitner.recordAnswer(this.currentWordId, true, 'truefalse');
+        feedbackCard.innerHTML =
+          '<div class="feedback-title correct">Correct!</div>' +
+          '<p style="font-size:0.875rem;color:var(--text-dim);margin-top:0.5rem;">Well done!</p>' +
+          '<button class="feedback-button" onclick="Games.nextTrueFalse()" style="margin-top:1rem;">Next</button>';
+      } else {
+        Leitner.recordAnswer(this.currentWordId, false, 'truefalse');
+        feedbackCard.innerHTML =
+          '<div class="feedback-title wrong">Incorrect</div>' +
+          '<div class="feedback-hint">' +
+            '<div class="feedback-hint-label">Definition:</div>' +
+            '<div class="feedback-hint-text">' + this._escHtml(word.def) + '</div>' +
+          '</div>' +
+          '<button class="feedback-button" onclick="Games.nextTrueFalse()" style="margin-top:1rem;">Continue</button>';
+      }
+
+      feedbackOverlay.classList.add('visible');
+    },
+
+    nextTrueFalse: function() {
+      document.getElementById('truefalseOverlay').classList.remove('visible');
+      this.queueIndex++;
+      this.loadNextQuestion();
+    },
+
+    endGame: function() {
+      var answered = this.queueIndex;
+      Games._showSessionComplete(answered);
+    },
+
+    updateStats: function(gameType) {
+      var answered = this.queueIndex;
+      var remaining = this.sessionQueue.length - answered;
+
+      if (gameType === 'learn') {
+        document.getElementById('learnStats').textContent = answered + '/' + this.sessionQueue.length;
+      } else if (gameType === 'falling') {
+        document.getElementById('fallingStats').textContent = answered + '/' + this.sessionQueue.length;
+      } else if (gameType === 'truefalse') {
+        document.getElementById('truefalseStats').textContent = answered + '/' + this.sessionQueue.length;
+      }
+    },
+
+    switchView: function(viewId) {
+      var views = ['deckView', 'detailView', 'gameHubView', 'learnGameView', 'fallingGameView', 'truefalseGameView'];
+      views.forEach(function(v) {
+        var el = document.getElementById(v);
+        if (el) el.classList.remove('active');
+      });
+      var el = document.getElementById(viewId);
+      if (el) el.classList.add('active');
+
+      // Update nav tabs
+      var tabs = document.querySelectorAll('.nav-tab');
+      tabs.forEach(function(t) { t.classList.remove('active'); });
+      if (viewId === 'deckView') {
+        tabs[0].classList.add('active');
+      } else if (viewId === 'gameHubView' || viewId.indexOf('GameView') >= 0) {
+        tabs[1].classList.add('active');
+      }
+    },
+
+    backToHub: function() {
+      this.currentGame = null;
+      this.currentWordId = null;
+      this.currentGameType = null;
+      this.sessionQueue = [];
+      this.queueIndex = 0;
+      this.renderGameHub();
+      this.switchView('gameHubView');
+    },
+
+    renderGameHub: function() {
+      if (!wordData || !wordData.words) return;
+
+      var html = '';
+      var leitner = Leitner.getAll();
+
+      // Count words by game unlock status
+      var learnCount = 0;
+      var fallingCount = 0;
+      var truefalseCount = 0;
+
+      wordData.words.forEach(function(w) {
+        var progress = leitner[w.id] || {};
+        var gameTypes = Object.keys(progress.gameTypes || {});
+
+        learnCount++;
+        if (gameTypes.length >= 1) fallingCount++;
+        if (gameTypes.length >= 2) truefalseCount++;
+      });
+
+      // Game cards
+      html += '<div class="game-card fade-in" onclick="Games.startGame(\'learn\')">';
+      html += '<div class="game-card-icon">📖</div>';
+      html += '<div class="game-card-title">LEARN</div>';
+      html += '<div class="game-card-desc">Read & study words</div>';
+      html += '<div class="game-card-count">' + learnCount + ' words</div>';
+      html += '</div>';
+
+      html += '<div class="game-card fade-in' + (fallingCount === 0 ? ' locked' : '') + '" ' +
+              (fallingCount > 0 ? 'onclick="Games.startGame(\'falling\')"' : '') + '>';
+      html += '<div class="game-card-icon">⬇️</div>';
+      html += '<div class="game-card-title">FALLING</div>';
+      html += '<div class="game-card-desc">Tap the word</div>';
+      html += '<div class="game-card-count">' + (fallingCount > 0 ? fallingCount + ' words' : 'Learn first') + '</div>';
+      html += '</div>';
+
+      html += '<div class="game-card fade-in' + (truefalseCount === 0 ? ' locked' : '') + '" ' +
+              (truefalseCount > 0 ? 'onclick="Games.startGame(\'truefalse\')"' : '') + '>';
+      html += '<div class="game-card-icon">❓</div>';
+      html += '<div class="game-card-title">TRUE/FALSE</div>';
+      html += '<div class="game-card-desc">Check definitions</div>';
+      html += '<div class="game-card-count">' + (truefalseCount > 0 ? truefalseCount + ' words' : 'Learn more') + '</div>';
+      html += '</div>';
+
+      document.getElementById('gameGrid').innerHTML = html;
+    },
+
+    _getWordById: function(wordId) {
+      if (!wordData || !wordData.words) return null;
+      for (var i = 0; i < wordData.words.length; i++) {
+        if (wordData.words[i].id === wordId) return wordData.words[i];
+      }
+      return null;
+    },
+
+    _getWordByName: function(name) {
+      if (!wordData || !wordData.words) return null;
+      for (var i = 0; i < wordData.words.length; i++) {
+        if (wordData.words[i].word === name) return wordData.words[i];
+      }
+      return null;
+    },
+
+    _escHtml: function(str) {
+      var div = document.createElement('div');
+      div.appendChild(document.createTextNode(str));
+      return div.innerHTML;
+    },
+
+    _showToast: function(msg) {
+      var toast = document.createElement('div');
+      toast.style.cssText = 'position:fixed;bottom:5rem;left:50%;transform:translateX(-50%);background:#334155;color:#F8FAFC;padding:0.75rem 1.5rem;border-radius:0.75rem;font-size:0.875rem;z-index:9999;opacity:0;transition:opacity 0.3s;box-shadow:0 4px 12px rgba(0,0,0,0.3);max-width:80vw;text-align:center;';
+      toast.textContent = msg;
+      document.body.appendChild(toast);
+      requestAnimationFrame(function() { toast.style.opacity = '1'; });
+      setTimeout(function() {
+        toast.style.opacity = '0';
+        setTimeout(function() { toast.remove(); }, 400);
+      }, 2500);
+    },
+
+    _showSessionComplete: function(answered) {
+      var overlay = document.createElement('div');
+      overlay.style.cssText = 'position:fixed;inset:0;background:rgba(15,23,42,0.85);display:flex;align-items:center;justify-content:center;z-index:9999;opacity:0;transition:opacity 0.3s;';
+      var card = document.createElement('div');
+      card.style.cssText = 'background:#1E293B;border-radius:1rem;padding:2rem;text-align:center;max-width:20rem;width:90%;box-shadow:0 8px 32px rgba(0,0,0,0.4);';
+      card.innerHTML = '<div style="font-size:2.5rem;margin-bottom:0.75rem;">&#127881;</div>' +
+        '<div style="font-size:1.25rem;font-weight:700;color:#F8FAFC;margin-bottom:0.5rem;">Session Complete!</div>' +
+        '<div style="font-size:0.875rem;color:#94A3B8;margin-bottom:1.5rem;">You answered <strong style="color:#38BDF8;">' + answered + '</strong> questions</div>' +
+        '<button style="background:linear-gradient(135deg,#6366F1,#8B5CF6);color:#fff;border:none;padding:0.75rem 2rem;border-radius:0.75rem;font-size:1rem;font-weight:600;cursor:pointer;min-height:2.75rem;" id="sessionDoneBtn">Back to Games</button>';
+      overlay.appendChild(card);
+      document.body.appendChild(overlay);
+      requestAnimationFrame(function() { overlay.style.opacity = '1'; });
+      document.getElementById('sessionDoneBtn').addEventListener('click', function() {
+        overlay.style.opacity = '0';
+        setTimeout(function() { overlay.remove(); Games.backToHub(); }, 300);
+      });
+    }
+  };
+
+  // =========================================================================
+  // APP MODULE
+  // =========================================================================
+  window.App = {
+    init: function() {
+      // Init Firebase
+      Sync.init();
+
+      // Run detection checks
+      Detection.runChecks();
+
+      // Check for active user
+      var savedUser = Store.getActiveUser();
+      if (savedUser) {
+        currentUser = savedUser;
+        this.showApp();
+      } else {
+        // Show login
+        Auth.renderRecentLogins();
+      }
+
+      // Handle Enter key on login input
+      var loginInput = document.getElementById('loginInput');
+      if (loginInput) {
+        loginInput.addEventListener('keydown', function(e) {
+          if (e.key === 'Enter') Auth.login();
+        });
+      }
+
+      // Listen for online/offline
+      window.addEventListener('online', function() {
+        Sync.flushQueue();
+        Sync.updateIndicator('synced');
+      });
+      window.addEventListener('offline', function() {
+        Sync.updateIndicator('offline');
+      });
+
+      // Service Worker registration
+      if ('serviceWorker' in navigator) {
+        navigator.serviceWorker.register('sw.js').then(function() {
+          console.log('Service worker registered');
+        }).catch(function(err) {
+          console.warn('Service worker failed:', err);
+        });
+      }
+
+      // beforeunload safety net
+      window.addEventListener('beforeunload', function() {
+        if (currentUser) {
+          Sync.syncL1();
+        }
+      });
+    },
+
+    showApp: function() {
+      // Update user banner
+      document.getElementById('userBanner').textContent = 'Logged in as: ' + currentUser;
+
+      // Switch screens
+      document.getElementById('loginScreen').classList.remove('active');
+      document.getElementById('appScreen').classList.add('active');
+
+      // Load data
+      if (!Data.loaded) {
+        Data.load().then(function() {
+          UI.renderDeck();
+        }).catch(function(err) {
+          console.error('Data load failed:', err);
+          var loadingEl = document.getElementById('deckLoading');
+          loadingEl.innerHTML =
+            '<div class="empty-state">' +
+            '<div class="empty-icon">⚠️</div>' +
+            '<p>Could not load vocabulary data. Please check your internet connection and try again.</p>' +
+            '<button class="btn-primary" style="max-width:200px;margin:1rem auto 0" onclick="location.reload()">Retry</button>' +
+            '</div>';
+        });
+      } else {
+        UI.renderDeck();
+      }
+
+      // Run detection checks for logged-in state
+      Detection.runChecks();
+    },
+
+    acceptPrivacy: function() {
+      Store.setGlobal('ielts_vocab_privacy_accepted', true);
+      document.getElementById('privacyOverlay').classList.add('hidden');
+    }
+  };
+
+  // =========================================================================
+  // BOOT
+  // =========================================================================
+  if (document.readyState === 'loading') {
+    document.addEventListener('DOMContentLoaded', function() { App.init(); });
+  } else {
+    App.init();
+  }
+
+})();
+</script>
+</body>
+</html>
