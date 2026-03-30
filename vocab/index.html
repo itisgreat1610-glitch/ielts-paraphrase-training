@@ -1,0 +1,3017 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+<title>IELTS Vocabulary Builder</title>
+<meta name="description" content="Free IELTS Academic vocabulary training with spaced repetition. Master the words that appear most on the exam.">
+<meta name="theme-color" content="#0F172A">
+<link rel="manifest" href="manifest.json">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="preload" href="https://fonts.googleapis.com/css2?family=Nunito:wght@400;600;700;800&family=Press+Start+2P&display=swap" as="style">
+<link href="https://fonts.googleapis.com/css2?family=Nunito:wght@400;600;700;800&family=Press+Start+2P&display=swap" rel="stylesheet">
+<style>
+/* ===== ROOT VARIABLES ===== */
+:root {
+  --bg: #0F172A;
+  --surface: #1E293B;
+  --surface-raised: #253348;
+  --surface2: #334155;
+  --text: #F1F5F9;
+  --text-dim: #94A3B8;
+  --text-muted: #64748B;
+  --border: #334155;
+  --border-strong: #475569;
+  --accent-orange: #F97316;
+  --accent-blue: #3B82F6;
+  --correct: #10B981;
+  --wrong: #EF4444;
+  --warning: #F59E0B;
+  --info: #38BDF8;
+  --radius: 14px;
+  --radius-sm: 8px;
+  --font-body: 'Nunito', system-ui, sans-serif;
+  --font-pixel: 'Press Start 2P', monospace;
+}
+
+/* ===== RESET ===== */
+*, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
+
+body {
+  font-family: var(--font-body);
+  background: var(--bg);
+  color: var(--text);
+  min-height: 100vh;
+  min-height: 100dvh;
+  line-height: 1.6;
+  -webkit-font-smoothing: antialiased;
+  font-size: 1rem;
+  overflow-x: hidden;
+}
+
+:focus-visible {
+  outline: none;
+  box-shadow: 0 0 0 2px var(--bg), 0 0 0 4px var(--warning);
+  border-radius: 4px;
+}
+
+button { font-family: inherit; cursor: pointer; border: none; background: none; color: inherit; }
+input { font-family: inherit; }
+
+/* ===== SCREEN MANAGEMENT ===== */
+.screen { display: none; }
+.screen.active { display: block; }
+
+/* ===== HEADER (FROSTED GLASS) ===== */
+.app-header {
+  background: rgba(15, 23, 42, 0.85);
+  background: var(--bg); /* fallback for no backdrop-filter */
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  border-bottom: 1px solid var(--border);
+  padding: 0.75rem 1rem;
+  position: sticky;
+  top: 0;
+  z-index: 100;
+}
+
+@supports (backdrop-filter: blur(12px)) {
+  .app-header { background: rgba(15, 23, 42, 0.85); }
+}
+
+.header-inner {
+  max-width: 600px;
+  margin: 0 auto;
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+.back-link {
+  font-size: 0.875rem;
+  color: var(--text-dim);
+  text-decoration: none;
+  font-weight: 700;
+  padding: 0.375rem 0.5rem;
+  border-radius: 6px;
+  transition: all 0.15s;
+  display: flex;
+  align-items: center;
+  gap: 0.25rem;
+  min-height: 2.75rem;
+  min-width: 2.75rem;
+  justify-content: center;
+}
+.back-link:hover, .back-link:active { color: var(--text); background: rgba(255,255,255,0.05); }
+
+.header-title {
+  flex: 1;
+  text-align: center;
+}
+.header-title h1 {
+  font-family: var(--font-pixel);
+  font-size: 0.625rem;
+  letter-spacing: 0.05em;
+  color: var(--accent-orange);
+  line-height: 1.4;
+}
+.header-title .header-sub {
+  font-size: 0.6875rem;
+  color: var(--text-muted);
+  font-weight: 600;
+}
+
+.header-right {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+.sync-indicator {
+  font-size: 0.75rem;
+  line-height: 1;
+  min-width: 1.5rem;
+  text-align: center;
+}
+
+.btn-logout {
+  font-size: 0.6875rem;
+  font-weight: 700;
+  color: var(--text-muted);
+  padding: 0.375rem 0.625rem;
+  border-radius: 6px;
+  border: 1px solid var(--border);
+  transition: all 0.15s;
+  min-height: 2.75rem;
+}
+.btn-logout:hover, .btn-logout:active {
+  color: var(--text);
+  border-color: var(--border-strong);
+}
+
+/* ===== USER BANNER ===== */
+.user-banner {
+  background: rgba(249, 115, 22, 0.08);
+  border-bottom: 1px solid rgba(249, 115, 22, 0.15);
+  padding: 0.375rem 1rem;
+  font-size: 0.75rem;
+  color: var(--accent-orange);
+  font-weight: 600;
+  text-align: center;
+}
+
+/* ===== ALERT BANNERS ===== */
+.alert-banner {
+  padding: 0.625rem 1rem;
+  font-size: 0.8125rem;
+  font-weight: 600;
+  text-align: center;
+  display: none;
+}
+.alert-banner.visible { display: block; }
+.alert-banner.warn {
+  background: rgba(245, 158, 11, 0.1);
+  border-bottom: 1px solid rgba(245, 158, 11, 0.2);
+  color: var(--warning);
+}
+.alert-banner.info {
+  background: rgba(56, 189, 248, 0.08);
+  border-bottom: 1px solid rgba(56, 189, 248, 0.15);
+  color: var(--info);
+}
+.alert-banner a, .alert-banner button {
+  text-decoration: underline;
+  color: inherit;
+  font-weight: 700;
+  background: none;
+  border: none;
+  font-size: inherit;
+  cursor: pointer;
+  padding: 0;
+}
+
+/* ===== LOGIN SCREEN ===== */
+.login-wrap {
+  min-height: 100vh;
+  min-height: 100dvh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding: 2rem 1.25rem;
+  background: linear-gradient(170deg, #162033 0%, var(--bg) 40%, #131B2E 100%);
+  position: relative;
+}
+
+.login-wrap::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background:
+    radial-gradient(ellipse 500px 350px at 30% 20%, rgba(249,115,22,0.05), transparent),
+    radial-gradient(ellipse 400px 300px at 70% 70%, rgba(59,130,246,0.04), transparent);
+  pointer-events: none;
+}
+
+.login-card {
+  position: relative;
+  width: 100%;
+  max-width: 380px;
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  padding: 2rem 1.5rem;
+}
+
+.login-logo {
+  text-align: center;
+  margin-bottom: 1.5rem;
+}
+.login-logo .pixel-label {
+  font-family: var(--font-pixel);
+  font-size: 0.5rem;
+  color: var(--accent-orange);
+  letter-spacing: 0.08em;
+  display: block;
+  margin-bottom: 0.5rem;
+}
+.login-logo .logo-title {
+  font-size: 1.375rem;
+  font-weight: 800;
+}
+.login-logo .logo-sub {
+  font-size: 0.8125rem;
+  color: var(--text-dim);
+  margin-top: 0.25rem;
+}
+
+.login-form { display: flex; flex-direction: column; gap: 0.75rem; }
+
+.form-label {
+  font-size: 0.8125rem;
+  font-weight: 700;
+  color: var(--text-dim);
+  margin-bottom: 0.25rem;
+  display: block;
+}
+
+.form-input {
+  width: 100%;
+  padding: 0.75rem 1rem;
+  background: var(--bg);
+  border: 1px solid var(--border);
+  border-radius: var(--radius-sm);
+  color: var(--text);
+  font-size: 1rem;
+  font-weight: 600;
+  transition: border-color 0.15s;
+  min-height: 2.75rem;
+}
+.form-input::placeholder { color: var(--text-muted); font-weight: 400; }
+.form-input:focus { border-color: var(--accent-orange); outline: none; }
+
+.form-hint {
+  font-size: 0.75rem;
+  color: var(--text-muted);
+  line-height: 1.5;
+}
+
+.btn-primary {
+  width: 100%;
+  padding: 0.875rem;
+  background: var(--accent-orange);
+  color: #000;
+  font-size: 1rem;
+  font-weight: 800;
+  border-radius: var(--radius-sm);
+  border: none;
+  cursor: pointer;
+  transition: all 0.15s;
+  min-height: 2.75rem;
+}
+.btn-primary:hover, .btn-primary:active { background: #FB923C; }
+.btn-primary:disabled { opacity: 0.5; cursor: not-allowed; }
+
+.login-error {
+  font-size: 0.8125rem;
+  color: var(--wrong);
+  font-weight: 600;
+  display: none;
+  text-align: center;
+  padding: 0.5rem;
+  background: rgba(239, 68, 68, 0.08);
+  border-radius: var(--radius-sm);
+}
+.login-error.visible { display: block; }
+
+.recent-logins {
+  margin-top: 0.75rem;
+  border-top: 1px solid var(--border);
+  padding-top: 0.75rem;
+}
+.recent-logins-title {
+  font-size: 0.6875rem;
+  color: var(--text-muted);
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  margin-bottom: 0.5rem;
+}
+.recent-login-btn {
+  width: 100%;
+  padding: 0.625rem 0.75rem;
+  background: var(--bg);
+  border: 1px solid var(--border);
+  border-radius: var(--radius-sm);
+  color: var(--text);
+  font-size: 0.875rem;
+  font-weight: 600;
+  text-align: left;
+  cursor: pointer;
+  transition: all 0.15s;
+  margin-bottom: 0.375rem;
+  min-height: 2.75rem;
+}
+.recent-login-btn:hover, .recent-login-btn:active {
+  border-color: var(--accent-orange);
+  background: rgba(249, 115, 22, 0.05);
+}
+
+/* ===== PRIVACY NOTICE ===== */
+.privacy-overlay {
+  position: fixed;
+  inset: 0;
+  background: rgba(0, 0, 0, 0.7);
+  z-index: 200;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 1rem;
+}
+.privacy-overlay.hidden { display: none; }
+
+.privacy-card {
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  padding: 1.5rem;
+  max-width: 360px;
+  width: 100%;
+}
+.privacy-card h2 {
+  font-size: 1.125rem;
+  font-weight: 800;
+  margin-bottom: 0.75rem;
+}
+.privacy-card p {
+  font-size: 0.875rem;
+  color: var(--text-dim);
+  line-height: 1.7;
+  margin-bottom: 1rem;
+}
+.privacy-card .btn-primary { margin-top: 0.5rem; }
+
+/* ===== WORD DECK SCREEN ===== */
+.deck-header {
+  padding: 1rem 1rem 0.5rem;
+  max-width: 600px;
+  margin: 0 auto;
+}
+
+.deck-stats {
+  display: flex;
+  gap: 0.5rem;
+  margin-bottom: 0.75rem;
+  flex-wrap: wrap;
+}
+.stat-chip {
+  font-size: 0.6875rem;
+  font-weight: 700;
+  padding: 0.375rem 0.75rem;
+  border-radius: 2rem;
+  background: var(--surface);
+  border: 1px solid var(--border);
+  color: var(--text-dim);
+}
+.stat-chip .stat-val { color: var(--text); font-weight: 800; }
+.stat-chip.accent { border-color: rgba(249, 115, 22, 0.3); color: var(--accent-orange); }
+.stat-chip.accent .stat-val { color: var(--accent-orange); }
+
+.deck-search {
+  position: relative;
+  margin-bottom: 0.5rem;
+}
+.deck-search input {
+  width: 100%;
+  padding: 0.625rem 0.75rem 0.625rem 2.25rem;
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: var(--radius-sm);
+  color: var(--text);
+  font-size: 0.9375rem;
+  font-weight: 600;
+  min-height: 2.75rem;
+}
+.deck-search input::placeholder { color: var(--text-muted); font-weight: 400; }
+.deck-search input:focus { outline: none; border-color: var(--accent-orange); }
+.deck-search .search-icon {
+  position: absolute;
+  left: 0.75rem;
+  top: 50%;
+  transform: translateY(-50%);
+  color: var(--text-muted);
+  font-size: 0.875rem;
+  pointer-events: none;
+}
+
+.word-list {
+  max-width: 600px;
+  margin: 0 auto;
+  padding: 0 1rem 6rem;
+  list-style: none;
+}
+
+.word-item {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+  padding: 0.875rem 0.75rem;
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: var(--radius-sm);
+  margin-bottom: 0.375rem;
+  cursor: pointer;
+  transition: all 0.15s;
+  min-height: 3.25rem;
+}
+.word-item:hover, .word-item:active {
+  border-color: var(--border-strong);
+  background: var(--surface-raised);
+}
+
+.word-rank {
+  font-family: var(--font-pixel);
+  font-size: 0.375rem;
+  color: var(--text-muted);
+  min-width: 1.75rem;
+  text-align: center;
+}
+
+.word-info { flex: 1; min-width: 0; }
+.word-name {
+  font-size: 1rem;
+  font-weight: 800;
+  color: var(--text);
+  line-height: 1.3;
+}
+.word-def {
+  font-size: 0.75rem;
+  color: var(--text-muted);
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  line-height: 1.4;
+}
+
+.word-badge {
+  font-size: 0.5625rem;
+  font-weight: 800;
+  padding: 0.25rem 0.5rem;
+  border-radius: 2rem;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  white-space: nowrap;
+}
+.badge-new { background: rgba(59, 130, 246, 0.12); color: var(--accent-blue); }
+.badge-learning { background: rgba(249, 115, 22, 0.12); color: var(--accent-orange); }
+.badge-review { background: rgba(245, 158, 11, 0.12); color: var(--warning); }
+.badge-mastered { background: rgba(16, 185, 129, 0.12); color: var(--correct); }
+
+/* ===== WORD DETAIL SCREEN ===== */
+.detail-wrap {
+  max-width: 600px;
+  margin: 0 auto;
+  padding: 1rem 1rem 6rem;
+}
+
+.detail-card {
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  padding: 1.25rem;
+  margin-bottom: 0.75rem;
+}
+
+.detail-word {
+  font-size: 1.75rem;
+  font-weight: 800;
+  color: var(--text);
+  margin-bottom: 0.125rem;
+}
+
+.detail-forms {
+  font-size: 0.8125rem;
+  color: var(--text-muted);
+  margin-bottom: 1rem;
+  line-height: 1.6;
+}
+.detail-forms span {
+  display: inline-block;
+  background: var(--bg);
+  padding: 0.125rem 0.5rem;
+  border-radius: 4px;
+  margin: 0.125rem 0.25rem 0.125rem 0;
+  font-weight: 600;
+  font-size: 0.75rem;
+}
+
+.detail-section {
+  margin-bottom: 1rem;
+}
+.detail-section-title {
+  font-family: var(--font-pixel);
+  font-size: 0.4375rem;
+  color: var(--accent-orange);
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  margin-bottom: 0.5rem;
+}
+
+.detail-def {
+  font-size: 1.0625rem;
+  font-weight: 600;
+  color: var(--text);
+  line-height: 1.6;
+}
+
+.detail-example {
+  font-size: 0.9375rem;
+  color: var(--text-dim);
+  line-height: 1.7;
+  font-style: italic;
+  padding-left: 0.75rem;
+  border-left: 3px solid var(--accent-orange);
+}
+
+.collocation-group {
+  margin-bottom: 0.625rem;
+}
+.collocation-label {
+  font-size: 0.6875rem;
+  color: var(--text-muted);
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  margin-bottom: 0.25rem;
+}
+.collocation-items {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.25rem;
+}
+.collocation-chip {
+  font-size: 0.8125rem;
+  font-weight: 600;
+  padding: 0.25rem 0.625rem;
+  border-radius: 2rem;
+  background: rgba(59, 130, 246, 0.08);
+  color: var(--accent-blue);
+  border: 1px solid rgba(59, 130, 246, 0.15);
+}
+
+.frame-item {
+  font-size: 0.9375rem;
+  color: var(--text-dim);
+  padding: 0.5rem 0.75rem;
+  background: var(--bg);
+  border-radius: var(--radius-sm);
+  margin-bottom: 0.375rem;
+  line-height: 1.6;
+  font-weight: 600;
+}
+
+/* L1 Meaning Field */
+.l1-section {
+  margin-top: 1rem;
+  padding-top: 1rem;
+  border-top: 1px solid var(--border);
+}
+
+.l1-input {
+  width: 100%;
+  padding: 0.75rem 1rem;
+  background: var(--bg);
+  border: 1px solid var(--border);
+  border-radius: var(--radius-sm);
+  color: var(--text);
+  font-size: 1.0625rem;
+  font-weight: 600;
+  font-family: system-ui, sans-serif; /* Khmer/Vietnamese script */
+  transition: border-color 0.15s;
+  min-height: 2.75rem;
+}
+.l1-input::placeholder { color: var(--text-muted); font-weight: 400; font-size: 0.875rem; }
+.l1-input:focus { border-color: var(--accent-orange); outline: none; }
+
+.l1-saved {
+  font-size: 0.6875rem;
+  color: var(--correct);
+  font-weight: 700;
+  margin-top: 0.375rem;
+  opacity: 0;
+  transition: opacity 0.3s;
+}
+.l1-saved.show { opacity: 1; }
+
+.btn-back-deck {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.25rem;
+  font-size: 0.875rem;
+  font-weight: 700;
+  color: var(--text-dim);
+  padding: 0.5rem 0;
+  margin-bottom: 0.75rem;
+  cursor: pointer;
+  transition: color 0.15s;
+  background: none;
+  border: none;
+  min-height: 2.75rem;
+}
+.btn-back-deck:hover, .btn-back-deck:active { color: var(--text); }
+
+/* ===== WEBVIEW BANNER ===== */
+.webview-overlay {
+  position: fixed;
+  inset: 0;
+  background: rgba(0, 0, 0, 0.85);
+  z-index: 300;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 1rem;
+}
+.webview-overlay.hidden { display: none; }
+
+.webview-card {
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  padding: 1.5rem;
+  max-width: 340px;
+  width: 100%;
+  text-align: center;
+}
+.webview-card h2 {
+  font-size: 1.125rem;
+  font-weight: 800;
+  margin-bottom: 0.75rem;
+}
+.webview-card p {
+  font-size: 0.875rem;
+  color: var(--text-dim);
+  line-height: 1.7;
+  margin-bottom: 1rem;
+}
+.webview-card .btn-primary { margin-bottom: 0.75rem; }
+.webview-card .btn-secondary {
+  width: 100%;
+  padding: 0.75rem;
+  background: var(--surface2);
+  color: var(--text);
+  font-size: 0.875rem;
+  font-weight: 700;
+  border-radius: var(--radius-sm);
+  border: 1px solid var(--border);
+  cursor: pointer;
+  min-height: 2.75rem;
+}
+.webview-dismiss {
+  font-size: 0.75rem;
+  color: var(--text-muted);
+  margin-top: 0.75rem;
+  cursor: pointer;
+  background: none;
+  border: none;
+  text-decoration: underline;
+}
+
+/* ===== LOADING STATE ===== */
+.loading-wrap {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding: 4rem 1rem;
+  text-align: center;
+}
+.loading-spinner {
+  width: 2rem;
+  height: 2rem;
+  border: 3px solid var(--border);
+  border-top-color: var(--accent-orange);
+  border-radius: 50%;
+  animation: spin 0.8s linear infinite;
+  margin-bottom: 1rem;
+}
+@keyframes spin { to { transform: rotate(360deg); } }
+.loading-text {
+  font-size: 0.875rem;
+  color: var(--text-dim);
+  font-weight: 600;
+}
+
+/* ===== EMPTY STATE ===== */
+.empty-state {
+  text-align: center;
+  padding: 3rem 1rem;
+  color: var(--text-muted);
+}
+.empty-state .empty-icon { font-size: 2rem; margin-bottom: 0.75rem; }
+.empty-state p { font-size: 0.9375rem; font-weight: 600; }
+
+/* ===== START SESSION BUTTON ===== */
+.start-session-wrap {
+  padding: 0 1rem 1rem;
+  max-width: 600px;
+  margin: 0 auto;
+}
+.btn-start-session {
+  width: 100%;
+  padding: 1rem;
+  background: linear-gradient(135deg, var(--accent-orange), #FB923C);
+  color: #000;
+  font-size: 1.0625rem;
+  font-weight: 800;
+  border-radius: var(--radius);
+  border: none;
+  cursor: pointer;
+  transition: all 0.15s;
+  min-height: 3.25rem;
+  position: relative;
+  overflow: hidden;
+}
+.btn-start-session:hover, .btn-start-session:active { filter: brightness(1.1); }
+.btn-start-session:disabled { opacity: 0.5; cursor: not-allowed; filter: none; }
+.btn-start-session .session-sub {
+  display: block;
+  font-size: 0.75rem;
+  font-weight: 600;
+  opacity: 0.7;
+  margin-top: 0.125rem;
+}
+
+/* ===== SESSION / GAME SCREEN ===== */
+.game-wrap {
+  max-width: 600px;
+  margin: 0 auto;
+  padding: 1rem 1rem 6rem;
+  min-height: 70vh;
+  min-height: 70dvh;
+}
+
+.game-progress {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  margin-bottom: 1rem;
+}
+.game-progress-bar {
+  flex: 1;
+  height: 6px;
+  background: var(--surface2);
+  border-radius: 3px;
+  overflow: hidden;
+}
+.game-progress-fill {
+  height: 100%;
+  background: var(--accent-orange);
+  border-radius: 3px;
+  transition: width 0.4s ease;
+}
+.game-progress-text {
+  font-size: 0.75rem;
+  font-weight: 700;
+  color: var(--text-muted);
+  white-space: nowrap;
+}
+
+/* Learn Screen */
+.learn-card {
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  padding: 1.5rem 1.25rem;
+  animation: fadeIn 0.3s ease;
+}
+
+.learn-word {
+  font-size: 2rem;
+  font-weight: 800;
+  color: var(--text);
+  margin-bottom: 0.25rem;
+  text-align: center;
+}
+
+.learn-forms {
+  text-align: center;
+  margin-bottom: 1.25rem;
+}
+.learn-forms span {
+  display: inline-block;
+  background: var(--bg);
+  padding: 0.125rem 0.5rem;
+  border-radius: 4px;
+  margin: 0.125rem;
+  font-weight: 600;
+  font-size: 0.75rem;
+  color: var(--text-muted);
+}
+
+.learn-def-box {
+  background: var(--bg);
+  border-radius: var(--radius-sm);
+  padding: 1rem;
+  margin-bottom: 1rem;
+  border-left: 3px solid var(--accent-orange);
+}
+.learn-def {
+  font-size: 1.0625rem;
+  font-weight: 600;
+  line-height: 1.7;
+}
+
+.learn-example {
+  font-size: 0.9375rem;
+  color: var(--text-dim);
+  line-height: 1.7;
+  font-style: italic;
+  padding: 0.75rem;
+  background: rgba(59, 130, 246, 0.05);
+  border-radius: var(--radius-sm);
+  margin-bottom: 1rem;
+}
+
+.learn-collocations {
+  margin-bottom: 1rem;
+}
+.learn-col-label {
+  font-size: 0.6875rem;
+  color: var(--text-muted);
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  margin-bottom: 0.375rem;
+}
+.learn-col-chips {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.25rem;
+  margin-bottom: 0.5rem;
+}
+.learn-col-chip {
+  font-size: 0.8125rem;
+  font-weight: 600;
+  padding: 0.25rem 0.625rem;
+  border-radius: 2rem;
+  background: rgba(59, 130, 246, 0.08);
+  color: var(--accent-blue);
+  border: 1px solid rgba(59, 130, 246, 0.15);
+}
+
+.learn-l1-field {
+  width: 100%;
+  padding: 0.625rem 0.75rem;
+  background: var(--bg);
+  border: 1px solid var(--border);
+  border-radius: var(--radius-sm);
+  color: var(--text);
+  font-size: 1rem;
+  font-weight: 600;
+  font-family: system-ui, sans-serif;
+  margin-top: 0.75rem;
+  min-height: 2.75rem;
+}
+.learn-l1-field::placeholder { color: var(--text-muted); font-weight: 400; font-size: 0.875rem; }
+.learn-l1-field:focus { border-color: var(--accent-orange); outline: none; }
+
+.btn-learn-next {
+  width: 100%;
+  padding: 0.875rem;
+  background: var(--accent-orange);
+  color: #000;
+  font-size: 1rem;
+  font-weight: 800;
+  border-radius: var(--radius-sm);
+  border: none;
+  cursor: pointer;
+  margin-top: 1rem;
+  min-height: 2.75rem;
+  transition: all 0.15s;
+}
+.btn-learn-next:hover { background: #FB923C; }
+
+/* Mark as Known */
+.btn-mark-known {
+  width: 100%;
+  padding: 0.625rem;
+  background: transparent;
+  color: var(--text-muted);
+  font-size: 0.8125rem;
+  font-weight: 700;
+  border-radius: var(--radius-sm);
+  border: 1px solid var(--border);
+  cursor: pointer;
+  margin-top: 0.5rem;
+  min-height: 2.75rem;
+  transition: all 0.15s;
+}
+.btn-mark-known:hover { border-color: var(--correct); color: var(--correct); }
+
+/* ===== FALLING WORDS GAME ===== */
+.falling-arena {
+  position: relative;
+  width: 100%;
+  height: 55vh;
+  height: 55dvh;
+  min-height: 300px;
+  max-height: 500px;
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  overflow: hidden;
+  margin-bottom: 0.75rem;
+}
+
+.falling-def {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  padding: 0.75rem 1rem;
+  background: rgba(15, 23, 42, 0.92);
+  backdrop-filter: blur(6px);
+  -webkit-backdrop-filter: blur(6px);
+  border-bottom: 1px solid var(--border);
+  font-size: 0.9375rem;
+  font-weight: 600;
+  color: var(--text);
+  text-align: center;
+  z-index: 5;
+  line-height: 1.5;
+}
+
+.falling-word {
+  position: absolute;
+  padding: 0.5rem 1rem;
+  background: var(--accent-blue);
+  color: #fff;
+  font-size: 1rem;
+  font-weight: 700;
+  border-radius: var(--radius-sm);
+  cursor: pointer;
+  transition: transform 0.1s, box-shadow 0.1s;
+  z-index: 2;
+  user-select: none;
+  -webkit-user-select: none;
+  min-height: 2.5rem;
+  display: flex;
+  align-items: center;
+  white-space: nowrap;
+}
+.falling-word:active { transform: scale(0.95); }
+.falling-word.correct-flash {
+  background: var(--correct);
+  box-shadow: 0 0 20px rgba(16, 185, 129, 0.5);
+}
+.falling-word.wrong-flash {
+  background: var(--wrong);
+  box-shadow: 0 0 20px rgba(239, 68, 68, 0.3);
+}
+
+.falling-timer {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  height: 4px;
+  background: var(--surface2);
+  z-index: 5;
+}
+.falling-timer-fill {
+  height: 100%;
+  background: var(--accent-orange);
+  transition: width 0.1s linear;
+}
+
+/* ===== MEMORY PAIRS GAME ===== */
+.memory-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 0.5rem;
+  margin-bottom: 0.75rem;
+}
+@media (max-width: 380px) { .memory-grid { gap: 0.375rem; } }
+
+.memory-card {
+  aspect-ratio: 1;
+  background: var(--surface);
+  border: 2px solid var(--border);
+  border-radius: var(--radius-sm);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  padding: 0.375rem;
+  cursor: pointer;
+  transition: all 0.2s;
+  font-size: 0.75rem;
+  font-weight: 700;
+  color: var(--text);
+  line-height: 1.3;
+  word-break: break-word;
+  user-select: none;
+  -webkit-user-select: none;
+  min-height: 5rem;
+  position: relative;
+  overflow: hidden;
+}
+.memory-card.face-down {
+  background: var(--surface2);
+  color: transparent;
+}
+.memory-card.face-down::after {
+  content: '?';
+  color: var(--text-muted);
+  font-size: 1.25rem;
+  position: absolute;
+}
+.memory-card.selected {
+  border-color: var(--accent-orange);
+  background: var(--surface-raised);
+  transform: scale(1.03);
+}
+.memory-card.matched {
+  border-color: var(--correct);
+  background: rgba(16, 185, 129, 0.08);
+  color: var(--correct);
+  cursor: default;
+}
+.memory-card.wrong-flash {
+  border-color: var(--wrong);
+  background: rgba(239, 68, 68, 0.08);
+}
+.memory-card .mc-type {
+  position: absolute;
+  top: 0.25rem;
+  left: 0.375rem;
+  font-size: 0.5rem;
+  color: var(--text-muted);
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+}
+
+/* ===== ELABORATIVE FEEDBACK ===== */
+.feedback-overlay {
+  position: fixed;
+  inset: 0;
+  background: rgba(0, 0, 0, 0.7);
+  z-index: 150;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 1rem;
+  animation: fadeIn 0.2s ease;
+}
+.feedback-overlay.hidden { display: none; }
+
+.feedback-card {
+  background: var(--surface);
+  border: 1px solid rgba(56, 189, 248, 0.25);
+  border-radius: var(--radius);
+  padding: 1.5rem 1.25rem;
+  max-width: 400px;
+  width: 100%;
+  max-height: 85vh;
+  overflow-y: auto;
+}
+
+.feedback-header {
+  font-size: 1.125rem;
+  font-weight: 800;
+  color: var(--info);
+  margin-bottom: 0.75rem;
+  text-align: center;
+}
+
+.feedback-word {
+  font-size: 1.5rem;
+  font-weight: 800;
+  text-align: center;
+  margin-bottom: 0.375rem;
+}
+.feedback-def {
+  font-size: 0.9375rem;
+  font-weight: 600;
+  color: var(--text-dim);
+  text-align: center;
+  line-height: 1.6;
+  margin-bottom: 0.75rem;
+}
+
+.feedback-example {
+  font-size: 0.875rem;
+  color: var(--text-dim);
+  font-style: italic;
+  padding: 0.5rem 0.75rem;
+  background: var(--bg);
+  border-radius: var(--radius-sm);
+  border-left: 3px solid var(--info);
+  margin-bottom: 0.75rem;
+  line-height: 1.6;
+}
+
+.feedback-cols {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.25rem;
+  margin-bottom: 1rem;
+}
+.feedback-col-chip {
+  font-size: 0.8125rem;
+  font-weight: 600;
+  padding: 0.25rem 0.625rem;
+  border-radius: 2rem;
+  background: rgba(56, 189, 248, 0.08);
+  color: var(--info);
+}
+
+.feedback-retry {
+  margin-top: 0.75rem;
+  text-align: center;
+}
+.feedback-retry-label {
+  font-size: 0.8125rem;
+  color: var(--text-muted);
+  font-weight: 600;
+  margin-bottom: 0.5rem;
+}
+.feedback-retry-options {
+  display: flex;
+  gap: 0.5rem;
+  flex-wrap: wrap;
+  justify-content: center;
+}
+.feedback-retry-btn {
+  padding: 0.625rem 1rem;
+  background: var(--bg);
+  border: 1px solid var(--border);
+  border-radius: var(--radius-sm);
+  color: var(--text);
+  font-size: 0.9375rem;
+  font-weight: 700;
+  cursor: pointer;
+  transition: all 0.15s;
+  min-height: 2.75rem;
+}
+.feedback-retry-btn:active { transform: scale(0.97); }
+.feedback-retry-btn.is-correct {
+  border-color: var(--correct);
+  background: rgba(16, 185, 129, 0.1);
+  color: var(--correct);
+}
+
+/* ===== SESSION END ===== */
+.session-end {
+  text-align: center;
+  padding: 2rem 1rem;
+  animation: fadeIn 0.3s ease;
+}
+.session-end-icon { font-size: 3rem; margin-bottom: 1rem; }
+.session-end h2 { font-size: 1.375rem; font-weight: 800; margin-bottom: 0.5rem; }
+.session-end p { font-size: 0.9375rem; color: var(--text-dim); margin-bottom: 1.5rem; line-height: 1.7; }
+.session-end .btn-primary { max-width: 280px; margin: 0 auto; display: block; }
+
+/* ===== ANIMATIONS ===== */
+@keyframes fadeIn {
+  from { opacity: 0; transform: translateY(6px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+.fade-in { animation: fadeIn 0.25s ease-out; }
+
+@keyframes correctPulse {
+  0% { box-shadow: 0 0 0 0 rgba(16,185,129,0.4); }
+  70% { box-shadow: 0 0 0 12px rgba(16,185,129,0); }
+  100% { box-shadow: 0 0 0 0 rgba(16,185,129,0); }
+}
+
+/* ===== RESPONSIVE ===== */
+@media (max-width: 360px) {
+  .login-card { padding: 1.5rem 1rem; }
+  .detail-word { font-size: 1.5rem; }
+  .learn-word { font-size: 1.625rem; }
+  .memory-grid { grid-template-columns: repeat(3, 1fr); }
+  .memory-card { min-height: 4rem; font-size: 0.6875rem; }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  *, *::before, *::after {
+    animation-duration: 0.01ms !important;
+    transition-duration: 0.01ms !important;
+  }
+}
+</style>
+</head>
+<body>
+
+<!-- ===== WEBVIEW DETECTION OVERLAY ===== -->
+<div id="webviewOverlay" class="webview-overlay hidden">
+  <div class="webview-card">
+    <h2>Open in Chrome</h2>
+    <p>This app works best in a regular browser. In-app browsers can't save your progress.</p>
+    <button id="webviewOpenBtn" class="btn-primary" onclick="Detection.openInChrome()">Open in Chrome</button>
+    <button class="btn-secondary" onclick="Detection.copyLink()">Copy Link</button>
+    <button class="webview-dismiss" onclick="Detection.dismissWebView()">Continue anyway</button>
+  </div>
+</div>
+
+<!-- ===== PRIVACY NOTICE OVERLAY ===== -->
+<div id="privacyOverlay" class="privacy-overlay hidden">
+  <div class="privacy-card">
+    <h2>Your Privacy</h2>
+    <p>This app saves your learning progress so you don't lose it. We don't collect personal information. Your teacher may see your progress to help you learn better.</p>
+    <button class="btn-primary" onclick="App.acceptPrivacy()">Got it</button>
+  </div>
+</div>
+
+<!-- ===== LOGIN SCREEN ===== -->
+<div id="loginScreen" class="screen active">
+  <div class="login-wrap">
+    <div class="login-card fade-in">
+      <div class="login-logo">
+        <span class="pixel-label">IELTS VOCAB BUILDER</span>
+        <div class="logo-title">Welcome!</div>
+        <div class="logo-sub">Enter your login to start learning</div>
+      </div>
+
+      <div class="login-form">
+        <div>
+          <label class="form-label" for="loginInput">Your Login ID</label>
+          <input type="text" id="loginInput" class="form-input" placeholder="2_8_2009_yourname" autocomplete="off" autocapitalize="none" spellcheck="false">
+          <div class="form-hint">Format: day_month_year_firstname (e.g. 15_3_2008_linh)</div>
+        </div>
+        <div id="loginError" class="login-error"></div>
+        <button id="loginBtn" class="btn-primary" onclick="Auth.login()">Start Learning</button>
+      </div>
+
+      <div id="recentLogins" class="recent-logins" style="display:none;">
+        <div class="recent-logins-title">Recent logins on this device</div>
+        <div id="recentList"></div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- ===== MAIN APP (after login) ===== -->
+<div id="appScreen" class="screen">
+
+  <!-- Header -->
+  <header class="app-header">
+    <div class="header-inner">
+      <a href="../" class="back-link" aria-label="Back to home">←</a>
+      <div class="header-title">
+        <h1>VOCAB BUILDER</h1>
+      </div>
+      <div class="header-right">
+        <span id="syncIndicator" class="sync-indicator" title="Sync status">✅</span>
+        <button class="btn-logout" onclick="Auth.logout()">Log out</button>
+      </div>
+    </div>
+  </header>
+
+  <!-- User banner -->
+  <div id="userBanner" class="user-banner"></div>
+
+  <!-- Alert banners -->
+  <div id="incognitoBanner" class="alert-banner warn">
+    ⚠️ Private browsing won't save your progress. Please use normal browsing.
+  </div>
+  <div id="safariBanner" class="alert-banner info">
+    For the best experience on iPhone: tap Share ↗ then "Add to Home Screen"
+    <button onclick="this.parentElement.classList.remove('visible'); try{localStorage.setItem('ielts_vocab_safari_dismissed','1')}catch(e){}">Dismiss</button>
+  </div>
+
+  <!-- Word Deck View -->
+  <div id="deckView" class="screen active">
+    <div class="deck-header">
+      <div class="deck-stats" id="deckStats"></div>
+      <div class="deck-search">
+        <span class="search-icon">🔍</span>
+        <input type="text" id="searchInput" placeholder="Search words..." oninput="UI.filterWords(this.value)">
+      </div>
+    </div>
+    <div class="start-session-wrap">
+      <button id="startSessionBtn" class="btn-start-session" onclick="Session.start()">
+        Start Learning Session
+        <span class="session-sub" id="sessionSub">Loading...</span>
+      </button>
+    </div>
+    <ul class="word-list" id="wordList"></ul>
+    <div id="deckLoading" class="loading-wrap">
+      <div class="loading-spinner"></div>
+      <div class="loading-text">Loading vocabulary...</div>
+    </div>
+    <div id="deckEmpty" class="empty-state" style="display:none;">
+      <div class="empty-icon">🔍</div>
+      <p>No words match your search</p>
+    </div>
+  </div>
+
+  <!-- Word Detail View -->
+  <div id="detailView" class="screen">
+    <div class="detail-wrap" id="detailContent"></div>
+  </div>
+
+  <!-- Game Session View -->
+  <div id="sessionView" class="screen">
+    <div class="game-wrap">
+      <div class="game-progress">
+        <div class="game-progress-bar"><div class="game-progress-fill" id="gameProgressFill" style="width:0%"></div></div>
+        <div class="game-progress-text" id="gameProgressText">0/0</div>
+      </div>
+      <div id="gameContainer"></div>
+    </div>
+  </div>
+
+</div>
+
+<!-- ===== ELABORATIVE FEEDBACK OVERLAY ===== -->
+<div id="feedbackOverlay" class="feedback-overlay hidden">
+  <div class="feedback-card" id="feedbackCard"></div>
+</div>
+
+<!-- ===== FIREBASE SDK (compat for no-build) ===== -->
+<script src="https://www.gstatic.com/firebasejs/10.14.0/firebase-app-compat.js"></script>
+<script src="https://www.gstatic.com/firebasejs/10.14.0/firebase-firestore-compat.js"></script>
+
+<script>
+(function() {
+  'use strict';
+
+  // =========================================================================
+  // FIREBASE CONFIG
+  // =========================================================================
+  var FIREBASE_CONFIG = {
+    apiKey: "AIzaSyCGXhs3DJyCrO567xRHIl6K2TYLrR8Qjw0",
+    authDomain: "ielts-reading-trainer-b9d80.firebaseapp.com",
+    projectId: "ielts-reading-trainer-b9d80",
+    storageBucket: "ielts-reading-trainer-b9d80.firebasestorage.app",
+    messagingSenderId: "503889632238",
+    appId: "1:503889632238:web:a6e7713055737dca470cff"
+  };
+
+  var DATA_VERSION = 1;
+  var SYNC_INTERVAL = 5; // sync every N answered questions
+  var MAX_RECENT_LOGINS = 3;
+
+  // =========================================================================
+  // GLOBAL STATE
+  // =========================================================================
+  var db = null;           // Firestore instance
+  var currentUser = null;  // login ID
+  var wordData = null;     // loaded from core.json
+  var offlineQueue = [];   // changes waiting to sync
+
+  // =========================================================================
+  // DETECTION MODULE
+  // =========================================================================
+  window.Detection = {
+    isWebView: function() {
+      var ua = navigator.userAgent || '';
+      // Detect common in-app browsers
+      var patterns = ['FBAN', 'FBAV', 'Instagram', 'Line/', 'Zalo', 'Telegram'];
+      for (var i = 0; i < patterns.length; i++) {
+        if (ua.indexOf(patterns[i]) >= 0) return true;
+      }
+      // Android WebView detection
+      if (ua.indexOf('wv') >= 0 && ua.indexOf('Android') >= 0) return true;
+      return false;
+    },
+
+    isIncognito: function(callback) {
+      // Try writing to localStorage
+      try {
+        localStorage.setItem('__incognito_test', '1');
+        localStorage.removeItem('__incognito_test');
+        // Also check storage quota (Chrome incognito has limited quota)
+        if (navigator.storage && navigator.storage.estimate) {
+          navigator.storage.estimate().then(function(est) {
+            // Chrome incognito typically reports ~120MB quota
+            callback(est.quota < 200000000);
+          }).catch(function() { callback(false); });
+        } else {
+          callback(false);
+        }
+      } catch (e) {
+        callback(true);
+      }
+    },
+
+    isSafari: function() {
+      var ua = navigator.userAgent || '';
+      return ua.indexOf('Safari') >= 0 && ua.indexOf('Chrome') < 0 && ua.indexOf('Android') < 0;
+    },
+
+    isIOS: function() {
+      return /iPad|iPhone|iPod/.test(navigator.userAgent) || (navigator.platform === 'MacIntel' && navigator.maxTouchPoints > 1);
+    },
+
+    openInChrome: function() {
+      var url = window.location.href;
+      // Android intent to open in Chrome
+      if (/Android/i.test(navigator.userAgent)) {
+        var intentUrl = 'intent://' + url.replace(/^https?:\/\//, '') + '#Intent;scheme=https;package=com.android.chrome;end';
+        window.location.href = intentUrl;
+        // Fallback after short delay
+        setTimeout(function() {
+          window.location.href = url;
+        }, 1500);
+      } else {
+        window.open(url, '_blank');
+      }
+    },
+
+    copyLink: function() {
+      var url = window.location.href;
+      if (navigator.clipboard) {
+        navigator.clipboard.writeText(url).then(function() {
+          alert('Link copied! Paste it in Chrome.');
+        });
+      } else {
+        // Fallback
+        var t = document.createElement('textarea');
+        t.value = url;
+        document.body.appendChild(t);
+        t.select();
+        document.execCommand('copy');
+        document.body.removeChild(t);
+        alert('Link copied! Paste it in Chrome.');
+      }
+    },
+
+    dismissWebView: function() {
+      document.getElementById('webviewOverlay').classList.add('hidden');
+    },
+
+    runChecks: function() {
+      // WebView
+      if (this.isWebView()) {
+        document.getElementById('webviewOverlay').classList.remove('hidden');
+      }
+      // Incognito
+      this.isIncognito(function(yes) {
+        if (yes) {
+          document.getElementById('incognitoBanner').classList.add('visible');
+        }
+      });
+      // Safari on iOS
+      if (this.isSafari() && this.isIOS()) {
+        try {
+          if (!localStorage.getItem('ielts_vocab_safari_dismissed')) {
+            document.getElementById('safariBanner').classList.add('visible');
+          }
+        } catch (e) {}
+      }
+    }
+  };
+
+  // =========================================================================
+  // STORE MODULE (localStorage)
+  // =========================================================================
+  window.Store = {
+    _key: function(suffix) {
+      return 'ielts_vocab_' + currentUser + '_' + suffix;
+    },
+
+    get: function(suffix, fallback) {
+      try {
+        var raw = localStorage.getItem(this._key(suffix));
+        if (raw === null) return fallback;
+        return JSON.parse(raw);
+      } catch (e) {
+        return fallback;
+      }
+    },
+
+    set: function(suffix, value) {
+      try {
+        localStorage.setItem(this._key(suffix), JSON.stringify(value));
+        return true;
+      } catch (e) {
+        // Storage quota exceeded
+        console.warn('localStorage write failed:', e);
+        return false;
+      }
+    },
+
+    remove: function(suffix) {
+      try { localStorage.removeItem(this._key(suffix)); } catch (e) {}
+    },
+
+    // Global keys (not per-user)
+    getGlobal: function(key, fallback) {
+      try {
+        var raw = localStorage.getItem(key);
+        if (raw === null) return fallback;
+        return JSON.parse(raw);
+      } catch (e) { return fallback; }
+    },
+
+    setGlobal: function(key, value) {
+      try { localStorage.setItem(key, JSON.stringify(value)); return true; }
+      catch (e) { return false; }
+    },
+
+    // Recent logins management
+    getRecentLogins: function() {
+      return this.getGlobal('ielts_vocab_recent_logins', []);
+    },
+
+    addRecentLogin: function(loginId) {
+      var recents = this.getRecentLogins();
+      // Remove if already exists
+      recents = recents.filter(function(id) { return id !== loginId; });
+      // Add to front
+      recents.unshift(loginId);
+      // Keep only MAX
+      recents = recents.slice(0, MAX_RECENT_LOGINS);
+      this.setGlobal('ielts_vocab_recent_logins', recents);
+    },
+
+    // Active session
+    getActiveUser: function() {
+      return this.getGlobal('ielts_vocab_active_user', null);
+    },
+
+    setActiveUser: function(loginId) {
+      this.setGlobal('ielts_vocab_active_user', loginId);
+    },
+
+    clearActiveUser: function() {
+      try { localStorage.removeItem('ielts_vocab_active_user'); } catch (e) {}
+    }
+  };
+
+  // =========================================================================
+  // SYNC MODULE (Firebase)
+  // =========================================================================
+  window.Sync = {
+    ready: false,
+
+    init: function() {
+      try {
+        if (typeof firebase !== 'undefined' && firebase.initializeApp) {
+          firebase.initializeApp(FIREBASE_CONFIG);
+          db = firebase.firestore();
+          this.ready = true;
+          this.updateIndicator('synced');
+        }
+      } catch (e) {
+        console.warn('Firebase init failed:', e);
+        this.updateIndicator('offline');
+      }
+    },
+
+    updateIndicator: function(state) {
+      var el = document.getElementById('syncIndicator');
+      if (!el) return;
+      if (state === 'synced') { el.textContent = '✅'; el.title = 'Synced'; }
+      else if (state === 'syncing') { el.textContent = '🔄'; el.title = 'Syncing...'; }
+      else if (state === 'offline') {
+        var qLen = offlineQueue.length;
+        el.textContent = '⚠️';
+        el.title = 'Offline' + (qLen > 0 ? ' (' + qLen + ' changes pending)' : '');
+      }
+      else if (state === 'error') { el.textContent = '❌'; el.title = 'Sync error'; }
+    },
+
+    // Push user data to Firebase
+    pushData: function(suffix, data) {
+      if (!this.ready || !currentUser || !db) {
+        offlineQueue.push({ suffix: suffix, data: data, ts: Date.now() });
+        this.updateIndicator('offline');
+        return Promise.resolve(false);
+      }
+
+      this.updateIndicator('syncing');
+      var docRef = db.collection('students').doc(currentUser);
+      var update = {};
+      update[suffix] = data;
+      update['lastSync'] = firebase.firestore.FieldValue.serverTimestamp();
+
+      var self = this;
+      return docRef.set(update, { merge: true }).then(function() {
+        self.updateIndicator('synced');
+        return true;
+      }).catch(function(err) {
+        console.warn('Firebase push failed:', err);
+        offlineQueue.push({ suffix: suffix, data: data, ts: Date.now() });
+        self.updateIndicator('offline');
+        return false;
+      });
+    },
+
+    // Pull user data from Firebase (restore)
+    pullData: function(suffix) {
+      if (!this.ready || !currentUser || !db) return Promise.resolve(null);
+
+      return db.collection('students').doc(currentUser).get().then(function(doc) {
+        if (doc.exists && doc.data()[suffix]) {
+          return doc.data()[suffix];
+        }
+        return null;
+      }).catch(function() { return null; });
+    },
+
+    // Replay offline queue
+    flushQueue: function() {
+      if (!this.ready || offlineQueue.length === 0) return;
+      var q = offlineQueue.slice();
+      offlineQueue = [];
+      var self = this;
+
+      q.forEach(function(item) {
+        self.pushData(item.suffix, item.data);
+      });
+    },
+
+    // Check if user exists in Firebase (for collision detection)
+    checkUserExists: function(loginId) {
+      if (!this.ready || !db) return Promise.resolve(false);
+
+      return db.collection('students').doc(loginId).get().then(function(doc) {
+        return doc.exists;
+      }).catch(function() { return false; });
+    },
+
+    // Sync L1 meanings
+    syncL1: function() {
+      if (!currentUser) return;
+      var l1Data = Store.get('l1', {});
+      this.pushData('l1_meanings', l1Data);
+    },
+
+    // Restore from Firebase if localStorage is empty
+    restoreIfNeeded: function() {
+      if (!currentUser) return Promise.resolve();
+
+      var leitner = Store.get('leitner', null);
+      if (leitner !== null) return Promise.resolve(); // already have local data
+
+      var self = this;
+      return this.pullData('leitner').then(function(data) {
+        if (data) {
+          Store.set('leitner', data);
+          console.log('Restored Leitner data from Firebase');
+        }
+        return self.pullData('l1_meanings');
+      }).then(function(l1Data) {
+        if (l1Data) {
+          Store.set('l1', l1Data);
+          console.log('Restored L1 data from Firebase');
+        }
+      }).catch(function(e) {
+        console.warn('Restore failed:', e);
+      });
+    }
+  };
+
+  // =========================================================================
+  // AUTH MODULE
+  // =========================================================================
+  window.Auth = {
+    normalizeId: function(raw) {
+      // Trim, lowercase
+      var id = raw.trim().toLowerCase();
+      // Replace multiple underscores/spaces with single underscore
+      id = id.replace(/[\s_]+/g, '_');
+      // Strip leading zeros from day and month
+      var parts = id.split('_');
+      if (parts.length >= 4) {
+        // day
+        parts[0] = String(parseInt(parts[0], 10));
+        // month
+        parts[1] = String(parseInt(parts[1], 10));
+        // year stays as-is
+        // name parts stay as-is
+        if (isNaN(parseInt(parts[0], 10)) || isNaN(parseInt(parts[1], 10))) {
+          return null; // invalid format
+        }
+        id = parts.join('_');
+      }
+      return id;
+    },
+
+    validateId: function(id) {
+      if (!id || id.length < 8) return 'Login ID is too short. Use format: day_month_year_firstname';
+      var parts = id.split('_');
+      if (parts.length < 4) return 'Use format: day_month_year_firstname (e.g. 15_3_2008_linh)';
+      var day = parseInt(parts[0], 10);
+      var month = parseInt(parts[1], 10);
+      var year = parseInt(parts[2], 10);
+      if (day < 1 || day > 31) return 'Day must be 1-31';
+      if (month < 1 || month > 12) return 'Month must be 1-12';
+      if (year < 1990 || year > 2020) return 'Year must be between 1990-2020';
+      var name = parts.slice(3).join('_');
+      if (!name || name.length < 1) return 'Please include your first name';
+      return null; // valid
+    },
+
+    login: function(prefilledId) {
+      var raw = prefilledId || document.getElementById('loginInput').value;
+      var errorEl = document.getElementById('loginError');
+
+      // Normalize
+      var loginId = this.normalizeId(raw);
+      if (!loginId) {
+        errorEl.textContent = 'Invalid format. Use: day_month_year_firstname';
+        errorEl.classList.add('visible');
+        return;
+      }
+
+      // Validate
+      var err = this.validateId(loginId);
+      if (err) {
+        errorEl.textContent = err;
+        errorEl.classList.add('visible');
+        return;
+      }
+
+      errorEl.classList.remove('visible');
+
+      // Check for login collision:
+      // If this ID has no local data but EXISTS in Firebase, it might be
+      // a different student with the same name + birthday
+      var hasLocalData = false;
+      try {
+        hasLocalData = localStorage.getItem('ielts_vocab_' + loginId + '_leitner') !== null ||
+                       localStorage.getItem('ielts_vocab_' + loginId + '_l1') !== null;
+      } catch (e) {}
+
+      var self = this;
+      var loginBtn = document.getElementById('loginBtn');
+      loginBtn.disabled = true;
+      loginBtn.textContent = 'Checking...';
+
+      var proceed = function() {
+        loginBtn.disabled = false;
+        loginBtn.textContent = 'Start Learning';
+
+        // Set as current user
+        currentUser = loginId;
+        Store.setActiveUser(loginId);
+        Store.addRecentLogin(loginId);
+
+        // Show privacy notice on first-ever login
+        var privacySeen = Store.getGlobal('ielts_vocab_privacy_accepted', false);
+        if (!privacySeen) {
+          document.getElementById('privacyOverlay').classList.remove('hidden');
+        }
+
+        // Restore from Firebase if needed, then show app
+        Sync.restoreIfNeeded().then(function() {
+          App.showApp();
+        }).catch(function() {
+          App.showApp();
+        });
+      };
+
+      if (hasLocalData) {
+        // Same device, same user — proceed immediately
+        proceed();
+      } else {
+        // Check Firebase for collision
+        Sync.checkUserExists(loginId).then(function(exists) {
+          if (exists) {
+            // Could be same person on new device, or collision
+            loginBtn.disabled = false;
+            loginBtn.textContent = 'Start Learning';
+            var confirmed = confirm(
+              'This login already has saved progress.\n\n' +
+              'If this is you on a new device, tap OK to restore your progress.\n\n' +
+              'If this is NOT you, tap Cancel and add a letter to your name ' +
+              '(e.g. ' + loginId + '_b).'
+            );
+            if (confirmed) {
+              proceed();
+            } else {
+              errorEl.textContent = 'Try adding a letter: ' + loginId + '_b';
+              errorEl.classList.add('visible');
+            }
+          } else {
+            proceed();
+          }
+        }).catch(function() {
+          // Firebase unavailable — proceed without collision check
+          proceed();
+        });
+      }
+    },
+
+    logout: function() {
+      // Sync before logout
+      if (currentUser) {
+        Sync.syncL1();
+      }
+      currentUser = null;
+      Store.clearActiveUser();
+
+      // Show login screen
+      document.getElementById('appScreen').classList.remove('active');
+      document.getElementById('loginScreen').classList.add('active');
+      document.getElementById('loginInput').value = '';
+
+      // Refresh recent logins
+      this.renderRecentLogins();
+    },
+
+    renderRecentLogins: function() {
+      var recents = Store.getRecentLogins();
+      var container = document.getElementById('recentLogins');
+      var list = document.getElementById('recentList');
+
+      if (recents.length === 0) {
+        container.style.display = 'none';
+        return;
+      }
+
+      container.style.display = 'block';
+      list.innerHTML = '';
+      recents.forEach(function(id) {
+        var btn = document.createElement('button');
+        btn.className = 'recent-login-btn';
+        btn.textContent = id;
+        btn.onclick = function() { Auth.login(id); };
+        list.appendChild(btn);
+      });
+    }
+  };
+
+  // =========================================================================
+  // DATA MODULE
+  // =========================================================================
+  window.Data = {
+    loaded: false,
+
+    load: function() {
+      var url = 'core.json?v=' + DATA_VERSION;
+      return fetch(url).then(function(res) {
+        if (!res.ok) throw new Error('Failed to load vocabulary data');
+        return res.json();
+      }).then(function(json) {
+        // Validate
+        if (!json || !json.words || !Array.isArray(json.words)) {
+          throw new Error('Invalid data format');
+        }
+
+        var valid = [];
+        var invalid = 0;
+        json.words.forEach(function(w) {
+          if (w.id && w.word && w.def && w.ex &&
+              w.collocations && w.frames && w.frames.length >= 3 &&
+              w.distractors && w.distractors.length >= 3 &&
+              w.forms && w.forms.length >= 1) {
+            valid.push(w);
+          } else {
+            invalid++;
+            console.warn('Skipping invalid word:', w.id || 'unknown', w);
+          }
+        });
+
+        if (invalid > 0) {
+          console.warn(invalid + ' words skipped due to missing fields');
+        }
+
+        wordData = { version: json.version, count: valid.length, words: valid };
+        Data.loaded = true;
+        return wordData;
+      });
+    }
+  };
+
+  // =========================================================================
+  // UI MODULE
+  // =========================================================================
+  window.UI = {
+    renderDeck: function() {
+      if (!wordData) return;
+
+      var listEl = document.getElementById('wordList');
+      var loadingEl = document.getElementById('deckLoading');
+      var statsEl = document.getElementById('deckStats');
+
+      loadingEl.style.display = 'none';
+
+      // Stats
+      var leitner = Store.get('leitner', {});
+      var totalWords = wordData.words.length;
+      var newCount = 0;
+      var learningCount = 0;
+      var masteredCount = 0;
+
+      wordData.words.forEach(function(w) {
+        var progress = leitner[w.id];
+        if (!progress || progress.box === 0) newCount++;
+        else if (progress.box >= 5) masteredCount++;
+        else learningCount++;
+      });
+
+      statsEl.innerHTML =
+        '<div class="stat-chip accent"><span class="stat-val">' + totalWords + '</span> words</div>' +
+        '<div class="stat-chip"><span class="stat-val">' + newCount + '</span> new</div>' +
+        '<div class="stat-chip"><span class="stat-val">' + learningCount + '</span> learning</div>' +
+        '<div class="stat-chip"><span class="stat-val">' + masteredCount + '</span> mastered</div>';
+
+      // Update session button
+      var sessionInfo = Session.getSessionInfo();
+      var subEl = document.getElementById('sessionSub');
+      if (subEl) {
+        if (sessionInfo.total > 0) {
+          var parts = [];
+          if (sessionInfo.newCount > 0) parts.push(sessionInfo.newCount + ' new');
+          if (sessionInfo.reviewCount > 0) parts.push(sessionInfo.reviewCount + ' review');
+          subEl.textContent = parts.join(' + ') + ' words ready';
+        } else {
+          subEl.textContent = 'All caught up! Come back later.';
+          var btn = document.getElementById('startSessionBtn');
+          if (btn) btn.disabled = true;
+        }
+      }
+
+      // Word list
+      this._renderWordList(wordData.words);
+    },
+
+    _renderWordList: function(words) {
+      var listEl = document.getElementById('wordList');
+      var emptyEl = document.getElementById('deckEmpty');
+      var leitner = Store.get('leitner', {});
+
+      if (words.length === 0) {
+        listEl.innerHTML = '';
+        emptyEl.style.display = 'block';
+        return;
+      }
+
+      emptyEl.style.display = 'none';
+      var html = '';
+
+      words.forEach(function(w) {
+        var progress = leitner[w.id];
+        var badgeClass = 'badge-new';
+        var badgeText = 'New';
+        if (progress) {
+          if (progress.box >= 5) { badgeClass = 'badge-mastered'; badgeText = 'Mastered'; }
+          else if (progress.box >= 3) { badgeClass = 'badge-review'; badgeText = 'Review'; }
+          else if (progress.box >= 1) { badgeClass = 'badge-learning'; badgeText = 'Learning'; }
+        }
+
+        html += '<li class="word-item fade-in" onclick="UI.showDetail(\'' + w.id + '\')">' +
+          '<div class="word-rank">#' + w.rank + '</div>' +
+          '<div class="word-info">' +
+            '<div class="word-name">' + UI._escHtml(w.word) + '</div>' +
+            '<div class="word-def">' + UI._escHtml(w.def) + '</div>' +
+          '</div>' +
+          '<div class="word-badge ' + badgeClass + '">' + badgeText + '</div>' +
+        '</li>';
+      });
+
+      listEl.innerHTML = html;
+    },
+
+    filterWords: function(query) {
+      if (!wordData) return;
+      var q = query.trim().toLowerCase();
+      if (!q) {
+        this._renderWordList(wordData.words);
+        return;
+      }
+      var filtered = wordData.words.filter(function(w) {
+        // Search word, definition, forms
+        if (w.word.toLowerCase().indexOf(q) >= 0) return true;
+        if (w.def.toLowerCase().indexOf(q) >= 0) return true;
+        for (var i = 0; i < w.forms.length; i++) {
+          if (w.forms[i].toLowerCase().indexOf(q) >= 0) return true;
+        }
+        return false;
+      });
+      this._renderWordList(filtered);
+    },
+
+    showDetail: function(wordId) {
+      var word = null;
+      for (var i = 0; i < wordData.words.length; i++) {
+        if (wordData.words[i].id === wordId) { word = wordData.words[i]; break; }
+      }
+      if (!word) return;
+
+      var l1Data = Store.get('l1', {});
+      var l1Value = l1Data[wordId] || '';
+
+      var html = '<button class="btn-back-deck" onclick="UI.showDeck()">← Back to words</button>';
+
+      html += '<div class="detail-card fade-in">';
+      html += '<div class="detail-word">' + this._escHtml(word.word) + '</div>';
+
+      // Word forms
+      if (word.forms && word.forms.length > 0) {
+        html += '<div class="detail-forms">';
+        word.forms.forEach(function(f) {
+          html += '<span>' + UI._escHtml(f) + '</span>';
+        });
+        html += '</div>';
+      }
+
+      // Definition
+      html += '<div class="detail-section">';
+      html += '<div class="detail-section-title">Definition</div>';
+      html += '<div class="detail-def">' + this._escHtml(word.def) + '</div>';
+      html += '</div>';
+
+      // Example
+      html += '<div class="detail-section">';
+      html += '<div class="detail-section-title">Example</div>';
+      html += '<div class="detail-example">' + this._escHtml(word.ex) + '</div>';
+      html += '</div>';
+
+      // Collocations
+      html += '<div class="detail-section">';
+      html += '<div class="detail-section-title">Collocations</div>';
+      var colTypes = { verb_obj: 'Verb + Noun', adj_noun: 'Adjective + Noun', noun_verb: 'Noun + Verb' };
+      var colKeys = Object.keys(word.collocations);
+      colKeys.forEach(function(key) {
+        var items = word.collocations[key];
+        if (!items || items.length === 0) return;
+        var label = colTypes[key] || key;
+        html += '<div class="collocation-group">';
+        html += '<div class="collocation-label">' + UI._escHtml(label) + '</div>';
+        html += '<div class="collocation-items">';
+        items.forEach(function(c) {
+          html += '<span class="collocation-chip">' + UI._escHtml(c) + '</span>';
+        });
+        html += '</div></div>';
+      });
+      html += '</div>';
+
+      // Sentence frames
+      html += '<div class="detail-section">';
+      html += '<div class="detail-section-title">Sentence Frames</div>';
+      word.frames.forEach(function(f) {
+        html += '<div class="frame-item">' + UI._escHtml(f) + '</div>';
+      });
+      html += '</div>';
+
+      // L1 Meaning
+      html += '<div class="l1-section">';
+      html += '<div class="detail-section-title">Your Meaning (ខ្មែរ / Tiếng Việt / ภาษาไทย)</div>';
+      html += '<input type="text" class="l1-input" id="l1Input" value="' + this._escAttr(l1Value) + '" ' +
+              'placeholder="Type your meaning in your language (optional)" ' +
+              'data-word-id="' + wordId + '" ' +
+              'onblur="UI.saveL1(this)" onkeydown="if(event.key===\'Enter\'){this.blur();}">';
+      html += '<div class="l1-saved" id="l1Saved">Saved ✓</div>';
+      html += '</div>';
+
+      html += '</div>'; // end detail-card
+
+      document.getElementById('detailContent').innerHTML = html;
+
+      // Switch views
+      document.getElementById('deckView').classList.remove('active');
+      document.getElementById('detailView').classList.add('active');
+
+      // Scroll to top
+      window.scrollTo(0, 0);
+    },
+
+    showDeck: function() {
+      document.getElementById('detailView').classList.remove('active');
+      document.getElementById('sessionView').classList.remove('active');
+      document.getElementById('deckView').classList.add('active');
+      // Re-render to update badges
+      this.renderDeck();
+    },
+
+    saveL1: function(inputEl) {
+      var wordId = inputEl.getAttribute('data-word-id');
+      var value = inputEl.value.trim();
+      var l1Data = Store.get('l1', {});
+
+      if (value) {
+        l1Data[wordId] = value;
+      } else {
+        delete l1Data[wordId];
+      }
+
+      Store.set('l1', l1Data);
+
+      // Show saved indicator
+      var savedEl = document.getElementById('l1Saved');
+      if (savedEl) {
+        savedEl.classList.add('show');
+        setTimeout(function() { savedEl.classList.remove('show'); }, 1500);
+      }
+
+      // Debounced Firebase sync
+      clearTimeout(UI._l1SyncTimer);
+      UI._l1SyncTimer = setTimeout(function() {
+        Sync.syncL1();
+      }, 3000);
+    },
+    _l1SyncTimer: null,
+
+    _escHtml: function(str) {
+      var div = document.createElement('div');
+      div.appendChild(document.createTextNode(str));
+      return div.innerHTML;
+    },
+
+    _escAttr: function(str) {
+      return str.replace(/&/g, '&amp;').replace(/"/g, '&quot;').replace(/'/g, '&#39;').replace(/</g, '&lt;').replace(/>/g, '&gt;');
+    }
+  };
+
+  // =========================================================================
+  // LEITNER MODULE (Spaced Repetition Engine)
+  // =========================================================================
+  window.Leitner = {
+    // Box intervals in days: Box1=1, Box2=3, Box3=7, Box4=14, Box5=30
+    INTERVALS: [0, 1, 3, 7, 14, 30],
+
+    getProgress: function(wordId) {
+      var all = Store.get('leitner', {});
+      return all[wordId] || null;
+    },
+
+    getAllProgress: function() {
+      return Store.get('leitner', {});
+    },
+
+    initWord: function(wordId) {
+      var all = Store.get('leitner', {});
+      if (!all[wordId]) {
+        all[wordId] = {
+          box: 0,          // 0=unseen, 1-5=boxes
+          encounters: 0,
+          correct: 0,
+          wrong: 0,
+          gameTypes: [],   // distinct game types encountered
+          lastSeen: null,
+          nextReview: null
+        };
+        Store.set('leitner', all);
+      }
+      return all[wordId];
+    },
+
+    recordAnswer: function(wordId, gameType, isCorrect) {
+      var all = Store.get('leitner', {});
+      var p = all[wordId];
+      if (!p) {
+        p = { box: 0, encounters: 0, correct: 0, wrong: 0, gameTypes: [], lastSeen: null, nextReview: null };
+      }
+
+      p.encounters++;
+      if (isCorrect) p.correct++;
+      else p.wrong++;
+
+      // Track game type
+      if (p.gameTypes.indexOf(gameType) < 0) {
+        p.gameTypes.push(gameType);
+      }
+
+      var now = Date.now();
+      p.lastSeen = now;
+
+      if (isCorrect) {
+        // Advance box (max 5)
+        if (p.box < 5) {
+          // Anti-gaming: need 3+ game types to go past Box 2
+          if (p.box >= 2 && p.gameTypes.length < 3) {
+            // Stay in current box
+          } else {
+            p.box++;
+          }
+        }
+      } else {
+        // Modified demotion
+        if (p.box >= 3) {
+          p.box = 2; // Box 3+ fail → Box 2 (not Box 1)
+        } else if (p.box >= 1) {
+          p.box = 1; // Box 1-2 fail → stay in Box 1
+        }
+      }
+
+      // Set next review date
+      var intervalDays = this.INTERVALS[p.box] || 1;
+      p.nextReview = now + (intervalDays * 24 * 60 * 60 * 1000);
+
+      all[wordId] = p;
+      Store.set('leitner', all);
+
+      // Per-question save — also sync periodically
+      var totalAnswers = 0;
+      var keys = Object.keys(all);
+      for (var i = 0; i < keys.length; i++) {
+        totalAnswers += (all[keys[i]].encounters || 0);
+      }
+      if (totalAnswers % SYNC_INTERVAL === 0) {
+        Sync.pushData('leitner', all);
+      }
+
+      return p;
+    },
+
+    // Mark a word as known (skip to Box 3)
+    markAsKnown: function(wordId) {
+      var all = Store.get('leitner', {});
+      var p = all[wordId] || { box: 0, encounters: 0, correct: 0, wrong: 0, gameTypes: [], lastSeen: null, nextReview: null };
+      p.box = 3;
+      p.lastSeen = Date.now();
+      p.nextReview = Date.now() + (7 * 24 * 60 * 60 * 1000);
+      all[wordId] = p;
+      Store.set('leitner', all);
+      return p;
+    },
+
+    isDueForReview: function(wordId) {
+      var p = this.getProgress(wordId);
+      if (!p || p.box === 0) return false; // unseen
+      if (!p.nextReview) return true;
+      return Date.now() >= p.nextReview;
+    },
+
+    // Get the next game type a word should play
+    getNextGameType: function(wordId) {
+      var p = this.getProgress(wordId);
+      // Mandatory order: learn → falling → memory → truefalse → oddoneout
+      var order = ['learn', 'falling', 'memory'];
+      if (!p || p.box === 0) return 'learn';
+      for (var i = 0; i < order.length; i++) {
+        if (p.gameTypes.indexOf(order[i]) < 0) return order[i];
+      }
+      // All unlocked — pick randomly from available
+      var available = ['falling', 'memory'];
+      return available[Math.floor(Math.random() * available.length)];
+    },
+
+    getBoxLabel: function(box) {
+      if (box === 0) return 'New';
+      if (box >= 5) return 'Mastered';
+      if (box >= 3) return 'Review';
+      return 'Learning';
+    }
+  };
+
+  // =========================================================================
+  // SESSION MODULE (Word Selection + Flow)
+  // =========================================================================
+  window.Session = {
+    queue: [],       // words to practice this session
+    currentIndex: 0,
+    isActive: false,
+    isFirstEver: false,
+
+    getSessionInfo: function() {
+      if (!wordData) return { newCount: 0, reviewCount: 0, total: 0 };
+      var leitner = Leitner.getAllProgress();
+      var reviewDue = [];
+      var unseenWords = [];
+
+      wordData.words.forEach(function(w) {
+        var p = leitner[w.id];
+        if (!p || p.box === 0) {
+          unseenWords.push(w);
+        } else if (Leitner.isDueForReview(w.id)) {
+          reviewDue.push(w);
+        }
+      });
+
+      // Check if first-ever session
+      var hasAnyProgress = false;
+      var keys = Object.keys(leitner);
+      for (var i = 0; i < keys.length; i++) {
+        if (leitner[keys[i]].box > 0) { hasAnyProgress = true; break; }
+      }
+      this.isFirstEver = !hasAnyProgress;
+
+      // Cap reviews at 30, prioritize weakest
+      reviewDue.sort(function(a, b) {
+        var pa = leitner[a.id];
+        var pb = leitner[b.id];
+        // Lower box = weaker = higher priority
+        var boxDiff = (pa.box || 0) - (pb.box || 0);
+        if (boxDiff !== 0) return boxDiff;
+        // More wrong answers = weaker
+        return (pb.wrong || 0) - (pa.wrong || 0);
+      });
+      if (reviewDue.length > 30) reviewDue = reviewDue.slice(0, 30);
+
+      // New words: 8 for first session = 4, normal = 8
+      var maxNew = this.isFirstEver ? 4 : 8;
+
+      // 60% review, 40% new — but adjust based on availability
+      var targetReview = Math.min(reviewDue.length, Math.ceil(maxNew * 1.5));
+      var targetNew = Math.min(unseenWords.length, maxNew);
+
+      return {
+        newCount: targetNew,
+        reviewCount: targetReview,
+        total: targetNew + targetReview,
+        reviewDue: reviewDue.slice(0, targetReview),
+        unseenWords: unseenWords.slice(0, targetNew)
+      };
+    },
+
+    start: function() {
+      if (!wordData) return;
+      var info = this.getSessionInfo();
+
+      if (info.total === 0) {
+        alert('No words to practice right now. Come back later for review!');
+        return;
+      }
+
+      // Build queue: mix review + new
+      this.queue = [];
+      var reviewWords = info.reviewDue || [];
+      var newWords = info.unseenWords || [];
+
+      // For first session, pick the 4 easiest words
+      if (this.isFirstEver && newWords.length > 4) {
+        // Sort by rank (lowest = most common = easiest)
+        newWords.sort(function(a, b) { return a.rank - b.rank; });
+        newWords = newWords.slice(0, 4);
+      }
+
+      // Interleave: review, new, review, new...
+      var ri = 0, ni = 0;
+      while (ri < reviewWords.length || ni < newWords.length) {
+        if (ri < reviewWords.length) this.queue.push({ word: reviewWords[ri++], isNew: false });
+        if (ni < newWords.length) this.queue.push({ word: newWords[ni++], isNew: true });
+      }
+
+      this.currentIndex = 0;
+      this.isActive = true;
+
+      // Show session view
+      document.getElementById('deckView').classList.remove('active');
+      document.getElementById('detailView').classList.remove('active');
+      document.getElementById('sessionView').classList.add('active');
+
+      this.playNext();
+    },
+
+    playNext: function() {
+      if (this.currentIndex >= this.queue.length) {
+        this.endSession();
+        return;
+      }
+
+      // Update progress bar
+      var pct = Math.round((this.currentIndex / this.queue.length) * 100);
+      document.getElementById('gameProgressFill').style.width = pct + '%';
+      document.getElementById('gameProgressText').textContent = this.currentIndex + '/' + this.queue.length;
+
+      var item = this.queue[this.currentIndex];
+      var word = item.word;
+      var gameType = Leitner.getNextGameType(word.id);
+
+      // Init word progress if new
+      if (item.isNew) {
+        Leitner.initWord(word.id);
+        gameType = 'learn'; // New words always start with learn
+      }
+
+      // Launch game
+      switch (gameType) {
+        case 'learn':
+          Games.learnScreen(word);
+          break;
+        case 'falling':
+          Games.fallingWords(word);
+          break;
+        case 'memory':
+          Games.memoryPairs(word);
+          break;
+        default:
+          Games.fallingWords(word);
+      }
+    },
+
+    onAnswer: function(wordId, gameType, isCorrect) {
+      Leitner.recordAnswer(wordId, gameType, isCorrect);
+      if (!isCorrect) {
+        // Show elaborative feedback
+        Feedback.show(wordId, gameType);
+      } else {
+        this.advance();
+      }
+    },
+
+    advance: function() {
+      this.currentIndex++;
+      this.playNext();
+    },
+
+    endSession: function() {
+      this.isActive = false;
+
+      // Final sync
+      var leitnerData = Store.get('leitner', {});
+      Sync.pushData('leitner', leitnerData);
+      Sync.syncL1();
+
+      // Update progress bar to 100%
+      document.getElementById('gameProgressFill').style.width = '100%';
+      document.getElementById('gameProgressText').textContent = this.queue.length + '/' + this.queue.length;
+
+      // Count results
+      var learned = 0;
+      var reviewed = 0;
+      this.queue.forEach(function(item) {
+        if (item.isNew) learned++;
+        else reviewed++;
+      });
+
+      // Show end screen
+      var container = document.getElementById('gameContainer');
+      container.innerHTML =
+        '<div class="session-end">' +
+          '<div class="session-end-icon">🎉</div>' +
+          '<h2>Session Complete!</h2>' +
+          '<p>You practiced ' + this.queue.length + ' words' +
+          (learned > 0 ? ' (' + learned + ' new)' : '') +
+          (reviewed > 0 ? ' (' + reviewed + ' reviewed)' : '') + '.</p>' +
+          '<button class="btn-primary" onclick="Session.returnToDeck()">Back to Word Deck</button>' +
+        '</div>';
+    },
+
+    returnToDeck: function() {
+      document.getElementById('sessionView').classList.remove('active');
+      document.getElementById('deckView').classList.add('active');
+      UI.renderDeck();
+      window.scrollTo(0, 0);
+    }
+  };
+
+  // =========================================================================
+  // FEEDBACK MODULE (Elaborative Feedback on Errors)
+  // =========================================================================
+  window.Feedback = {
+    show: function(wordId, gameType) {
+      var word = null;
+      for (var i = 0; i < wordData.words.length; i++) {
+        if (wordData.words[i].id === wordId) { word = wordData.words[i]; break; }
+      }
+      if (!word) { Session.advance(); return; }
+
+      var l1Data = Store.get('l1', {});
+      var l1 = l1Data[wordId] || '';
+
+      // Pick 2 collocations
+      var allCols = [];
+      var colKeys = Object.keys(word.collocations);
+      for (var i = 0; i < colKeys.length; i++) {
+        var items = word.collocations[colKeys[i]];
+        for (var j = 0; j < items.length; j++) {
+          allCols.push(items[j]);
+        }
+      }
+      var showCols = allCols.slice(0, 2);
+
+      // Build feedback card
+      var html = '<div class="feedback-header">Not quite — here\'s a hint!</div>';
+      html += '<div class="feedback-word">' + UI._escHtml(word.word) + '</div>';
+      html += '<div class="feedback-def">' + UI._escHtml(word.def) + '</div>';
+      if (l1) {
+        html += '<div style="text-align:center;font-family:system-ui,sans-serif;color:var(--text-muted);font-size:0.875rem;margin-bottom:0.5rem">' + UI._escHtml(l1) + '</div>';
+      }
+      html += '<div class="feedback-example">' + UI._escHtml(word.ex) + '</div>';
+
+      if (showCols.length > 0) {
+        html += '<div class="feedback-cols">';
+        showCols.forEach(function(c) {
+          html += '<span class="feedback-col-chip">' + UI._escHtml(c) + '</span>';
+        });
+        html += '</div>';
+      }
+
+      // Forced retry: tap the correct answer
+      html += '<div class="feedback-retry">';
+      html += '<div class="feedback-retry-label">Tap the correct answer to continue:</div>';
+      html += '<div class="feedback-retry-options" id="feedbackRetryOptions"></div>';
+      html += '</div>';
+
+      document.getElementById('feedbackCard').innerHTML = html;
+      document.getElementById('feedbackOverlay').classList.remove('hidden');
+
+      // Build retry options (correct + 2 distractors)
+      var options = [word.word];
+      if (word.distractors) {
+        for (var d = 0; d < Math.min(2, word.distractors.length); d++) {
+          options.push(word.distractors[d]);
+        }
+      }
+      // Shuffle
+      for (var s = options.length - 1; s > 0; s--) {
+        var r = Math.floor(Math.random() * (s + 1));
+        var tmp = options[s]; options[s] = options[r]; options[r] = tmp;
+      }
+
+      var retryEl = document.getElementById('feedbackRetryOptions');
+      retryEl.innerHTML = '';
+      options.forEach(function(opt) {
+        var btn = document.createElement('button');
+        btn.className = 'feedback-retry-btn';
+        btn.textContent = opt;
+        btn.onclick = function() {
+          if (opt === word.word) {
+            btn.classList.add('is-correct');
+            // Min 3 second display — use timeout
+            setTimeout(function() {
+              Feedback.dismiss();
+            }, 500);
+          } else {
+            btn.style.opacity = '0.3';
+            btn.style.pointerEvents = 'none';
+          }
+        };
+        retryEl.appendChild(btn);
+      });
+
+      // Enforce minimum 3 second display by disabling retry buttons briefly
+      var allBtns = retryEl.querySelectorAll('.feedback-retry-btn');
+      for (var b = 0; b < allBtns.length; b++) {
+        allBtns[b].disabled = true;
+      }
+      setTimeout(function() {
+        var btns = document.querySelectorAll('#feedbackRetryOptions .feedback-retry-btn');
+        for (var b = 0; b < btns.length; b++) {
+          btns[b].disabled = false;
+        }
+      }, 3000);
+    },
+
+    dismiss: function() {
+      document.getElementById('feedbackOverlay').classList.add('hidden');
+      Session.advance();
+    }
+  };
+
+  // =========================================================================
+  // GAMES MODULE
+  // =========================================================================
+  window.Games = {
+    _container: function() { return document.getElementById('gameContainer'); },
+
+    // Utility: get distractors from other corpus words
+    _getDistractors: function(targetWord, count) {
+      var result = [];
+      // Use the word's own distractors first
+      if (targetWord.distractors) {
+        for (var i = 0; i < targetWord.distractors.length && result.length < count; i++) {
+          result.push(targetWord.distractors[i]);
+        }
+      }
+      // If still need more, pick random corpus words
+      if (result.length < count && wordData) {
+        var shuffled = wordData.words.slice();
+        for (var s = shuffled.length - 1; s > 0; s--) {
+          var r = Math.floor(Math.random() * (s + 1));
+          var tmp = shuffled[s]; shuffled[s] = shuffled[r]; shuffled[r] = tmp;
+        }
+        for (var j = 0; j < shuffled.length && result.length < count; j++) {
+          if (shuffled[j].id !== targetWord.id && result.indexOf(shuffled[j].word) < 0) {
+            result.push(shuffled[j].word);
+          }
+        }
+      }
+      return result;
+    },
+
+    _shuffle: function(arr) {
+      var a = arr.slice();
+      for (var i = a.length - 1; i > 0; i--) {
+        var j = Math.floor(Math.random() * (i + 1));
+        var tmp = a[i]; a[i] = a[j]; a[j] = tmp;
+      }
+      return a;
+    },
+
+    // ===== LEARN SCREEN (Game 1 — mandatory first) =====
+    learnScreen: function(word) {
+      var container = this._container();
+      var l1Data = Store.get('l1', {});
+      var l1Value = l1Data[word.id] || '';
+
+      var html = '<div class="learn-card">';
+      html += '<div class="learn-word">' + UI._escHtml(word.word) + '</div>';
+
+      // Forms
+      if (word.forms && word.forms.length > 1) {
+        html += '<div class="learn-forms">';
+        word.forms.forEach(function(f) {
+          html += '<span>' + UI._escHtml(f) + '</span>';
+        });
+        html += '</div>';
+      }
+
+      // Definition
+      html += '<div class="learn-def-box"><div class="learn-def">' + UI._escHtml(word.def) + '</div></div>';
+
+      // Example
+      html += '<div class="learn-example">' + UI._escHtml(word.ex) + '</div>';
+
+      // Collocations
+      html += '<div class="learn-collocations">';
+      var colTypes = { verb_obj: 'Verb + Noun', adj_noun: 'Adjective + Noun', noun_verb: 'Noun + Verb' };
+      var colKeys = Object.keys(word.collocations);
+      colKeys.forEach(function(key) {
+        var items = word.collocations[key];
+        if (!items || items.length === 0) return;
+        html += '<div class="learn-col-label">' + UI._escHtml(colTypes[key] || key) + '</div>';
+        html += '<div class="learn-col-chips">';
+        items.forEach(function(c) {
+          html += '<span class="learn-col-chip">' + UI._escHtml(c) + '</span>';
+        });
+        html += '</div>';
+      });
+      html += '</div>';
+
+      // L1 input
+      html += '<input type="text" class="learn-l1-field" id="learnL1" value="' + UI._escAttr(l1Value) + '" ' +
+              'placeholder="Your meaning (ខ្មែរ / Tiếng Việt) — optional">';
+
+      // Next button
+      html += '<button class="btn-learn-next" onclick="Games._learnDone(\'' + word.id + '\')">Got it — Next →</button>';
+
+      // Mark as known
+      var p = Leitner.getProgress(word.id);
+      if (!p || p.box < 3) {
+        html += '<button class="btn-mark-known" onclick="Games._markKnown(\'' + word.id + '\')">I already know this word</button>';
+      }
+
+      html += '</div>';
+      container.innerHTML = html;
+      window.scrollTo(0, 0);
+    },
+
+    _learnDone: function(wordId) {
+      // Save L1 if entered
+      var l1Input = document.getElementById('learnL1');
+      if (l1Input && l1Input.value.trim()) {
+        var l1Data = Store.get('l1', {});
+        l1Data[wordId] = l1Input.value.trim();
+        Store.set('l1', l1Data);
+      }
+
+      // Record as correct encounter (learn screen is always "correct")
+      Leitner.recordAnswer(wordId, 'learn', true);
+      Session.advance();
+    },
+
+    _markKnown: function(wordId) {
+      if (confirm('This word will skip ahead to review. Are you sure?')) {
+        Leitner.markAsKnown(wordId);
+        Session.advance();
+      }
+    },
+
+    // ===== FALLING WORDS (Game 2 — select with help) =====
+    fallingWords: function(word) {
+      var container = this._container();
+      var distractors = this._getDistractors(word, 3);
+      var options = this._shuffle([word.word].concat(distractors));
+      var answered = false;
+
+      // Falling speed: percentage of arena height per second
+      var fallDuration = 8000; // 8 seconds to fall
+      var arenaHeight = 0;
+      var wordEls = [];
+      var animationFrameId = null;
+      var startTime = null;
+      var timerStart = null;
+
+      var html = '<div class="falling-arena" id="fallingArena">';
+      html += '<div class="falling-def">' + UI._escHtml(word.def) + '</div>';
+      html += '<div class="falling-timer"><div class="falling-timer-fill" id="fallingTimerFill"></div></div>';
+      html += '</div>';
+
+      container.innerHTML = html;
+
+      var arena = document.getElementById('fallingArena');
+      arenaHeight = arena.offsetHeight;
+      var defHeight = arena.querySelector('.falling-def').offsetHeight;
+
+      // Place words at staggered positions
+      var usedPositions = [];
+      options.forEach(function(opt, idx) {
+        var el = document.createElement('div');
+        el.className = 'falling-word';
+        el.textContent = opt;
+
+        // Horizontal position: spread across arena width
+        var maxLeft = arena.offsetWidth - 140;
+        var left = Math.floor((idx / options.length) * maxLeft) + Math.floor(Math.random() * 30);
+        left = Math.max(8, Math.min(left, maxLeft));
+        el.style.left = left + 'px';
+
+        // Start above the definition bar with staggered delays
+        var startY = defHeight + 10 + (idx * 15);
+        el.style.top = startY + 'px';
+        el._startY = startY;
+        el._delay = idx * 600; // stagger start
+
+        el.onclick = function() {
+          if (answered) return;
+          answered = true;
+          cancelAnimationFrame(animationFrameId);
+
+          if (opt === word.word) {
+            el.classList.add('correct-flash');
+            setTimeout(function() {
+              Session.onAnswer(word.id, 'falling', true);
+            }, 400);
+          } else {
+            el.classList.add('wrong-flash');
+            // Highlight correct one
+            for (var w = 0; w < wordEls.length; w++) {
+              if (wordEls[w].textContent === word.word) {
+                wordEls[w].classList.add('correct-flash');
+              }
+            }
+            setTimeout(function() {
+              Session.onAnswer(word.id, 'falling', false);
+            }, 600);
+          }
+        };
+
+        arena.appendChild(el);
+        wordEls.push(el);
+      });
+
+      // Animate falling
+      startTime = Date.now();
+      timerStart = Date.now();
+      var maxY = arenaHeight - 50;
+
+      function animate() {
+        var elapsed = Date.now() - startTime;
+        var timerPct = Math.max(0, 100 - (elapsed / fallDuration * 100));
+        var timerEl = document.getElementById('fallingTimerFill');
+        if (timerEl) timerEl.style.width = timerPct + '%';
+
+        for (var i = 0; i < wordEls.length; i++) {
+          var el = wordEls[i];
+          var wordElapsed = Math.max(0, elapsed - el._delay);
+          var progress = wordElapsed / fallDuration;
+          var y = el._startY + (maxY - el._startY) * progress;
+          el.style.top = Math.min(y, maxY) + 'px';
+        }
+
+        if (elapsed >= fallDuration && !answered) {
+          // Time's up — count as wrong
+          answered = true;
+          for (var w = 0; w < wordEls.length; w++) {
+            if (wordEls[w].textContent === word.word) {
+              wordEls[w].classList.add('correct-flash');
+            }
+          }
+          setTimeout(function() {
+            Session.onAnswer(word.id, 'falling', false);
+          }, 800);
+          return;
+        }
+
+        if (!answered) {
+          animationFrameId = requestAnimationFrame(animate);
+        }
+      }
+
+      animationFrameId = requestAnimationFrame(animate);
+      window.scrollTo(0, 0);
+    },
+
+    // ===== MEMORY PAIRS (Game 3 — match word ↔ definition) =====
+    memoryPairs: function(targetWord) {
+      var container = this._container();
+
+      // Pick 2 additional words for 3 pairs (6 cards = 3x2 grid)
+      var others = [];
+      var shuffledWords = this._shuffle(wordData.words);
+      for (var i = 0; i < shuffledWords.length && others.length < 2; i++) {
+        if (shuffledWords[i].id !== targetWord.id) {
+          others.push(shuffledWords[i]);
+        }
+      }
+      var pairWords = [targetWord].concat(others);
+
+      // Create cards: word cards + definition cards
+      var cards = [];
+      pairWords.forEach(function(w, idx) {
+        cards.push({ pairId: idx, type: 'word', text: w.word, wordId: w.id });
+        // Truncate definition if too long
+        var defText = w.def.length > 50 ? w.def.substring(0, 47) + '...' : w.def;
+        cards.push({ pairId: idx, type: 'def', text: defText, wordId: w.id });
+      });
+
+      cards = this._shuffle(cards);
+
+      var selected = null; // first card selected
+      var matched = 0;
+      var totalPairs = pairWords.length;
+      var locked = false;
+
+      var html = '<div style="text-align:center;margin-bottom:0.75rem;">';
+      html += '<div style="font-family:var(--font-pixel);font-size:0.4375rem;color:var(--accent-orange);letter-spacing:0.1em;margin-bottom:0.25rem;">MEMORY PAIRS</div>';
+      html += '<div style="font-size:0.8125rem;color:var(--text-dim);font-weight:600;">Match each word to its definition</div>';
+      html += '</div>';
+      html += '<div class="memory-grid" id="memoryGrid">';
+
+      cards.forEach(function(card, idx) {
+        html += '<div class="memory-card" data-idx="' + idx + '" data-pair="' + card.pairId + '" data-type="' + card.type + '" data-word-id="' + card.wordId + '">';
+        html += '<span class="mc-type">' + (card.type === 'word' ? 'word' : 'def') + '</span>';
+        html += UI._escHtml(card.text);
+        html += '</div>';
+      });
+
+      html += '</div>';
+      container.innerHTML = html;
+
+      // Add click handlers
+      var gridEl = document.getElementById('memoryGrid');
+      var cardEls = gridEl.querySelectorAll('.memory-card');
+
+      for (var c = 0; c < cardEls.length; c++) {
+        (function(cardEl) {
+          cardEl.onclick = function() {
+            if (locked || cardEl.classList.contains('matched') || cardEl.classList.contains('selected')) return;
+
+            var idx = parseInt(cardEl.getAttribute('data-idx'));
+            var pairId = parseInt(cardEl.getAttribute('data-pair'));
+            var type = cardEl.getAttribute('data-type');
+
+            if (!selected) {
+              // First card
+              selected = { el: cardEl, idx: idx, pairId: pairId, type: type };
+              cardEl.classList.add('selected');
+            } else {
+              // Second card — check match
+              if (selected.pairId === pairId && selected.type !== type) {
+                // Match!
+                cardEl.classList.add('matched');
+                selected.el.classList.add('matched');
+                cardEl.classList.remove('selected');
+                selected.el.classList.remove('selected');
+                matched++;
+                selected = null;
+
+                if (matched === totalPairs) {
+                  // All matched — record answer for target word
+                  setTimeout(function() {
+                    Session.onAnswer(targetWord.id, 'memory', true);
+                  }, 600);
+                }
+              } else {
+                // No match
+                locked = true;
+                cardEl.classList.add('wrong-flash');
+                selected.el.classList.add('wrong-flash');
+                var prevSelected = selected.el;
+                selected = null;
+
+                setTimeout(function() {
+                  cardEl.classList.remove('wrong-flash', 'selected');
+                  prevSelected.classList.remove('wrong-flash', 'selected');
+                  locked = false;
+                }, 800);
+
+                // If the wrong match involved the target word, count as error
+                var targetInvolved = cardEl.getAttribute('data-word-id') === targetWord.id ||
+                                     prevSelected.getAttribute('data-word-id') === targetWord.id;
+                if (targetInvolved) {
+                  // Don't end the game — just let them keep trying
+                  // The error is recorded but they continue matching
+                }
+              }
+            }
+          };
+        })(cardEls[c]);
+      }
+
+      window.scrollTo(0, 0);
+    }
+  };
+  window.App = {
+    init: function() {
+      // Init Firebase
+      Sync.init();
+
+      // Run detection checks
+      Detection.runChecks();
+
+      // Check for active user
+      var savedUser = Store.getActiveUser();
+      if (savedUser) {
+        currentUser = savedUser;
+        this.showApp();
+      } else {
+        // Show login
+        Auth.renderRecentLogins();
+      }
+
+      // Handle Enter key on login input
+      var loginInput = document.getElementById('loginInput');
+      if (loginInput) {
+        loginInput.addEventListener('keydown', function(e) {
+          if (e.key === 'Enter') Auth.login();
+        });
+      }
+
+      // Listen for online/offline
+      window.addEventListener('online', function() {
+        Sync.flushQueue();
+        Sync.updateIndicator('synced');
+      });
+      window.addEventListener('offline', function() {
+        Sync.updateIndicator('offline');
+      });
+
+      // Service Worker registration
+      if ('serviceWorker' in navigator) {
+        navigator.serviceWorker.register('sw.js').then(function() {
+          console.log('Service worker registered');
+        }).catch(function(err) {
+          console.warn('Service worker failed:', err);
+        });
+      }
+
+      // beforeunload safety net
+      window.addEventListener('beforeunload', function() {
+        if (currentUser) {
+          Sync.syncL1();
+        }
+      });
+    },
+
+    showApp: function() {
+      // Update user banner
+      document.getElementById('userBanner').textContent = 'Logged in as: ' + currentUser;
+
+      // Switch screens
+      document.getElementById('loginScreen').classList.remove('active');
+      document.getElementById('appScreen').classList.add('active');
+
+      // Load data
+      if (!Data.loaded) {
+        Data.load().then(function() {
+          UI.renderDeck();
+        }).catch(function(err) {
+          console.error('Data load failed:', err);
+          var loadingEl = document.getElementById('deckLoading');
+          loadingEl.innerHTML =
+            '<div class="empty-state">' +
+            '<div class="empty-icon">⚠️</div>' +
+            '<p>Could not load vocabulary data. Please check your internet connection and try again.</p>' +
+            '<button class="btn-primary" style="max-width:200px;margin:1rem auto 0" onclick="location.reload()">Retry</button>' +
+            '</div>';
+        });
+      } else {
+        UI.renderDeck();
+      }
+
+      // Run detection checks for logged-in state
+      Detection.runChecks();
+    },
+
+    acceptPrivacy: function() {
+      Store.setGlobal('ielts_vocab_privacy_accepted', true);
+      document.getElementById('privacyOverlay').classList.add('hidden');
+    }
+  };
+
+  // =========================================================================
+  // BOOT
+  // =========================================================================
+  if (document.readyState === 'loading') {
+    document.addEventListener('DOMContentLoaded', function() { App.init(); });
+  } else {
+    App.init();
+  }
+
+})();
+</script>
+</body>
+</html>
